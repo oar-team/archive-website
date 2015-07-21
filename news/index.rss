@@ -3,12 +3,12 @@
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:dcterms="http://purl.org/dc/terms/" >
 <channel>
-<title>News</title>
+<title>[OAR Archive] News</title>
 <link>http://oar.imag.fr//news/</link>
 <description>OAR</description>
 <item>
 
-	<title>OAR on Github</title>
+	<title>[OAR Archive] OAR on Github</title>
 
 
 	<guid isPermaLink="no">http://oar.imag.fr//news/20121105_oar-github/</guid>
@@ -35,7 +35,7 @@
 </item>
 <item>
 
-	<title>OAR in the Debian Archives</title>
+	<title>[OAR Archive] OAR in the Debian Archives</title>
 
 
 	<guid isPermaLink="no">http://oar.imag.fr//news/20120601_oar-debian/</guid>
@@ -75,7 +75,7 @@ be kept only for development purposes and for maintaining the 2.4 branches. The
 </item>
 <item>
 
-	<title>OAR 2.5.2 release</title>
+	<title>[OAR Archive] OAR 2.5.2 release</title>
 
 
 	<guid isPermaLink="no">http://oar.imag.fr//news/20120523_oar-2.5.2/</guid>
@@ -131,7 +131,7 @@ list&lt;/a&gt; | &lt;a href=&quot;http://oar.imag.fr//news/../changelog/2.5/&quo
 </item>
 <item>
 
-	<title>OAR 2.5.1 release</title>
+	<title>[OAR Archive] OAR 2.5.1 release</title>
 
 
 	<guid isPermaLink="no">http://oar.imag.fr//news/20120120_oar-2.5/</guid>
@@ -165,7 +165,7 @@ that the system fullfill the needed dependencies).&lt;/p&gt;
 </item>
 <item>
 
-	<title>OAR 2.4.7 release</title>
+	<title>[OAR Archive] OAR 2.4.7 release</title>
 
 
 	<guid isPermaLink="no">http://oar.imag.fr//news/20120111_oar-2.4.7-release/</guid>
@@ -187,7 +187,7 @@ about the modifications.&lt;/p&gt;
 </item>
 <item>
 
-	<title>OAR 2.4.5 release</title>
+	<title>[OAR Archive] OAR 2.4.5 release</title>
 
 
 	<guid isPermaLink="no">http://oar.imag.fr//news/20110928_oar-2.4.5-release/</guid>
@@ -206,7 +206,7 @@ about the modifications.&lt;/p&gt;
 </item>
 <item>
 
-	<title>A new website for OAR</title>
+	<title>[OAR Archive] A new website for OAR</title>
 
 
 	<guid isPermaLink="no">http://oar.imag.fr//news/20110627_new-website/</guid>
@@ -225,7 +225,7 @@ about the modifications.&lt;/p&gt;
 </item>
 <item>
 
-	<title>Two new engineers in the OAR team</title>
+	<title>[OAR Archive] Two new engineers in the OAR team</title>
 
 
 	<guid isPermaLink="no">http://oar.imag.fr//news/20110301_recrutement/</guid>
@@ -249,7 +249,7 @@ on:&lt;/p&gt;
 </item>
 <item>
 
-	<title>OAR selected for GSoC 2010</title>
+	<title>[OAR Archive] OAR selected for GSoC 2010</title>
 
 
 	<guid isPermaLink="no">http://oar.imag.fr//news/20100323_gsoc/</guid>
@@ -267,7 +267,7 @@ on:&lt;/p&gt;
 </item>
 <item>
 
-	<title>OAR applies to GSoC 2010</title>
+	<title>[OAR Archive] OAR applies to GSoC 2010</title>
 
 
 	<guid isPermaLink="no">http://oar.imag.fr//news/20100301_gsoc/</guid>
