@@ -1,11 +1,11 @@
 [Process]
 Type=Edit file
 Engine=MediaWiki
-Script=http://wiki-oar.imag.fr/index.php
-Server=http://wiki-oar.imag.fr
+Script=http://oar.imag.fr/archive/wiki-oar/index.php
+Server=http://oar.imag.fr/archive/wiki-oar
 Path=
 Special namespace=Special
 
 [File]
 Extension=png
-URL=http://wiki-oar.imag.fr/images/9/9c/OAR-energy-saving.png
+URL=http://oar.imag.fr/archive/wiki-oar/images/9/9c/OAR-energy-saving.png

@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/css" href="http://wiki-oar.imag.fr/skins/common/feed.css?207"?>
+<?xml-stylesheet type="text/css" href="http://oar.imag.fr/archive/wiki-oar/skins/common/feed.css?207"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-		<id>http://wiki-oar.imag.fr/index.php?title=Special:RecentChanges&amp;feed=atom</id>
+		<id>http://oar.imag.fr/archive/wiki-oar/index.php?title=Special:RecentChanges&amp;feed=atom</id>
 		<title>WikiOAR  - Recent changes [en]</title>
-		<link rel="self" type="application/atom+xml" href="http://wiki-oar.imag.fr/index.php?title=Special:RecentChanges&amp;feed=atom"/>
-		<link rel="alternate" type="text/html" href="http://wiki-oar.imag.fr/index.php/Special:RecentChanges"/>
+		<link rel="self" type="application/atom+xml" href="http://oar.imag.fr/archive/wiki-oar/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+		<link rel="alternate" type="text/html" href="http://oar.imag.fr/archive/wiki-oar/index.php/Special:RecentChanges"/>
 		<updated>2015-07-21T14:50:38Z</updated>
 		<subtitle>Track the most recent changes to the wiki in this feed.</subtitle>
 		<generator>MediaWiki 1.15.5-2squeeze6</generator>

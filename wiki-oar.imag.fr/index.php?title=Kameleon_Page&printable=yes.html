@@ -27,7 +27,7 @@
 		var wgScript = "/index.php";
 		var wgVariantArticlePath = false;
 		var wgActionPaths = {};
-		var wgServer = "http://wiki-oar.imag.fr";
+		var wgServer = "http://oar.imag.fr/archive/wiki-oar";
 		var wgCanonicalNamespace = "";
 		var wgCanonicalSpecialPageName = false;
 		var wgNamespaceNumber = 0;
@@ -67,7 +67,7 @@
 			<div id="contentSub"></div>
 									<div id="jump-to-nav">Jump to: <a href="index.php%3Ftitle=Kameleon_Page&amp;printable=yes.html#column-one">navigation</a>, <a href="index.php%3Ftitle=Kameleon_Page&amp;printable=yes.html#searchInput">search</a></div>			<!-- start content -->
 			<p><br />
-This is the <b>Kameleon GSOC 2009</b> page. Also check the main page here: <a href="index.php/Kameleon.html" class="external free" title="http://wiki-oar.imag.fr/index.php/Kameleon" rel="nofollow">http://wiki-oar.imag.fr/index.php/Kameleon</a>
+This is the <b>Kameleon GSOC 2009</b> page. Also check the main page here: <a href="index.php/Kameleon.html" class="external free" title="http://oar.imag.fr/archive/wiki-oar/index.php/Kameleon" rel="nofollow">http://oar.imag.fr/archive/wiki-oar/index.php/Kameleon</a>
 </p><p><a href="index.php/OARLiveCD_Proposal.html" title="OARLiveCD Proposal"> See original proposal here</a>
 </p><p><br />
 <b>Student, please read carefully this page...</b>
@@ -121,7 +121,7 @@ Student: Darko Ilic
 </li><li> the activation of cpusets 
 </li><li> the automatic detection of resources using the script oar_resources_init and detect_resources that we use for the configuration upon grid5000
 </li></ul>
-</li><li> to check the initialization script used in SysrescueCD and see how they choose the keyboard language... it has to continue with a default value after a specific   timeout..the same thing for the launch of server X... it could even be used to choose if we want a server or a node...--<a href="http://wiki-oar.imag.fr/index.php?title=User:Ygeorgiou&amp;action=edit&amp;redlink=1" class="new" title="User:Ygeorgiou (page does not exist)">Ygeorgiou</a> 15:57, 29 April 2009 (UTC)
+</li><li> to check the initialization script used in SysrescueCD and see how they choose the keyboard language... it has to continue with a default value after a specific   timeout..the same thing for the launch of server X... it could even be used to choose if we want a server or a node...--<a href="http://oar.imag.fr/archive/wiki-oar/index.php?title=User:Ygeorgiou&amp;action=edit&amp;redlink=1" class="new" title="User:Ygeorgiou (page does not exist)">Ygeorgiou</a> 15:57, 29 April 2009 (UTC)
 </li></ul>
 <a name="May.27s_19_Brainstorming" id="May.27s_19_Brainstorming"></a><h2> <span class="mw-headline">May's 19 Brainstorming</span></h2>
 <p>Meeting between Olivier, Bruno and Yiannis
@@ -159,7 +159,7 @@ We would like to give as input values like:
 </p><p><br />
 </p>
 <a name="Implementation_Ideas" id="Implementation_Ideas"></a><h3> <span class="mw-headline">Implementation Ideas</span></h3>
-<p><a href="index.php/Image:WhiteBoardKameleonSnapshot.jpg.html" class="external free" title="http://wiki-oar.imag.fr/index.php/Image:WhiteBoardKameleonSnapshot.jpg" rel="nofollow">http://wiki-oar.imag.fr/index.php/Image:WhiteBoardKameleonSnapshot.jpg</a>
+<p><a href="index.php/Image:WhiteBoardKameleonSnapshot.jpg.html" class="external free" title="http://oar.imag.fr/archive/wiki-oar/index.php/Image:WhiteBoardKameleonSnapshot.jpg" rel="nofollow">http://oar.imag.fr/archive/wiki-oar/index.php/Image:WhiteBoardKameleonSnapshot.jpg</a>
 </p><p>According to our Brainstorming we tried to define an implementation description. 
 </p>
 <ul><li> The main Kameleon engine will be programmed in Ruby
@@ -368,7 +368,7 @@ This commands takes an array of 2 elements as an argument: the first element is 
 <p>We want the engine to raise formated errors when a bash scriptlet crashes, with the name of the macrostep and microstep where the error occured. But, we don't want the engine to execute each scriptlet separatelly and return to ruby between each microstep as it may result in performance drawbacks. The engine should generate a script for each macrostep and execute it as a whole. So, to know from which microstep an error occured, it may be necessary to had some kind of labels inside the generated script, for example a trap between each microstep that will force the script to exit with a given status code corresponding to a microstep (limiting the number of microsteps to 255 per macrosteps, by the way...)
 </p>
 <a name="Changelog.2Ftodo" id="Changelog.2Ftodo"></a><h3> <span class="mw-headline">Changelog/todo</span></h3>
-<ul><li> Not finished...more details will come...--<a href="http://wiki-oar.imag.fr/index.php?title=User:Ygeorgiou&amp;action=edit&amp;redlink=1" class="new" title="User:Ygeorgiou (page does not exist)">Ygeorgiou</a> 11:03, 20 May 2009 (UTC)
+<ul><li> Not finished...more details will come...--<a href="http://oar.imag.fr/archive/wiki-oar/index.php?title=User:Ygeorgiou&amp;action=edit&amp;redlink=1" class="new" title="User:Ygeorgiou (page does not exist)">Ygeorgiou</a> 11:03, 20 May 2009 (UTC)
 </li><li> Details added. Still need to continue examples and definitions of microsteps commands --<a href="index.php/User:Bzizou.html" title="User:Bzizou">Bzizou</a> 15:05, 10 June 2009 (UTC)
 </li><li> YAML examples have been syntax checked with ruby. I hope the specifications are ok for coding the engine now! --<a href="index.php/User:Bzizou.html" title="User:Bzizou">Bzizou</a> 14:35, 11 June 2009 (UTC)
 </li><li> Maybe missing: examples of what scriptlet should produce the microsteps commands (resulting script of the provided oar_install and oar_init examples) --<a href="index.php/User:Bzizou.html" title="User:Bzizou">Bzizou</a> 16:20, 11 June 2009 (UTC)
@@ -386,7 +386,7 @@ This commands takes an array of 2 elements as an argument: the first element is 
 </li></ul>
 </li><li> construct the fedora liveCD from RPMs (first simple construction from Bruno) ... <i>(Bruno):well, fedora, or even better Scientific Linux, CentOS or Suse</i>
 </li></ul>
-<p>--<a href="http://wiki-oar.imag.fr/index.php?title=User:Ygeorgiou&amp;action=edit&amp;redlink=1" class="new" title="User:Ygeorgiou (page does not exist)">Ygeorgiou</a> 15:57, 29 April 2009 (UTC)
+<p>--<a href="http://oar.imag.fr/archive/wiki-oar/index.php?title=User:Ygeorgiou&amp;action=edit&amp;redlink=1" class="new" title="User:Ygeorgiou (page does not exist)">Ygeorgiou</a> 15:57, 29 April 2009 (UTC)
 </p><p><br />
 </p>
 <a name="Links" id="Links"></a><h2> <span class="mw-headline">Links</span></h2>
@@ -397,16 +397,16 @@ This commands takes an array of 2 elements as an argument: the first element is 
 </li></ul>
 <p>Note: amd64 for x64_64: rinse --distribution centos-5 --directory ./centos-oar-appliance --arch amd64 --<a href="index.php/User:Bzizou.html" title="User:Bzizou">Bzizou</a> 12:33, 30 April 2009 (UTC)
 </p>
-<ul><li><b>CAOS Linux</b> a linux distribution specialized for clusters with SLURM or Torque as options for resource management, <a href="http://wiki.caoslinux.org/Main_Page" class="external free" title="http://wiki.caoslinux.org/Main_Page" rel="nofollow">http://wiki.caoslinux.org/Main_Page</a> and <a href="http://wiki.caoslinux.org/Main_Page" class="external free" title="http://wiki.caoslinux.org/Main_Page" rel="nofollow">http://wiki.caoslinux.org/Main_Page</a> and an article for its installation&nbsp;: <a href="http://www.linux-mag.com/id/7239/2/" class="external free" title="http://www.linux-mag.com/id/7239/2/" rel="nofollow">http://www.linux-mag.com/id/7239/2/</a> --<a href="http://wiki-oar.imag.fr/index.php?title=User:Ygeorgiou&amp;action=edit&amp;redlink=1" class="new" title="User:Ygeorgiou (page does not exist)">Ygeorgiou</a> 10:04, 16 May 2009 (UTC)
+<ul><li><b>CAOS Linux</b> a linux distribution specialized for clusters with SLURM or Torque as options for resource management, <a href="http://wiki.caoslinux.org/Main_Page" class="external free" title="http://wiki.caoslinux.org/Main_Page" rel="nofollow">http://wiki.caoslinux.org/Main_Page</a> and <a href="http://wiki.caoslinux.org/Main_Page" class="external free" title="http://wiki.caoslinux.org/Main_Page" rel="nofollow">http://wiki.caoslinux.org/Main_Page</a> and an article for its installation&nbsp;: <a href="http://www.linux-mag.com/id/7239/2/" class="external free" title="http://www.linux-mag.com/id/7239/2/" rel="nofollow">http://www.linux-mag.com/id/7239/2/</a> --<a href="http://oar.imag.fr/archive/wiki-oar/index.php?title=User:Ygeorgiou&amp;action=edit&amp;redlink=1" class="new" title="User:Ygeorgiou (page does not exist)">Ygeorgiou</a> 10:04, 16 May 2009 (UTC)
 </li><li><b>kpartx</b>: for hdd image creation (Qemu appliance): <a href="http://pwet.fr/man/linux/administration_systeme/kpartx" class="external free" title="http://pwet.fr/man/linux/administration_systeme/kpartx" rel="nofollow">http://pwet.fr/man/linux/administration_systeme/kpartx</a> --<a href="index.php/User:Bzizou.html" title="User:Bzizou">Bzizou</a> 13:51, 19 May 2009 (UTC)
 </li><li><b>kiwi</b>: Image system&nbsp;:<a href="http://kiwi.berlios.de/" class="external free" title="http://kiwi.berlios.de/" rel="nofollow">http://kiwi.berlios.de/</a>
 </li><li><b>Fedora appliance tools</b>:<a href="https://fedoraproject.org/wiki/Features/ApplianceTools" class="external free" title="https://fedoraproject.org/wiki/Features/ApplianceTools" rel="nofollow">https://fedoraproject.org/wiki/Features/ApplianceTools</a>
 </li><li><b>Ubuntu JeOS</b>:<a href="http://www.ubuntu.com/products/whatisubuntu/serveredition/jeos" class="external free" title="http://www.ubuntu.com/products/whatisubuntu/serveredition/jeos" rel="nofollow">http://www.ubuntu.com/products/whatisubuntu/serveredition/jeos</a>
 </li><li> <b>Chef</b>: <a href="http://wiki.opscode.com/display/chef/Home" class="external free" title="http://wiki.opscode.com/display/chef/Home" rel="nofollow">http://wiki.opscode.com/display/chef/Home</a> --<a href="index.php/User:Bzizou.html" title="User:Bzizou">Bzizou</a> 16:45, 6 November 2009 (UTC)
-</li><li> <b>KVM-NBD</b>: <a href="index.php/Dealing_with_Grub_on_KVM_images.html" class="external free" title="http://wiki-oar.imag.fr/index.php/Dealing_with_Grub_on_KVM_images" rel="nofollow">http://wiki-oar.imag.fr/index.php/Dealing_with_Grub_on_KVM_images</a> --<a href="index.php/User:Bzizou.html" title="User:Bzizou">Bzizou</a> 14:22, 10 February 2010 (UTC)
+</li><li> <b>KVM-NBD</b>: <a href="index.php/Dealing_with_Grub_on_KVM_images.html" class="external free" title="http://oar.imag.fr/archive/wiki-oar/index.php/Dealing_with_Grub_on_KVM_images" rel="nofollow">http://oar.imag.fr/archive/wiki-oar/index.php/Dealing_with_Grub_on_KVM_images</a> --<a href="index.php/User:Bzizou.html" title="User:Bzizou">Bzizou</a> 14:22, 10 February 2010 (UTC)
 </li></ul>
 <a name="Videos" id="Videos"></a><h2> <span class="mw-headline">Videos</span></h2>
-<ul><li> kameleon video&nbsp;!!!&nbsp;:<a href="http://www.youtube.com/watch?v=KMT1FLzEn9I" class="external free" title="http://www.youtube.com/watch?v=KMT1FLzEn9I" rel="nofollow">http://www.youtube.com/watch?v=KMT1FLzEn9I</a> --<a href="http://wiki-oar.imag.fr/index.php?title=User:Ygeorgiou&amp;action=edit&amp;redlink=1" class="new" title="User:Ygeorgiou (page does not exist)">Ygeorgiou</a> 14:55, 15 May 2009 (UTC)
+<ul><li> kameleon video&nbsp;!!!&nbsp;:<a href="http://www.youtube.com/watch?v=KMT1FLzEn9I" class="external free" title="http://www.youtube.com/watch?v=KMT1FLzEn9I" rel="nofollow">http://www.youtube.com/watch?v=KMT1FLzEn9I</a> --<a href="http://oar.imag.fr/archive/wiki-oar/index.php?title=User:Ygeorgiou&amp;action=edit&amp;redlink=1" class="new" title="User:Ygeorgiou (page does not exist)">Ygeorgiou</a> 14:55, 15 May 2009 (UTC)
 <ul><li> Waou, with such a chameleon, our kameleon should be able to make a mid-debian/mid-centos appliance, it's going to be very hard&nbsp;:-) --<a href="index.php/User:Bzizou.html" title="User:Bzizou">Bzizou</a> 10:48, 20 May 2009 (UTC)
 </li></ul>
 </li></ul>
@@ -422,7 +422,7 @@ Expensive parser function count: 0/100
 
 <!-- Saved in parser cache with key wikioar:pcache:idhash:91-0!1!0!!en!2!edit=0!printable=1 and timestamp 20150721145107 -->
 <div class="printfooter">
-Retrieved from "<a href="index.php/Kameleon_Page.html">http://wiki-oar.imag.fr/index.php/Kameleon_Page</a>"</div>
+Retrieved from "<a href="index.php/Kameleon_Page.html">http://oar.imag.fr/archive/wiki-oar/index.php/Kameleon_Page</a>"</div>
 			<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="index.php/Special:Categories.html" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="index.php/Category:Kameleon.html" title="Category:Kameleon">Kameleon</a></span></div></div>			<!-- end content -->
 						<div class="visualClear"></div>
 		</div>
@@ -435,7 +435,7 @@ Retrieved from "<a href="index.php/Kameleon_Page.html">http://wiki-oar.imag.fr/i
 			<ul>
 	
 				 <li id="ca-nstab-main" class="selected"><a href="index.php/Kameleon_Page.html" title="View the content page [c]" accesskey="c">Page</a></li>
-				 <li id="ca-talk" class="new"><a href="http://wiki-oar.imag.fr/index.php?title=Talk:Kameleon_Page&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-talk" class="new"><a href="http://oar.imag.fr/archive/wiki-oar/index.php?title=Talk:Kameleon_Page&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
 				 <li id="ca-viewsource"><a href="index.php%3Ftitle=Kameleon_Page&amp;action=edit.html" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
 				 <li id="ca-history"><a href="index.php%3Ftitle=Kameleon_Page&amp;action=history.html" title="Past revisions of this page [h]" accesskey="h">History</a></li>			</ul>
 		</div>
@@ -507,7 +507,7 @@ Retrieved from "<a href="index.php/Kameleon_Page.html">http://wiki-oar.imag.fr/i
 	<div id="p-search" class="portlet">
 		<h5><label for="searchInput">Search</label></h5>
 		<div id="searchBody" class="pBody">
-			<form action="http://wiki-oar.imag.fr/index.php" id="searchform"><div>
+			<form action="http://oar.imag.fr/archive/wiki-oar/index.php" id="searchform"><div>
 				<input type='hidden' name="title" value="Special:Search"/>
 				<input id="searchInput" name="search" type="text" title="Search WikiOAR [f]" accesskey="f" value="" />
 				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;

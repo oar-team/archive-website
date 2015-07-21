@@ -1,11 +1,11 @@
 [Process]
 Type=Edit file
 Engine=MediaWiki
-Script=http://wiki-oar.imag.fr/index.php
-Server=http://wiki-oar.imag.fr
+Script=http://oar.imag.fr/archive/wiki-oar/index.php
+Server=http://oar.imag.fr/archive/wiki-oar
 Path=
 Special namespace=Special
 
 [File]
 Extension=jpg
-URL=http://wiki-oar.imag.fr/images/8/8c/Bzizou_google.jpg
+URL=http://oar.imag.fr/archive/wiki-oar/images/8/8c/Bzizou_google.jpg

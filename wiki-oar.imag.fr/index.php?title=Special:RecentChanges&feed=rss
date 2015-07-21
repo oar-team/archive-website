@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/css" href="http://wiki-oar.imag.fr/skins/common/feed.css?207"?>
+<?xml-stylesheet type="text/css" href="http://oar.imag.fr/archive/wiki-oar/skins/common/feed.css?207"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<channel>
 		<title>WikiOAR  - Recent changes [en]</title>
-		<link>http://wiki-oar.imag.fr/index.php/Special:RecentChanges</link>
+		<link>http://oar.imag.fr/archive/wiki-oar/index.php/Special:RecentChanges</link>
 		<description>Track the most recent changes to the wiki in this feed.</description>
 		<language>en</language>
 		<generator>MediaWiki 1.15.5-2squeeze6</generator>
