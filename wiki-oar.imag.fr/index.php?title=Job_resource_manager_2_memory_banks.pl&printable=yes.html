@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5-2squeeze6" />
+		<meta name="robots" content="noindex,follow" />
+		<meta name="keywords" content="Job resource manager 2 memory banks.pl" />
+		<link rel="shortcut icon" href="http://oar.imag.fr/images/logo_oar.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="WikiOAR (en)" />
+		<link rel="alternate" type="application/rss+xml" title="WikiOAR RSS feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="WikiOAR Atom feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=atom" />
+		<title>Job resource manager 2 memory banks.pl - WikiOAR</title>
+		<link rel="stylesheet" href="skins/common/commonPrint.css%3F207.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=-&amp;action=raw&amp;maxage=18000&amp;gen=css.css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://wiki-oar.imag.fr";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Job_resource_manager_2_memory_banks.pl";
+		var wgTitle = "Job resource manager 2 memory banks.pl";
+		var wgAction = "view";
+		var wgArticleId = "115";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 1141;
+		var wgVersion = "1.15.5-2squeeze6";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="skins/common/ajax.js%3F207"></script>
+		<script type="text/javascript" src="index.php%3Ftitle=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-Job_resource_manager_2_memory_banks_pl skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Job resource manager 2 memory banks.pl</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From WikiOAR</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="index.php%3Ftitle=Job_resource_manager_2_memory_banks.pl&amp;printable=yes.html#column-one">navigation</a>, <a href="index.php%3Ftitle=Job_resource_manager_2_memory_banks.pl&amp;printable=yes.html#searchInput">search</a></div>			<!-- start content -->
+			<pre># $Id: job_resource_manager.pl 1648 2008-09-17 16:00:56Z neyron $                            
+#                                                                                            
+# The job_resource_manager script is a perl script that oar server deploys on nodes          
+# to manage cpusets, users, job keys, ...                                                    
+#                                                                                            
+# Usage:                                                                                     
+# This script is deployed from the server and executed as oar on the nodes                   
+# ARGV[0] can have two different values:                                                     
+#     - "init" &nbsp;: then this script must create the right cpuset and assign                   
+#                 corresponding cpus                                                         
+#     - "clean"&nbsp;: then this script must kill all processes in the cpuset and                 
+#                 clean the cpuset structure                                                 
+                                                                                             
+# TAKTUK_HOSTNAME environment variable must be defined and must be a name                    
+# that we will be able to find in the transfered hashtable ($Cpuset variable).               
+use Fcntl ':flock';                                                                          
+#use Data::Dumper;                                                                           
+                                                                                             
+sub exit_myself($$);                                                                         
+sub print_log($$);                                                                           
+                                                                                             
+my $Old_umask = sprintf("%lo",umask());                                                      
+umask(oct("022"));                                                                           
+                                                                                             
+my $Cpuset;                                                                                  
+my $Log_level;                                                                               
+                                                                                             
+# Retrieve parameters from STDIN in the "Cpuset" structure which looks like:                 
+# $Cpuset = {                                                                                
+#               job_id =&gt; id of the corresponding job                                        
+#               name =&gt; "cpuset name",                                                       
+#               cpuset_path =&gt; "relative path in the cpuset FS",                             
+#               nodes =&gt; hostname =&gt; [array with the content of the database cpuset field]   
+#               ssh_keys =&gt; {                                                                
+#                               public =&gt; {                                                  
+#                                           file_name =&gt; "~oar/.ssh/authorized_keys"         
+#                                           key =&gt; "public key content"                      
+#                                         }                                                  
+#                               private =&gt; {                                                 
+#                                           file_name =&gt; "directory where to store the private key"                                                                                          
+#                                           key =&gt; "private key content"                      
+#                                          }                                                  
+#                           }                                                                 
+#               oar_tmp_directory =&gt; "path to the temp directory"                             
+#               user =&gt; "user name"                                                           
+#               job_user =&gt; "job user"                                                        
+#               job_uid =&gt; "job uid for the job_user if needed"                               
+#               types =&gt; hashtable with job types as keys                                     
+#               log_level =&gt; debug level number                                               
+#           }                                                                                 
+my $tmp = "";                                                                                 
+while (&lt;STDIN&gt;){                                                                              
+    $tmp .= $_;                                                                               
+}                                                                                             
+$Cpuset = eval($tmp);                                                                         
+                                                                                              
+if (!defined($Cpuset-&gt;{log_level})){                                                          
+    exit_myself(2,"Bad SSH hashtable transfered");                                            
+}                                                                                             
+$Log_level = $Cpuset-&gt;{log_level};                                                            
+my $Cpuset_path_job;                                                                          
+my @Cpuset_cpus;                                                                              
+# Get the data structure only for this node                                                   
+if (defined($Cpuset-&gt;{cpuset_path})){                                                         
+    $Cpuset_path_job = $Cpuset-&gt;{cpuset_path}.'/'.$Cpuset-&gt;{name};                            
+    @Cpuset_cpus = @{$Cpuset-&gt;{nodes}-&gt;{$ENV{TAKTUK_HOSTNAME}}};                              
+}                                                                                             
+                                                                                              
+                                                                                              
+                                                                                              
+print_log(3,"$ARGV[0]");                                                                      
+if ($ARGV[0] eq "init"){                                                                      
+    # Initialize cpuset for this node                                                         
+    # First, create the tmp oar directory                                                     
+    if (!(((-d $Cpuset-&gt;{oar_tmp_directory}) and (-O $Cpuset-&gt;{oar_tmp_directory})) or (mkdir($Cpuset-&gt;{oar_tmp_directory})))){                                                              
+        exit_myself(13,"Directory $Cpuset-&gt;{oar_tmp_directory} does not exist and cannot be created");                                                                                       
+    }                                                                                         
+                                                                                              
+    if (defined($Cpuset-&gt;{job_uid})){                                                         
+        my $prevuser = getpwuid($Cpuset-&gt;{job_uid});                                          
+        system("oardodo /usr/sbin/userdel -f $prevuser") if (defined($prevuser));             
+        my @tmp = getpwnam($Cpuset-&gt;{user});                                                  
+        if ($#tmp &lt; 0){                                                                       
+            exit_myself(15,"Cannot get information from user '$Cpuset-&gt;{user}'");             
+        }                                                                                     
+        if (system("oardodo /usr/sbin/adduser --disabled-password --gecos 'OAR temporary user' --no-create-home --force-badname --quiet --home $tmp[7] --gid $tmp[3] --shell $tmp[8] --uid $Cpuset-&gt;{job_uid} $Cpuset-&gt;{job_user}")){                                                       
+            exit_myself(15,"Failed to create $Cpuset-&gt;{job_user} with uid $Cpuset-&gt;{job_uid} and home $tmp[7] and group $tmp[3] and shell $tmp[8]");                                         
+        }                                                                                     
+    }                                                                                         
+                                                                                              
+    if (defined($Cpuset_path_job)){                                                           
+        if (open(LOCKFILE,"&gt; $Cpuset-&gt;{oar_tmp_directory}/job_manager_lock_file")){           
+            flock(LOCKFILE,LOCK_EX) or exit_myself(17,"flock failed: $!");                    
+            if (system('oardodo mount -t cpuset | grep " /dev/cpuset " &gt; /dev/null 2&gt;&amp;1')){   
+                if (system('oardodo mkdir -p /dev/cpuset &amp;&amp; oardodo mount -t cpuset none /dev/cpuset')){                                                                                     
+                    exit_myself(4,"Failed to mount cpuset pseudo filesystem");                
+                }                                                                             
+            }                                                                                 
+            if (!(-d '/dev/cpuset/'.$Cpuset-&gt;{cpuset_path})){                                 
+                if (system( 'oardodo mkdir -p /dev/cpuset/'.$Cpuset-&gt;{cpuset_path}.' &amp;&amp;'.     
+                            'oardodo chown -R oar /dev/cpuset/'.$Cpuset-&gt;{cpuset_path}.' &amp;&amp;'. 
+                            '/bin/echo 0 | cat &gt; /dev/cpuset/'.$Cpuset-&gt;{cpuset_path}.'/notify_on_release &amp;&amp; '.                                                                              
+                            '/bin/echo 0 | cat &gt; /dev/cpuset/'.$Cpuset-&gt;{cpuset_path}.'/cpu_exclusive &amp;&amp; '.                                                                                  
+                            'cat /dev/cpuset/mems &gt; /dev/cpuset/'.$Cpuset-&gt;{cpuset_path}.'/mems &amp;&amp;'.                                                                                         
+                            'cat /dev/cpuset/cpus &gt; /dev/cpuset/'.$Cpuset-&gt;{cpuset_path}.'/cpus'                                                                                             
+                        )){                                                                   
+                    exit_myself(4,"Failed to create cpuset $Cpuset-&gt;{cpuset_path}");          
+                }                                                                             
+            }                                                                                 
+            flock(LOCKFILE,LOCK_UN) or exit_myself(17,"flock failed: $!");                    
+            close(LOCKFILE);                                                                  
+        }else{                                                                                
+            exit_myself(16,"Failed to open or create $Cpuset-&gt;{oar_tmp_directory}/job_manager_lock_file");                                                                                   
+        }                                                                                     
+                                                                                              
+       <b>my $mem = "";  </b>                                                                        
+       <b>my $c = 0;      </b>                                                                       
+       <b>while (($c &lt;= $#Cpuset_cpus)){ </b>                                                        
+               <b> my $core_id=$Cpuset_cpus[$c];   </b>                                              
+               <b> my $physical_id=`cat /sys/devices/system/cpu/cpu$core_id/topology/physical_package_id`;  </b>                                                                                    
+             <b>  chomp($physical_id); </b>                                                   
+             <b>  if ($physical_id == 1){   </b>                                                     
+             <b>  if (($mem eq "") or ($mem eq "1")){   </b>                                 
+                            <b>   $mem = "1";     </b>                                               
+                     <b>  }else{       </b>                                                          
+                            <b>   $mem = "0,1";  </b>                                                
+                  <b>     }    </b>                                                                  
+             <b>  }else{  </b>                                                                       
+                    <b>   if (($mem eq "") or ($mem eq "0")){  </b>                                  
+                             <b>  $mem = "0";  </b>                                                  
+                     <b>  }else{  </b>                                                               
+                            <b>   $mem = "0,1";   </b>                                               
+                     <b>  }     </b>                                                                 
+            <b>   }  </b>                                                                            
+            <b>   $c++;   </b>                                                                       
+       }<b>                                                                                      </b>
+                                                                                              
+                                                                                              
+                                                                                              
+#'for c in '."@Cpuset_cpus".';do cat /sys/devices/system/cpu/cpu$c/topology/physical_package_id &gt; /dev/cpuset/'.$Cpuset_path_job.'/mems; done &amp;&amp; '.                                          
+                                                                                              
+# Be careful with the physical_package_id. Is it corresponding to the memory banc?            
+        if (system( 'oardodo mkdir -p /dev/cpuset/'.$Cpuset_path_job.' &amp;&amp; '.                  
+                    'oardodo chown -R oar /dev/cpuset/'.$Cpuset_path_job.' &amp;&amp; '.              
+                    '/bin/echo 0 | cat &gt; /dev/cpuset/'.$Cpuset_path_job.'/notify_on_release &amp;&amp; '.                                                                                            
+                    '/bin/echo 0 | cat &gt; /dev/cpuset/'.$Cpuset_path_job.'/cpu_exclusive &amp;&amp; '. 
+                <b>    '/bin/echo '.$mem.' | cat &gt; /dev/cpuset/'.$Cpuset_path_job.'/mems &amp;&amp; '.  </b> 
+                    '/bin/echo '.join(",",@Cpuset_cpus).' | cat &gt; /dev/cpuset/'.$Cpuset_path_job.'/cpus'                                                                                     
+                  )){                                                                         
+            exit_myself(5,"Failed to create and feed the cpuset $Cpuset_path_job");           
+        }                                                                                     
+    }                                                                                         
+                                                                                              
+    # Copy ssh key files                                                                      
+    if ($Cpuset-&gt;{ssh_keys}-&gt;{private}-&gt;{key} ne ""){                                         
+        # private key                                                                         
+        if (open(PRIV, "&gt;".$Cpuset-&gt;{ssh_keys}-&gt;{private}-&gt;{file_name})){                     
+            chmod(0600,$Cpuset-&gt;{ssh_keys}-&gt;{private}-&gt;{file_name});                          
+            if (!print(PRIV $Cpuset-&gt;{ssh_keys}-&gt;{private}-&gt;{key})){                          
+                unlink($Cpuset-&gt;{ssh_keys}-&gt;{private}-&gt;{file_name});                          
+                exit_myself(8,"Error writing $Cpuset-&gt;{ssh_keys}-&gt;{private}-&gt;{file_name}");   
+            }                                                                                 
+            close(PRIV);                                                                      
+            if (defined($Cpuset-&gt;{job_uid})){                                                 
+                system("ln -s $Cpuset-&gt;{ssh_keys}-&gt;{private}-&gt;{file_name} $Cpuset-&gt;{oar_tmp_directory}/$Cpuset-&gt;{job_user}.jobkey");                                                         
+            }                                                                                 
+        }else{                                                                                
+            exit_myself(7,"Error opening $Cpuset-&gt;{ssh_keys}-&gt;{private}-&gt;{file_name}");       
+        }                                                                                     
+                                                                                              
+        # public key                                                                          
+        if (open(PUB,"+&lt;",$Cpuset-&gt;{ssh_keys}-&gt;{public}-&gt;{file_name})){                       
+            flock(PUB,LOCK_EX) or exit_myself(17,"flock failed: $!");                         
+            seek(PUB,0,0) or exit_myself(18,"seek failed: $!");                               
+            my $out = "\n".$Cpuset-&gt;{ssh_keys}-&gt;{public}-&gt;{key}."\n";                         
+            while (&lt;PUB&gt;){                                                                    
+                if ($_ =~ /environment=\"OAR_KEY=1\"/){                                       
+                    # We are reading a OAR key                                                
+                    $_ =~ /(ssh-dss|ssh-rsa)\s+([^\s^\n]+)/;                                  
+                    my $oar_key = $2;                                                         
+                    $Cpuset-&gt;{ssh_keys}-&gt;{public}-&gt;{key} =~ /(ssh-dss|ssh-rsa)\s+([^\s^\n]+)/;
+                    my $curr_key = $2;                                                        
+                    if ($curr_key eq $oar_key){                                               
+                        exit_myself(13,"ERROR: the user has specified the same ssh key than used by the user oar");                                                                          
+                    }                                                                         
+                    $out .= $_;                                                               
+                }elsif ($_ =~ /environment=\"OAR_CPUSET=([\w\/]+)\"/){                        
+                    # Remove from authorized keys outdated keys (typically after a reboot)    
+                    if (-d "/dev/cpuset/$1"){                                                 
+                        $out .= $_;                                                           
+                    }                                                                         
+                }else{                                                                        
+                    $out .= $_;                                                               
+                }                                                                             
+            }                                                                                 
+            if (!(seek(PUB,0,0) and print(PUB $out) and truncate(PUB,tell(PUB)))){            
+                exit_myself(9,"Error writing $Cpuset-&gt;{ssh_keys}-&gt;{public}-&gt;{file_name}");    
+            }                                                                                 
+            flock(PUB,LOCK_UN) or exit_myself(17,"flock failed: $!");                         
+            close(PUB);                                                                       
+        }else{                                                                                
+            unlink($Cpuset-&gt;{ssh_keys}-&gt;{private}-&gt;{file_name});                              
+            exit_myself(10,"Error opening $Cpuset-&gt;{ssh_keys}-&gt;{public}-&gt;{file_name}");       
+        }                                                                                     
+    }                                                                                         
+}elsif ($ARGV[0] eq "clean"){                                                                 
+    # delete ssh key files                                                                    
+    if ($Cpuset-&gt;{ssh_keys}-&gt;{private}-&gt;{key} ne ""){                                         
+        # private key                                                                         
+        unlink($Cpuset-&gt;{ssh_keys}-&gt;{private}-&gt;{file_name});                                  
+        if (defined($Cpuset-&gt;{job_uid})){                                                     
+            unlink("$Cpuset-&gt;{oar_tmp_directory}/$Cpuset-&gt;{job_user}.jobkey");                
+        }                                                                                     
+                                                                                              
+        # public key                                                                          
+        if (open(PUB,"+&lt;", $Cpuset-&gt;{ssh_keys}-&gt;{public}-&gt;{file_name})){                      
+            flock(PUB,LOCK_EX) or exit_myself(17,"flock failed: $!");                         
+            seek(PUB,0,0) or exit_myself(18,"seek failed: $!");                               
+            #Change file on the fly                                                           
+            my $out = "";                                                                     
+            while (&lt;PUB&gt;){                                                                    
+                if (($_ ne "\n") and ($_ ne $Cpuset-&gt;{ssh_keys}-&gt;{public}-&gt;{key})){           
+                    $out .= $_;                                                               
+                }                                                                             
+            }                                                                                 
+            if (!(seek(PUB,0,0) and print(PUB $out) and truncate(PUB,tell(PUB)))){            
+                exit_myself(12,"Error changing $Cpuset-&gt;{ssh_keys}-&gt;{public}-&gt;{file_name}");  
+            }                                                                                 
+            flock(PUB,LOCK_UN) or exit_myself(17,"flock failed: $!");                         
+            close(PUB);                                                                       
+        }else{                                                                                
+            exit_myself(11,"Error opening $Cpuset-&gt;{ssh_keys}-&gt;{public}-&gt;{file_name}");       
+        }                                                                                     
+    }                                                                                         
+                                                                                              
+    # Clean cpuset on this node                                                               
+    if (defined($Cpuset_path_job)){                                                           
+        system('PROCESSES=$(cat /dev/cpuset/'.$Cpuset_path_job.'/tasks)                       
+                while [ "$PROCESSES"&nbsp;!= "" ]                                                  
+                do                                                                            
+                    oardodo kill -9 $PROCESSES                                                
+                    PROCESSES=$(cat /dev/cpuset/'.$Cpuset_path_job.'/tasks)                   
+                done'                                                                         
+              );                                                                              
+                                                                                              
+        if (system('oardodo rmdir /dev/cpuset'.$Cpuset_path_job)){                            
+            # Uncomment this line if you want to use several network_address properties       
+            # which are the same physical computer (linux kernel)                             
+            #exit(0);                                                                         
+            exit_myself(6,"Failed to delete the cpuset $Cpuset_path_job");                    
+        }                                                                                     
+    }                                                                                         
+    if (defined($Cpuset-&gt;{job_uid})){                                                         
+        my $ipcrm_args="";                                                                    
+        if (open(IPCMSG,"&lt; /proc/sysvipc/msg")) {                                             
+            &lt;IPCMSG&gt;;                                                                         
+            while (&lt;IPCMSG&gt;) {                                                                
+                if (/\s+\d+\s+(\d+)(?:\s+\d+){5}\s+$Cpuset-&gt;{job_uid}(?:\s+\d+){6}$/) {       
+                    $ipcrm_args .= " -q $1";                                                  
+                }                                                                             
+            }                                                                                 
+            close (IPCMSG);                                                                   
+        }else{                                                                                
+            exit_myself(14,"Cannot open /proc/sysvipc/msg: $!");                              
+        }                                                                                     
+        if (open(IPCSHM,"&lt; /proc/sysvipc/shm")) {                                             
+            &lt;IPCSHM&gt;;                                                                         
+            while (&lt;IPCSHM&gt;) {                                                                
+                if (/\s+\d+\s+(\d+)(?:\s+\d+){5}\s+$Cpuset-&gt;{job_uid}(?:\s+\d+){6}$/) {       
+                    $ipcrm_args .= " -m $1";                                                  
+                }                                                                             
+            }                                                                                 
+            close (IPCSHM);                                                                   
+        }else{                                                                                
+            exit_myself(14,"Cannot open /proc/sysvipc/shm: $!");                              
+        }                                                                                     
+        if (open(IPCSEM,"&lt; /proc/sysvipc/sem")) {                                             
+            &lt;IPCSEM&gt;;                                                                         
+            while (&lt;IPCSEM&gt;) {                                                                
+                if (/\s+\d+\s+(\d+)(?:\s+\d+){2}\s+$Cpuset-&gt;{job_uid}(?:\s+\d+){5}$/) {       
+                    $ipcrm_args .= " -s $1";                                                  
+                }
+            }
+            close (IPCSEM);
+        }else{
+            exit_myself(14,"Cannot open /proc/sysvipc/sem: $!");
+        }
+        if ($ipcrm_args) {
+            print_log(3,"Purging SysV IPC: ipcrm $ipcrm_args");
+            if(system("oardodo ipcrm $ipcrm_args")){
+                exit_myself(14,"Failed to purge IPC: ipcrm $ipcrm_args");
+            }
+        }
+        print_log(3,"Purging /tmp...");
+        #system("oardodo find /tmp/ -user $Cpuset-&gt;{job_user} -exec rm -rfv {} \\;");
+        system("oardodo find /tmp/. -user $Cpuset-&gt;{job_user} -delete");
+        system("oardodo /usr/sbin/userdel -f $Cpuset-&gt;{job_user}");
+    }
+}else{
+    exit_myself(3,"Bad command line argument $ARGV[0]");
+}
+
+exit(0);
+
+# Print error message and exit
+sub exit_myself($$){
+    my $exit_code = shift;
+    my $str = shift;
+
+    warn("[job_resource_manager][$Cpuset-&gt;{job_id}][ERROR] ".$str."\n");
+    exit($exit_code);
+}
+
+# Print log message depending on the LOG_LEVEL config value
+sub print_log($$){
+    my $l = shift;
+    my $str = shift;
+
+    if ($l &lt;= $Log_level){
+        print("[job_resource_manager][$Cpuset-&gt;{job_id}][DEBUG] $str\n");
+    }
+}
+</pre>
+<!-- 
+NewPP limit report
+Preprocessor node count: 1/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+#ifexist count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikioar:pcache:idhash:115-0!1!0!!en!2!edit=0!printable=1 and timestamp 20150721145119 -->
+<div class="printfooter">
+Retrieved from "<a href="index.php/Job_resource_manager_2_memory_banks.pl.html">http://wiki-oar.imag.fr/index.php/Job_resource_manager_2_memory_banks.pl</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="index.php/Job_resource_manager_2_memory_banks.pl.html" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki-oar.imag.fr/index.php?title=Talk:Job_resource_manager_2_memory_banks.pl&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="index.php%3Ftitle=Job_resource_manager_2_memory_banks.pl&amp;action=edit.html" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="index.php%3Ftitle=Job_resource_manager_2_memory_banks.pl&amp;action=history.html" title="Past revisions of this page [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="index.php%3Ftitle=Special:UserLogin&amp;returnto=Job_resource_manager_2_memory_banks.pl.html" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://oar.imag.fr/schemas/oar_logo_small.png);" href="index.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-Public_portal'>
+		<h5>Public portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="index.html" title="Visit the main page">Main Page</a></li>
+				<li id="n-Appliances-.28Kameleon.29"><a href="index.php/Kameleon.html">Appliances (Kameleon)</a></li>
+				<li id="n-OAR-Website"><a href="http://oar.imag.fr">OAR Website</a></li>
+				<li id="n-REST-API"><a href="index.php/RESTfullAPI.html">REST API</a></li>
+				<li id="n-Customization-tips"><a href="index.php/Configuration_tips.html">Customization tips</a></li>
+				<li id="n-OAR.27s-News"><a href="http://oar.imag.fr/news/">OAR's News</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Summer_of_Code'>
+		<h5>Summer of Code</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-GSoC-Summary"><a href="index.php/Google_summer_of_code.html">GSoC Summary</a></li>
+				<li id="n-2010-edition"><a href="index.php/GSOC_2010.html">2010 edition</a></li>
+				<li id="n-2009-edition"><a href="index.php/GSOC_2009.html">2009 edition</a></li>
+				<li id="n-2008-edition"><a href="http://oar.imag.fr/works/gsoc/2008/">2008 edition</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Related_links'>
+		<h5>Related links</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Links.html">Summary:</a></li>
+				<li id="n-About-OAR-.28French.29"><a href="http://www.projet-plume.org/fr/fiche/oar">About OAR (French)</a></li>
+				<li id="n-TakTuk"><a href="http://taktuk.gforge.inria.fr/">TakTuk</a></li>
+				<li id="n-CiGri"><a href="http://cigri.imag.fr/">CiGri</a></li>
+				<li id="n-Kameleon"><a href="index.php/Kameleon.html">Kameleon</a></li>
+				<li id="n-ComputeMode"><a href="http://computemode.imag.fr/">ComputeMode</a></li>
+				<li id="n-Xionee"><a href="https://gforge.inria.fr/projects/xionee/">Xionee</a></li>
+				<li id="n-KaDeploy"><a href="http://kadeploy.imag.fr/">KaDeploy</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Developers_portal'>
+		<h5>Developers portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Developers_Pages.html">Summary:</a></li>
+				<li id="n-Meetings-reports"><a href="index.php/Category:Portal:Staff:MeetingReports.html">Meetings reports</a></li>
+				<li id="n-Assigned-TaskList"><a href="index.php/Special:TaskList/all.html">Assigned TaskList</a></li>
+				<li id="n-Todo-Page"><a href="index.php/TODO.html">Todo Page</a></li>
+				<li id="n-Tools-and-Tips"><a href="index.php/Devel_Tools_tips.html">Tools and Tips</a></li>
+				<li id="n-FAQ"><a href="index.php/FAQ.html">FAQ</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://wiki-oar.imag.fr/index.php" id="searchform"><div>
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text" title="Search WikiOAR [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="index.php/Special:WhatLinksHere/Job_resource_manager_2_memory_banks.pl.html" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="index.php/Special:RecentChangesLinked/Job_resource_manager_2_memory_banks.pl.html" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="index.php/Special:SpecialPages.html" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="index.php%3Ftitle=Job_resource_manager_2_memory_banks.pl&amp;printable=yes&amp;printable=yes.html" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="index.php%3Ftitle=Job_resource_manager_2_memory_banks.pl&amp;oldid=1141.html" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 26 May 2009, at 11:52.</li>
+					<li id="viewcount">This page has been accessed 3,099 times.</li>
+					<li id="about"><a href="index.php/WikiOAR:About.html" title="WikiOAR:About">About WikiOAR and OAR logo</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.072 secs. --></body></html>

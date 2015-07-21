@@ -1,0 +1,1 @@
+../txt/Manage_locking_into_bash_scripts.txt

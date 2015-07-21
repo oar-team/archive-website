@@ -1,0 +1,44 @@
+--- /etc/oar/job_resource_manager.pl	2008-09-18 18:38:13.000000000 +0200
++++ /etc/oar/job_resource_manager_custom_bz.pl	2009-05-26 15:14:57.000000000 +0200
+@@ -112,6 +112,32 @@
+         }else{
+             exit_myself(16,"Failed to open or create $Cpuset->{oar_tmp_directory}/job_manager_lock_file");
+         }
++
++	my $mem = "";
++	my $c = 0;
++	while (($c <= $#Cpuset_cpus)){
++                my $core_id=$Cpuset_cpus[$c];
++                my $physical_id=`cat /sys/devices/system/cpu/cpu$core_id/topology/physical_package_id`;
++		chomp($physical_id);
++		#if ($Cpuset_cpus[$c] > 3){
++		if ($physical_id == 1){
++			if (($mem eq "") or ($mem eq "1")){
++				$mem = "1";
++			}else{
++				$mem = "0,1";
++			}
++		}else{
++			if (($mem eq "") or ($mem eq "0")){
++				$mem = "0";
++			}else{
++				$mem = "0,1";
++			}
++		}
++		$c++;
++	}
++
++	
++
+ #'for c in '."@Cpuset_cpus".';do cat /sys/devices/system/cpu/cpu$c/topology/physical_package_id > /dev/cpuset/'.$Cpuset_path_job.'/mems; done && '.
+ 
+ # Be careful with the physical_package_id. Is it corresponding to the memory banc?
+@@ -119,7 +145,7 @@
+                     'oardodo chown -R oar /dev/cpuset/'.$Cpuset_path_job.' && '.
+                     '/bin/echo 0 | cat > /dev/cpuset/'.$Cpuset_path_job.'/notify_on_release && '.
+                     '/bin/echo 0 | cat > /dev/cpuset/'.$Cpuset_path_job.'/cpu_exclusive && '.
+-                    'cat /dev/cpuset/mems > /dev/cpuset/'.$Cpuset_path_job.'/mems && '.
++                    '/bin/echo '.$mem.' | cat > /dev/cpuset/'.$Cpuset_path_job.'/mems && '.
+                     '/bin/echo '.join(",",@Cpuset_cpus).' | cat > /dev/cpuset/'.$Cpuset_path_job.'/cpus'
+                   )){
+             exit_myself(5,"Failed to create and feed the cpuset $Cpuset_path_job");

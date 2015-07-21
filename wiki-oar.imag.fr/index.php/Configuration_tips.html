@@ -1,0 +1,1410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5-2squeeze6" />
+		<meta name="keywords" content="Customization tips,Customization tips,Job resource manager 2 memory banks.pl,Job resource manager altix 350.pl" />
+		<link rel="canonical" href="Customization_tips.html" />
+		<link rel="shortcut icon" href="http://oar.imag.fr/images/logo_oar.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="../opensearch_desc.php" title="WikiOAR (en)" />
+		<link rel="alternate" type="application/rss+xml" title="WikiOAR RSS feed" href="../index.php%3Ftitle=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="WikiOAR Atom feed" href="../index.php%3Ftitle=Special:RecentChanges&amp;feed=atom" />
+		<title>Customization tips - WikiOAR</title>
+		<link rel="stylesheet" href="../skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="../index.php%3Ftitle=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="../index.php%3Ftitle=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="../index.php%3Ftitle=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="../index.php%3Ftitle=-&amp;action=raw&amp;maxage=18000&amp;gen=css.css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://wiki-oar.imag.fr";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Customization_tips";
+		var wgTitle = "Customization tips";
+		var wgAction = "view";
+		var wgArticleId = "77";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 3736;
+		var wgVersion = "1.15.5-2squeeze6";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="../skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="../skins/common/ajax.js%3F207"></script>
+		<script type="text/javascript" src="../index.php%3Ftitle=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-Customization_tips skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Customization tips</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From WikiOAR</h3>
+			<div id="contentSub">(Redirected from <a href="../index.php%3Ftitle=Configuration_tips&amp;redirect=no.html" title="Configuration tips">Configuration tips</a>)</div>
+									<div id="jump-to-nav">Jump to: <a href="Configuration_tips.html#column-one">navigation</a>, <a href="Configuration_tips.html#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="Configuration_tips.html#Configuration"><span class="tocnumber">1</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2"><a href="Configuration_tips.html#Using_oaradmin_to_initiate_the_resources"><span class="tocnumber">1.1</span> <span class="toctext">Using oaradmin to initiate the resources</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Priority_to_the_nodes_with_the_lower_workload"><span class="tocnumber">1.2</span> <span class="toctext">Priority to the nodes with the lower workload</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Memory_management_into_cpusets"><span class="tocnumber">1.3</span> <span class="toctext">Memory management into cpusets</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Use_fake-numa_to_add_memory_management_into_cpusets"><span class="tocnumber">1.4</span> <span class="toctext">Use fake-numa to add memory management into cpusets</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Cpusets_feature_activation"><span class="tocnumber">1.5</span> <span class="toctext">Cpusets feature activation</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Start.2Fstop_of_nodes_using_ssh_keys"><span class="tocnumber">1.6</span> <span class="toctext">Start/stop of nodes using ssh keys</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Multicluster"><span class="tocnumber">1.7</span> <span class="toctext">Multicluster</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#How_to_prevent_a_node_to_be_suspected_when_it_was_rebooted_during_the_job_or_when_using_several_network_address_properties_on_the_same_physical_computer"><span class="tocnumber">1.8</span> <span class="toctext">How to prevent a node to be suspected when it was rebooted during the job or when using several network_address properties on the same physical computer</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Activating_the_oar_phoenix_script_to_automatically_reboot_suspected_nodes"><span class="tocnumber">1.9</span> <span class="toctext">Activating the oar_phoenix script to automatically reboot suspected nodes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="Configuration_tips.html#Useful_commands_and_administration_tasks"><span class="tocnumber">2</span> <span class="toctext">Useful commands and administration tasks</span></a>
+<ul>
+<li class="toclevel-2"><a href="Configuration_tips.html#List_suspected_nodes_without_running_jobs"><span class="tocnumber">2.1</span> <span class="toctext">List suspected nodes without running jobs</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#List_alive_nodes_without_running_jobs"><span class="tocnumber">2.2</span> <span class="toctext">List alive nodes without running jobs</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Oarstat_display_without_best-effort_jobs"><span class="tocnumber">2.3</span> <span class="toctext">Oarstat display without best-effort jobs</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Setting_some_nodes_in_maintenance_mode_only_when_they_are_free"><span class="tocnumber">2.4</span> <span class="toctext">Setting some nodes in maintenance mode only when they are free</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Optimizing_and_re-initializing_the_database_with_Postgres"><span class="tocnumber">2.5</span> <span class="toctext">Optimizing and re-initializing the database with Postgres</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="Configuration_tips.html#Green_computing"><span class="tocnumber">3</span> <span class="toctext">Green computing</span></a>
+<ul>
+<li class="toclevel-2"><a href="Configuration_tips.html#Activating_the_dynamic_on.2Foff_of_nodes_but_keeping_a_few_nodes_always_ready"><span class="tocnumber">3.1</span> <span class="toctext">Activating the dynamic on/off of nodes but keeping a few nodes always ready</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="Configuration_tips.html#Admission_rules"><span class="tocnumber">4</span> <span class="toctext">Admission rules</span></a>
+<ul>
+<li class="toclevel-2"><a href="Configuration_tips.html#Cluster_routing_depending_on_the_name_of_the_queue"><span class="tocnumber">4.1</span> <span class="toctext">Cluster routing depending on the name of the queue</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Cluster_routing_depending_on_the_name_of_the_submission_host"><span class="tocnumber">4.2</span> <span class="toctext">Cluster routing depending on the name of the submission host</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Best-effort_automatic_routing_for_some_unprivileged_users"><span class="tocnumber">4.3</span> <span class="toctext">Best-effort automatic routing for some unprivileged users</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Automatic_licence_assignment_by_job_type"><span class="tocnumber">4.4</span> <span class="toctext">Automatic licence assignment by job type</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Walltime_limit"><span class="tocnumber">4.5</span> <span class="toctext">Walltime limit</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Cpu_time_limit"><span class="tocnumber">4.6</span> <span class="toctext">Cpu time limit</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Jobs_number_limit"><span class="tocnumber">4.7</span> <span class="toctext">Jobs number limit</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Project_assignment"><span class="tocnumber">4.8</span> <span class="toctext">Project assignment</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Restricts_access_to_a_user_list_for_a_set_of_resources"><span class="tocnumber">4.9</span> <span class="toctext">Restricts access to a user list for a set of resources</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Limit_the_number_of_interactive_jobs_per_user"><span class="tocnumber">4.10</span> <span class="toctext">Limit the number of interactive jobs per user</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Auto_property_restriction_for_specific_user_groups"><span class="tocnumber">4.11</span> <span class="toctext">Auto property restriction for specific user groups</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Debug_admission_rule"><span class="tocnumber">4.12</span> <span class="toctext">Debug admission rule</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#NUMA_topology_optimization"><span class="tocnumber">4.13</span> <span class="toctext">NUMA topology optimization</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Short.2C_medium_and_long_queues"><span class="tocnumber">4.14</span> <span class="toctext">Short, medium and long queues</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Naming_interactive_jobs_by_default"><span class="tocnumber">4.15</span> <span class="toctext">Naming interactive jobs by default</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="Configuration_tips.html#Use_cases"><span class="tocnumber">5</span> <span class="toctext">Use cases</span></a>
+<ul>
+<li class="toclevel-2"><a href="Configuration_tips.html#OpenMPI_.2B_affinity"><span class="tocnumber">5.1</span> <span class="toctext">OpenMPI + affinity</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#NUMA_topology_optimization_2"><span class="tocnumber">5.2</span> <span class="toctext">NUMA topology optimization</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="Configuration_tips.html#Troubles_and_solutions"><span class="tocnumber">6</span> <span class="toctext">Troubles and solutions</span></a>
+<ul>
+<li class="toclevel-2"><a href="Configuration_tips.html#Can.27t_do_setegid.21"><span class="tocnumber">6.1</span> <span class="toctext">Can't do setegid!</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="Configuration_tips.html#Users_tips"><span class="tocnumber">7</span> <span class="toctext">Users tips</span></a>
+<ul>
+<li class="toclevel-2"><a href="Configuration_tips.html#oarsh_completion"><span class="tocnumber">7.1</span> <span class="toctext">oarsh completion</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#PROMPT_BASH_for_Interactive_jobs"><span class="tocnumber">7.2</span> <span class="toctext">PROMPT BASH for Interactive jobs</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Many_small_jobs_grouping"><span class="tocnumber">7.3</span> <span class="toctext">Many small jobs grouping</span></a></li>
+<li class="toclevel-2"><a href="Configuration_tips.html#Environment_variables_through_oarsh"><span class="tocnumber">7.4</span> <span class="toctext">Environment variables through oarsh</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Configuration" id="Configuration"></a><h1> <span class="mw-headline">Configuration</span></h1>
+<p><i>In this section, you'll find advanced configuration tips</i>
+</p>
+<a name="Using_oaradmin_to_initiate_the_resources" id="Using_oaradmin_to_initiate_the_resources"></a><h2> <span class="mw-headline">Using oaradmin to initiate the resources</span></h2>
+<p>You can install oardamin by installing the <b>oar-admin</b> package or typing <b>make tools-install &amp;&amp; make tools-setup</b> from the sources.
+</p><p>Example for a simple cluster having 10 nodes with 2 hexa-core processors per node; the name of the nodes are james1, james2,... james10:
+</p>
+<pre>oaradmin resources -a "/node=james{10}/cpu={2}/core={6}"
+</pre>
+<p>Example for an hybrid cluster (72 itaniums cores SMP and 28 xeon cores)
+</p>
+<pre>oaradmin resources -a "/node=healthphy/pnode={18}/cpu={2}/core={2}" -p cputype=itanium2
+oaradmin resources -a "/node=heathphy-xeon{7}/cpu={2}/core={2}" -p cputype=xeon
+</pre>
+<p>Oaradmin only prints a set of "oarnodesetting" commands that you can then pipe into bash when you think that it's ok:
+</p>
+<pre>oaradmin resources -a "/node=james{10}/cpu={2}/core={6}" | bash
+</pre>
+<p><b>Note:</b> oaradmin checks into the oar database if you have the necessary properties (for example "cpu" or "core" which are not defined by default). So, if it fails, be sure that you have created the necessary properties before running oaradmin, for example here:
+</p>
+<pre> oarproperty -a cpu
+ oarproperty -a core
+</pre>
+<a name="Priority_to_the_nodes_with_the_lower_workload" id="Priority_to_the_nodes_with_the_lower_workload"></a><h2> <span class="mw-headline">Priority to the nodes with the lower workload</span></h2>
+<p>This tip is useful for clusters of big nodes, like NUMA hosts with numerous cpus and a few nodes. When the cluster has a lot of free resources, users often wonder why their jobs are always sent to the first node while the others are completely free. With this simple trick, new jobs are sent preferably on the nodes that have the lowest 15 minutes workload.
+</p>
+<div class="warning">
+<table border="0" summary="Warning: Warning">
+
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><a href="File:Warning.png.html" class="image" title="Image:Warning.png"><img alt="Image:Warning.png" src="../images/c/cb/Warning.png" width="48" height="48" border="0" /></a>
+</td><th align="left">Warning
+</th></tr>
+<tr>
+<td colspan="2" align="left" valign="top"><p>Doing this will significantly reduce the chances for jobs that want to use entire nodes or big parts of them (they may wait for a longer time)! Do so only if this is what you want!</p>
+</td></tr></table>
+</div>
+<ul><li> First of all, create a new <b>wload</b> property:
+</li></ul>
+<pre>oarproperty -a wload
+</pre>
+<ul><li> Then, create a script <b>/usr/local/sbin/update_workload.sh</b> that updates this property for each node of your cluster:
+</li></ul>
+<pre>#!/bin/bash
+set -e
+
+HOSTS="zephir alize"
+for host in $HOSTS
+do
+  load=`ssh $host head -1 /proc/loadavg|awk '{print $3*100}'`
+  /usr/local/sbin/oarnodesetting -h $host -p wload=$load
+done
+</pre>
+<ul><li> Add this script into your crontab, to be run every 5 minutes, for example inside <b>/etc/cron.d/update_workload</b>:
+</li></ul>
+<pre>*/5 * * * *     root    /usr/local/sbin/update_workload.sh &gt; /dev/null
+</pre>
+<ul><li> Then, add the wload field at the top of the <b>SCHEDULER_RESOURCE_ORDER</b> variable of your <b>oar.conf</b> file:
+</li></ul>
+<pre>SCHEDULER_RESOURCE_ORDER="<b>wload ASC</b>,scheduler_priority ASC, suspended_jobs ASC, switch ASC, network_address DESC, resource_id ASC"
+</pre>
+<p>That's it!
+</p>
+<a name="Memory_management_into_cpusets" id="Memory_management_into_cpusets"></a><h2> <span class="mw-headline">Memory management into cpusets</span></h2>
+<p>Supposing you have a NUMA system (Non Uniform Access Memory), you may want to associate memory banks to sockets (cpus). This has 2 advantages: 
+</p>
+<ul><li> performance of jobs using only a part of a node
+</li><li> a job having some cpus will go out of memory if it tries to access to memory of the others cpus (tipically, a one cpu job will obtain half of the memory on a 2-cpus host)
+</li></ul>
+<p>If you have a UMA system, you still may want to confine small jobs (ie jobs not using the entire node) to a subset of the memory and the trick is to use <b><a href="Customization_tips.html#Use_fake-numa_to_add_memory_management_into_cpusets" title="Customization tips">fake numa</a></b> so that this tip will work for you.
+</p><p>All you have to do is to customize the <b>job_resource_manager</b>. It's a perl script, generally found into /etc/oar that you specify into the <b>JOB_RESOURCE_MANAGER_FILE</b> of the oar.conf file.
+</p><p>Examples (differences from the original script are set in bold):
+</p>
+<ul><li> <a href="Job_resource_manager_2_memory_banks.pl.html" title="Job resource manager 2 memory banks.pl">job_resource_manager_2_memory_banks.pl</a> (<a href="../images/4/43/Job_resource_manager_2_memory_banks.patch" class="internal" title="Job resource manager 2 memory banks.patch">download patch for default job_resource_manager</a>)
+</li><li> <a href="http://wiki-oar.imag.fr/index.php?title=Job_resource_manager_altix_350.pl&amp;action=edit&amp;redlink=1" class="new" title="Job resource manager altix 350.pl (page does not exist)">job_resource_manager_altix_350.pl</a>
+</li></ul>
+<a name="Use_fake-numa_to_add_memory_management_into_cpusets" id="Use_fake-numa_to_add_memory_management_into_cpusets"></a><h2> <span class="mw-headline">Use fake-numa to add memory management into cpusets</span></h2>
+<p>With the linux kernel (depending on the version), it is possible to split the memory into a predefined number of chunks, exactly like if a chunk was corresponding to a memory bank. This way, it's then possible to associate some "virtual" memory banks to a cpuset. As OAR creates cpusets to isolate cpu workload from other jobs, it's also possible to isolate the memory usage. A job that tries to use more memory than the total amount of the virtual memory banks associated into its cpuset should swap or fail with a out of memory signal.
+</p><p>Fake-numa is activated at the boot process, by a kernel option, for example:
+</p>
+<pre>numa=fake=12
+</pre>
+<p>will create 12 slots of memory accessible from the cpusets filesystem:
+</p>
+<pre>bzeznik@gofree-8:~$ cat /dev/cpuset/mems
+0-11
+</pre>
+<p>Each slot size is the total size of the node divided by 12.
+</p><p>Once activated into the kernel of your cluster's nodes, you should edit the OAR's job manager script to take this into account. This is a perl script, located into <i>/etc/oar/job_resource_manager.pl</i> on the OAR server. The easiest configuration is to create as many virtual memory banks as there are cores
+into your nodes. By this way, you have one virtual memory bank for one core and you can tell oar to associate the corresponding memory bank to a core:
+</p>
+<pre># Copy the original job manager:
+cp /etc/oar/job_resource_manager.pl /etc/oar/job_resource_manager_with_mem.pl
+# Edit job_resource_manager_with_mem.pl, arround line 122, replace this line:
+#    'cat /dev/cpuset/mems &gt; /dev/cpuset/'.$Cpuset_path_job.'/mems &amp;&amp;'.
+# by this line:
+#    '/bin/echo '.join(",",@Cpuset_cpus).' | cat &gt; /dev/cpuset/'.$Cpuset_path_job.'/mems &amp;&amp; '.
+# (actually, it is the same line as for the "cpus", but into the "mems" file)
+</pre>
+<p>Once the new job manager created, you can activate it by changing the <i>JOB_RESOURCE_MANAGER_FILE</i> variable of your oar.conf file:
+</p>
+<pre>JOB_RESOURCE_MANAGER_FILE="/etc/oar/job_resource_manager_with_mem.pl"
+</pre>
+<p>Now, you can check if it's working by creating a new job, and checking into it's cpuset memory file. For example:
+</p>
+<pre>bzeznik@gofree:~$ oarsub -l /nodes=1/core=2 -I
+[ADMISSION RULE] Set default walltime to 7200.
+[ADMISSION RULE] Modify resource description with type constraints
+OAR_JOB_ID=307855
+Interactive mode&nbsp;: waiting...
+Starting...
+
+Connect to OAR job 307855 via the node gofree-8
+bzeznik@gofree-8:~$ cat /proc/self/cpuset 
+/oar/bzeznik_307855
+bzeznik@gofree-8:~$ cat /dev/cpuset/oar/bzeznik_307855/cpus 
+8-9
+bzeznik@gofree-8:~$ cat /dev/cpuset/oar/bzeznik_307855/mems 
+8-9
+</pre>
+<p>Then you have to teach to your users that cores are associated to a certain amount of memory per core. In this example, it's <b>4GB/core</b>. Then, if a user has a memory bounded job and needs <b>17GB</b> of memory, he should ask for <b>5 cores</b> on the same node, even for a sequential job. It's generally not to be considered as a waste in the HPC context because cpu cores are operating correctly only if memory i/o can operate correctly.
+It's also possible to create an admission rule that will convert a query like "-l /memory=17" into "-l /nodes=1/core=5".
+Finally, it should also be possible to create more virtual memory banks (2 or 4... per core), but you then should have to create your resources as memory slots and manage a memory_slot property into the job manager for example.
+</p>
+<a name="Cpusets_feature_activation" id="Cpusets_feature_activation"></a><h2> <span class="mw-headline">Cpusets feature activation</span></h2>
+<p>If you want to use the cpusets feature, the JOB_RESOURCE_MANAGER_PROPERTY_DB_FIELD variable from your oar.conf file must be uncommented and set to the property that gives the cpuset ids of the resources (generally <b>cpuset</b>). This property must be configured properly for each resource. You can use the <b>oar_resources_init</b> command.
+</p>
+<a name="Start.2Fstop_of_nodes_using_ssh_keys" id="Start.2Fstop_of_nodes_using_ssh_keys"></a><h2> <span class="mw-headline">Start/stop of nodes using ssh keys</span></h2>
+<p>Nodes can set them automatically to the Alive status at boot time, and Absent status at shutdown. One efficient way to do this, is to use dedicated ssh keys. The advantages are:
+</p>
+<ul><li> It is secure
+</li><li> You need nothing special on the nodes but an ssh client
+</li></ul>
+<p>First of all, you need to add a <b>ip</b> property to the resources table and put the ip addresses of your nodes inside:
+</p>
+<pre>oarproperty -a ip -c
+oarnodesetting -p ip=192.168.0.1 --sql "network_address='node1'"
+oarnodesetting -p ip=192.168.0.2 --sql "network_address='node2'"
+...
+</pre>
+<p>Then, you have to put 2 scripts into the /etc/oar directory:
+</p>
+<ul><li><a href="../images/2/24/Oarnodesetting_ssh_alive_v2.sh" class="internal" title="Oarnodesetting ssh alive v2.sh">/etc/oar/oarnodesetting_ssh_alive.sh</a>
+</li><li><a href="../images/2/2a/Oarnodesetting_ssh_absent.sh" class="internal" title="Oarnodesetting ssh absent.sh">/etc/oar/oarnodesetting_ssh_absent.sh</a>
+</li></ul>
+<p>Then, create 2 ssh keys with no passphrase and put them inside the .ssh directory of the home of the oar user on every nodes:
+</p>
+<pre>sudo su - oar
+ssh-keygen -t rsa -f .ssh/oarnodesetting_alive.key
+ssh-keygen -t rsa -f .ssh/oarnodesetting_absent.key
+scp -P 6667 .ssh/oarnodesetting_a* node1:.ssh
+...
+</pre>
+<p>Add the public keys, on your frontend, into the authorized_keys file of the oar user by prefixing them with the names of the scripts seen above:
+</p>
+<pre>environment="OAR_KEY=1",command="/etc/oar/oarnodesetting_ssh_alive.sh" ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAryzISWw4jbhphQfxWq2onrv8hZJlQo/aIjkDyh6wtriT9W289RB+SUNT7qnrDOcorgpwoCOdT6Y6ezlH2R2mLkbNyegV8q8wVTw0E96Rw7iBFXyyjsoq27E9J8ddlH6mE05G9vRaBDQiLJ76+lG20hnE1jhHiQX8DuFzG+qxmNiLGSIlYNCGNzP2RudQ6vdACzkOUw74dpwmJK0ko4YyHpxpbZ2/x66nJTINaIAPBJZ09FpUbWIRABOozr8u0GayiB06JOYnsbW0PqNUOGEvChYV8Kh3FJsM+geNh43I+uEo17p9DYhSGd1enPFOIv4VmPzZ3huT8TJH88FEz1F/zw==
+environment="OAR_KEY=1",command="/etc/oar/oarnodesetting_ssh_absent.sh" ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA3cM8AUC5F8Olb/umgjDztTOOWiRHj3WMy+js2dowfkO0s1yNkXa+L93UOC0L/BTSTbr8ZqGWV+yNvx36T8tFjWVnd+wkjwl616SxfEQQ1YXQWS8m55vPpCs3dT4ZvtSceB9G3XCoGje+fsOpNb05X9DhX+2bXwe69SwK3e8J7QkDIeRwcEiv6vrteHE04qaVBXTJGLgJToxcPKdKDNhPUUoA+f4ZO3OG0exrfhWNfrLpVqc69nOGiTI9/9N/Dmw/V5oAEvKED2H/Ek1EaptW7hCgZTHoyj9OXbpofSro768ecymRBa6/qfEC/LvSp9e2HYIjn5rcL0WqlKBajpblmQ==
+</pre>
+<p>Finaly, customize the oar-node init script (generally /etc/default/oar-node or /etc/sysconfig/oar-node) with the following script:
+</p>
+<pre>## Auto update node status at boot time            
+#                                                  
+# OARREMOTE: machine where we remotely run oarnodesetting (e.g. the main oar+kadeploy frontend)
+OARREMOTE="172.23.0.3"                                                                         
+# retry settings                                                                               
+MODSLEEP=8                                                                                     
+MINSLEEP=2
+MAXRETRY=30
+
+start_oar_node() {
+   test -n "$OARREMOTE" || exit 0
+   echo " * Set the ressources of this node to Alive"
+   local retry=0
+   local sleep=0
+   until ssh -t -oStrictHostKeyChecking=no -oPasswordAuthentication=no -i /var/lib/oar/.ssh/oarnodesetting_alive.key oar@$OARREMOTE -p 6667
+   do
+       if [ $((retry+=sleep)) -gt $MAXRETRY ]; then
+           echo "Failed."
+           return 1
+       fi
+       ((sleep = $RANDOM&nbsp;% $MODSLEEP + $MINSLEEP))
+       echo "Retrying in $sleep seconds..."
+       sleep $sleep
+   done
+   return 0
+}
+
+stop_oar_node() {
+   test -n "$OARREMOTE" || exit 0
+   echo " * Set the ressources of this node to Absent"
+   local retry=0
+   local sleep=0
+   until ssh -t -oStrictHostKeyChecking=no -oPasswordAuthentication=no -i /var/lib/oar/.ssh/oarnodesetting_absent.key oar@$OARREMOTE -p 6667
+   do
+       if [ $((retry+=sleep)) -gt $MAXRETRY ]; then
+           echo "Failed."
+           return 1
+       fi
+       ((sleep = $RANDOM&nbsp;% $MODSLEEP + $MINSLEEP))
+       echo "Retrying in $sleep seconds..."
+       sleep $sleep
+   done
+   return 0
+}
+</pre>
+<p>You can test by issuing the following from a node:
+</p>
+<pre>node1:~ # /etc/init.d/oar-node stop
+Stopping OAR dedicated SSH server:
+ * Set the ressources of this node to Absent
+33 --&gt; Absent
+34 --&gt; Absent
+35 --&gt; Absent
+36 --&gt; Absent
+37 --&gt; Absent
+38 --&gt; Absent
+39 --&gt; Absent
+40 --&gt; Absent
+Check jobs to delete on resource 33&nbsp;:
+Check done
+Check jobs to delete on resource 34&nbsp;:
+Check done
+Check jobs to delete on resource 35&nbsp;:
+Check done
+Check jobs to delete on resource 36&nbsp;:
+Check done
+Check jobs to delete on resource 37&nbsp;:
+Check done
+Check jobs to delete on resource 38&nbsp;:
+Check done
+Check jobs to delete on resource 39&nbsp;:
+Check done
+Check jobs to delete on resource 40&nbsp;:
+Check done
+Connection to 172.23.0.3 closed.
+node1:~ # /etc/init.d/oar-node start
+Starting OAR dedicated SSH server:
+ * Set the ressources of this node to Alive
+33 --&gt; Alive
+34 --&gt; Alive
+35 --&gt; Alive
+36 --&gt; Alive
+37 --&gt; Alive
+38 --&gt; Alive
+39 --&gt; Alive
+40 --&gt; Alive
+Done
+Connection to 172.23.0.3 closed.
+</pre>
+<a name="Multicluster" id="Multicluster"></a><h2> <span class="mw-headline">Multicluster</span></h2>
+<p>You can manage several different clusters with a unique OAR server. You may also choose to have one or several submission hosts. Simply install the <b>oar-server</b> package on the server and the <b>oar-user</b> package on all the submission hosts.
+</p><p>You can tag the resources to keep track of which resource belongs to which cluster. Simply create a new property (for example: "cluster") and set it for each resource. Example:
+</p>
+<pre>oarproperties -c -a cluster
+for i in `seq 1 32`; do oarnodesetting -r $i -p cluster="clusterA"; done
+for i in `seq 33 64`; do oarnodesetting -r $i -p cluster="clusterB"; done
+</pre>
+<p>Users can choose on which cluster to submit by asking for a specific cluster value:
+</p>
+<pre>oarsub -I -l /nodes=2 -p "cluster='clusterA'"
+</pre>
+<p>If you have several submission hosts, you can make an admission rule to automatically set the value of the cluster property. For example, the following submission rule should do the trick:
+</p>
+<pre># Title&nbsp;: Cluster property management
+# Description&nbsp;: Set the cluster property to the hostname of the submission host 
+use Sys::Hostname;                                                                    
+my @h = split('\.',hostname());
+# If you want to set up a queue per cluster, you can uncomment the following:                                                       
+#if ($queue_name eq "default") {                                                       
+#  $queue_name=$h[0];                                                                  
+#}
+if ($jobproperties ne ""){
+  $jobproperties = "($jobproperties) AND cluster = '".$h[0]."'";
+}
+else{
+  $jobproperties = "cluster = '".$h[0]."'";
+}
+</pre>
+<p>Finally, you may also want to set up a queue per cluster, just because it's nicer in the oarstat output:
+</p>
+<pre>oarnotify --add_queue "clusterA,5,oar_sched_gantt_with_timesharing"
+oarnotify --add_queue "clusterB,5,oar_sched_gantt_with_timesharing"
+</pre>
+<a name="How_to_prevent_a_node_to_be_suspected_when_it_was_rebooted_during_the_job_or_when_using_several_network_address_properties_on_the_same_physical_computer" id="How_to_prevent_a_node_to_be_suspected_when_it_was_rebooted_during_the_job_or_when_using_several_network_address_properties_on_the_same_physical_computer"></a><h2> <span class="mw-headline">How to prevent a node to be suspected when it was rebooted during the job or when using several network_address properties on the same physical computer</span></h2>
+<p>In /etc/oar/job_resource_manager.pl simply uncomment the #exit(0) line.
+</p>
+<a name="Activating_the_oar_phoenix_script_to_automatically_reboot_suspected_nodes" id="Activating_the_oar_phoenix_script_to_automatically_reboot_suspected_nodes"></a><h2> <span class="mw-headline">Activating the oar_phoenix script to automatically reboot suspected nodes</span></h2>
+<div class="note">
+<table border="0" summary="Note: Note">
+
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><a href="File:Note.png.html" class="image" title="Image:Note.png"><img alt="Image:Note.png" src="../images/c/cc/Note.png" width="48" height="48" border="0" /></a>
+</td><th align="left">Note
+</th></tr>
+<tr>
+<td colspan="2" align="left" valign="top"><p>This tips depends on the <a href="Customization_tips.html#Start.2Fstop_of_nodes_using_ssh_keys" title="Customization tips">Start/stop of nodes using ssh keys</a> tips, for the node to be automatically set up to the Alive state at boot time.</p>
+</td></tr></table>
+</div>
+<p>OAR server now comes with a perl script, located into <b>/etc/oar/oar_phoenix.pl</b> that searches for fully suspected nodes and may send customized commands aimed at repairing them. It has a 2 level mechanism: First, it sends a 'soft' command. And after a timeout, if the node is still suspected, it sends a 'hard' command. Here is how to install the script:
+</p>
+<ul><li> Edit the customization part of the phoenix script to set up your soft and hard commands. The '{NODENAME}' macro is set to pass the node name to the commands; here is an example:
+</li></ul>
+<pre>cluster:~# vi <b>/etc/oar/oar_phoenix.pl</b>
+# Command sent to reboot a node (first attempt)
+my $PHOENIX_SOFT_REBOOTCMD="ssh -p 6667 {NODENAME} oardodo reboot";
+
+# Timeout for a soft rebooted node to be considered hard rebootable
+my $PHOENIX_SOFT_TIMEOUT=300;
+
+# Command sent to reboot a node (second attempt)
+#my $PHOENIX_HARD_REBOOTCMD="oardodo ipmitool -U USERID -P PASSW0RD -H {NODENAME}-mgt power off;sleep 2;oardodo ipmitool -U USERID -P PASSW0RD -H {NODENAME}-mgt power on";
+my $PHOENIX_HARD_REBOOTCMD="oardodo /etc/oar/reboot_node_hard.sh {NODENAME}";
+</pre>
+<ul><li> Create a cron job that runs perdiodically phoenix:
+</li></ul>
+<pre>cluster:~# vi <b>/etc/cron.d/oar-phoenix</b>
+*/10 * * * *       root /usr/sbin/oar_phoenix
+</pre>
+<a name="Useful_commands_and_administration_tasks" id="Useful_commands_and_administration_tasks"></a><h1> <span class="mw-headline">Useful commands and administration tasks</span></h1>
+<p><i>Here, you'll find useful commands, sometimes a bit tricky, to put into your scripts or administration tasks</i>
+</p>
+<a name="List_suspected_nodes_without_running_jobs" id="List_suspected_nodes_without_running_jobs"></a><h2> <span class="mw-headline">List suspected nodes without running jobs</span></h2>
+<p>You may need this list of nodes if you want to automatically reboot them because you don't know why they have been suspected and you think that it is a simple way to clean things:
+</p>
+<pre>oarnodes  --sql "state = 'Suspected' and network_address NOT IN (SELECT distinct(network_address) FROM resources where resource_id IN \
+(SELECT resource_id  FROM assigned_resources WHERE assigned_resource_index = 'CURRENT'))" | grep '^network_address' | sort -u
+</pre>
+<a name="List_alive_nodes_without_running_jobs" id="List_alive_nodes_without_running_jobs"></a><h2> <span class="mw-headline">List alive nodes without running jobs</span></h2>
+<pre>oarnodes  --sql "state = 'Alive' and network_address NOT IN (SELECT distinct(network_address) FROM resources where resource_id IN \
+(SELECT resource_id  FROM assigned_resources WHERE assigned_resource_index = 'CURRENT'))" | grep '^network_address' | sort -u
+</pre>
+<a name="Oarstat_display_without_best-effort_jobs" id="Oarstat_display_without_best-effort_jobs"></a><h2> <span class="mw-headline">Oarstat display without best-effort jobs</span></h2>
+<pre>oarstat --sql "job_id NOT IN  (SELECT job_id FROM job_types where types_index = 'CURRENT' AND type = 'besteffort') AND state&nbsp;!= 'Error' AND state&nbsp;!= 'Terminated'"
+</pre>
+<a name="Setting_some_nodes_in_maintenance_mode_only_when_they_are_free" id="Setting_some_nodes_in_maintenance_mode_only_when_they_are_free"></a><h2> <span class="mw-headline">Setting some nodes in maintenance mode only when they are free</span></h2>
+<p>You may need to plan some maintenance operations on some particular nodes (for example add somme memory, upgrade bios,...) but you don't want to interrupt currently running or planned users jobs. To do so, you can simply run a "sleep" job into the admin queue and wait for it to become running, and then set the node into maintenance mode. But you also can use this trick to set automatically the node into maintenance mode when the admin job starts:
+</p>
+<pre>oarsub -q admin -t cosystem -l /nodes=2 'uniq $OAR_NODE_FILE|awk "{print \"sudo oarnodesetting -m on -h \" \$1}"|bash'
+</pre>
+<p>This uses the "cosystem" job type that does nothing but start your command on a given host. This host has to be configured into the <i>COSYSTEM_HOSTNAME</i> variable of the <i>oar.conf</i> file, and for the current purpose, you can simply put <i>127.0.0.1</i>. You also need to install the oar-node package on this host.
+</p><p>The example above will disable 2 free nodes, but you may want to add a <i>-p</i> option to specify the nodes you want to disable, for example:
+</p>
+<pre>-p "network_address in ('node-1','node-2')"
+</pre>
+<div class="note">
+<table border="0" summary="Note: Note">
+
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><a href="File:Note.png.html" class="image" title="Image:Note.png"><img alt="Image:Note.png" src="../images/c/cc/Note.png" width="48" height="48" border="0" /></a>
+</td><th align="left">Note
+</th></tr>
+<tr>
+<td colspan="2" align="left" valign="top"><p>You can't simply do that within a "normal" job as OAR will kill your job before all the resources of the node are set into the maintenance mode</p>
+</td></tr></table>
+</div>
+<a name="Optimizing_and_re-initializing_the_database_with_Postgres" id="Optimizing_and_re-initializing_the_database_with_Postgres"></a><h2> <span class="mw-headline">Optimizing and re-initializing the database with Postgres</span></h2>
+<p>Sometimes, the database contains so much jobs that you need to optimize it. Normally, you should have a <b>vacuumdb</b> running daily fron cron. You can do manually a <b>vacuumdb -a -f -z&nbsp;; reindexdb oar</b> but don't forget to stop OAR before, and be aware that it may take some time. But the DB still may be very big and it may be a problem for backups or the nightly vaccum takes too much time. A more radical solution is to start again with a new database, but keep the old one so that you can still connect to it for jobs history. You can do this once a year for example, and you only have to backup the current database. Here is a way to do this:
+</p>
+<ul><li> First of all, make a backup of your database! With postgres, it is as easy as:
+</li></ul>
+<pre>create database oar_backup_2012 with template oar
+</pre>
+<p>It will create an exact copy of the "oar" database named "oar_backup_2012". Be sure that you have enough space left on the device hosting your postgres data directory. Doing so will allow you to make queries on the backup database if you need to find the history of old jobs.
+</p>
+<ul><li> You should plan a maintenance and be sure there's no more jobs into the system.
+</li><li> Make a dump of your "queues", "resources" and "admission_rules" tables.
+</li><li> Stop the oar server, drop the oar database and re-create it.
+</li><li> Finally, restore the "queues", "resources" and "admission_rules" tables into the new database. 
+</li><li> And restart the server.
+</li></ul>
+<a name="Green_computing" id="Green_computing"></a><h1> <span class="mw-headline">Green computing</span></h1>
+<p><i>In this section, you'll find tips for optimizing the fluids consumptions of your clusters</i>
+</p>
+<a name="Activating_the_dynamic_on.2Foff_of_nodes_but_keeping_a_few_nodes_always_ready" id="Activating_the_dynamic_on.2Foff_of_nodes_but_keeping_a_few_nodes_always_ready"></a><h2> <span class="mw-headline">Activating the dynamic on/off of nodes but keeping a few nodes always ready</span></h2>
+<div class="warning">
+<table border="0" summary="Warning: Warning">
+
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><a href="File:Warning.png.html" class="image" title="Image:Warning.png"><img alt="Image:Warning.png" src="../images/c/cb/Warning.png" width="48" height="48" border="0" /></a>
+</td><th align="left">Warning
+</th></tr>
+<tr>
+<td colspan="2" align="left" valign="top"><p>This tip is now partly obsoleted by the new <b>Hulot</b> module that comes with the latest OAR release. This energy saving module has got a keepalive feature. Take a look at the comments above all the ENERGY* variables into the oar.conf file.</p>
+</td></tr></table>
+</div>
+<p>First of all, you have to set up the ecological feature as told into the FAQ: <a href="http://oar.imag.fr/admins/faq_admin.html#how-to-configure-a-more-ecological-cluster-or-how-to-make-some-power-consumption-economies" class="external text" title="http://oar.imag.fr/admins/faq_admin.html#how-to-configure-a-more-ecological-cluster-or-how-to-make-some-power-consumption-economies" rel="nofollow">How to configure a more ecological cluster</a>. 
+</p>
+<div class="note">
+<table border="0" summary="Note: Note">
+
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><a href="File:Note.png.html" class="image" title="Image:Note.png"><img alt="Image:Note.png" src="../images/c/cc/Note.png" width="48" height="48" border="0" /></a>
+</td><th align="left">Note
+</th></tr>
+<tr>
+<td colspan="2" align="left" valign="top"><p>If you have an ordinary cluster with nodes that are always available, you may set the cm_availability property to 2147483646 (infinite minus 1)</p>
+</td></tr></table>
+</div>
+<div class="note">
+<table border="0" summary="Note: Note">
+
+<tr>
+<td rowspan="2" align="center" valign="top" width="25"><a href="File:Note.png.html" class="image" title="Image:Note.png"><img alt="Image:Note.png" src="../images/c/cc/Note.png" width="48" height="48" border="0" /></a>
+</td><th align="left">Note
+</th></tr>
+<tr>
+<td colspan="2" align="left" valign="top"><p>Once this feature has been activated, the <b>Absent</b> status may not always really mean Absent, but <b>Standby</b> as OAR may want to automatically power on the node. To put a node into a real Absent status, you have to set the cm_availability property to <b>0</b></p>
+</td></tr></table>
+</div>
+<p>This tip supposes that you have set up your nodes to automatically set them to the Alive state when they boot and to the Absent state when they shutdown. You may refer to the FAQ for this: <a href="http://oar.imag.fr/admins/faq_admin.html#how-to-manage-start-stop-of-the-nodes" class="external text" title="http://oar.imag.fr/admins/faq_admin.html#how-to-manage-start-stop-of-the-nodes" rel="nofollow">How to manage start/stop of the nodes?</a> or to this section of the <a href="Configuration_tips.html#Start.2Fstop_of_nodes_using_ssh_keys" title="">Customization tips</a>.
+</p><p>Here, we provide 3 scripts that you may customize and that make your ecological configuration a bit smarter than the default as it will be aware of keeping powered on a few nodes (4 in this example) that will be ready for incoming jobs:
+</p>
+<ul><li><a href="../images/3/34/Wake_up_nodes.sh" class="internal" title="Wake up nodes.sh">wake_up_nodes.sh</a>
+</li></ul>
+<p>Very simple script containing the command that powers on your nodes. In this example, suitable for an SGI Altix Ice, we do a <b>cpower</b> from an <b>admin</b> host. You'll probably have to customize this. This script is to be put in front of the SCHEDULER_NODE_MANAGER_WAKE_UP_CMD option of the oar.conf file, like this:
+</p>
+<pre>SCHEDULER_NODE_MANAGER_WAKE_UP_CMD="/usr/lib/oar/oardodo/oardodo /usr/local/sbin/wake_up_nodes.sh"
+</pre>
+<ul><li><a href="../images/7/73/Set_standby_nodes.sh" class="internal" title="Set standby nodes.sh">set_standby_nodes.sh</a>
+</li></ul>
+<p>This is the script for shutting down nodes. It uses <b>sentinelle</b> to send the <b>halt</b> command to the nodes, as suggested by the default configuration, but it refuses to shutdown some nodes if this results in less than 4 ready nodes. This script is to be put into the SCHEDULER_NODE_MANAGER_SLEEP_CMD by this way:
+</p>
+<pre>SCHEDULER_NODE_MANAGER_SLEEP_CMD="/usr/lib/oar/oardodo/oardodo /usr/local/sbin/set_standby_nodes.sh"
+</pre>
+<ul><li><a href="../images/9/98/Nodes_keepalive.sh" class="internal" title="Nodes keepalive.sh">nodes_keepalive.sh</a>
+</li></ul>
+<p>This script is responsible of waking up (power on) some nodes if there's not enough free alive nodes. The trick used by this script is to submit a dummy job to force OAR to wake up some nodes. It's intended to be ran periodically from the crontab, for example with such a /etc/cron.d/nodes_keepalive file:
+</p>
+<pre>*/5 * * * *     root    /usr/local/sbin/nodes_keepalive.sh
+</pre>
+<a name="Admission_rules" id="Admission_rules"></a><h1> <span class="mw-headline">Admission rules</span></h1>
+<p><i>OAR offers a powerful system letting you customize the way that jobs enter into queues (or are rejected from queues) called "admission rules". An admission rule is a little perl script that you insert into the admission_rules SQL table of the OAR database. Here, you'll find some advanced and useful examples.</i>
+</p>
+<a name="Cluster_routing_depending_on_the_name_of_the_queue" id="Cluster_routing_depending_on_the_name_of_the_queue"></a><h2> <span class="mw-headline">Cluster routing depending on the name of the queue</span></h2>
+<pre># Title&nbsp;: Cluster routing
+# Description&nbsp;: Send to the corresponding cluster
+my $cluster=$queue_name;
+if ($jobproperties ne ""){
+  $jobproperties = "($jobproperties) AND cluster = '".$cluster."'";
+}
+else{
+  $jobproperties = "cluster = '".$cluster."'";
+}
+</pre>
+<a name="Cluster_routing_depending_on_the_name_of_the_submission_host" id="Cluster_routing_depending_on_the_name_of_the_submission_host"></a><h2> <span class="mw-headline">Cluster routing depending on the name of the submission host</span></h2>
+<pre># Title&nbsp;: Cluster routing
+# Description&nbsp;: Send to the corresponding cluster and queue depending on the submission host
+use Sys::Hostname;
+my @h = split('\.',hostname());
+my $cluster;
+if ($h[0] eq "service0") { 
+  $cluster="nanostar";
+  print "[ADMISSION RULE] Routing to NANOSTAR cluster\n";
+}else { 
+  $cluster="foehn";
+  print "[ADMISSION RULE] Routing to FOEHN cluster\n";
+}
+if ($queue_name eq "default") {
+  $queue_name=$cluster;
+}
+if ($jobproperties ne ""){
+  $jobproperties = "($jobproperties) AND cluster = '".$cluster."'";
+}
+else{
+  $jobproperties = "cluster = '".$cluster."'";
+}
+</pre>
+<a name="Best-effort_automatic_routing_for_some_unprivileged_users" id="Best-effort_automatic_routing_for_some_unprivileged_users"></a><h2> <span class="mw-headline">Best-effort automatic routing for some unprivileged users</span></h2>
+<p>Description&nbsp;: Users that are not members of a given group are automatically directed to the besteffort queue
+</p>
+<pre>my $GROUP="nanostar";
+system("id -Gn $user |sed 's/ /\\n/g'|grep -w $GROUP &gt;/dev/null");
+if ($?&nbsp;!= 0){
+  print("[ADMISSION RULE]&nbsp;!!!! WARNING                                         &nbsp;!!!\n");
+  print("[ADMISSION RULE]&nbsp;!!!! AS AN EXTERNAL USER, YOU HAVE BEEN AUTOMATICALLY&nbsp;!!!\n");
+  print("[ADMISSION RULE]&nbsp;!!!! REDIRECTED TO THE BEST-EFFORT QUEUE             &nbsp;!!!\n");
+  print("[ADMISSION RULE]&nbsp;!!!! YOUR JOB MAYBE KILLED WITHOUT NOTICE            &nbsp;!!!\n");
+  $queue_name = "besteffort";
+  push (@{$type_list},"besteffort");
+  if ($jobproperties ne ""){    $jobproperties = "($jobproperties) AND besteffort = \'YES\'";  }else{
+        $jobproperties = "besteffort = \'YES\'";
+  }
+  $reservationField="None";
+}
+</pre>
+<a name="Automatic_licence_assignment_by_job_type" id="Automatic_licence_assignment_by_job_type"></a><h2> <span class="mw-headline">Automatic licence assignment by job type</span></h2>
+<p>Description&nbsp;: Creates a <b>mathlab</b> job type that automatically assigns a mathlab licence
+</p>
+<pre>if (grep(/^mathlab$/, @{$type_list})){
+  print "[LICENCE ADMISSION RULE] Adding a mathlab licence to the query\n";
+  foreach my $mold (@{$ref_resource_list}){
+    push(@{$mold-&gt;[0]},
+                       {'resources' =&gt;
+                            [{'resource' =&gt; 'licence','value' =&gt; '1'}],
+                        'property' =&gt; 'type = \'mathlab\<i>}</i>
+    );
+  }
+}
+</pre>
+<a name="Walltime_limit" id="Walltime_limit"></a><h2> <span class="mw-headline">Walltime limit</span></h2>
+<p>Description&nbsp;: By default, an admission rule limits the walltime of interactiv jobs to 2 hours. This modified rule also set up a walltime for passive jobs.
+</p>
+<pre>my $max_interactive_walltime = OAR::IO::sql_to_duration("12:00:00");
+# 7 days = 168 hours
+my $max_batch_walltime = OAR::IO::sql_to_duration("168:00:00");
+foreach my $mold (@{$ref_resource_list}){
+    if (defined($mold-&gt;[1])){
+        if (($jobType eq "INTERACTIVE") and ($reservationField eq "None") and ($max_interactive_walltime &lt; $mold-&gt;[1])){
+            print("[ADMISSION RULE] Walltime too big for an INTERACTIVE job so it is set to $max_interactive_walltime.\n");
+            $mold-&gt;[1] = $max_interactive_walltime;
+        }elsif ($max_batch_walltime &lt; $mold-&gt;[1]){
+            print("[ADMISSION RULE] Walltime too big for a BATCH job so it is set to $max_batch_walltime.\n");
+            $mold-&gt;[1] = $max_batch_walltime;
+        }
+    }
+}
+</pre>
+<p>Thanks to Nicolas Capit
+</p>
+<a name="Cpu_time_limit" id="Cpu_time_limit"></a><h2> <span class="mw-headline">Cpu time limit</span></h2>
+<p>Description&nbsp;: Rejects jobs asking for more than a cpu*walltime limit. Current limit is set to 384 hours (16 days of cpu-time)
+</p><p>Note: This rule is for an SMP host on which we only have a "pnodes" property (physical nodes) and "cpu" (only one core per cpu). It should be adapted for a more conventional distributed memory cluster having simple nodes with several cores per cpus.
+</p>
+<pre>my $cpu_walltime=iolib::sql_to_duration("384:00:00");
+my $msg="";                                          
+foreach my $mold (@{$ref_resource_list}){            
+ foreach my $r (@{$mold-&gt;[0]}){                     
+   my $cpus=0;                                      
+   my $pnodes=0;                                    
+
+   # Catch the cpu and pnode resources
+   foreach my $resource (@{$r-&gt;{resources}}) {
+       if ($resource-&gt;{resource} eq "cpu") {  
+         $cpus=$resource-&gt;{value};            
+       }                                      
+       if ($resource-&gt;{resource} eq "pnode") {
+         $pnodes=$resource-&gt;{value};          
+       }                                      
+   }                                          
+
+   # Calculate the number of cpus
+   if ($pnodes == 0 &amp;&amp; $cpus == 0) { $cpus=1; }
+   if ($pnodes&nbsp;!= 0) {
+     if ($cpus == 0) { $cpus=$pnodes*2;}
+     else {$cpus=$pnodes*$cpus;}
+   }
+
+   # Reject if walltime*cpus is too big
+   if ($cpus * $mold-&gt;[1] &gt; $cpu_walltime) {
+     $msg="\n   [WALLTIME TOO BIG] The maximum allowed walltime for $cpus cpus is ";
+     $msg.= $cpu_walltime / $cpus / 3600;
+     $msg.= " hours.\n";
+     die($msg);
+   }
+ }
+}
+</pre>
+<a name="Jobs_number_limit" id="Jobs_number_limit"></a><h2> <span class="mw-headline">Jobs number limit</span></h2>
+<p>Description&nbsp;: Limits the maximum number of simultaneous jobs allowed for each user on the cluster. Default is 50 jobs maximum per user.<br />
+It is possible to specify users having unlimited jobs number in <i>~oar/unlimited_reservation.users</i> file (on oar-server)<br />
+You can also configure the max_nb_jobs by setting your value in <i>~oar/max_jobs</i> (on oar-server)<br />
+Note&nbsp;: Array jobs are also limited by this rule.
+</p>
+<pre># Title&nbsp;: Limit the number of jobs per user to max_nb_jobs
+# Description&nbsp;: If user is not listed in unlimited users file, it checks if current number of jobs is well under $max_nb_jobs, which is defined in ~oar/max_jobs or is 50 by default
+my $unlimited=0;
+if (open(FILE, "&lt; $ENV{HOME}/unlimited_reservation.users")) {
+    while (&lt;FILE&gt;) {
+        if (m/^\s*$user\s*$/m) {
+            $unlimited=1;
+        }
+    }
+    close(FILE);
+}
+if ($unlimited == 0) {
+    my $max_nb_jobs = 50;
+    if (open(FILE, "&lt; $ENV{HOME}/max_jobs")) {
+        while (&lt;FILE&gt;) {
+            chomp;
+            $max_nb_jobs=$_;
+        }
+        close(FILE);
+    }
+
+    my $nb_jobs = $dbh-&gt;selectrow_array(
+        qq{ SELECT COUNT(job_id)
+            FROM jobs
+            WHERE job_user =&nbsp;?
+            AND (state = \'Waiting\'
+            OR state = \'Hold\'
+            OR state = \'toLaunch\'
+            OR state = \'toAckReservation\'
+            OR state = \'Launching\'
+            OR state = \'Running\'
+            OR state = \'Suspended\'
+            OR state = \'Resuming\'
+            OR state = \'Finishing\') },
+        undef,
+        $user);
+
+    if (($nb_jobs + $array_job_nb) &gt; $max_nb_jobs) {
+        die("[ADMISSION RULE] Error: you cannot have more than $max_nb_jobs submitted jobs at the same time.\n");
+    }
+}
+</pre>
+<a name="Project_assignment" id="Project_assignment"></a><h2> <span class="mw-headline">Project assignment</span></h2>
+<p>If you want to automatically assign a project to users submissions (replacing --project oarsub option), you simply have to set the <b>$project</b> variable to what you want inside an admission rule.
+</p>
+<a name="Restricts_access_to_a_user_list_for_a_set_of_resources" id="Restricts_access_to_a_user_list_for_a_set_of_resources"></a><h2> <span class="mw-headline">Restricts access to a user list for a set of resources</span></h2>
+<p>For example, if you defined with the command "oarproperty" a property "model"
+then you can enforce some properties constraints for some users.
+</p>
+<pre> # Title&nbsp;: Restricts the use of resources for some users
+ # Description&nbsp;:  think to change the user list in this admission rule
+ 
+ my&nbsp;%allowed_users = (
+     "toto" =&gt; 1,
+     "titi" =&gt; 1,
+     "tutu" =&gt; 0
+ );
+ 
+ if (!defined($allowed_users{$user}) or ($allowed_users{$user} == 0)){
+     if ($jobproperties ne ""){
+         $jobproperties = "($jobproperties) AND model&nbsp;!= 'bullx'";
+     }else{
+         $jobproperties = "model&nbsp;!= 'bullx'";
+     }
+     print("[ADMISSION RULE] Automatically add the constraint to not go on the bullx nodes\n");
+ }
+</pre>
+<a name="Limit_the_number_of_interactive_jobs_per_user" id="Limit_the_number_of_interactive_jobs_per_user"></a><h2> <span class="mw-headline">Limit the number of interactive jobs per user</span></h2>
+<pre> # Title&nbsp;:  Limit the number of interactive jobs per user
+ # Description&nbsp;:  Limit the number of interactive jobs per user
+ 
+ my $max_interactive_jobs = 2;
+ 
+ if (($jobType eq "INTERACTIVE") and ($reservationField eq "None")){
+     my $nb_jobs = $dbh-&gt;do("    SELECT job_id
+                                 FROM jobs
+                                 WHERE
+                                       job_user = '$user' AND
+                                       reservation = 'None' AND
+                                       job_type = 'INTERACTIVE' AND
+                                       (state = 'Waiting'
+                                           OR state = 'Hold'
+                                           OR state = 'toLaunch'
+                                           OR state = 'toAckReservation'
+                                           OR state = 'Launching'
+                                           OR state = 'Running'
+                                           OR state = 'Suspended'
+                                           OR state = 'Resuming'
+                                           OR state = 'Finishing')
+                            ");
+     if ($nb_jobs &gt;= $max_interactive_jobs){
+         die("You cannot have more than $max_interactive_jobs interactive jobs at a time.\n");
+     }
+ }
+</pre>
+<a name="Auto_property_restriction_for_specific_user_groups" id="Auto_property_restriction_for_specific_user_groups"></a><h2> <span class="mw-headline">Auto property restriction for specific user groups</span></h2>
+<pre> # Title&nbsp;:  Infiniband user restrictions
+ # Description&nbsp;:  put the ib property restriction depending of the groups of the user
+ 
+ if ((! grep(/^besteffort$/, @{$type_list})) and ($user ne "serviware")){
+     print("[ADMISSION RULE] Check on which Infiniband network you can go on...\n");
+     my ($user_name,$user_passwd,$user_uid,$user_gid,$user_quota,$user_comment,$user_gcos,$user_dir,$user_shell,$user_expire) = getpwnam($user);
+     my ($primary_group,$primary_passwd,$primary_gid,$primary_members) = getgrgid($user_gid);
+     
+     my ($seiscope_name,$seiscope_passwd,$seiscope_gid,$seiscope_members) = getgrnam("seiscope");
+     my&nbsp;%seiscope_hash = map { $_ =&gt; 1 } split(/\s+/,$seiscope_members);
+     my ($globalseis_name,$globalseis_passwd,$globalseis_gid,$globalseis_members) = getgrnam("globalseis");
+     my&nbsp;%globalseis_hash = map { $_ =&gt; 1 } split(/\s+/,$globalseis_members);
+     my ($tohoku_name,$tohoku_passwd,$tohoku_gid,$tohoku_members) = getgrnam("tohoku");
+     my&nbsp;%tohoku_hash = map { $_ =&gt; 1 } split(/\s+/,$tohoku_members);
+     
+     my $sql_str = "ib = \'none\'";
+     if (($primary_group eq "seiscope") or (defined($seiscope_hash{$user}))){
+         print("[ADMISSION RULE] You are in the group seiscope so you can go on the QDR Infiniband nodes\n");
+         $sql_str .= " OR ib = \'QDR\'";
+     }   
+     if (($primary_group eq "globalseis") or (defined($globalseis_hash{$user})) or ($primary_group eq "tohoku") or (defined($tohoku_hash{$user}))){
+         print("[ADMISSION RULE] You are in the group globalseis or tohoku so you can go on the DDR Infiniband nodes\n");
+         $sql_str .= " OR ib = \'DDR\'";
+     }   
+     
+     if ($jobproperties ne ""){
+         $jobproperties = "($jobproperties) AND ($sql_str)";
+     }else{
+         $jobproperties = "$sql_str";
+     }   
+ }   
+</pre>
+<a name="Debug_admission_rule" id="Debug_admission_rule"></a><h2> <span class="mw-headline">Debug admission rule</span></h2>
+<p>When you play with admission rules, you can dump some data structures with YAML to have a readable output of the submission requests for example:
+</p>
+<pre>print "[DEBUG] Output of the resources query data structure:\n";
+print YAML::Dump(@{$ref_resource_list});
+</pre>
+<a name="NUMA_topology_optimization" id="NUMA_topology_optimization"></a><h2> <span class="mw-headline">NUMA topology optimization</span></h2>
+<p>See the <a href="Configuration_tips.html#NUMA_topology_optimization_2" title="">NUMA topology optimization</a> usecase
+</p>
+<a name="Short.2C_medium_and_long_queues" id="Short.2C_medium_and_long_queues"></a><h2> <span class="mw-headline">Short, medium and long queues</span></h2>
+<p>Description: The following is a set of admission rules that route on 3 different queues having different priorities. Some core number restrictions per queue are set up.
+</p><p>Queues creation:
+</p>
+<pre>oarnotify --add_queue short,9,oar_sched_gantt_with_timesharing_and_fairsharing
+oarnotify --add_queue medium,5,oar_sched_gantt_with_timesharing_and_fairsharing
+oarnotify --add_queue long,3,oar_sched_gantt_with_timesharing_and_fairsharing
+</pre>
+<p>Rules:
+</p>
+<pre>------
+Rule&nbsp;: 20
+# Title: Automatic routing into the short queue
+# Description: Short jobs are automatically routed into the short queue
+
+my $max_walltime="6:00:00";
+my $walltime=0;
+
+# Search for the max walltime of the moldable jobs
+foreach my $mold (@{$ref_resource_list}){
+  foreach my $r (@{$mold-&gt;[0]}){
+    if ($mold-&gt;[1] &gt; $walltime) {
+      $walltime = $mold-&gt;[1]; 
+    }
+  }
+}
+
+# Put into the short queue if the job is short
+if ($walltime &lt;=  OAR::IO::sql_to_duration($max_walltime)
+                &amp;&amp;&nbsp;!(grep(/^besteffort$/, @{$type_list}))) {
+  print "   [SHORT QUEUE] This job is routed into the short queue\n";
+  $queue_name="short";
+}
+</pre>
+<pre>------
+Rule&nbsp;: 21
+# Title: Automatic routing into the medium queue
+# Description: Medium jobs are automatically routed into the medium queue
+
+my $max_walltime="120:00:00";
+my $min_walltime="6:00:00";
+my $walltime=0;
+
+# Search for the max walltime of the moldable jobs
+foreach my $mold (@{$ref_resource_list}){
+  foreach my $r (@{$mold-&gt;[0]}){
+    if ($mold-&gt;[1] &gt; $walltime) {
+      $walltime = $mold-&gt;[1]; 
+    }
+  }
+}
+
+# Put into the medium queue if the job is medium
+if ($walltime &lt;= OAR::IO::sql_to_duration($max_walltime)
+    &amp;&amp; $walltime &gt; OAR::IO::sql_to_duration($min_walltime)
+    &amp;&amp;&nbsp;!(grep(/^besteffort$/, @{$type_list}))) {
+  print "  [MEDIUM QUEUE] This job is routed into the medium queue\n";
+  $queue_name="medium";
+}
+</pre>
+<pre>------
+Rule&nbsp;: 22
+# Title: Automatic routing into the long queue
+# Description: Medium jobs are automatically routed into the medium queue
+
+my $max_walltime="360:00:00";
+my $min_walltime="120:00:00";
+my $walltime=0;
+
+# Search for the max walltime of the moldable jobs
+foreach my $mold (@{$ref_resource_list}){
+  foreach my $r (@{$mold-&gt;[0]}){
+    if ($mold-&gt;[1] &gt; $walltime) {
+      $walltime = $mold-&gt;[1]; 
+    }
+  }
+}
+
+# Put into the long queue if the job is long
+if ($walltime &gt; OAR::IO::sql_to_duration($min_walltime)
+    &amp;&amp;&nbsp;!(grep(/^besteffort$/, @{$type_list}))) {
+  print "    [LONG QUEUE] This job is routed into the long queue\n";
+  $queue_name="long";
+}
+
+# Limit walltime of the "long" queue
+if ($queue_name eq "long"){
+  my $min_walltime="120:00:00";
+  my $max_walltime="360:00:00";
+  foreach my $mold (@{$ref_resource_list}){
+    foreach my $r (@{$mold-&gt;[0]}){
+      if ($mold-&gt;[1] &gt; OAR::IO::sql_to_duration($max_walltime)) {
+        print "\n   [WALLTIME TOO BIG] The maximum allowed walltime for the long queue is $max_walltime\n";
+        exit(1);
+      }
+      if ($mold-&gt;[1] &lt;= OAR::IO::sql_to_duration($min_walltime)) {
+        print "\n   [WALLTIME TOO SHORT] The minimum allowed walltime for the long queue is $min_walltime\n";
+        exit(1);
+      }
+    }
+  }
+}
+</pre>
+<pre>------
+Rule&nbsp;: 23
+# Title&nbsp;: Core number restrictions 
+# Description&nbsp;: Count the number of cores requested and reject if the queue does not allow this
+
+# Check the resources
+my $resources_def=$ref_resource_list-&gt;[0];
+my $n_core_per_cpus=6;
+my $n_cpu_per_node=2;
+my $core=0;
+my $cpu=0;
+my $node=0;
+foreach my $r (@{$resources_def-&gt;[0]}) {
+  foreach my $resource (@{$r-&gt;{resources}}) {
+    if ($resource-&gt;{resource} eq "core") {$core=$resource-&gt;{value};}
+    if ($resource-&gt;{resource} eq "cpu") {$cpu=$resource-&gt;{value};}
+    if ($resource-&gt;{resource} eq "nodes") {$node=$resource-&gt;{value};}
+    if ($resource-&gt;{resource} eq "network_address") {$node=$resource-&gt;{value};}
+  }
+}
+# Now, calculate the number of total cores
+my $n_cores=0;
+if ($node == 0 &amp;&amp; $cpu&nbsp;!= 0 &amp;&amp; $core == 0) {
+    $n_cores = $cpu*$n_core_per_cpus;
+}elsif ($node&nbsp;!= 0 &amp;&amp; $cpu == 0 &amp;&amp; $core == 0) {
+    $n_cores = $node*$n_cpu_per_node*$n_core_per_cpus;
+}elsif ($node&nbsp;!= 0 &amp;&amp; $cpu == 0 &amp;&amp; $core&nbsp;!= 0) {
+    $n_cores = $node*$core;
+}elsif ($node == 0 &amp;&amp; $cpu&nbsp;!= 0 &amp;&amp; $core&nbsp;!= 0) {
+    $n_cores = $cpu*$core;
+}elsif ($node == 0 &amp;&amp; $cpu == 0 &amp;&amp; $core&nbsp;!= 0) {
+    $n_cores = $core;
+}
+else { $n_cores = $node*$cpu*$core; }
+print "   [CORES COUNT] You requested $n_cores cores\n";
+
+# Now the restrictions:
+my $short=132; # 132 cores = 11 noeuds
+my $medium=132; # 132 cores = 11 noeuds
+my $long=132; # 132 cores = 11 noeuds
+if ("$queue_name" eq "long" &amp;&amp; $n_cores &gt; $long) {
+  print "\n   [CORES COUNT] Too many cores for this queue (max is $long)!\n";
+  exit(1);
+}
+if ("$queue_name" eq "medium" &amp;&amp; $n_cores &gt; $medium) {
+  print "\n   [CORES COUNT] Too many cores for this queue (max is $medium)!\n";
+  exit(1);
+}
+if ("$queue_name" eq "short" &amp;&amp; $n_cores &gt; $short) {
+  print "\n   [CORES COUNT] Too many cores for this queue (max is $short)!\n";
+  exit(1);
+}
+</pre>
+<pre>------
+Rule&nbsp;: 24
+# Title&nbsp;: Restriction des jobs long ou medium
+# Description&nbsp;: Les jobs long ou medium ne peuvent pas tourner sur les ressources ayant la propriété long=NO
+if ("$queue_name" eq "long" || "$queue_name" eq "medium"){
+    if ($jobproperties ne ""){       
+        $jobproperties = "($jobproperties) AND long = \'YES\'";
+    }else{                                                       
+        $jobproperties = "long = \'YES\'";
+    }
+    print "[ADMISSION RULE] Adding long/medium jobs resources restrictions\n";
+}
+</pre>
+<a name="Naming_interactive_jobs_by_default" id="Naming_interactive_jobs_by_default"></a><h2> <span class="mw-headline">Naming interactive jobs by default</span></h2>
+<p>Description: Interactive jobs with no name are automatically named "interactive unnamed job"
+</p>
+<pre>if (($jobType eq "INTERACTIVE") and ($job_name eq <i>)){</i>
+   $job_name = 'interactive unnamed job';
+}
+</pre>
+<a name="Use_cases" id="Use_cases"></a><h1> <span class="mw-headline">Use cases</span></h1>
+<a name="OpenMPI_.2B_affinity" id="OpenMPI_.2B_affinity"></a><h2> <span class="mw-headline">OpenMPI + affinity</span></h2>
+<p>We saw that the Linux kernel seems to be incapable of using correctly all the CPUs from the cpusets.
+</p><p>Indeed, reserving 2 out of 8 cores on a node and running a code that uses 2
+process, these 2 process where not well assigned to each cpu.
+We had to give the CPU MAP to OpenMPI to do cpu_affinity:
+</p>
+<pre>i=0;oarprint core -P host,cpuset -F "% slot=%" | while read line&nbsp;; do echo "rank $i=$line"; ((i++)); done &gt; affinity.txt
+</pre>
+<pre>[user@node12 tmp]$ mpirun -np 8 --mca btl openib,self -v -display-allocation -display-map  --machinefile $OAR_NODEFILE -rf affinity.txt /home/user/espresso-4.0.4/PW/pw.x &lt; BeO_100.inp
+</pre>
+<a name="NUMA_topology_optimization_2" id="NUMA_topology_optimization_2"></a><h2> <span class="mw-headline">NUMA topology optimization</span></h2>
+<p>In this use case, we've got a numa host (an Altix 450) having a "squared" topology: nodes are interconnected by routers like in this view:
+</p><p><a href="File:LFI_Topology.png.html" class="image" title="LFI Topology.png"><img alt="" src="../images/thumb/d/d8/LFI_Topology.png/300px-LFI_Topology.png" width="300" height="255" border="0" /></a>
+In yellow, "routers", in magenta, "nodes" (2 dual-core processors per node)
+</p><p>Routers interconnect IRUS (chassis) on which the nodes are plugged (4 or 5 nodes per IRU). 
+</p><p>What we want is that for jobs that can enter into 2 IRUS or less, minimize the distance between the resources (ie use IRUS that have only one router interconnexion between them). The topology may be siplified as follows:
+</p><p><a href="File:LFI_Topology_square.png.html" class="image" title="LFI Topology square.png"><img alt="" src="../images/thumb/2/2e/LFI_Topology_square.png/300px-LFI_Topology_square.png" width="300" height="236" border="0" /></a>
+</p><p>The idea is to use moldable jobs and an admission rule that converts automatically the user requests to a moldable job. This job uses 2 resource properties: <b>numa_x</b> and <b>numa_y</b> that may be analogue to the square coordinates. What we want in fact, is the job that ends the soonest between a job running on an X or on a Y coordinate (we only want vertical or horizontal placed jobs).
+</p><p>The numa_x and numa_y properties are set up this way (pnode is a property corresponding to physical nodes):
+</p>
+<table border="1">
+<tr>
+<th>pnode
+</th><th>iru
+</th><th>numa_x
+</th><th>numa_y
+</th></tr>
+<tr>
+<td>itanium1
+</td><td>1
+</td><td>0
+</td><td>1
+</td></tr>
+<tr>
+<td>itanium2
+</td><td>1
+</td><td>0
+</td><td>1
+</td></tr>
+<tr>
+<td>itanium3
+</td><td>1
+</td><td>0
+</td><td>1
+</td></tr>
+<tr>
+<td>itanium4
+</td><td>1
+</td><td>0
+</td><td>1
+</td></tr>
+<tr>
+<td>itanium5
+</td><td>2
+</td><td>1
+</td><td>1
+</td></tr>
+<tr>
+<td>itanium6
+</td><td>2
+</td><td>1
+</td><td>1
+</td></tr>
+<tr>
+<td>itanium7
+</td><td>2
+</td><td>1
+</td><td>1
+</td></tr>
+<tr>
+<td>itanium8
+</td><td>2
+</td><td>1
+</td><td>1
+</td></tr>
+<tr>
+<td>itanium9
+</td><td>2
+</td><td>1
+</td><td>1
+</td></tr>
+<tr>
+<td>itanium10
+</td><td>3
+</td><td>0
+</td><td>0
+</td></tr>
+<tr>
+<td>itanium11
+</td><td>3
+</td><td>0
+</td><td>0
+</td></tr>
+<tr>
+<td>itanium12
+</td><td>3
+</td><td>0
+</td><td>0
+</td></tr>
+<tr>
+<td>itanium13
+</td><td>3
+</td><td>0
+</td><td>0
+</td></tr>
+<tr>
+<td>itanium14
+</td><td>3
+</td><td>0
+</td><td>0
+</td></tr>
+<tr>
+<td>itanium15
+</td><td>4
+</td><td>1
+</td><td>0
+</td></tr>
+<tr>
+<td>itanium16
+</td><td>4
+</td><td>1
+</td><td>0
+</td></tr>
+<tr>
+<td>itanium17
+</td><td>4
+</td><td>1
+</td><td>0
+</td></tr>
+<tr>
+<td>itanium18
+</td><td>4
+</td><td>1
+</td><td>0
+</td></tr></table>
+<p>For example, the following requested ressources:
+</p>
+<pre>-l /core=16
+</pre>
+<p>will result into:
+</p>
+<pre>-l /numa_x=1/pnode=4/cpu=2/core=2 -l /numa_y=1/pnode=4/cpu=2/core=2
+</pre>
+<p>Here is the admission rule making that optimization:
+</p>
+<pre># Title&nbsp;: Numa optimization
+# Description&nbsp;: Creates a moldable job to take into account the "squared" topology of an Altix 450
+my $n_core_per_cpus=2;
+my $n_cpu_per_pnode=2;
+if (grep(/^itanium$/, @{$type_list}) &amp;&amp; (grep(/^manual$/, @{$type_list}) == "") &amp;&amp; $#$ref_resource_list == 0){
+  print "[ADMISSION RULE] Optimizing for numa architecture (use \"-t manual\" to disable)\n";
+  my $resources_def=$ref_resource_list-&gt;[0];
+  my $core=0;
+  my $cpu=0;
+  my $pnode=0;
+  foreach my $r (@{$resources_def-&gt;[0]}) {
+    foreach my $resource (@{$r-&gt;{resources}}) {
+      if ($resource-&gt;{resource} eq "core") {$core=$resource-&gt;{value};}
+      if ($resource-&gt;{resource} eq "cpu") {$cpu=$resource-&gt;{value};}
+      if ($resource-&gt;{resource} eq "pnode") {$pnode=$resource-&gt;{value};}
+    }
+  }
+  # Now, calculate the number of total cores
+  my $n_cores=0;
+  if ($pnode == 0 &amp;&amp; $cpu&nbsp;!= 0 &amp;&amp; $core == 0) {
+    $n_cores = $cpu*$n_core_per_cpus;
+  }
+  elsif ($pnode&nbsp;!= 0 &amp;&amp; $cpu == 0 &amp;&amp; $core == 0) {
+    $n_cores = $pnode*$n_cpu_per_pnode*$n_core_per_cpus;
+  }
+  elsif ($pnode&nbsp;!= 0 &amp;&amp; $cpu == 0 &amp;&amp; $core&nbsp;!= 0) {
+    $n_cores = $pnode*$core;
+  }
+  elsif ($pnode == 0 &amp;&amp; $cpu&nbsp;!= 0 &amp;&amp; $core&nbsp;!= 0) {
+    $n_cores = $cpu*$core;
+  }
+  elsif ($pnode == 0 &amp;&amp; $cpu == 0 &amp;&amp; $core&nbsp;!= 0) {
+    $n_cores = $core;
+  }
+  else { $n_cores = $pnode*$cpu*$core; }
+  print "[ADMISSION RULE] You requested $n_cores cores\n";
+  if ($n_cores &gt; 32) {
+    print "[ADMISSION RULE] Big job (&gt;32 cores), no optimization is possible\n";
+  }else{
+    print "[ADMISSION RULE] Optimization produces: /numa_x=1/$pnode/$cpu/$core
+                                        /numa_y=1/$pnode/$cpu/$core\n";
+
+    my @newarray=eval(Dumper(@{$ref_resource_list}-&gt;[0]));
+    push (@{$ref_resource_list},@newarray);
+    unshift(@{%{@{@{@{$ref_resource_list}-&gt;[0]}-&gt;[0]}-&gt;[0]}-&gt;{resources}},{'resource' =&gt; 'numa_x','value' =&gt; '1'});
+    unshift(@{%{@{@{@{$ref_resource_list}-&gt;[1]}-&gt;[0]}-&gt;[0]}-&gt;{resources}},{'resource' =&gt; 'numa_y','value' =&gt; '1'});
+  }
+}
+</pre>
+<a name="Troubles_and_solutions" id="Troubles_and_solutions"></a><h1> <span class="mw-headline">Troubles and solutions</span></h1>
+<a name="Can.27t_do_setegid.21" id="Can.27t_do_setegid.21"></a><h2> <span class="mw-headline">Can't do setegid!</span></h2>
+<p>Some distributions have perl_suid installed, but not set up correctly. The solution is something like that:
+</p>
+<pre>bzeznik@healthphy:~&gt; which sperl5.8.8
+/usr/bin/sperl5.8.8
+bzeznik@healthphy:~&gt; sudo chmod u+s /usr/bin/sperl5.8.8
+</pre>
+<a name="Users_tips" id="Users_tips"></a><h1> <span class="mw-headline">Users tips</span></h1>
+<a name="oarsh_completion" id="oarsh_completion"></a><h2> <span class="mw-headline">oarsh completion</span></h2>
+<p><i>This tip is from Jerome Reybert.</i>
+</p><p>"I wanted a simple way to access another nodes from the main node of my OAR reservation (ie. to check if a library is present on another node, or to top a process...). Every time I needed this, I had to"
+</p>
+<pre>$ cat $OAR_NODEFILE
+$ oarsh "one of the nodes"
+</pre>
+<p>"bash_completion is a better solution. bash_completion seems to be widely available on g5k nodes. You just have to add these lines in your .bashrc, and then try oarsh &lt;TAB&gt;:"
+</p>
+<pre>function _oarsh_complete_()
+{
+  local word=${COMP_WORDS[COMP_CWORD]}
+  local list=`cat $OAR_NODEFILE | uniq | tr '\n' ' '`
+  COMPREPLY=($(compgen -W "$list" -- "${word}"))
+}
+</pre>
+<pre>complete -F _oarsh_complete_ oarsh
+</pre>
+<a name="PROMPT_BASH_for_Interactive_jobs" id="PROMPT_BASH_for_Interactive_jobs"></a><h2> <span class="mw-headline">PROMPT BASH for Interactive jobs</span></h2>
+<p>If you want to have a bash prompt with your job id and the remaining walltime then you can add in your ~/.bashrc:
+</p>
+<pre> if [ "$PS1" ]; then
+     __oar_ps1_remaining_time(){
+         if [ -n "$OAR_JOB_WALLTIME_SECONDS" -a -n "$OAR_NODE_FILE" -a -r "$OAR_NODE_FILE" ]; then
+             DATE_NOW=$(date +%s)
+             DATE_JOB_START=$(stat -c&nbsp;%Y $OAR_NODE_FILE)
+             DATE_TMP=$OAR_JOB_WALLTIME_SECONDS
+             ((DATE_TMP = (DATE_TMP - DATE_NOW + DATE_JOB_START) / 60))
+             echo -n "$DATE_TMP"
+         fi
+     }
+     
+     PS1='[\u@\h \W]$([ -n "$OAR_NODE_FILE" ] &amp;&amp; echo -n "(\[\e[1;32m\]$OAR_JOB_ID\[\e[0m\]--&gt;\[\e[1;34m\]$(__oar_ps1_remaining_time)mn\[\e[0m\])")\$ '
+     
+     if [ -n "$OAR_NODE_FILE" ]
+     then
+         echo "[OAR] OAR_JOB_ID=$OAR_JOB_ID"
+         echo "[OAR] Your nodes are:"
+         sort $OAR_NODE_FILE | uniq -c | awk '{printf("     &nbsp;%s*%d\n",$2,$1)}END{printf("\n")}' | sed -e 's/,$//'
+     fi
+ fi
+</pre>
+<p><br />
+Then the prompt inside an Interactive job will be like:
+</p>
+<pre> [capitn@node006 ~](3101--&gt;29mn)$
+</pre>
+<a name="Many_small_jobs_grouping" id="Many_small_jobs_grouping"></a><h2> <span class="mw-headline">Many small jobs grouping</span></h2>
+<p>Many small jobs of a few seconds may be painful for the OAR system. OAR may spend more time scheduling, allocating and launching than the actual computation time for each job.
+</p><p>Gabriel Moreau developed a script that may be useful when you have a large set of small jobs. It groups you jobs into a unique bigger OAR job:
+<a href="http://servforge.legi.grenoble-inp.fr/pub/soft-trokata/oarutils/oar-parexec.html" class="external free" title="http://servforge.legi.grenoble-inp.fr/pub/soft-trokata/oarutils/oar-parexec.html" rel="nofollow">http://servforge.legi.grenoble-inp.fr/pub/soft-trokata/oarutils/oar-parexec.html</a>
+You can download it from this page:
+<a href="http://servforge.legi.grenoble-inp.fr/projects/soft-trokata/wiki/SoftWare/OarUtils" class="external free" title="http://servforge.legi.grenoble-inp.fr/projects/soft-trokata/wiki/SoftWare/OarUtils" rel="nofollow">http://servforge.legi.grenoble-inp.fr/projects/soft-trokata/wiki/SoftWare/OarUtils</a>
+</p><p>For a more generic approach you can use Cigri, a grid middleware running onto OAR cluster(s) that is able to automatically group parametric jobs. Cigri is currently in a re-writing process and a new public release is planned for the end of 2012. Please contact Bruno.Bzeznik@imag.fr for more informations.
+</p>
+<a name="Environment_variables_through_oarsh" id="Environment_variables_through_oarsh"></a><h2> <span class="mw-headline">Environment variables through oarsh</span></h2>
+<p><a href="http://servforge.legi.grenoble-inp.fr/pub/soft-trokata/oarutils/oar-envsh.html" class="external free" title="http://servforge.legi.grenoble-inp.fr/pub/soft-trokata/oarutils/oar-envsh.html" rel="nofollow">http://servforge.legi.grenoble-inp.fr/pub/soft-trokata/oarutils/oar-envsh.html</a>
+</p><p><a href="http://servforge.legi.grenoble-inp.fr/projects/soft-trokata/wiki/SoftWare/OarUtils" class="external free" title="http://servforge.legi.grenoble-inp.fr/projects/soft-trokata/wiki/SoftWare/OarUtils" rel="nofollow">http://servforge.legi.grenoble-inp.fr/projects/soft-trokata/wiki/SoftWare/OarUtils</a>
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 85/1000000
+Post-expand include size: 2511/2097152 bytes
+Template argument size: 1173/2097152 bytes
+Expensive parser function count: 0/100
+#ifexist count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikioar:pcache:idhash:77-0!1!0!!en!2!edit=0 and timestamp 20150721145039 -->
+<div class="printfooter">
+Retrieved from "<a href="Customization_tips.html">http://wiki-oar.imag.fr/index.php/Customization_tips</a>"</div>
+			<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="Special:Categories.html" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="Category:Portal:Doc:admin.html" title="Category:Portal:Doc:admin">Portal:Doc:admin</a></span></div></div>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="Customization_tips.html" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki-oar.imag.fr/index.php?title=Talk:Customization_tips&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="../index.php%3Ftitle=Customization_tips&amp;action=edit.html" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="../index.php%3Ftitle=Customization_tips&amp;action=history.html" title="Past revisions of this page [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="../index.php%3Ftitle=Special:UserLogin&amp;returnto=Customization_tips.html" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://oar.imag.fr/schemas/oar_logo_small.png);" href="../index.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-Public_portal'>
+		<h5>Public portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="../index.html" title="Visit the main page">Main Page</a></li>
+				<li id="n-Appliances-.28Kameleon.29"><a href="Kameleon.html">Appliances (Kameleon)</a></li>
+				<li id="n-OAR-Website"><a href="http://oar.imag.fr">OAR Website</a></li>
+				<li id="n-REST-API"><a href="RESTfullAPI.html">REST API</a></li>
+				<li id="n-Customization-tips"><a href="Configuration_tips.html">Customization tips</a></li>
+				<li id="n-OAR.27s-News"><a href="http://oar.imag.fr/news/">OAR's News</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Summer_of_Code'>
+		<h5>Summer of Code</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-GSoC-Summary"><a href="Google_summer_of_code.html">GSoC Summary</a></li>
+				<li id="n-2010-edition"><a href="GSOC_2010.html">2010 edition</a></li>
+				<li id="n-2009-edition"><a href="GSOC_2009.html">2009 edition</a></li>
+				<li id="n-2008-edition"><a href="http://oar.imag.fr/works/gsoc/2008/">2008 edition</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Related_links'>
+		<h5>Related links</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="Links.html">Summary:</a></li>
+				<li id="n-About-OAR-.28French.29"><a href="http://www.projet-plume.org/fr/fiche/oar">About OAR (French)</a></li>
+				<li id="n-TakTuk"><a href="http://taktuk.gforge.inria.fr/">TakTuk</a></li>
+				<li id="n-CiGri"><a href="http://cigri.imag.fr/">CiGri</a></li>
+				<li id="n-Kameleon"><a href="Kameleon.html">Kameleon</a></li>
+				<li id="n-ComputeMode"><a href="http://computemode.imag.fr/">ComputeMode</a></li>
+				<li id="n-Xionee"><a href="https://gforge.inria.fr/projects/xionee/">Xionee</a></li>
+				<li id="n-KaDeploy"><a href="http://kadeploy.imag.fr/">KaDeploy</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Developers_portal'>
+		<h5>Developers portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="Developers_Pages.html">Summary:</a></li>
+				<li id="n-Meetings-reports"><a href="Category:Portal:Staff:MeetingReports.html">Meetings reports</a></li>
+				<li id="n-Assigned-TaskList"><a href="Special:TaskList/all.html">Assigned TaskList</a></li>
+				<li id="n-Todo-Page"><a href="TODO.html">Todo Page</a></li>
+				<li id="n-Tools-and-Tips"><a href="Devel_Tools_tips.html">Tools and Tips</a></li>
+				<li id="n-FAQ"><a href="FAQ.html">FAQ</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://wiki-oar.imag.fr/index.php" id="searchform"><div>
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text" title="Search WikiOAR [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="Special:WhatLinksHere/Customization_tips.html" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="Special:RecentChangesLinked/Customization_tips.html" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="Special:SpecialPages.html" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="../index.php%3Ftitle=Customization_tips&amp;printable=yes.html" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="../index.php%3Ftitle=Customization_tips&amp;oldid=3736.html" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 19 March 2013, at 13:59.</li>
+					<li id="viewcount">This page has been accessed 41,882 times.</li>
+					<li id="about"><a href="WikiOAR:About.html" title="WikiOAR:About">About WikiOAR and OAR logo</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.204 secs. --></body></html>

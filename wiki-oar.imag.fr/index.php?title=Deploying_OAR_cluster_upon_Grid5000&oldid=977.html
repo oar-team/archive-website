@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5-2squeeze6" />
+		<meta name="robots" content="noindex,nofollow" />
+		<meta name="keywords" content="Deploying OAR cluster upon Grid5000,Nancy,Rennes,Grenoble" />
+		<link rel="shortcut icon" href="http://oar.imag.fr/images/logo_oar.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="WikiOAR (en)" />
+		<link rel="alternate" type="application/rss+xml" title="WikiOAR RSS feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="WikiOAR Atom feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=atom" />
+		<title>Deploying OAR cluster upon Grid5000 - WikiOAR</title>
+		<link rel="stylesheet" href="skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=-&amp;action=raw&amp;maxage=18000&amp;gen=css.css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://wiki-oar.imag.fr";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Deploying_OAR_cluster_upon_Grid5000";
+		var wgTitle = "Deploying OAR cluster upon Grid5000";
+		var wgAction = "view";
+		var wgArticleId = "108";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 977;
+		var wgVersion = "1.15.5-2squeeze6";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="skins/common/ajax.js%3F207"></script>
+		<script type="text/javascript" src="index.php%3Ftitle=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-Deploying_OAR_cluster_upon_Grid5000 skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Deploying OAR cluster upon Grid5000</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From WikiOAR</h3>
+			<div id="contentSub">
+				<div id="mw-revision-info">Revision as of 15:03, 14 May 2009 by <a href="http://wiki-oar.imag.fr/index.php?title=User:Ygeorgiou&amp;action=edit&amp;redlink=1" class="new mw-userlink" title="User:Ygeorgiou (page does not exist)">Ygeorgiou</a>  <span class="mw-usertoollinks">(<a href="http://wiki-oar.imag.fr/index.php?title=User_talk:Ygeorgiou&amp;action=edit&amp;redlink=1" class="new" title="User talk:Ygeorgiou (page does not exist)">Talk</a>&#32;|&#32;<a href="index.php/Special:Contributions/Ygeorgiou.html" title="Special:Contributions/Ygeorgiou">contribs</a>)</span></div>
+
+				<div id="mw-revision-nav">(<a href="http://wiki-oar.imag.fr/index.php?title=Deploying_OAR_cluster_upon_Grid5000&amp;diff=prev&amp;oldid=977" title="Deploying OAR cluster upon Grid5000">diff</a>) <a href="http://wiki-oar.imag.fr/index.php?title=Deploying_OAR_cluster_upon_Grid5000&amp;direction=prev&amp;oldid=977" title="Deploying OAR cluster upon Grid5000">← Older revision</a>&#32;|&#32;Latest revision (diff)&#32;|&#32;Newer revision → (diff)</div>
+			</div>
+									<div id="jump-to-nav">Jump to: <a href="index.php%3Ftitle=Deploying_OAR_cluster_upon_Grid5000&amp;oldid=977.html#column-one">navigation</a>, <a href="index.php%3Ftitle=Deploying_OAR_cluster_upon_Grid5000&amp;oldid=977.html#searchInput">search</a></div>			<!-- start content -->
+			<p>This is a small Tutorial on how to deploy an OAR cluster upon a reservation of nodes on Grid5000...
+</p><p>I have created an image based on debian lenny distribution, kernel 2.6.26 and OARv2.4.0. You can check out the procedure I followed for its construction here..<a href="http://oar-wiki.imag.fr/index.php/Construction/Modification_of_a_Grid5000_image" class="external autonumber" title="http://oar-wiki.imag.fr/index.php/Construction/Modification_of_a_Grid5000_image" rel="nofollow">[1]</a>
+</p><p>The name of the image is <b>lenny2.6.26-OAR2.4.0</b> and you can find it on <a href="http://wiki-oar.imag.fr/index.php?title=Nancy&amp;action=edit&amp;redlink=1" class="new" title="Nancy (page does not exist)">nancy</a> and <a href="http://wiki-oar.imag.fr/index.php?title=Rennes&amp;action=edit&amp;redlink=1" class="new" title="Rennes (page does not exist)">rennes</a> and <a href="http://wiki-oar.imag.fr/index.php?title=Grenoble&amp;action=edit&amp;redlink=1" class="new" title="Grenoble (page does not exist)">grenoble</a> clusters for the moment.
+</p><p>Here is the procedure to follow for the deployment of an OAR cluster upon Grid5000:
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Deploying_OAR_cluster_upon_Grid5000&amp;oldid=977.html#Connection_to_a_grid5000_frontal_server"><span class="tocnumber">1</span> <span class="toctext">Connection to a grid5000 frontal server</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Deploying_OAR_cluster_upon_Grid5000&amp;oldid=977.html#Reservation_of_nodes"><span class="tocnumber">2</span> <span class="toctext">Reservation of nodes</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Deploying_OAR_cluster_upon_Grid5000&amp;oldid=977.html#Preparation_for_environment_deployment"><span class="tocnumber">3</span> <span class="toctext">Preparation for environment deployment</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Deploying_OAR_cluster_upon_Grid5000&amp;oldid=977.html#Environemnt_Deployment"><span class="tocnumber">4</span> <span class="toctext">Environemnt Deployment</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Deploying_OAR_cluster_upon_Grid5000&amp;oldid=977.html#OAR_cluster_Configuration"><span class="tocnumber">5</span> <span class="toctext">OAR cluster Configuration</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Connection_to_a_grid5000_frontal_server" id="Connection_to_a_grid5000_frontal_server"></a><h2> <span class="mw-headline">Connection to a grid5000 frontal server</span></h2>
+<p>I)you connect to grenoble frontal server by writing:
+</p>
+<pre>ssh USERNAME@digitalis.imag.fr
+</pre>
+<p>II)then  you connect to nancy frontal server (or rennes or...)
+</p>
+<pre>ssh nancy.grid5000.fr 
+</pre>
+<a name="Reservation_of_nodes" id="Reservation_of_nodes"></a><h2> <span class="mw-headline">Reservation of nodes</span></h2>
+<p>III)then you will reserve some nodes on mode Interactive
+</p>
+<pre>oarsub -l /nodes=4,walltime=3 -p 'cluster="griffon"' -t deploy -I
+</pre>
+<p>on the -l you put the number of nodes and the duration of your job
+on the -p you put the name of the cluster (here you put either "griffon" or
+"grelon" for nancy OR "paradent" for rennes)
+on the -t you put deploy so that you can make a deployment
+and you finally got to add -I so that your job becomes Intereactive
+</p><p>with man oarsub you can see all options
+</p><p>IV) Once the allocation of nodes is granted, you can check out your job 
+</p>
+<pre>oarstat |grep USERNAME
+</pre>
+<a name="Preparation_for_environment_deployment" id="Preparation_for_environment_deployment"></a><h2> <span class="mw-headline">Preparation for environment deployment</span></h2>
+<p>V)For the deployment we will use katapult (which is an automation tool that uses kadeploy which is the gri5000 environment deployment software)
+</p><p>You can directly copy the katapult executable from my account. (This step you have to do it only once).
+</p>
+<pre>cp /home/grenoble/ygeorgiou/bin/katapult .
+</pre>
+<p>VI)You can see a description of  the environment that you will be using with this command:
+</p>
+<pre>kaenvironments -e lenny2.6.26-OAR2.4.0 -l ygeorgiou
+</pre>
+<a name="Environemnt_Deployment" id="Environemnt_Deployment"></a><h2> <span class="mw-headline">Environemnt Deployment</span></h2>
+<p>VII)then you can deploy the environment on the 4 nodes you have allocated with the following command:
+</p>
+<pre>~/bin/katapult --min-deployed-nodes 4 --max-deploy-runs 30 --deploy-env lenny2.6.26-OAR2.4.0 --file $OAR_NODEFILE --deploy-user ygeorgiou
+</pre>
+<p>If everything goes fine the deployment will start and it will take
+about 3 to 5 minutes ... in the end you will see something like this:
+</p>
+<pre>Deploy  State
+------  -----
+11722   terminated
+Node    State           Error Description (if any)
+----    -----           --------------------------
+griffon-9.nancy.grid5000.fr     deployed
+griffon-18.nancy.grid5000.fr    deployed
+griffon-8.nancy.grid5000.fr     deployed
+griffon-17.nancy.grid5000.fr    deployed
+Sumary:
+first reboot and check: 80
+preinstall:149
+transfert: 72
+last reboot and check: 78
+[410] Kadeploy on griffon finished.
+[410] All concurrent kadeploys completed, testing nodes.
+### Nodes deployed: griffon-17.nancy.grid5000.fr griffon-18.nancy.grid5000.fr griffon-8.nancy.grid5000.fr griffon-9.nancy.grid5000.fr
+### Nodes which failed: 
+### [411] Had to run 1 kadeploy runs, deployed 4 nodes.
+### Good nodes (4) are in $GOOD_NODES (=/tmp/katapult.good.qA8597).
+### Bad nodes (0) are in $BAD_NODES (=/tmp/katapult.bad.gt8598).
+### [411] Job finished.
+
+</pre>
+<p>So this means that you have 4 nodes with the environment lenny2.6.26-OAR2.4.0 installed...
+</p><p><br />
+</p>
+<a name="OAR_cluster_Configuration" id="OAR_cluster_Configuration"></a><h2> <span class="mw-headline">OAR cluster Configuration</span></h2>
+<p>VIII) At this point you can configure OAR so that the above 4 nodes
+become your own small OAR cluster...to do this you do&nbsp;:
+</p>
+<pre>sort -u $OAR_FILE_NODES | tail -3 | ssh -l g5k $(sort -u $OAR_NODEFILE | head -1) "xargs ~g5k/launch_OAR.sh"
+</pre>
+<p>when it finishes the first node will be the cluster server and the rest
+3 nodes will be the computing nodes of your personal cluster...
+</p><p>IX)Then you will connect to the first node of the 4nodes that you
+deployed (which will be the OAR server):
+</p>
+<pre>ssh -l g5k $(sort -u $OAR_FILE_NODES | head -1)
+</pre>
+<p>the password is grid5000 and you will be as user g5k
+the user root has password grid5000 as well.
+</p><p>X)Normally if you arrived here everything worked just fine and you are
+ready to use your 4node cluster with OAR&nbsp;!....
+</p>
+<pre> To verify that everything worked fine you can do
+</pre>
+<pre>oarnodes
+</pre>
+<p>to verify that all resources are declared as expected and
+</p>
+<pre>oarsub -I 
+</pre>
+<p>to launch an Interactive job.
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 6/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+#ifexist count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="index.php/Deploying_OAR_cluster_upon_Grid5000.html">http://wiki-oar.imag.fr/index.php/Deploying_OAR_cluster_upon_Grid5000</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="index.php/Deploying_OAR_cluster_upon_Grid5000.html" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki-oar.imag.fr/index.php?title=Talk:Deploying_OAR_cluster_upon_Grid5000&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="index.php%3Ftitle=Deploying_OAR_cluster_upon_Grid5000&amp;action=edit.html" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="index.php%3Ftitle=Deploying_OAR_cluster_upon_Grid5000&amp;action=history.html" title="Past revisions of this page [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="index.php%3Ftitle=Special:UserLogin&amp;returnto=Deploying_OAR_cluster_upon_Grid5000.html" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://oar.imag.fr/schemas/oar_logo_small.png);" href="index.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-Public_portal'>
+		<h5>Public portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="index.html" title="Visit the main page">Main Page</a></li>
+				<li id="n-Appliances-.28Kameleon.29"><a href="index.php/Kameleon.html">Appliances (Kameleon)</a></li>
+				<li id="n-OAR-Website"><a href="http://oar.imag.fr">OAR Website</a></li>
+				<li id="n-REST-API"><a href="index.php/RESTfullAPI.html">REST API</a></li>
+				<li id="n-Customization-tips"><a href="index.php/Configuration_tips.html">Customization tips</a></li>
+				<li id="n-OAR.27s-News"><a href="http://oar.imag.fr/news/">OAR's News</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Summer_of_Code'>
+		<h5>Summer of Code</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-GSoC-Summary"><a href="index.php/Google_summer_of_code.html">GSoC Summary</a></li>
+				<li id="n-2010-edition"><a href="index.php/GSOC_2010.html">2010 edition</a></li>
+				<li id="n-2009-edition"><a href="index.php/GSOC_2009.html">2009 edition</a></li>
+				<li id="n-2008-edition"><a href="http://oar.imag.fr/works/gsoc/2008/">2008 edition</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Related_links'>
+		<h5>Related links</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Links.html">Summary:</a></li>
+				<li id="n-About-OAR-.28French.29"><a href="http://www.projet-plume.org/fr/fiche/oar">About OAR (French)</a></li>
+				<li id="n-TakTuk"><a href="http://taktuk.gforge.inria.fr/">TakTuk</a></li>
+				<li id="n-CiGri"><a href="http://cigri.imag.fr/">CiGri</a></li>
+				<li id="n-Kameleon"><a href="index.php/Kameleon.html">Kameleon</a></li>
+				<li id="n-ComputeMode"><a href="http://computemode.imag.fr/">ComputeMode</a></li>
+				<li id="n-Xionee"><a href="https://gforge.inria.fr/projects/xionee/">Xionee</a></li>
+				<li id="n-KaDeploy"><a href="http://kadeploy.imag.fr/">KaDeploy</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Developers_portal'>
+		<h5>Developers portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Developers_Pages.html">Summary:</a></li>
+				<li id="n-Meetings-reports"><a href="index.php/Category:Portal:Staff:MeetingReports.html">Meetings reports</a></li>
+				<li id="n-Assigned-TaskList"><a href="index.php/Special:TaskList/all.html">Assigned TaskList</a></li>
+				<li id="n-Todo-Page"><a href="index.php/TODO.html">Todo Page</a></li>
+				<li id="n-Tools-and-Tips"><a href="index.php/Devel_Tools_tips.html">Tools and Tips</a></li>
+				<li id="n-FAQ"><a href="index.php/FAQ.html">FAQ</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://wiki-oar.imag.fr/index.php" id="searchform"><div>
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text" title="Search WikiOAR [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="index.php/Special:WhatLinksHere/Deploying_OAR_cluster_upon_Grid5000.html" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="index.php/Special:RecentChangesLinked/Deploying_OAR_cluster_upon_Grid5000.html" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="index.php/Special:SpecialPages.html" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="http://wiki-oar.imag.fr/index.php?title=Deploying_OAR_cluster_upon_Grid5000&amp;oldid=977&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="index.php%3Ftitle=Deploying_OAR_cluster_upon_Grid5000&amp;oldid=977.html" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="about"><a href="index.php/WikiOAR:About.html" title="WikiOAR:About">About WikiOAR and OAR logo</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.056 secs. --></body></html>

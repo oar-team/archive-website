@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5-2squeeze6" />
+		<meta name="robots" content="noindex,follow" />
+		<meta name="keywords" content="Cigri Scheduler Proposal" />
+		<link rel="shortcut icon" href="http://oar.imag.fr/images/logo_oar.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="WikiOAR (en)" />
+		<link rel="alternate" type="application/rss+xml" title="WikiOAR RSS feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="WikiOAR Atom feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=atom" />
+		<title>Cigri Scheduler Proposal - WikiOAR</title>
+		<link rel="stylesheet" href="skins/common/commonPrint.css%3F207.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=-&amp;action=raw&amp;maxage=18000&amp;gen=css.css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://wiki-oar.imag.fr";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Cigri_Scheduler_Proposal";
+		var wgTitle = "Cigri Scheduler Proposal";
+		var wgAction = "view";
+		var wgArticleId = "35";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 417;
+		var wgVersion = "1.15.5-2squeeze6";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="skins/common/ajax.js%3F207"></script>
+		<script type="text/javascript" src="index.php%3Ftitle=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-Cigri_Scheduler_Proposal skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Cigri Scheduler Proposal</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From WikiOAR</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="index.php%3Ftitle=Cigri_Scheduler_Proposal&amp;printable=yes.html#column-one">navigation</a>, <a href="index.php%3Ftitle=Cigri_Scheduler_Proposal&amp;printable=yes.html#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Cigri_Scheduler_Proposal&amp;printable=yes.html#Advanced_scheduler_for_the_CiGri_grid"><span class="tocnumber">1</span> <span class="toctext">Advanced scheduler for the CiGri grid</span></a>
+<ul>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Cigri_Scheduler_Proposal&amp;printable=yes.html#Introduction"><span class="tocnumber">1.1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Cigri_Scheduler_Proposal&amp;printable=yes.html#Cigri_structure"><span class="tocnumber">1.2</span> <span class="toctext">Cigri structure</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Cigri_Scheduler_Proposal&amp;printable=yes.html#Environnement"><span class="tocnumber">1.3</span> <span class="toctext">Environnement</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Cigri_Scheduler_Proposal&amp;printable=yes.html#The_need_for_a_new_scheduler"><span class="tocnumber">1.4</span> <span class="toctext">The need for a new scheduler</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Cigri_Scheduler_Proposal&amp;printable=yes.html#Links"><span class="tocnumber">1.5</span> <span class="toctext">Links</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Cigri_Scheduler_Proposal&amp;printable=yes.html#Contact"><span class="tocnumber">1.6</span> <span class="toctext">Contact</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Cigri_Scheduler_Proposal&amp;printable=yes.html#Mentors"><span class="tocnumber">1.7</span> <span class="toctext">Mentors</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Advanced_scheduler_for_the_CiGri_grid" id="Advanced_scheduler_for_the_CiGri_grid"></a><h1> <span class="mw-headline">Advanced scheduler for the CiGri grid</span></h1>
+<a name="Introduction" id="Introduction"></a><h2> <span class="mw-headline">Introduction</span></h2>
+<p>CiGri is a free software allowing to construct a computing grid which exploits idle processor cycles of a supercomputers group. CiGri is a lightweight grid which manages only "bag-of-tasks" applications that generaly result in a big number (&gt;100000) of independant and idempotent sub-tasks. Running such applications at the grid level optimizes the load of supercomputers in a middle sized HPC center. Such a grid is running over HPC hosts of the Joseph Fourier university (Grenoble/FRANCE) since 2002, inside the "CIMENT" project. It manages today 2000 cpu cores and executed about 5 millions of tasks. The name CiGri comes originaly from this CIMENT project (CIment-GRId). CiGri is also an experimental platform for research on distributed computing scheduling at the computing laboratory of Grenoble (LIG).
+</p>
+<a name="Cigri_structure" id="Cigri_structure"></a><h2> <span class="mw-headline">Cigri structure</span></h2>
+<p>CiGri is currently composed of a MySQL database, some perl modules and some ruby modules. Communication and authentication mechanisms are based on simple and standard tools like SSH, SUDO and LDAP. A web PHP/Smarty interface allows users to check their job campaigns statuses and to interact if necessary. Everything has been developped and tested for Linux. The modules are cyclicly executed: nodes and tasks states update, tasks to submit scheduling, tasks launching, cleaning, error control, statistics update. An external asynchronous module is dedicated to results collecting.
+</p>
+<a name="Environnement" id="Environnement"></a><h2> <span class="mw-headline">Environnement</span></h2>
+<p>Development is done inside the "MESCAL" team of the "LIG" laboratory and guidelines are given by this team research projects and by the needs of the "CIMENT" project. It's a motivating environnement because you can talk with engineers and researchers working on complex problems about distributed computing. This "MESCAL" team is also in charge of the development of the OAR resources manager and is a major actor of the development and administration of the experimental french national grid called "Grid5000".
+</p>
+<a name="The_need_for_a_new_scheduler" id="The_need_for_a_new_scheduler"></a><h2> <span class="mw-headline">The need for a new scheduler</span></h2>
+<p>The current scheduler module of CiGri is a basic FIFO and doesn't deal with parallel tasks. When the grid runs at a high load, it may happen that a user is blocked for days, even if he needs very few resources, for example if he only need to test a new campaign. Furthermore, the Grenoble's grid is becoming bigger and extends to other towns (Lyon, for the RaGrid project). That brings new needs like users priorities over some clusters, depending on their community.
+</p><p>We want to develop a new scheduler that will be able to manage users fairsharing, several queues with complex priorities and to take into account parallel tasks running on several nodes of a cluster. This new scheduler should also manage interactions with other new modules that are also currently under development, like a checkpointing module. We want to use a high level modern language, like Ruby, to have a very maintenable and scalable code. In addition to this development task, the trainee, if he wants, could approach more "system" aspects and participate to the implementation of other tools like checkpointing or distributed filesystems. Also note that this project is very close to the OAR project and Grid5000 administration.
+</p>
+<a name="Links" id="Links"></a><h2> <span class="mw-headline">Links</span></h2>
+<ul><li> CIMENT project: <a href="http://ciment.ujf-grenoble.fr" class="external free" title="http://ciment.ujf-grenoble.fr" rel="nofollow">http://ciment.ujf-grenoble.fr</a>
+</li><li> CiGri: <a href="http://cigri.imag.fr" class="external free" title="http://cigri.imag.fr" rel="nofollow">http://cigri.imag.fr</a>
+</li><li> MESCAL Team: <a href="http://mescal.imag.fr/" class="external free" title="http://mescal.imag.fr/" rel="nofollow">http://mescal.imag.fr/</a>
+</li><li> RaGrid: <a href="https://ciment.ujf-grenoble.fr/ragrid" class="external free" title="https://ciment.ujf-grenoble.fr/ragrid" rel="nofollow">https://ciment.ujf-grenoble.fr/ragrid</a>
+</li><li> OAR: <a href="http://oar.imag.fr" class="external free" title="http://oar.imag.fr" rel="nofollow">http://oar.imag.fr</a>
+</li><li> Grid5000: <a href="http://www.grid5000.fr" class="external free" title="http://www.grid5000.fr" rel="nofollow">http://www.grid5000.fr</a>
+</li></ul>
+<a name="Contact" id="Contact"></a><h2> <span class="mw-headline">Contact</span></h2>
+<p>Bruno Bzeznik &lt;Bruno.Bzeznik@imag.fr&gt;
+</p>
+<a name="Mentors" id="Mentors"></a><h2> <span class="mw-headline">Mentors</span></h2>
+<ul><li> Bruno Bzeznik
+</li><li> Yiannis Georgiou
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 9/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+#ifexist count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikioar:pcache:idhash:35-0!1!0!!en!2!edit=0!printable=1 and timestamp 20150721145236 -->
+<div class="printfooter">
+Retrieved from "<a href="index.php/Cigri_Scheduler_Proposal.html">http://wiki-oar.imag.fr/index.php/Cigri_Scheduler_Proposal</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="index.php/Cigri_Scheduler_Proposal.html" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki-oar.imag.fr/index.php?title=Talk:Cigri_Scheduler_Proposal&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="index.php%3Ftitle=Cigri_Scheduler_Proposal&amp;action=edit.html" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="index.php%3Ftitle=Cigri_Scheduler_Proposal&amp;action=history.html" title="Past revisions of this page [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="index.php%3Ftitle=Special:UserLogin&amp;returnto=Cigri_Scheduler_Proposal.html" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://oar.imag.fr/schemas/oar_logo_small.png);" href="index.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-Public_portal'>
+		<h5>Public portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="index.html" title="Visit the main page">Main Page</a></li>
+				<li id="n-Appliances-.28Kameleon.29"><a href="index.php/Kameleon.html">Appliances (Kameleon)</a></li>
+				<li id="n-OAR-Website"><a href="http://oar.imag.fr">OAR Website</a></li>
+				<li id="n-REST-API"><a href="index.php/RESTfullAPI.html">REST API</a></li>
+				<li id="n-Customization-tips"><a href="index.php/Configuration_tips.html">Customization tips</a></li>
+				<li id="n-OAR.27s-News"><a href="http://oar.imag.fr/news/">OAR's News</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Summer_of_Code'>
+		<h5>Summer of Code</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-GSoC-Summary"><a href="index.php/Google_summer_of_code.html">GSoC Summary</a></li>
+				<li id="n-2010-edition"><a href="index.php/GSOC_2010.html">2010 edition</a></li>
+				<li id="n-2009-edition"><a href="index.php/GSOC_2009.html">2009 edition</a></li>
+				<li id="n-2008-edition"><a href="http://oar.imag.fr/works/gsoc/2008/">2008 edition</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Related_links'>
+		<h5>Related links</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Links.html">Summary:</a></li>
+				<li id="n-About-OAR-.28French.29"><a href="http://www.projet-plume.org/fr/fiche/oar">About OAR (French)</a></li>
+				<li id="n-TakTuk"><a href="http://taktuk.gforge.inria.fr/">TakTuk</a></li>
+				<li id="n-CiGri"><a href="http://cigri.imag.fr/">CiGri</a></li>
+				<li id="n-Kameleon"><a href="index.php/Kameleon.html">Kameleon</a></li>
+				<li id="n-ComputeMode"><a href="http://computemode.imag.fr/">ComputeMode</a></li>
+				<li id="n-Xionee"><a href="https://gforge.inria.fr/projects/xionee/">Xionee</a></li>
+				<li id="n-KaDeploy"><a href="http://kadeploy.imag.fr/">KaDeploy</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Developers_portal'>
+		<h5>Developers portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Developers_Pages.html">Summary:</a></li>
+				<li id="n-Meetings-reports"><a href="index.php/Category:Portal:Staff:MeetingReports.html">Meetings reports</a></li>
+				<li id="n-Assigned-TaskList"><a href="index.php/Special:TaskList/all.html">Assigned TaskList</a></li>
+				<li id="n-Todo-Page"><a href="index.php/TODO.html">Todo Page</a></li>
+				<li id="n-Tools-and-Tips"><a href="index.php/Devel_Tools_tips.html">Tools and Tips</a></li>
+				<li id="n-FAQ"><a href="index.php/FAQ.html">FAQ</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://wiki-oar.imag.fr/index.php" id="searchform"><div>
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text" title="Search WikiOAR [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="index.php/Special:WhatLinksHere/Cigri_Scheduler_Proposal.html" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="index.php/Special:RecentChangesLinked/Cigri_Scheduler_Proposal.html" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="index.php/Special:SpecialPages.html" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="index.php%3Ftitle=Cigri_Scheduler_Proposal&amp;printable=yes&amp;printable=yes.html" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="index.php%3Ftitle=Cigri_Scheduler_Proposal&amp;oldid=417.html" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 23 March 2009, at 13:18.</li>
+					<li id="viewcount">This page has been accessed 3,661 times.</li>
+					<li id="about"><a href="index.php/WikiOAR:About.html" title="WikiOAR:About">About WikiOAR and OAR logo</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.048 secs. --></body></html>

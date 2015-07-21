@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5-2squeeze6" />
+		<meta name="robots" content="noindex,nofollow" />
+		<meta name="keywords" content="GSOC 2011 Node Resource Isolation" />
+		<link rel="shortcut icon" href="http://oar.imag.fr/images/logo_oar.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="WikiOAR (en)" />
+		<link rel="alternate" type="application/rss+xml" title="WikiOAR RSS feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="WikiOAR Atom feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=atom" />
+		<title>GSOC 2011 Node Resource Isolation - WikiOAR</title>
+		<link rel="stylesheet" href="skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=-&amp;action=raw&amp;maxage=18000&amp;gen=css.css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://wiki-oar.imag.fr";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "GSOC_2011_Node_Resource_Isolation";
+		var wgTitle = "GSOC 2011 Node Resource Isolation";
+		var wgAction = "view";
+		var wgArticleId = "275";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 3055;
+		var wgVersion = "1.15.5-2squeeze6";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="skins/common/ajax.js%3F207"></script>
+		<script type="text/javascript" src="index.php%3Ftitle=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-GSOC_2011_Node_Resource_Isolation skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">GSOC 2011 Node Resource Isolation</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From WikiOAR</h3>
+			<div id="contentSub">
+				<div id="mw-revision-info">Revision as of 21:18, 6 March 2011 by <a href="http://wiki-oar.imag.fr/index.php?title=User:Ygeorgiou&amp;action=edit&amp;redlink=1" class="new mw-userlink" title="User:Ygeorgiou (page does not exist)">Ygeorgiou</a>  <span class="mw-usertoollinks">(<a href="http://wiki-oar.imag.fr/index.php?title=User_talk:Ygeorgiou&amp;action=edit&amp;redlink=1" class="new" title="User talk:Ygeorgiou (page does not exist)">Talk</a>&#32;|&#32;<a href="index.php/Special:Contributions/Ygeorgiou.html" title="Special:Contributions/Ygeorgiou">contribs</a>)</span></div>
+
+				<div id="mw-revision-nav">(<a href="http://wiki-oar.imag.fr/index.php?title=GSOC_2011_Node_Resource_Isolation&amp;diff=prev&amp;oldid=3055" title="GSOC 2011 Node Resource Isolation">diff</a>) <a href="http://wiki-oar.imag.fr/index.php?title=GSOC_2011_Node_Resource_Isolation&amp;direction=prev&amp;oldid=3055" title="GSOC 2011 Node Resource Isolation">← Older revision</a>&#32;|&#32;Latest revision (diff)&#32;|&#32;Newer revision → (diff)</div>
+			</div>
+									<div id="jump-to-nav">Jump to: <a href="index.php%3Ftitle=GSOC_2011_Node_Resource_Isolation&amp;oldid=3055.html#column-one">navigation</a>, <a href="index.php%3Ftitle=GSOC_2011_Node_Resource_Isolation&amp;oldid=3055.html#searchInput">search</a></div>			<!-- start content -->
+			<p>The goal of this project is to develop upon OAR a mechanism for task confinement / isolation and task binding upon the resources of a node based upon <b>cgroups</b> (control groups) which is a (recently appeared) Linux kernel feature [1,2,3].
+</p>
+<a name="Background" id="Background"></a><h2> <span class="mw-headline"> Background </span></h2>
+<p>The emergence of multicore architectures that introduced new levels of hierarchies inside the node arose the need for
+methods of job confinement upon specific allocated resources in a single node. Indeed, multiple
+users can find themselves working on the same computing node, which raised the need of task
+placement upon specific cores in order to avoid collisions between different tasks. The problem
+of collisions are that cores or socket resources easily can be oversubscribed, resulting in degraded
+performance, while other sockets or cores of the same node stay idle. Hence, the secure placement
+upon cores and in general specific parts of the resources ( memory, disk I/O, bandwidth) became
+an important challenge for the new Resource Managers. OS techniques like Cpusets, sched_affinity are
+supported by the Resource and Job Management Systems to provide a fine management of the CPUs (cores) of the
+nodes. 
+</p><p>In latest version of Linux kernels it is possible to specifically tell to the scheduler which process
+can run upon which core. This core affinity, can be influenced, in Linux, via 2 different ways: 
+</p>
+<ul><li> <b>sched_affinity</b> [4] which is a system call which takes a bitmask as parameter where each bit reflects one core and if a core is on with bit value 1 (or off with value 0) then the scheduler does (or not) migrate the process to that core
+</li><li> <b>Cpusets</b> [5] which are processor sets defined by a hierarchical pseudo-filesystem upon which only processes bound to this set can be executed. 
+</li></ul>
+<p>The mask or set is inherited by all child threads/processes that means that all of them will be using the same set of cores.
+The use of any of this techniques allows the RJMS to have full control of the processes of its jobs and permits the dedicated binding of jobs upon specific cores along with the efficient cleaning of remaining processes after the end of the job.
+</p><p><br />
+</p><p>An extension of cpusets which has recently been added to the Linux kernel (after 2.6.32) are the <b>cgroups</b> [1,2,3]. Each control group is a set of tasks on a system that have been grouped together to better manage their interaction with system hardware. They provide a mechanism for aggregating/partitioning sets of tasks and all their future children, into hierarchical groups with specialized behaviour. This behaviour is defined by the different subsystems that exist like: cpuset which assigns the tasks upon cpus, memory which sets limits on memory use, freezer which suspends or resumes tasks, devices which allows or denies access for tasks to specific devices and blkio (supported after kernel version 2.6.35) which assigns specific amount of IO or even network bandwidth to tasks. The intention is that different kind of subsystems hook into the generic cgroup support to provide new attributes for cgroups and therefore to the user’s tasks.
+</p><p><b>OAR currently provides tasks confinement and binding based upon the cpusets core affinity mecanism.</b>
+</p><p><br />
+</p>
+<a name="Goals_of_this_GSOC_project" id="Goals_of_this_GSOC_project"></a><h2> <span class="mw-headline"> Goals of this GSOC project </span></h2>
+<ol><li> Design and implement the basic framework for the support of cgroups upon OAR. This framework will allow the easy porting of any of the different cgroup subsystems depending the needs of each system.
+</li><li> Provide the implementation of <i>cpuset</i>, <i>memory</i> and <i>devices</i> subsystems for task confinement/isolation upon particular resources.
+</li><li> Develop mechanisms for tasks binding upon cores using either <i>cpuset</i> or <i>hwloc</i> [6] to allow applications to change on their own the proposed task binding internally .
+</li><li> Experimentation with benchmark or real-life applications.
+</li><li> Eventually provide the implementation of <i>freezer</i> and <i>blkio</i> subsystems as well.
+</li></ol>
+<a name="References" id="References"></a><h2> <span class="mw-headline"> References </span></h2>
+<ol><li> <a href="http://en.wikipedia.org/wiki/Cgroups" class="external free" title="http://en.wikipedia.org/wiki/Cgroups" rel="nofollow">http://en.wikipedia.org/wiki/Cgroups</a>
+</li><li> <a href="http://www.kernel.org/doc/Documentation/cgroups/cgroups.txt" class="external free" title="http://www.kernel.org/doc/Documentation/cgroups/cgroups.txt" rel="nofollow">http://www.kernel.org/doc/Documentation/cgroups/cgroups.txt</a>
+</li><li> <a href="http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/index.html" class="external free" title="http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/index.html" rel="nofollow">http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Resource_Management_Guide/index.html</a>
+</li><li> <a href="http://manpages.unixforum.co.uk/man-pages/linux/suse-linux-10.1/2/sched_getaffinity-man-page.html" class="external free" title="http://manpages.unixforum.co.uk/man-pages/linux/suse-linux-10.1/2/sched_getaffinity-man-page.html" rel="nofollow">http://manpages.unixforum.co.uk/man-pages/linux/suse-linux-10.1/2/sched_getaffinity-man-page.html</a>
+</li><li> <a href="http://www.bullopensource.org/cpuset/" class="external free" title="http://www.bullopensource.org/cpuset/" rel="nofollow">http://www.bullopensource.org/cpuset/</a>
+</li><li> <a href="http://www.open-mpi.org/projects/hwloc/" class="external free" title="http://www.open-mpi.org/projects/hwloc/" rel="nofollow">http://www.open-mpi.org/projects/hwloc/</a>
+</li></ol>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 4/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+#ifexist count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="index.php/GSOC_2011_Node_Resource_Isolation.html">http://wiki-oar.imag.fr/index.php/GSOC_2011_Node_Resource_Isolation</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="index.php/GSOC_2011_Node_Resource_Isolation.html" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki-oar.imag.fr/index.php?title=Talk:GSOC_2011_Node_Resource_Isolation&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="index.php%3Ftitle=GSOC_2011_Node_Resource_Isolation&amp;action=edit.html" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="index.php%3Ftitle=GSOC_2011_Node_Resource_Isolation&amp;action=history.html" title="Past revisions of this page [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="index.php%3Ftitle=Special:UserLogin&amp;returnto=GSOC_2011_Node_Resource_Isolation.html" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://oar.imag.fr/schemas/oar_logo_small.png);" href="index.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-Public_portal'>
+		<h5>Public portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="index.html" title="Visit the main page">Main Page</a></li>
+				<li id="n-Appliances-.28Kameleon.29"><a href="index.php/Kameleon.html">Appliances (Kameleon)</a></li>
+				<li id="n-OAR-Website"><a href="http://oar.imag.fr">OAR Website</a></li>
+				<li id="n-REST-API"><a href="index.php/RESTfullAPI.html">REST API</a></li>
+				<li id="n-Customization-tips"><a href="index.php/Configuration_tips.html">Customization tips</a></li>
+				<li id="n-OAR.27s-News"><a href="http://oar.imag.fr/news/">OAR's News</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Summer_of_Code'>
+		<h5>Summer of Code</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-GSoC-Summary"><a href="index.php/Google_summer_of_code.html">GSoC Summary</a></li>
+				<li id="n-2010-edition"><a href="index.php/GSOC_2010.html">2010 edition</a></li>
+				<li id="n-2009-edition"><a href="index.php/GSOC_2009.html">2009 edition</a></li>
+				<li id="n-2008-edition"><a href="http://oar.imag.fr/works/gsoc/2008/">2008 edition</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Related_links'>
+		<h5>Related links</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Links.html">Summary:</a></li>
+				<li id="n-About-OAR-.28French.29"><a href="http://www.projet-plume.org/fr/fiche/oar">About OAR (French)</a></li>
+				<li id="n-TakTuk"><a href="http://taktuk.gforge.inria.fr/">TakTuk</a></li>
+				<li id="n-CiGri"><a href="http://cigri.imag.fr/">CiGri</a></li>
+				<li id="n-Kameleon"><a href="index.php/Kameleon.html">Kameleon</a></li>
+				<li id="n-ComputeMode"><a href="http://computemode.imag.fr/">ComputeMode</a></li>
+				<li id="n-Xionee"><a href="https://gforge.inria.fr/projects/xionee/">Xionee</a></li>
+				<li id="n-KaDeploy"><a href="http://kadeploy.imag.fr/">KaDeploy</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Developers_portal'>
+		<h5>Developers portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Developers_Pages.html">Summary:</a></li>
+				<li id="n-Meetings-reports"><a href="index.php/Category:Portal:Staff:MeetingReports.html">Meetings reports</a></li>
+				<li id="n-Assigned-TaskList"><a href="index.php/Special:TaskList/all.html">Assigned TaskList</a></li>
+				<li id="n-Todo-Page"><a href="index.php/TODO.html">Todo Page</a></li>
+				<li id="n-Tools-and-Tips"><a href="index.php/Devel_Tools_tips.html">Tools and Tips</a></li>
+				<li id="n-FAQ"><a href="index.php/FAQ.html">FAQ</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://wiki-oar.imag.fr/index.php" id="searchform"><div>
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text" title="Search WikiOAR [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="index.php/Special:WhatLinksHere/GSOC_2011_Node_Resource_Isolation.html" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="index.php/Special:RecentChangesLinked/GSOC_2011_Node_Resource_Isolation.html" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="index.php/Special:SpecialPages.html" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="http://wiki-oar.imag.fr/index.php?title=GSOC_2011_Node_Resource_Isolation&amp;oldid=3055&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="index.php%3Ftitle=GSOC_2011_Node_Resource_Isolation&amp;oldid=3055.html" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="about"><a href="index.php/WikiOAR:About.html" title="WikiOAR:About">About WikiOAR and OAR logo</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.052 secs. --></body></html>

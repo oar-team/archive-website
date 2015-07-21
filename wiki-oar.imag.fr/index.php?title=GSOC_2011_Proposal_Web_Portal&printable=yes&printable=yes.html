@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5-2squeeze6" />
+		<meta name="robots" content="noindex,follow" />
+		<meta name="keywords" content="GSOC 2011 Proposal Web Portal,Web Portal GSOC 2010" />
+		<link rel="shortcut icon" href="http://oar.imag.fr/images/logo_oar.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="WikiOAR (en)" />
+		<link rel="alternate" type="application/rss+xml" title="WikiOAR RSS feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="WikiOAR Atom feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=atom" />
+		<title>GSOC 2011 Proposal Web Portal - WikiOAR</title>
+		<link rel="stylesheet" href="skins/common/commonPrint.css%3F207.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=-&amp;action=raw&amp;maxage=18000&amp;gen=css.css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://wiki-oar.imag.fr";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "GSOC_2011_Proposal_Web_Portal";
+		var wgTitle = "GSOC 2011 Proposal Web Portal";
+		var wgAction = "view";
+		var wgArticleId = "268";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 3115;
+		var wgVersion = "1.15.5-2squeeze6";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="skins/common/ajax.js%3F207"></script>
+		<script type="text/javascript" src="index.php%3Ftitle=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-GSOC_2011_Proposal_Web_Portal skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">GSOC 2011 Proposal Web Portal</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From WikiOAR</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="index.php%3Ftitle=GSOC_2011_Proposal_Web_Portal&amp;printable=yes&amp;printable=yes.html#column-one">navigation</a>, <a href="index.php%3Ftitle=GSOC_2011_Proposal_Web_Portal&amp;printable=yes&amp;printable=yes.html#searchInput">search</a></div>			<!-- start content -->
+			<p>The goal of this project is to provide a high quality web portal for OAR. A web portal is an important feature to help users to get used with sophisticated supercomputing infrastructures, by hiding from them the complexities of the computational environment. Also, it helps administrators to simplify simple tasks on resources.
+</p><p>With OAR we use Monika and Gantt for monitoring jobs and visualization functionalities. We have a first version of a web portal developed during a previous <a href="index.php/Web_Portal_GSOC_2010.html" title="Web Portal GSOC 2010"> Gsoc</a> edition. Now we need to push this proof of concept to a production quality level.
+</p><p>Is is important to note that OAR has a REST API that provides most of the necessary features to build a web portal on top of it. This API should be used for this project.
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="index.php%3Ftitle=GSOC_2011_Proposal_Web_Portal&amp;printable=yes&amp;printable=yes.html#Difficulty"><span class="tocnumber">1</span> <span class="toctext">Difficulty</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=GSOC_2011_Proposal_Web_Portal&amp;printable=yes&amp;printable=yes.html#Skills"><span class="tocnumber">2</span> <span class="toctext">Skills</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=GSOC_2011_Proposal_Web_Portal&amp;printable=yes&amp;printable=yes.html#Background"><span class="tocnumber">3</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=GSOC_2011_Proposal_Web_Portal&amp;printable=yes&amp;printable=yes.html#Some_prpoints_to_address_during_Gsoc"><span class="tocnumber">4</span> <span class="toctext">Some prpoints to address during Gsoc</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=GSOC_2011_Proposal_Web_Portal&amp;printable=yes&amp;printable=yes.html#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=GSOC_2011_Proposal_Web_Portal&amp;printable=yes&amp;printable=yes.html#Mentors"><span class="tocnumber">6</span> <span class="toctext">Mentors</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Difficulty" id="Difficulty"></a><h2> <span class="mw-headline">Difficulty</span></h2>
+<p>Medium to High
+</p>
+<a name="Skills" id="Skills"></a><h2> <span class="mw-headline">Skills</span></h2>
+<ul><li> Web Portal Architecture and REST architecture
+</li><li> Javascript library practice 
+</li><li> Ruby or PHP in case we need to develop server web part (must discussed) 
+</li><li> <a href="http://www.sinatrarb.com/" class="external text" title="http://www.sinatrarb.com/" rel="nofollow">Sinatra</a>, <a href="http://rack.rubyforge.org/" class="external text" title="http://rack.rubyforge.org/" rel="nofollow">Rack</a> web framworks
+</li><li> Mysql or Postgresql
+</li></ul>
+<p><br />
+</p>
+<a name="Background" id="Background"></a><h2> <span class="mw-headline"> Background </span></h2>
+<p>OAR disposes a preliminary web portal and a couple of web monitoring page
+</p>
+<ul><li> <b>poar</b> the intial web portal developed during Gsoc 2010
+</li><li> Drawgantt
+</li><li> Monika
+</li></ul>
+<a name="Some_prpoints_to_address_during_Gsoc" id="Some_prpoints_to_address_during_Gsoc"></a><h2> <span class="mw-headline"> Some prpoints to address during Gsoc </span></h2>
+<ul><li> Upgrade first version of <b>Poar</b> to <b><a href="http://www.sencha.com/products/extjs4-preview/" class="external text" title="http://www.sencha.com/products/extjs4-preview/" rel="nofollow">Ext JS 4</a></b>
+</li><li> Use of Ext JS 4 Charts
+</li><li> User preferences
+</li><li> Application Submission Form Template 
+</li><li> Multiple OAR support
+</li><li> File Manager
+</li><li> Accounting
+</li><li> ComputeMode / CiGri support
+</li><li> Multiple OAR support
+</li><li> Single Sign On (SSO)
+</li></ul>
+<a name="References" id="References"></a><h2> <span class="mw-headline">References</span></h2>
+<p>"Ext JS: Cross-Browser Rich Internet Application Framework":<a href="http://extjs.com/products/extjs/" class="external free" title="http://extjs.com/products/extjs/" rel="nofollow">http://extjs.com/products/extjs/</a>
+</p><p>Books on extjs 3.x&nbsp;:<a href="http://www.extjs.com/blog/2009/03/16/ext-js-books/" class="external text" title="http://www.extjs.com/blog/2009/03/16/ext-js-books/" rel="nofollow">Ext JS in Action and Learning Ext JS </a>
+</p><p>"OAR RESTful API": <a href="index.php/OAR_API.html" class="external free" title="http://wiki-oar.imag.fr/index.php/OAR_API" rel="nofollow">http://wiki-oar.imag.fr/index.php/OAR_API</a>
+</p><p>"Moab portal":<a href="http://www.clusterresources.com/pages/products/moab-cluster-suite.php" class="external free" title="http://www.clusterresources.com/pages/products/moab-cluster-suite.php" rel="nofollow">http://www.clusterresources.com/pages/products/moab-cluster-suite.php</a>
+</p><p>"OSCAR Portal":<a href="http://ieeexplore.ieee.org/Xplore/login.jsp?url=/iel5/10840/34158/01628235.pdf?tp=&amp;isnumber=&amp;arnumber=1628235" class="external free" title="http://ieeexplore.ieee.org/Xplore/login.jsp?url=/iel5/10840/34158/01628235.pdf?tp=&amp;isnumber=&amp;arnumber=1628235" rel="nofollow">http://ieeexplore.ieee.org/Xplore/login.jsp?url=/iel5/10840/34158/01628235.pdf?tp=&amp;isnumber=&amp;arnumber=1628235</a>
+</p><p>" Platform Application Center 8 - Managing the Cluster" <a href="http://www.youtube.com/watch?v=cgEAnNl7B6o" class="external free" title="http://www.youtube.com/watch?v=cgEAnNl7B6o" rel="nofollow">http://www.youtube.com/watch?v=cgEAnNl7B6o</a>
+</p><p>"Cluster Management GUI de Bright Computing":<a href="http://www.brightcomputing.com/Linux-Cluster-Management-GUI.php" class="external free" title="http://www.brightcomputing.com/Linux-Cluster-Management-GUI.php" rel="nofollow">http://www.brightcomputing.com/Linux-Cluster-Management-GUI.php</a>
+</p><p>"PBSWeb":<a href="http://www.cs.ualberta.ca/~pinchak/PBSWeb/" class="external free" title="http://www.cs.ualberta.ca/~pinchak/PBSWeb/" rel="nofollow">http://www.cs.ualberta.ca/~pinchak/PBSWeb/</a> 
+</p><p>"Sun Grid Engine":<a href="http://gridengine.sunsource.net/gep/GEP_Intro.html" class="external free" title="http://gridengine.sunsource.net/gep/GEP_Intro.html" rel="nofollow">http://gridengine.sunsource.net/gep/GEP_Intro.html</a>
+</p><p>"Raphaël-JS, a JavaScript library that draws SVG vector graphics for web sites" <a href="http://raphaeljs.com/" class="external free" title="http://raphaeljs.com/" rel="nofollow">http://raphaeljs.com/</a>
+</p><p>"JavaScript InfoVis Toolkit (ex: javascript treemap)" <a href="http://thejit.org/home/" class="external free" title="http://thejit.org/home/" rel="nofollow">http://thejit.org/home/</a>
+</p>
+<a name="Mentors" id="Mentors"></a><h2> <span class="mw-headline">Mentors</span></h2>
+<ul><li> Olivier Richard
+</li><li> Pierre Neyron
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 7/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+#ifexist count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikioar:pcache:idhash:268-0!1!0!!en!2!edit=0!printable=1 and timestamp 20150721145209 -->
+<div class="printfooter">
+Retrieved from "<a href="index.php/GSOC_2011_Proposal_Web_Portal.html">http://wiki-oar.imag.fr/index.php/GSOC_2011_Proposal_Web_Portal</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="index.php/GSOC_2011_Proposal_Web_Portal.html" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki-oar.imag.fr/index.php?title=Talk:GSOC_2011_Proposal_Web_Portal&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="index.php%3Ftitle=GSOC_2011_Proposal_Web_Portal&amp;action=edit.html" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="index.php%3Ftitle=GSOC_2011_Proposal_Web_Portal&amp;action=history.html" title="Past revisions of this page [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="index.php%3Ftitle=Special:UserLogin&amp;returnto=GSOC_2011_Proposal_Web_Portal.html" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://oar.imag.fr/schemas/oar_logo_small.png);" href="index.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-Public_portal'>
+		<h5>Public portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="index.html" title="Visit the main page">Main Page</a></li>
+				<li id="n-Appliances-.28Kameleon.29"><a href="index.php/Kameleon.html">Appliances (Kameleon)</a></li>
+				<li id="n-OAR-Website"><a href="http://oar.imag.fr">OAR Website</a></li>
+				<li id="n-REST-API"><a href="index.php/RESTfullAPI.html">REST API</a></li>
+				<li id="n-Customization-tips"><a href="index.php/Configuration_tips.html">Customization tips</a></li>
+				<li id="n-OAR.27s-News"><a href="http://oar.imag.fr/news/">OAR's News</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Summer_of_Code'>
+		<h5>Summer of Code</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-GSoC-Summary"><a href="index.php/Google_summer_of_code.html">GSoC Summary</a></li>
+				<li id="n-2010-edition"><a href="index.php/GSOC_2010.html">2010 edition</a></li>
+				<li id="n-2009-edition"><a href="index.php/GSOC_2009.html">2009 edition</a></li>
+				<li id="n-2008-edition"><a href="http://oar.imag.fr/works/gsoc/2008/">2008 edition</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Related_links'>
+		<h5>Related links</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Links.html">Summary:</a></li>
+				<li id="n-About-OAR-.28French.29"><a href="http://www.projet-plume.org/fr/fiche/oar">About OAR (French)</a></li>
+				<li id="n-TakTuk"><a href="http://taktuk.gforge.inria.fr/">TakTuk</a></li>
+				<li id="n-CiGri"><a href="http://cigri.imag.fr/">CiGri</a></li>
+				<li id="n-Kameleon"><a href="index.php/Kameleon.html">Kameleon</a></li>
+				<li id="n-ComputeMode"><a href="http://computemode.imag.fr/">ComputeMode</a></li>
+				<li id="n-Xionee"><a href="https://gforge.inria.fr/projects/xionee/">Xionee</a></li>
+				<li id="n-KaDeploy"><a href="http://kadeploy.imag.fr/">KaDeploy</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Developers_portal'>
+		<h5>Developers portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Developers_Pages.html">Summary:</a></li>
+				<li id="n-Meetings-reports"><a href="index.php/Category:Portal:Staff:MeetingReports.html">Meetings reports</a></li>
+				<li id="n-Assigned-TaskList"><a href="index.php/Special:TaskList/all.html">Assigned TaskList</a></li>
+				<li id="n-Todo-Page"><a href="index.php/TODO.html">Todo Page</a></li>
+				<li id="n-Tools-and-Tips"><a href="index.php/Devel_Tools_tips.html">Tools and Tips</a></li>
+				<li id="n-FAQ"><a href="index.php/FAQ.html">FAQ</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://wiki-oar.imag.fr/index.php" id="searchform"><div>
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text" title="Search WikiOAR [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="index.php/Special:WhatLinksHere/GSOC_2011_Proposal_Web_Portal.html" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="index.php/Special:RecentChangesLinked/GSOC_2011_Proposal_Web_Portal.html" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="index.php/Special:SpecialPages.html" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="index.php%3Ftitle=GSOC_2011_Proposal_Web_Portal&amp;printable=yes&amp;printable=yes.html" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="index.php%3Ftitle=GSOC_2011_Proposal_Web_Portal&amp;oldid=3115.html" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 10 March 2011, at 19:05.</li>
+					<li id="viewcount">This page has been accessed 3,629 times.</li>
+					<li id="about"><a href="index.php/WikiOAR:About.html" title="WikiOAR:About">About WikiOAR and OAR logo</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.052 secs. --></body></html>

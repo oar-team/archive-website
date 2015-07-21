@@ -1,0 +1,11 @@
+[Process]
+Type=Edit file
+Engine=MediaWiki
+Script=http://wiki-oar.imag.fr/index.php
+Server=http://wiki-oar.imag.fr
+Path=
+Special namespace=Special
+
+[File]
+Extension=jpg
+URL=http://wiki-oar.imag.fr/images/7/76/Irb_config.jpg

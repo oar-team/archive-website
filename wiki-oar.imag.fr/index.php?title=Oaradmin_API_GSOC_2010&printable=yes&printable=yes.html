@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5-2squeeze6" />
+		<meta name="robots" content="noindex,follow" />
+		<meta name="keywords" content="Oaradmin API GSOC 2010,Kameleon,RESTfullAPI" />
+		<link rel="shortcut icon" href="http://oar.imag.fr/images/logo_oar.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="WikiOAR (en)" />
+		<link rel="alternate" type="application/rss+xml" title="WikiOAR RSS feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="WikiOAR Atom feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=atom" />
+		<title>Oaradmin API GSOC 2010 - WikiOAR</title>
+		<link rel="stylesheet" href="skins/common/commonPrint.css%3F207.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=-&amp;action=raw&amp;maxage=18000&amp;gen=css.css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://wiki-oar.imag.fr";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Oaradmin_API_GSOC_2010";
+		var wgTitle = "Oaradmin API GSOC 2010";
+		var wgAction = "view";
+		var wgArticleId = "223";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 2711;
+		var wgVersion = "1.15.5-2squeeze6";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="skins/common/ajax.js%3F207"></script>
+		<script type="text/javascript" src="index.php%3Ftitle=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-Oaradmin_API_GSOC_2010 skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Oaradmin API GSOC 2010</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From WikiOAR</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#column-one">navigation</a>, <a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#searchInput">search</a></div>			<!-- start content -->
+			<p><b>Student and mentor&nbsp;;), please read carefully this page...</b>
+</p><p>Student: <b>Jean-Pierre POUTCHEU</b>
+</p><p>Mentor: Bruno Bzeznik
+</p><p>Co-Mentor: Olivier Richard
+</p>
+<hr />
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Student:_Things_to_do_before_starting"><span class="tocnumber">1</span> <span class="toctext">Student: Things to do before starting</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Project_Specification"><span class="tocnumber">2</span> <span class="toctext">Project Specification</span></a>
+<ul>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Pagination_specifications"><span class="tocnumber">2.1</span> <span class="toctext">Pagination specifications</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Pagination_specifications_.28Bruno_version.29"><span class="tocnumber">2.2</span> <span class="toctext">Pagination specifications (Bruno version)</span></a>
+<ul>
+<li class="toclevel-3"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Every_data_structure_returned_by_the_API_should_be_wrapped_into_this_hash_table:"><span class="tocnumber">2.2.1</span> <span class="toctext">Every data structure returned by the API should be wrapped into this hash table:</span></a></li>
+<li class="toclevel-3"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Specific_case_of_the_jobs_uri_.28as_an_example_of_an_uri_that_needs_pagination.29:"><span class="tocnumber">2.2.2</span> <span class="toctext">Specific case of the jobs uri (as an example of an uri that needs pagination):</span></a></li>
+<li class="toclevel-3"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#input.2Foutput_Examples"><span class="tocnumber">2.2.3</span> <span class="toctext">input/output Examples</span></a></li>
+<li class="toclevel-3"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Default_uri_parameters"><span class="tocnumber">2.2.4</span> <span class="toctext">Default uri parameters</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Oaradmin_api_specifications"><span class="tocnumber">2.3</span> <span class="toctext">Oaradmin api specifications</span></a>
+<ul>
+<li class="toclevel-3"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Admission_rules"><span class="tocnumber">2.3.1</span> <span class="toctext">Admission rules</span></a></li>
+<li class="toclevel-3"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Resources_creation"><span class="tocnumber">2.3.2</span> <span class="toctext">Resources creation</span></a></li>
+<li class="toclevel-3"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Configuration_variables_.28oar.conf.29"><span class="tocnumber">2.3.3</span> <span class="toctext">Configuration variables (oar.conf)</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Main_Milestones"><span class="tocnumber">3</span> <span class="toctext">Main Milestones</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Tips"><span class="tocnumber">4</span> <span class="toctext">Tips</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#TODO_list"><span class="tocnumber">5</span> <span class="toctext">TODO list</span></a>
+<ul>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Mentor"><span class="tocnumber">5.1</span> <span class="toctext">Mentor</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Student"><span class="tocnumber">5.2</span> <span class="toctext">Student</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html#Links_to_look_at"><span class="tocnumber">6</span> <span class="toctext">Links to look at</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Student:_Things_to_do_before_starting" id="Student:_Things_to_do_before_starting"></a><h2> <span class="mw-headline">Student: Things to do before starting</span></h2>
+<ul><li> <s>Subscribe to oar commits mailing list</s>
+</li><li> <s>Play with <a href="index.php/Kameleon.html" title="Kameleon">Kameleon</a> (generate a OAR/Debian appliance)</s>
+</li><li> <s>Practice <a href="index.php/RESTfullAPI.html" title="RESTfullAPI"> OAR RESTfull API</a> (using the OAR appliance)</s>
+</li></ul>
+<a name="Project_Specification" id="Project_Specification"></a><h2> <span class="mw-headline">Project Specification</span></h2>
+<ul><li> <s>First, implement a pagination feature as discussed here: <a href="https://gforge.inria.fr/tracker/index.php?func=detail&amp;aid=8982&amp;group_id=125&amp;atid=586" class="external free" title="https://gforge.inria.fr/tracker/index.php?func=detail&amp;aid=8982&amp;group_id=125&amp;atid=586" rel="nofollow">https://gforge.inria.fr/tracker/index.php?func=detail&amp;aid=8982&amp;group_id=125&amp;atid=586</a> (as a bootstrap coding into the API) as a requirement for the Web portal GSOC</s>
+</li><li> Then, integrate oaradmin as discussed (resources creation, admin rules edition, config file edition, prologue/epilogue)
+</li></ul>
+<p>(add details here)
+</p>
+<ul><li> Take a look at Mason+mod_perl to optimize the API
+</li></ul>
+<a name="Pagination_specifications" id="Pagination_specifications"></a><h3> <span class="mw-headline">Pagination specifications</span></h3>
+<ul><li> List of current jobs
+</li></ul>
+<pre> /jobs.(yaml|json|html)
+ /jobs/details.(yaml|json|html)
+ /jobs/table.(yaml|json|html)
+</pre>
+<ul><li> with pagination options
+</li></ul>
+<pre> /jobs.(yaml|json|html)?start_id=X
+ /jobs/details.(yaml|json|html)?start_id=X
+ /jobs/table.(yaml|json|html)?start_id=X
+</pre>
+<ul><li> hasmap data structure
+</li></ul>
+<pre>  items ==&gt; jobs results (hashmap if structure = oar, table if structure = simple)
+  page ==&gt; current page number in the results list, used in the next and previous links generation
+  limit ==&gt; limit value (this value overwrite the value defined in the OAR file config)
+  [next_url_link ==&gt; the next url link]   e.g. "/jobs.(yaml|json|html)?start_id=X&amp;page=3"
+  [previous_url_link ==&gt; the previous url link]  e.g. "/jobs.(yaml|json|html)?start_id=X&amp;page=1"
+</pre>
+<pre>  'next_url_link' and 'previous_url_link' may be absent
+</pre>
+<ul><li> struct methods&nbsp;: 
+</li></ul>
+<pre>   struct_job_list(jobs, structure, previous_url_link, next_url_link)
+   struct_job_list_details(jobs, structure, previous_url_link, next_url_link)
+</pre>
+<pre>   'previous_url_link' and 'next_url_link' will be added as parameters
+</pre>
+<a name="Pagination_specifications_.28Bruno_version.29" id="Pagination_specifications_.28Bruno_version.29"></a><h3> <span class="mw-headline">Pagination specifications (Bruno version)</span></h3>
+<a name="Every_data_structure_returned_by_the_API_should_be_wrapped_into_this_hash_table:" id="Every_data_structure_returned_by_the_API_should_be_wrapped_into_this_hash_table:"></a><h4> <span class="mw-headline"> Every data structure returned by the API should be wrapped into this hash table:</span></h4>
+<ul><li> In the case a collection is returned (array or hash):
+</li></ul>
+<pre>items ==&gt; query results (hashmap if structure = oar, table if structure = simple)
+limit ==&gt; limit value (this value overwrite the value defined in the OAR file config)
+offset ==&gt; id at which the listing started
+total ==&gt; total number of items
+links ==&gt; array of hash describing useful links: href =&gt; &lt;uri&gt; , rel =&gt; &lt;self|parent|...&gt;
+  
+ We know that we have a next page if&nbsp;:
+   (# of items) + offset &lt; total
+ or if there's a link-&gt;rel=="next"
+</pre>
+<ul><li> In the case a simple element is returned:
+</li></ul>
+<pre>key1=&gt;value1
+key2=&gt;value2
+...
+links ==&gt; array of hash describing useful links: href =&gt; &lt;uri&gt; , rel =&gt; &lt;self|parent|...&gt;
+</pre>
+<a name="Specific_case_of_the_jobs_uri_.28as_an_example_of_an_uri_that_needs_pagination.29:" id="Specific_case_of_the_jobs_uri_.28as_an_example_of_an_uri_that_needs_pagination.29:"></a><h4> <span class="mw-headline">Specific case of the jobs uri (as an example of an uri that needs pagination):</span></h4>
+<ul><li> Uri
+</li></ul>
+<pre> GET /jobs[/details|/table].(yaml|json|html)?[from=&lt;FROM&gt;]&amp;[to=&lt;TO&gt;]&amp;[state=&lt;STATE&gt;]&amp;[offset=&lt;ID&gt;]&amp;[limit=&lt;LIMIT&gt;]
+</pre>
+<ul><li> Input parameters:
+</li></ul>
+<pre> FROM: From unix timestamp
+ TO: To unix timestamp
+ STATE: List of possible states (ex: Running,Waiting,Finishing,Launching)
+ ID: the first id to be listed. Jobs are listed from this id until LIMIT is reached
+ LIMIT: if more than LIMIT jobs satisfy the query, stop when this LIMIT is reach
+</pre>
+<a name="input.2Foutput_Examples" id="input.2Foutput_Examples"></a><h4> <span class="mw-headline">input/output Examples</span></h4>
+<ul><li> GET /jobs.yaml?from=1274096990&amp;to=1276688990&amp;limit=2 (or GET /jobs.yaml?from=1274096990&amp;to=1276688990 &amp;&amp; $API_NUMBER_ITEMS_LIMIT=2 into oar.conf)
+</li></ul>
+<pre>items:
+  - api_timestamp: 1276689144
+    id: 11
+    name: ~
+    owner: kameleon
+    queue: default
+    state: Running
+    submission: 1276689106
+    links:
+      - href: /jobs/11
+        rel: self
+      - href: /jobs/11/resources
+        rel: resources
+  - api_timestamp: 1276689144
+    id: 12
+    name: ~
+    owner: kameleon
+    queue: default
+    state: Running
+    submission: 1276689109
+    links:
+      - href: /jobs/12
+        rel: self
+      - href: /jobs/12/resources
+        rel: resources
+total: 5
+offset: 0
+links:
+  - href: /jobs.yaml?from=1274096990&amp;to=1276688990&amp;limit=2
+    rel: self
+  # Optional:
+  - href: /jobs.yaml?from=1274096990&amp;to=1276688990&amp;limit=2&amp;offset=2
+    rel: next
+</pre>
+<ul><li> GET /jobs.yaml?from=1274096990&amp;to=1276688990&amp;limit=2&amp;offset=2
+</li></ul>
+<pre>items:
+  - api_timestamp: 1276689144
+    id: 13
+    name: ~
+    owner: kameleon
+    queue: default
+    state: Running
+    submission: 1276689106
+  - api_timestamp: 1276689144
+    links:
+      - href: /jobs/13
+        rel: self
+      - href: /jobs/13/resources
+        rel: resources
+    id: 14
+    name: ~
+    owner: kameleon
+    queue: default
+    state: Running
+    submission: 1276689109
+    links:
+      - href: /jobs/14
+        rel: self
+      - href: /jobs/14/resources
+        rel: resources
+total: 5
+offset: 2
+links:
+  - href: /jobs.yaml?from=1274096990&amp;to=1276688990&amp;limit=2&amp;offset=2
+    rel: self
+  # Optional:
+  - href: /jobs.yaml?from=1274096990&amp;to=1276688990&amp;limit=2&amp;offset=4
+    rel: next
+  - href: /jobs.yaml?from=1274096990&amp;to=1276688990&amp;limit=2&amp;offset=0
+    rel: prev
+</pre>
+<ul><li> GET /jobs.yaml?from=1274096990&amp;to=1276688990&amp;limit=2&amp;offset=4
+</li></ul>
+<pre>items:
+  - api_timestamp: 1276689144
+    id: 15
+    name: ~
+    owner: kameleon
+    queue: default
+    state: Running
+    submission: 1276689106
+    links:
+      - href: /jobs/15
+        rel: self
+      - href: /jobs/15/resources
+        rel: resources
+total: 5
+offset: 4
+links:
+  - href: /jobs.yaml?from=1274096990&amp;to=1276688990&amp;limit=2&amp;offset=4
+    rel: self
+  # Optional:
+  - href: /jobs.yaml?from=1274096990&amp;to=1276688990&amp;limit=2&amp;offset=2
+    rel: prev
+</pre>
+<a name="Default_uri_parameters" id="Default_uri_parameters"></a><h4> <span class="mw-headline">Default uri parameters</span></h4>
+<ul><li> In oar.conf:
+</li></ul>
+<pre># Maximum default number of items
+API_NUMBER_ITEMS_LIMIT
+# Default parameters for the /jobs uri
+# if a "&amp;limit=" is given, the $API_NUMBER_ITEMS_LIMIT is ignored for this uri
+API_JOBS_URI_DEFAULT_PARAMS="Finishing,Running,Resuming,Suspended,Launching,toLaunch,Waiting,toAckReservation,Hold&amp;limit=200
+</pre>
+<a name="Oaradmin_api_specifications" id="Oaradmin_api_specifications"></a><h3> <span class="mw-headline">Oaradmin api specifications</span></h3>
+<a name="Admission_rules" id="Admission_rules"></a><h4> <span class="mw-headline">Admission rules</span></h4>
+<dl><dt><s>GET /admission_rules</s>
+</dt><dd><i>list admissions rules</i>
+</dd></dl>
+<dl><dt><s>GET /admission_rules/&lt;id&gt;</s>
+</dt><dd><i>list the admission rule #id</i>: 
+</dd></dl>
+<pre>id: 1
+rule: |
+      code line 1
+      code line 2
+      .... 
+links:
+   - href=
+     rel=current
+</pre>
+<dl><dt><s>PUT /admission_rules</s>
+</dt><dd><i>create a new admission rule</i>
+</dd></dl>
+<pre>#PUTDATA:
+ rule: |
+      code line 1
+      code line 2
+      ....
+</pre>
+<dl><dt><s>POST /admission_rules</s>
+</dt><dd><i>create a new admission rule (for browsers compatibility)</i>
+</dd></dl>
+<pre>#POSTDATA:
+method: put
+rule: |
+      code line 1
+      code line 2
+      ....
+</pre>
+<dl><dt><s>DELETE /admission_rules/&lt;id&gt;</s>
+</dt><dd><i>delete an admission rule</i>
+</dd></dl>
+<dl><dt><s>POST /admission_rules/&lt;id&gt;</s>
+</dt><dd><i>delete an admission rule (for browsers compatibility)</i>
+</dd></dl>
+<pre>#POSTDATA:
+ method: delete
+</pre>
+<dl><dd><i>erase an admission rule</i>
+</dd></dl>
+<pre>#POSTDATA:
+ rule: |
+      code line 1
+      code line 2
+      ....
+</pre>
+<a name="Resources_creation" id="Resources_creation"></a><h4> <span class="mw-headline">Resources creation</span></h4>
+<ul><li> POST /resources/generate.(yaml|json|html)
+</li></ul>
+<pre>#POSTDATA:
+ <s>param  = '-a /node=node1 -p memnode=1024 -p cpufreq=3.2 -p cputype=xeon'</s>
+ resources: '/node=node{4}/cpu={2}/core={2}'
+ properties:
+           memnode: 1024
+           cpufreq: '3.2'
+           cputype: 'xeon'
+           
+</pre>
+<ul><li> RESULT
+</li></ul>
+<pre><s>ressources:
+    - hostname&nbsp;: node1
+      properties&nbsp;:
+            - memnode&nbsp;: 1024
+              cpufreq&nbsp;: 3.2
+              cputype&nbsp;: xeon
+      ....
+      .... </s>  
+</pre>
+<pre>items:
+     - hostname&nbsp;: node1
+       properties&nbsp;:
+                  cpu: 1
+                  core: 1
+                  cpuset: 0
+                  memnode&nbsp;: 1024
+                  cpufreq&nbsp;: 3.2
+                  cputype&nbsp;: xeon
+     - hostname&nbsp;: node1
+       properties&nbsp;:
+                  cpu: 1
+                  core: 2
+                  cpuset: 1
+                  memnode&nbsp;: 1024
+                  cpufreq&nbsp;: 3.2
+                  cputype&nbsp;: xeon
+      ...
+links&nbsp;: 
+      - rel&nbsp;: create
+        method&nbsp;: post
+        url&nbsp;: /resources
+      - rel&nbsp;: self
+        method&nbsp;: post
+        url&nbsp;: /resources/generate
+</pre>
+<a name="Configuration_variables_.28oar.conf.29" id="Configuration_variables_.28oar.conf.29"></a><h4> <span class="mw-headline">Configuration variables (oar.conf)</span></h4>
+<dl><dt> <s>GET /config.(yaml|json|html)</s>
+</dt><dd> Get all the configuration variables
+</dd></dl>
+<pre>#Example output:
+ DB_TYPE: 'mysql'
+ DB_HOSTNAME: 'localhost'
+ DB_PORT: '3306'
+ ...
+</pre>
+<dl><dt> <s>GET /config/&lt;variable_name&gt;.(yaml|json|html)</s>
+</dt><dd> Get a variable
+</dd></dl>
+<pre># Example query:
+ GET /config/DB_TYPE.yaml
+# output:
+ DB_TYPE: 'mysql'
+ api_timestamp: 1278574909
+ links:
+      - rel: set
+        method: post
+        url: /config/DB_TYPE
+      - rel: self
+        method: get
+        url: /config/DB_TYPE
+</pre>
+<dl><dt> <s>POST /config/&lt;variable_name&gt;.(yaml|json|html)</s>
+</dt><dd> Set a variable
+</dd></dl>
+<pre># example QUERY
+ POST /config/DB_TYPE.yaml
+# example POSTDATA
+ value: "mysql"
+</pre>
+<dl><dt> <s>POST /config.(yaml|json|html)</s>
+</dt><dd> Set all the configuration variables
+</dd></dl>
+<pre># example QUERY
+ POST /config.yaml
+# example POSTDATA
+ DB_TYPE: 'mysql'
+ DB_HOSTNAME: 'localhost'
+ DB_PORT: '3306'
+ ...
+</pre>
+<p>Do we make checks??? Mandatory variables; types; syntax;?
+</p>
+<a name="Main_Milestones" id="Main_Milestones"></a><h2> <span class="mw-headline">Main Milestones</span></h2>
+<a name="Tips" id="Tips"></a><h2> <span class="mw-headline"> Tips </span></h2>
+<a name="TODO_list" id="TODO_list"></a><h2> <span class="mw-headline">TODO list</span></h2>
+<a name="Mentor" id="Mentor"></a><h3> <span class="mw-headline">Mentor</span></h3>
+<a name="Student" id="Student"></a><h3> <span class="mw-headline">Student</span></h3>
+<ul><li> OAR Admin specification (URLs, input/output,...)
+</li></ul>
+<a name="Links_to_look_at" id="Links_to_look_at"></a><h2> <span class="mw-headline">Links to look at</span></h2>
+<ul><li> <a href="http://www.masonhq.com/" class="external free" title="http://www.masonhq.com/" rel="nofollow">http://www.masonhq.com/</a>
+</li><li> <a href="https://2009.jres.org/planning_files/summary/html/85.htm" class="external free" title="https://2009.jres.org/planning_files/summary/html/85.htm" rel="nofollow">https://2009.jres.org/planning_files/summary/html/85.htm</a>
+</li></ul>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 19/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+#ifexist count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikioar:pcache:idhash:223-0!1!0!!en!2!edit=0!printable=1 and timestamp 20150721145215 -->
+<div class="printfooter">
+Retrieved from "<a href="index.php/Oaradmin_API_GSOC_2010.html">http://wiki-oar.imag.fr/index.php/Oaradmin_API_GSOC_2010</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="index.php/Oaradmin_API_GSOC_2010.html" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki-oar.imag.fr/index.php?title=Talk:Oaradmin_API_GSOC_2010&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;action=edit.html" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;action=history.html" title="Past revisions of this page [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="index.php%3Ftitle=Special:UserLogin&amp;returnto=Oaradmin_API_GSOC_2010.html" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://oar.imag.fr/schemas/oar_logo_small.png);" href="index.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-Public_portal'>
+		<h5>Public portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="index.html" title="Visit the main page">Main Page</a></li>
+				<li id="n-Appliances-.28Kameleon.29"><a href="index.php/Kameleon.html">Appliances (Kameleon)</a></li>
+				<li id="n-OAR-Website"><a href="http://oar.imag.fr">OAR Website</a></li>
+				<li id="n-REST-API"><a href="index.php/RESTfullAPI.html">REST API</a></li>
+				<li id="n-Customization-tips"><a href="index.php/Configuration_tips.html">Customization tips</a></li>
+				<li id="n-OAR.27s-News"><a href="http://oar.imag.fr/news/">OAR's News</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Summer_of_Code'>
+		<h5>Summer of Code</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-GSoC-Summary"><a href="index.php/Google_summer_of_code.html">GSoC Summary</a></li>
+				<li id="n-2010-edition"><a href="index.php/GSOC_2010.html">2010 edition</a></li>
+				<li id="n-2009-edition"><a href="index.php/GSOC_2009.html">2009 edition</a></li>
+				<li id="n-2008-edition"><a href="http://oar.imag.fr/works/gsoc/2008/">2008 edition</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Related_links'>
+		<h5>Related links</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Links.html">Summary:</a></li>
+				<li id="n-About-OAR-.28French.29"><a href="http://www.projet-plume.org/fr/fiche/oar">About OAR (French)</a></li>
+				<li id="n-TakTuk"><a href="http://taktuk.gforge.inria.fr/">TakTuk</a></li>
+				<li id="n-CiGri"><a href="http://cigri.imag.fr/">CiGri</a></li>
+				<li id="n-Kameleon"><a href="index.php/Kameleon.html">Kameleon</a></li>
+				<li id="n-ComputeMode"><a href="http://computemode.imag.fr/">ComputeMode</a></li>
+				<li id="n-Xionee"><a href="https://gforge.inria.fr/projects/xionee/">Xionee</a></li>
+				<li id="n-KaDeploy"><a href="http://kadeploy.imag.fr/">KaDeploy</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Developers_portal'>
+		<h5>Developers portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Developers_Pages.html">Summary:</a></li>
+				<li id="n-Meetings-reports"><a href="index.php/Category:Portal:Staff:MeetingReports.html">Meetings reports</a></li>
+				<li id="n-Assigned-TaskList"><a href="index.php/Special:TaskList/all.html">Assigned TaskList</a></li>
+				<li id="n-Todo-Page"><a href="index.php/TODO.html">Todo Page</a></li>
+				<li id="n-Tools-and-Tips"><a href="index.php/Devel_Tools_tips.html">Tools and Tips</a></li>
+				<li id="n-FAQ"><a href="index.php/FAQ.html">FAQ</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://wiki-oar.imag.fr/index.php" id="searchform"><div>
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text" title="Search WikiOAR [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="index.php/Special:WhatLinksHere/Oaradmin_API_GSOC_2010.html" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="index.php/Special:RecentChangesLinked/Oaradmin_API_GSOC_2010.html" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="index.php/Special:SpecialPages.html" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;printable=yes&amp;printable=yes.html" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="index.php%3Ftitle=Oaradmin_API_GSOC_2010&amp;oldid=2711.html" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 4 August 2010, at 14:04.</li>
+					<li id="viewcount">This page has been accessed 13,108 times.</li>
+					<li id="about"><a href="index.php/WikiOAR:About.html" title="WikiOAR:About">About WikiOAR and OAR logo</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.068 secs. --></body></html>

@@ -1,0 +1,658 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5-2squeeze6" />
+		<meta name="robots" content="noindex,nofollow" />
+		<meta name="keywords" content="Advanced scheduler for the CiGri grid,Cigri Scheduler Proposal,Bzizou,Elton" />
+		<link rel="shortcut icon" href="http://oar.imag.fr/images/logo_oar.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="WikiOAR (en)" />
+		<link rel="alternate" type="application/rss+xml" title="WikiOAR RSS feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="WikiOAR Atom feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=atom" />
+		<title>Advanced scheduler for the CiGri grid - WikiOAR</title>
+		<link rel="stylesheet" href="skins/common/shared.css%3F207.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="skins/common/commonPrint.css%3F207.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="skins/monobook/main.css%3F207.css" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" media="print" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=-&amp;action=raw&amp;maxage=18000&amp;gen=css.css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://wiki-oar.imag.fr";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Advanced_scheduler_for_the_CiGri_grid";
+		var wgTitle = "Advanced scheduler for the CiGri grid";
+		var wgAction = "view";
+		var wgArticleId = "84";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 3429;
+		var wgVersion = "1.15.5-2squeeze6";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="skins/common/ajax.js%3F207"></script>
+		<script type="text/javascript" src="index.php%3Ftitle=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-Advanced_scheduler_for_the_CiGri_grid skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Advanced scheduler for the CiGri grid</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From WikiOAR</h3>
+			<div id="contentSub">
+				<div id="mw-revision-info">Revision as of 16:50, 17 May 2011 by <a href="http://wiki-oar.imag.fr/index.php?title=User:Neyron&amp;action=edit&amp;redlink=1" class="new mw-userlink" title="User:Neyron (page does not exist)">Neyron</a>  <span class="mw-usertoollinks">(<a href="http://wiki-oar.imag.fr/index.php?title=User_talk:Neyron&amp;action=edit&amp;redlink=1" class="new" title="User talk:Neyron (page does not exist)">Talk</a>&#32;|&#32;<a href="index.php/Special:Contributions/Neyron.html" title="Special:Contributions/Neyron">contribs</a>)</span></div>
+
+				<div id="mw-revision-nav">(<a href="http://wiki-oar.imag.fr/index.php?title=Advanced_scheduler_for_the_CiGri_grid&amp;diff=prev&amp;oldid=3429" title="Advanced scheduler for the CiGri grid">diff</a>) <a href="http://wiki-oar.imag.fr/index.php?title=Advanced_scheduler_for_the_CiGri_grid&amp;direction=prev&amp;oldid=3429" title="Advanced scheduler for the CiGri grid">← Older revision</a>&#32;|&#32;Latest revision (diff)&#32;|&#32;Newer revision → (diff)</div>
+			</div>
+									<div id="jump-to-nav">Jump to: <a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#column-one">navigation</a>, <a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#searchInput">search</a></div>			<!-- start content -->
+			<p><a href="index.php/Cigri_Scheduler_Proposal.html" title="Cigri Scheduler Proposal"> See original proposal here</a>
+</p><p><b>Student and mentor&nbsp;;), please read carefully this page...</b>
+</p><p><br />
+Student: Elton Mathias 
+</p><p>Mentor: Bruno Bzeznik
+</p><p>Co-Mentor: Yiannis Georgiou 
+</p>
+<hr />
+<p><br />
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Student:_Things_to_do_before_starting"><span class="tocnumber">1</span> <span class="toctext">Student: Things to do before starting</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#29_April.27s_Brainstorming"><span class="tocnumber">2</span> <span class="toctext">29 April's Brainstorming</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Project_Pseudo-Specification"><span class="tocnumber">3</span> <span class="toctext">Project Pseudo-Specification</span></a>
+<ul>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Required_Features_.28to_be_updated.29"><span class="tocnumber">3.1</span> <span class="toctext">Required Features (to be updated)</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Campaign_Types_Definition"><span class="tocnumber">3.2</span> <span class="toctext">Campaign Types Definition</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#General_Architecture"><span class="tocnumber">3.3</span> <span class="toctext">General Architecture</span></a>
+<ul>
+<li class="toclevel-3"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Updator"><span class="tocnumber">3.3.1</span> <span class="toctext">Updator</span></a></li>
+<li class="toclevel-3"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Metascheduler"><span class="tocnumber">3.3.2</span> <span class="toctext">Metascheduler</span></a></li>
+<li class="toclevel-3"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Scheduler"><span class="tocnumber">3.3.3</span> <span class="toctext">Scheduler</span></a></li>
+<li class="toclevel-3"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Predictor"><span class="tocnumber">3.3.4</span> <span class="toctext">Predictor</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Scheduling_Control.2FData_Flow"><span class="tocnumber">3.4</span> <span class="toctext">Scheduling Control/Data Flow</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Schedule_Staging"><span class="tocnumber">4</span> <span class="toctext">Schedule Staging</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Prediction_Algorithms"><span class="tocnumber">5</span> <span class="toctext">Prediction Algorithms</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Initial_implementation_Workplan"><span class="tocnumber">6</span> <span class="toctext">Initial implementation Workplan</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Main_Milestones"><span class="tocnumber">7</span> <span class="toctext">Main Milestones</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#TODO_list"><span class="tocnumber">8</span> <span class="toctext">TODO list</span></a>
+<ul>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Mentor"><span class="tocnumber">8.1</span> <span class="toctext">Mentor</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Student"><span class="tocnumber">8.2</span> <span class="toctext">Student</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html#Links_to_look_at"><span class="tocnumber">9</span> <span class="toctext">Links to look at</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Student:_Things_to_do_before_starting" id="Student:_Things_to_do_before_starting"></a><h2> <span class="mw-headline">Student: Things to do before starting</span></h2>
+<ul><li> Already done: g5k account, svn account, branch into cigri svn
+</li><li> Meeting at Grenoble 11,12 mai
+<ul><li>Ordre du jour à compléter:
+</li><li>Présentation de Cigri et de son code à Elton
+</li><li>Mise au point de la plateforme de développement (environnement g5k, environnement de test sur ciment)
+</li><li>Etat des lieux du code de Cigri
+<ul><li>Versionning
+</li><li>Travaux en cours ou expérimentaux, idées
+</li><li>Plateformes en production et besoins récurrents
+</li><li>CIRA: RaGrid (et ses besoins), Egee
+</li></ul>
+</li><li>Point sur le scheduling dans CiGri avec Olivier Richard et Yiannis Georgiou
+<ul><li>Prédiction
+</li><li>Fairsharing
+</li><li>Problème des petits jobs
+</li><li>Règles d'admission
+</li><li>Priorités
+</li><li>Queues Multiples
+</li></ul>
+</li><li>Rencontre de Arnaud Legrand et Rémi Bertin, spécialistes de l'ordonnancement
+</li><li>Brainstorming avec Arnaud, Olivier, Rémi, Yiannis, Joseph, Bruno,...
+<ul><li>Définir les fonctionnalités requises
+</li><li>Architecture du nouveau scheduler CiGri
+</li></ul>
+</li><li>Définition des taches et classement par priorités
+</li><li>Roadmap
+</li></ul>
+</li></ul>
+<a name="29_April.27s_Brainstorming" id="29_April.27s_Brainstorming"></a><h2> <span class="mw-headline">29 April's Brainstorming</span></h2>
+<p><b>Presents</b>: Olivier, Yiannis, Bruno,<i> Elton(post-bainstorming)</i>
+</p><p>We tried to list the items we have to work on and check those that have an impact on the scheduler. I (Bruno) don't want Elton to work on all those items, but firstly to work on the scheduler, and then, if there is time left, work on the other subjects.
+</p>
+<ul><li> Things that have an impact on the scheduler:
+<ul><li> <b>Evolutive scheduler</b> that can be modified (plug-ins?) to test different algorithms (that's a general idea, not a specific problem to solve). <i><b>(1)</b></i>  
+</li></ul>
+</li></ul>
+<ul><li><ul><li><b>Little test campains problem</b>: that's the main problem we want to solve: we want "little" test campains to be executed immediately even if big production campains are running. <i><b>(2)</b></i>
+</li></ul>
+</li></ul>
+<ul><li><ul><li><b>parallel jobs</b>: that's the second problem we want to solve: to be able to run campains of parallel jobs using several nodes of a given cluster. <i><b>(3)</b></i> 
+</li><li> <b>Priorities</b>
+<ul><li>a simple example: when Lyon-users and Grenoble-users have running campains, we want Lyon-users to have their jobs running on the Lyon-clusters and Grenoble-users having theirs jobs running on the Grenoble-clusters. Grenoble jobs may be submited on Lyon clusters if some Lyon resources are free.
+</li><li>we can also imagine another priority level by projects, like the OAR fairsharing currently does
+</li></ul>
+</li><li><b>Fairsharing</b>: having equity between users. This seems to depend on <b>accounting</b>. We already have a module (called <b>Spritz</b>) aggregating statistical informations about campains. Maybe we should add a <b>predictor</b>... cigri can run some jobs of each campain at the beginning to obtain some data about the jobs (exec time, memory profile...). We have to read the <b>"Blaise" paper</b>   <i><b>(4)</b></i> 
+</li><li><b>File transfer of input data per job</b>: idea is to add a a parameter or something into the JDL to match input data with jobs so that only needed data is transfered before starting a job. It may be interesting to have informations like size and network bandwidth to know how to schedule depending on the transfer time
+</li><li><b>End of campains optimization</b>: duplication of jobs at the end of a campain if resources are free or timeout
+</li><li><b>Checkpointing</b>: also see the <b>"Blaise" paper</b>. I (Bruno) think the checkpoint signal must be sent by CiGri has the time interval between checkpoints may depend on a formula. The impact on the scheduler is:
+<ul><li>A checkpointed job may have to be restarted prior to a non-checkpointed one
+</li><li>A checkpointed job may have to be restarted on the same cluster
+</li><li>Data of the checkpoint needs to be there
+</li></ul>
+</li><li><b>Dependencies</b>: very difficult because of the problem of the input/output data... not a priority
+</li><li><b>Distributed filesystem</b> (may help for checkpointing, dependencies and file transfer)
+</li></ul>
+</li></ul>
+<ul><li> Things not directly linked to the scheduling
+<ul><li><b>array jobs support</b>. Warning: contentions may occure with "bad jobs" and it may be interesting to use the profiling data of the predictor (see Fairsharing above) to see if we can run for example 1000 jobs on the same cluster without causing damage to the NFS server for example <i><b>(5)</b></i> 
+</li><li><b>The sink effect</b>: problem of the jobs running in near 0 seconds on a given cluster without exiting with an error status  <i><b>(6)</b></i> 
+</li><li><b>OAR API support</b>: we have to recode the clusterqueries to take advantage of the new RESTFul OAR API and maybe no more use ssh and sudo. The OAR API should probably evolve to provide the necessary gateways for CiGri. <i><b>(7)</b></i>  
+</li></ul>
+</li></ul>
+<p><br />
+<i><b>(8)</b></i>  
+</p><p><br />
+<i><b>(1)</b></i> <i>Maybe, a way to do that would be to have a design like the gLite WM (but simplified), containing queues (supposing we still follow a lazy scheduling policy), a kind of "information market", that offer information about resources and jobs and the scheduler itself which could be based on a strategy design pattern (due to duck typing, implements design patterns are a bit tricky in Ruby and define modules with fake methods sounds a bit weird to me, but I'm rather talking here about the philosophy of the strategy pattern). The "information market" could be, at the beginning, a simple library offering a simple API to pool data from the DB ... but, if needed, in the future, it could evolve taking events into account to improve scalability.</i>
+</p><p><i><b>(2)</b></i> <i>Does it imply on preemption, or the idea is just to bypass the campaign jobs in the queue? Either way this seems to le to be something that should be treated at the scheduling algorithm level (thinking on a lazy strategy, I think it should call it match maker) </i>
+</p><p><i><b>(3)</b></i>  <i>Without support to preemption, the support to parallel jobs will make us fall again into the problem of scheduling small campaigns: once a big parallel job was deployed ... it'll run until it finishes and the small campaigns zill get stuck on the queue</i>
+</p><p><i><b>(4)</b></i>    <i>I personally believe that the idea of just defining OAR priorities by queues constraints a user-based priority approach. Maybe the thing here is to find the proper algorithm to assign each job a priority based on user group, queue and recent usage of resources. At this point, we could think on increasing the priority of initial jobs in big campaigns so that users could get quite quickly some results.</i>
+</p><p><i><b>(5)</b></i>    <i>I agree that array jobs could speed up submission of big jobs (if and just if a big number of resources are available). But, is it a recurring problem&nbsp;? In general, how big are the biggest campaigns&nbsp;?</i> 
+</p><p><i><b>(6)</b></i>    <i>I didn't get the problem here...</i>
+</p><p><i><b>(7)</b></i>    <i>This would be a really cool aproach for an "information market", but we should not zork on qn on-demand base to avoid a bad performance of the mach maker</i>
+</p><p><i><b>(8)</b></i>   <i>I'd like to suggest us to think on doing a better separation of what is scheduling (or match making) and job submission. Even if they are mutually dependent, they are different processes and should be treated in separate. Current implementation of the scheduler module is a bit code tangled, in a sense that the scheduler itself is responsible for pushing the jobs/data onto the nodes.  </i>
+--<a href="http://wiki-oar.imag.fr/index.php?title=User:Elton&amp;action=edit&amp;redlink=1" class="new" title="User:Elton (page does not exist)">Elton</a> 09:24, 30 April 2009 (UTC)
+</p><p><br />
+</p>
+<a name="Project_Pseudo-Specification" id="Project_Pseudo-Specification"></a><h2> <span class="mw-headline">Project Pseudo-Specification</span></h2>
+<p>Following the brainstorming done in 11-13th May in Grenoble, we (Bruno, Olivier, Yiannis, Arnaud L. and Elton) have defined an initial architecture for the new CiGri scheduling module.  It is worthy of notice here that nothing in this specification is fixed because the idea of this specification is rather to define more clearly the basis for an initial prototype than to provide a full specification.  Besides, we expect that this architecture and the scheduling algorithms may evolve during the development of the project and later to include new features and supply the CiGri community needs.
+</p>
+<a name="Required_Features_.28to_be_updated.29" id="Required_Features_.28to_be_updated.29"></a><h3> <span class="mw-headline">Required Features (to be updated)</span></h3>
+<ul><li>Support to different campaign types (for now: test, and default)
+</li><li>Support to ruby-based admission rules
+</li><li>Multiple scheduling modes (for now: test, prediction, workqueue and finalization)
+</li><li>Support to parallel jobs (jobs that require more than one resource)
+</li><li>Support Job requirements at JDL definition:
+<ul><li>resources properties (parallel to '-p' OAR) (memory, processor, high performance networks, ...) 
+</li><li>hierarchy of resources for parallel jobs (parallel to '-l' OAR)
+</li></ul>
+</li></ul>
+<a name="Campaign_Types_Definition" id="Campaign_Types_Definition"></a><h3> <span class="mw-headline">Campaign Types Definition</span></h3>
+<p>The new CiGri infrastructure will include support to different campaign types. The campaign type is defined by users when submiting campaigns through the parameter '-t' added to gridsub. If no type is defined, the CiGri considers the campaign to be a 'default' one
+</p><p>For now, we have defined two basic campaign types:
+</p>
+<ul><li> <b>default campaigns</b>: as the name says, default campaigns are campaigns intended to deploy jobs over computing nodes.
+</li><li> <b>test campaigns</b>: test campaigns are specially designed to test the execution of the campaign over the different resources defined on the JDL file. Different from default campaigns, only a single job is scheduled in each of the required clusters. This makes possible to users to test the application before an effective campaign submition that is usually composed by a large number of jobs.  The advantage of the test campaigns is that they have a big priority in relation to default campaigns. This means that once the requested resources are available, the test campaigns will be scheduled, even if default campaigns exists in the queues.
+</li></ul>
+<a name="General_Architecture" id="General_Architecture"></a><h3> <span class="mw-headline">General Architecture</span></h3>
+<p>The general architecture of the new scheduling module is composed by three main entities: a metascheduler, one scheduler for each running campaign and a predictor. The following diagram shows this architecture, along with the main external modules involved on the scheduling processes (in grey). 
+</p><p><a href="index.php/File:Scheduler_arch.png.html" class="image" title="Image:Scheduler_arch.png"><img alt="Image:Scheduler_arch.png" src="images/9/96/Scheduler_arch.png" width="595" height="262" border="0" /></a>
+</p><p>The next subsections present in more details each of these entities and their operation. At the end of this section, a diagram gives a step-by-step example that clarifies these concepts.
+</p>
+<a name="Updator" id="Updator"></a><h4> <span class="mw-headline">Updator</span></h4>
+<p>The updator module works as a probe that updates a table on the CiGri DB with snapshots of the existing resource availability. <s>It works as an internal CiGri cache to avoid the cost of checking remotelly on every cluster the current state of resources</s>. <i>At each Cigri cycle, it aggregates the number of free/used resources on each cluster and checks the running jobs for their status (running, finished or killed).</i> Even if this module is essentially external to the scheduling module, it provides the information necessary to start/stop the scheduling activity.
+</p>
+<a name="Metascheduler" id="Metascheduler"></a><h4> <span class="mw-headline">Metascheduler</span></h4>
+<p>Metascheduler is the brain of the whole scheduling mechanism. It is responsible for the orchestration of the different campaign schedulers based on resources availability, campaigns requirements and priorities. The metascheduler is also responsible for control the effectiveness of scheduling decisions to submit jobs to available resources.
+The initial implementation of the metascheduler follows a FIFO-based approach (+ priority for test campaigns for the scheduling of the campaigns). But we expect, in the future, to provide a clever solution that might include campaign <s>interlacing and</s> fairsharing.
+</p><p>The initial pseudo-algorithm which describes the metascheduler operation is given by: 
+</p><p><br />
+</p>
+<pre>while(true)
+  if (there are resources available)
+     if (there is a test campaign to be schedule on the available resources)
+        launch scheduler of the test campaign
+     else
+        launch scheduler of first default job submited which requires any of the available resources
+     end else
+  end if
+end while
+</pre>
+<p>NOTE --<a href="index.php/User:Bzizou.html" title="User:Bzizou">Bzizou</a> 11:07, 20 May 2009 (UTC)&nbsp;:
+</p><p><i>Well, isn't it:</i>
+</p>
+<pre>while(there is a test campaign to be schedule on the available resources) &lt;- fifo
+  launch scheduler of the test campaign on involved clusters
+end while
+while(there is a default campaign to be schedule on the available resources) &lt;- fifo
+   launch scheduler of the campaign on involved clusters
+end while
+</pre>
+<p><i>And the second fifo may be replaced by an order over users/clusters affinity:</i>
+</p><p><i>Supposing we have (user,cluster) couples telling us that a particular user have an affinity with a particular cluster, we can make (campaing,cluster) couples representing this affinity. Then, we can construct lists of campaing affinities per cluster. Example:</i>
+<i>We have:</i>
+</p>
+<pre> cluster1:
+   affinities: campaing1, campaing2
+   others: campaing3
+ cluster2:
+   affinities: campaing2
+   others: campaing1, campaing3
+</pre>
+<p><i>Then, the metascheduler launches:</i>
+</p>
+<pre>scheduler campaing1 on cluster1
+scheduler campaing2 on cluster1 and cluster2
+scheduler campaing1 on cluster2
+scheduler campaing3 on cluster1 and cluster2
+</pre>
+<p>END NOTE --<a href="index.php/User:Bzizou.html" title="User:Bzizou">Bzizou</a> 11:07, 20 May 2009 (UTC)
+</p>
+<a name="Scheduler" id="Scheduler"></a><h4> <span class="mw-headline">Scheduler</span></h4>
+<p>The scheduler is the module which is responsible for the scheduling of a given campaign (the jobs defined on the campaign definition). This process includes resource matching based on the resources offered by the metascheduler and estimations provided by the 'predictor' module.
+</p><p>The scheduling process also depends on a scheduling policy, which can be:
+</p>
+<ul><li>test scheduling&nbsp;: this is the scheduling policy specifically designed for test campaigns. It just promote the scheduling of one job by required cluster, dropping all the other defined jobs. 
+</li><li>workqueue scheduling: this is the default policy, the scheduler verifies the amount of available resources and launch an equivalent number of jobs to fill up resources. This resource matching depends on a prediction of resources required by each job (more about it on the predictor section)
+</li><li>finalize scheduling: to accelerate the closing of campaigns, the scheduler promotes the replication of remaining jobs. This is specially important when jobs have failed for an unknown reason or externally killed. Once these jobs have finished successfully, the replicas are aborted.
+</li></ul>
+<a name="Predictor" id="Predictor"></a><h4> <span class="mw-headline">Predictor</span></h4>
+<p>The predictor module is responsible for following the progress of the campaigns scheduling, based on two estimations:
+</p>
+<ul><li>the throughput of jobs (in jobs/time): this may offer the users an estimation of when the campaign is supposed to ends, supposing and average elapsed time for the jobs; 
+</li><li>the ratio resources/job, which gives an estimation of the amount of resources required by job. As we do not have any estimation at the beginning of the campaign, the initial ratio is one resource/job. In the sequence, for each scheduling iteration, this ratio is fixed taking into account the relation between the number of waiting jobs on R.M. queue and the number of non-used resources. This ratio is considered by the campaign scheduler on resource matching.
+</li></ul>
+<a name="Scheduling_Control.2FData_Flow" id="Scheduling_Control.2FData_Flow"></a><h3> <span class="mw-headline">Scheduling Control/Data Flow</span></h3>
+<p>The following diagram depicts briefly the general operation and control/data flow into the scheduling module for the execution of 2 campaigns: the first one over the clusters c1, c2 and c3 and the second over c2 and c4.
+</p><p><a href="index.php/File:Data_flow.png.html" class="image" title="Image:Data_flow.png"><img alt="Image:Data_flow.png" src="images/2/20/Data_flow.png" width="527" height="661" border="0" /></a>
+</p><p>In order to follow CiGri philosophy, the communication between different modules is done, whenever convenient, through the database. The scheduling follow an iterative operation given by the following steps: 
+</p>
+<ul><li>1. Initially, the CiGri <b>Almighty</b> module activate the <b>Updator</b> module, which retrieves information related to resources utilization and store it into the <i>gridstatus</i> table;
+</li><li>2. Once the <b>Updator</b> has finished his work, the <b>Metaschedule</b>r is activated and it checks resources availability, trying to match with campaigns resource requirements;
+</li><li>3. According to this match, the <b>Metascheduler</b> activate the <b>Campaign Schedulers</b>, passing the list of resources (name of the clusters) that can be used for each of the campaigns. For now, the <b>Metascheduler</b> gives preference to the campaigns based on a FIFO priority in a way that a resource is entirely available for a given campaign and it'll be offered to another campaign just after the previous campaigns have finished. In our hypothetical case, it would activate the first campaign scheduler giving it the priority to use the clusters c1, c2 and c3 and to the second <b>Campaign Scheduler</b>, the priority to use the cluster c4. The FIFO-based priority does not provide an optimal schedule by any means, but, as explained before, we intend to provide in the future a cleverer solution that may take into account (i) the job throughput to better select wher to run the jobs and (ii) campaign <s>interlacing</s>, fairsharing and users accounting;
+</li><li>4. When <b>Campaign Schedulers</b> are activated, they perform the resource matching based on an estimation of the required resources available on the <i>forecast</i> table. If no estimation is available, an initial estimation (<i>ratio</i>) of 1 resource/job is used. The number of jobs that will be submitted is stored in the <i>forecast</i> table (column <i>nsub</i>) for further analysis;
+</li><li>5. Based on the <i>ratio</i>, the different <b>Campaign Schedulers</b> activate the <b>Runner</b> module do handle the job submission;
+</li><li>6. The <b>Runner</b> module takes care to prepare the environment for the execution of the jobs (with the help of external modules) and submit jobs by means of clusters R.M.;
+</li><li>7. After this submission, the <b>Almighty</b> activates the <b>Predictor</b> module which gets information from the R.M. job queues and the number of jobs submitted in the last scheduling iteration and calculate a new ratio, based on the number of jobs that are effectively running and the number of waiting jobs. For information, if jobs are already terminated, the current campaign throughput is calculated in order to provide users with an estimation for the end of their campaigns;
+</li><li>8. The <b>Predictor</b> module stores data on the forecasts table.
+</li><li>9. Once the prediction is done, the <b>Runner</b> module (to be defined) is activated again to wipe up excessive waiting jobs, yet letting a small number of waiting jobs to optimize resources usage. The aborted jobs will be rescheduled on a further iteration.
+</li></ul>
+<p>After this, the iteration starts again with the Updator module, the metascheduler and campaign schedulers. The difference now is that the forecasts table will contain valuable information of the previous operation so that the scheduling will be adapted to cope with resources requirement.
+</p><p><br />
+NOTE --<a href="index.php/User:Bzizou.html" title="User:Bzizou">Bzizou</a> 11:43, 20 May 2009 (UTC):
+<i>I think that step 7 should be placed just after step 1 (predictor is ran just after the updator). Because updator not only updates the status table, but also the statuses of the jobs (running, waiting, finished, error...). The predictor will adjust the resources/job ratio depending on what has been submitted and what is running, finished or waiting. Furthermore, I don't agree with step 9 because it's not the <b>Runner</b> module's job to wipe. We have a <b>Nikita</b> module to do this job. Till now, it didn't take any decision and only killed jobs by a user request, but I think we can place in this module the smart part that will decide to wipe remote-waiting jobs when they are too numerous (note that there is currently a timeout killing remote-waiting jobs when they are too old; this timeout is currently managed into the Updator, but maybe this was the wrong place and we should have placed it inside Nikita)</i>
+END NOTE --<a href="index.php/User:Bzizou.html" title="User:Bzizou">Bzizou</a> 11:43, 20 May 2009 (UTC)
+</p><p><br />
+</p><p><br />
+</p>
+<a name="Schedule_Staging" id="Schedule_Staging"></a><h2> <span class="mw-headline"> Schedule Staging </span></h2>
+<pre>  TODO: Waiting for Bruno aproval to add this feature
+</pre>
+<p><br />
+</p>
+<a name="Prediction_Algorithms" id="Prediction_Algorithms"></a><h2> <span class="mw-headline"> Prediction Algorithms </span></h2>
+<p>The prediction is used to optimize the submition so that the number of launched jobs can fully use the resources, but not flood RM waiting queue. The idea is basically adapt the job dispatch taking into account the last prediction and current state of resources. Being the job_ratio a value given by the inverse of the number of resources needed by a single job (just to keep coherent with the idea that a bigger job_ratio leads to a bigger number of jobs to be submited)
+</p><p>The adjust can be calculated by the following way:
+</p>
+<pre>   if (number of jobs waiting &gt; allowed)
+       reduce job_ratio
+   else
+       increase job_ratio
+</pre>
+<p>What changes here is how we increase or decrease this job ratio. Some different algorithms are proposed:
+</p><p><b>Slow-start</b>: this prediction is preservative and intends to preserve resources from a waiting jobs and would be specially interesting in case of resources shared between a CiGri and normal usage.  It follows the TCP low start algorithm, where: 
+</p>
+<ul><li> increase is exponential: if there is no excessive job on the queue, we double the number of jobs to be submitted 
+</li></ul>
+<pre>  JR = OLD_JR * 2
+</pre>
+<ul><li> decrease to nearly 0: if there is excessive jobs waiting on the queue, the job_ratio is decreased to 1 single job/cluster
+</li></ul>
+<pre>  JR = 1/MAX_RESOURCES
+</pre>
+<p><b>Two-way Adaptative</b>: this prediction intends to adapt the prediction based on adapting exactly the numbers of submitted jobs to the resources so that the resources will be fully used the whole time. 
+</p>
+<ul><li> increase is adaptative: if there is no excessive job on the queue, we calculate a new job ratio based on the number of free resources and the previous job ratio:
+</li></ul>
+<pre>  JR = 1/(NB_RUNNING_JOBS/NB_JOBS_SUBMITTED)
+  JR = 1/(NB_RUNNING_JOBS/ (OLD_JR * OLD_FREE))
+</pre>
+<ul><li> decrease is adaptative: if there is excessive jobs waiting on the queue, the job_ratio is adapted based on the previous job ratio (considering the previous resources status) and the load it generated:
+</li></ul>
+<pre>  JR = (NB_JOBS_SUBMITTED - EXCESS) / NB_JOBS_SUBMITTED
+  JR = ((OLD_JR * OLD_FREE) - (NB_WAITING_JOBS - NB_ALLOWED_WAITING_JOBS)) / (OLD_JR * OLD_FREE)
+</pre>
+<p>This prediction algorithms seems to adapt very well to parallel jobs as the number of resources/job if calculated on the run. Besides, if jobs walltime are short, the algorithms increases the job flow.
+</p><p><br />
+<b>Adaptative-down, exponential-up</b>: this prediction is more aggressive and intend to guarantee that the resources will be used to the maximum, even if it implies on queue flooding and constant job killing/resubmission by CiGri. The idea is to use the adaptive algorithm to lower the jobratio and increase exponentially if resources still not fully used. 
+</p>
+<ul><li> increase is exponential: if there is no excessive job on the queue, we double the number of jobs to be submitted 
+</li></ul>
+<pre>  JR = OLD_JR * 2
+</pre>
+<ul><li> decrease is adaptative: if there is excessive jobs waiting on the queue, the job_ratio is adapted based on the previous job ratio (considering the previous resources status) and the load it generated:
+</li></ul>
+<pre>  JR = (NB_JOBS_SUBMITTED - EXCESS) / NB_JOBS_SUBMITTED
+  JR = ((OLD_JR * OLD_FREE) - (NB_WAITING_JOBS - NB_ALLOWED_WAITING_JOBS)) / (OLD_JR * OLD_FREE)
+</pre>
+<p>This algorithm is specially useful if a grid is used to execute a large number of small jobs.
+</p><p>--<a href="http://wiki-oar.imag.fr/index.php?title=User:Elton&amp;action=edit&amp;redlink=1" class="new" title="User:Elton (page does not exist)">Elton</a> 08:55, 5 August 2009 (UTC)
+</p>
+<a name="Initial_implementation_Workplan" id="Initial_implementation_Workplan"></a><h2> <span class="mw-headline">Initial implementation Workplan</span></h2>
+<p>This section (to be completelly as the specification evolves), contains a sequence of steps necessary to achieve the desired characteristics:
+</p>
+<ul><li><s>1</s> (r484/r485). Include the support to campaign types (for now 'test' and 'default') and integrate it on the current scheduler 
+</li><li><s>2. Include a preliminar implementation of ruby-based admission rules for CiGri
+<ul><li>2.1 Define/implement the DB-side
+</li><li>2.2 Create some simple rules for the 'test' and 'default' campaign types </s> 
+</li></ul>
+</li><li>3. Support to job requirements at JDL definition (equivalent to OAR -p)
+</li><li><s>4.</s> (r495) Redefinition of the CiGri DB, more specifically the forecast table.
+</li><li><s>5.</s> (r490) Support to job resource requirements at JDL definition (equivalent to OAR -l)
+<ul><li><s>5.1.</s> (r486) Export CIGRI environment variables to be used by user's scripts
+</li><li><s>5.2.</s> (r490)  Add default resource configuration on cigri.conf and conflib 
+</li></ul>
+</li><li><s>6.</s> (r495) Modify the Spritz (predictor) module (gridforecast.rb and spritzCigri.pl) to cope with the new forecast table.
+<ul><li><s>6.1</s>. Separate predictions by Campaign+Cluster.
+</li><li><s>6.2.</s> (r490) Find a way to retrieve the number of running/waiting jobs on clusters that are being used by IN_TREATMENT jobs
+</li><li><s>6.2.</s> Update cigriUtils.rb to calculate the new ratio based on the last Campaign|cluster|ratio + nb of waiting|running jobs on the giving cluster.
+</li></ul>
+</li><li><s>7.</s> (r490) Change nikita to kill excessive waiting jobs, due to a bad ratio estimation.
+</li><li><s>8.</s> (r503) Create the ruby Metascheduler which verifies the available clusters and call the campaign schedulers. 
+<ul><li><s>8.1.</s> Include the metascheduler activation on Almighty.
+</li><li>8.2. The Metascheduler will implemented by using some well-known OO design patters to improve extensibility and code reuse, mainly for the following activities.
+<ul><li><s>8.2.1</s> resource matching, to chose which campaign scheduler to activate (strategy + template for the strategy definition).
+</li><li><s>8.2.1</s>(r505) activation of campaign schedulers (delegate + factory for the creation of scheduler types given by multijob table).
+</li><li><s>8.2.*</s> ... to be defined ... 
+</li></ul>
+</li></ul>
+</li><li><s>9.</s>(r503) Create a generic Campaign Scheduler.
+<ul><li>9.1 the behavior is to be defined through a strategy design pattern.
+</li><li><s>9.2</s>(r505) provide a basic definition of the following scheduling strategies:
+<ul><li><s>9.2.1</s>(r505) test scheduling: schedule just one job/cluster defined on the JDL
+</li><li><s>9.2.2</s>(r505) worqueue scheduling: schedule all the jobs defined on the JDL
+</li><li>9.2.3 finalize scheduling: replicate the remaining jobs of a given campaign (the policy to be defined)
+</li></ul>
+</li></ul>
+</li></ul>
+<p>Obs:
+</p>
+<ul><li>the phase 1-3 are self-contained and it'll be used to get a closer look on the CiGri code, as well as to learn how to test and evaluate the implementation. After the phase 2 and 3, a working snapshot that solve the problem of small test campaigns is to be obtained.
+</li><li>the phases 4-7 are inter-dependent and will be enough to provide support to parallel jobs and an adequate prediction policy (even if the predictions are not used by the scheduler). After this phase 7, a working snapshot is to be obtained.
+</li><li>the phases 8 and 9 depend in 1-7 and provide the core implementation of the new scheduling module.
+</li><li>after 9 the implementation will be refined to support new scheduling strategies that might take into account campaign priorities, users accounting, ...
+</li></ul>
+<p>--<a href="http://wiki-oar.imag.fr/index.php?title=User:Elton&amp;action=edit&amp;redlink=1" class="new" title="User:Elton (page does not exist)">Elton</a> 22:01, 15 August 2009 (UTC)
+</p>
+<a name="Main_Milestones" id="Main_Milestones"></a><h2> <span class="mw-headline">Main Milestones</span></h2>
+<p><b>19th June: Campaign types and Parallel Jobs</b>
+</p>
+<ul><li> Campaign types:
+</li></ul>
+<p>On  r484 and r485 I included the implementation of CiGri campaign types.   For now, the only campaign types supported are 'test' and 'default'. Test campaigns are prioritary over default campaigns and have a special behavior since they just deploy one single test job/cluster.   This feature solves the problem of small test campaigns.
+</p>
+<ul><li> Parallel CiGri Jobs (r490):
+</li></ul>
+<p>Resources requirement can be defined on JDL, by means of "resource" property, taken OAR syntax into account (by default "/resource_id=1"). Campaign jobweight is replaced by jobresource on cigri DB and CiGri as a whole.
+The Nikita module is responsible for verifying jobs waiting on RM queue and control cluster job flooding (based on a CiGri parameter)
+Now, as in OAR, CiGri exports enviroment variables, which can be used by CiGri jobs:
+</p>
+<pre>      CIGRI_NODE_FILE (alias CIGRI_NODEFILE)
+      CIGRI_JOB_ID (alias CIGRI_JOBID)
+      CIGRI_CAMPAIGNID (alias CIGRI_CAMPAIGN_ID)
+      CIGRI_JOB_NAME (alias CIGRI_JOBNAME)
+      CIGRI_USER
+      CIGRI_WORKDIR (alias CIGRI_WORKING_DIRECTORY)
+      CIGRI_RESOURCES
+      CIGRI_WALLTIME
+      CIGRI_WALLTIME_SECONDS
+</pre>
+<p><b>10th July: New prediction (Spritz) module and extension of gridstat (r495) </b>
+</p>
+<ul><li> Changed forecasts DB:
+<ul><li>predictions are now by cluster, and not for the whole campagne
+</li><li>forecast table includes job ratio prediction (to guide scheduling)
+</li><li>forecast table includes historical data
+</li></ul>
+</li></ul>
+<ul><li> Added new Spritz implementation:
+<ul><li>the spritz now predicts:
+<ul><li>end time (based on throughput and average duration time
+</li><li>jobratio (based on submission, waiting jobs and flood rate)
+</li></ul>
+</li><li>two prediction algorithms were included
+<ul><li>slow-start (like TCP, flow congestion control)
+</li><li>adaptative
+</li></ul>
+</li></ul>
+</li></ul>
+<ul><li> Extended gridstat Qfunction, to ease handling big campaigns:
+<ul><li>normal gridstat just displays shortly the global informations about a campaign (waiting/running/terminated jobs, global throughput and global average job duration time)
+</li><li>gridstat now features '-f' function to display full campaign status: throughput and average by cluster, status of each job of the campaign
+</li></ul>
+</li></ul>
+<ul><li> Added jobration + FIFO based scheduler:
+<ul><li> this perl scheduler takes into account job ratios prediction to solve the problem of parallel jobs scheduling and job flood control.
+</li><li> the core is pretty small (10 lines), so, it'll be easy to translate it to ruby (next step of GSoC project)
+</li></ul>
+</li></ul>
+<ul><li> Changed Almight execution order:
+<ul><li>now, Spritz module runs just after Updator, to help getting fresh data
+</li></ul>
+</li></ul>
+<p><br />
+<b>6th August: Included implementation of ruby MetaScheduler and refined Spritz algorithms (r503) </b>
+</p>
+<ul><li>Spritz (aka Predictor): included 3 prediction algorithms: 
+<ul><li>slow-start
+</li><li>two-way adaptive
+</li><li>adaptive-down,exponential-up
+</li></ul>
+</li></ul>
+<ul><li>Reimplement some parts of Iolib/iolibCigri.pm in ruby following an OO approach,mainly on:
+<ul><li>Iolib/cigriClusters.rb
+</li><li>Iolib/cigriForecasts.rb
+</li><li>Iolib/cigriJobs.rb
+</li></ul>
+</li></ul>
+<ul><li>MetaScheduler: included first prototype of ruby MetaScheduler
+<ul><li>FIFO based
+</li><li>prototype includes MetaScheduler + CampaignScheduler all-in-one
+</li></ul>
+</li></ul>
+<ul><li>Bugfixes for #8215, #8295, #8355 and #8355
+</li></ul>
+<p><b>13th August: Separation of MetaScheduler and CampaignSchedules (r505) </b>
+</p>
+<ul><li> added implementation of "default" and "test" campagne schedulers
+</li><li> reimplement properly the support to test jobs on new scheduling system
+</li></ul>
+<p><b>15th August: Improvements on gridstat tool (r508) </b>
+</p>
+<ul><li> support to multi-campagne view through summary 
+</li></ul>
+<p><b>17th August: Improvements on gridstat tool (r508) </b>
+</p>
+<ul><li> Added visualization of errors to fix on gridstat 
+</li><li> Added summary visualization by user
+</li></ul>
+<p>--<a href="http://wiki-oar.imag.fr/index.php?title=User:Elton&amp;action=edit&amp;redlink=1" class="new" title="User:Elton (page does not exist)">Elton</a> 20:04, 17 August 2009 (UTC)
+</p>
+<a name="TODO_list" id="TODO_list"></a><h2> <span class="mw-headline">TODO list</span></h2>
+<a name="Mentor" id="Mentor"></a><h3> <span class="mw-headline">Mentor</span></h3>
+<ul><li> <s>Organize meeting in may</s>
+<ul><li> <s>Finir la lettre d'invitation</s>
+</li><li> <s>Faire signer la lettre par le resp de ciment</s>
+</li><li> <s>Envoyer le dossier au service recherche &lt;- elton</s>
+</li></ul>
+</li><li> <s>Create a Ciment account for Elton</s>
+</li><li> <s>Give to Elton the Povray job example and make him submit it on Ciment</s>
+</li><li> <s>Test g5k devel environnment</s>
+</li><li> <s>Prepare testing platform on CIMENT</s>
+</li><li> Implement OAR array jobs support into cigri
+</li><li> Move the CIGRI web site into OAR web site and update it
+</li></ul>
+<a name="Student" id="Student"></a><h3> <span class="mw-headline">Student</span></h3>
+<ul><li> <s>Obtain a g5k account</s>
+</li><li> <s>Obtain a gforge account</s>
+</li><li> <s>Check and correct the meeting planning above</s>
+</li><li> <s>Connect to the g5k jabber if not already done</s>
+</li><li> <s>Change ciment and wiki password</s>
+</li><li> <s>Test CiGri on Ciment</s>
+</li><li> <s>Get g5k cigri devel environment</s>
+</li><li> <s>Get the g5k cigri devel env working (common with Yiannis and Bruno)</s>
+</li><li> <s>Automatize CiGri deployment and code synchronization for development/test on Grid5000</s>
+</li><li> Study the fairsharing problem, scheduling algorithms, and "Blaise paper"
+</li><li> <s>Meeting in Grenoble (11-13 May)</s>
+</li><li> <s>Define an "pseudo-specification" and workplan for the new scheduling module (based on the meeting in Grenoble)</s>
+</li><li> <s>Update wiki with this "pseudo-specification"</s>
+</li></ul>
+<p>--<a href="http://wiki-oar.imag.fr/index.php?title=User:Elton&amp;action=edit&amp;redlink=1" class="new" title="User:Elton (page does not exist)">Elton</a> 10:02, 7 August 2009 (UTC)
+</p>
+<a name="Links_to_look_at" id="Links_to_look_at"></a><h2> <span class="mw-headline">Links to look at</span></h2>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 20/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+#ifexist count: 0/100
+-->
+<div class="printfooter">
+Retrieved from "<a href="index.php/Advanced_scheduler_for_the_CiGri_grid.html">http://wiki-oar.imag.fr/index.php/Advanced_scheduler_for_the_CiGri_grid</a>"</div>
+			<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="index.php/Special:Categories.html" title="Special:Categories">Category</a>:&#32;<span dir='ltr'><a href="index.php%3Ftitle=Category:Portal:Staff:GSOC&amp;action=edit&amp;redlink=1.html" class="new" title="Category:Portal:Staff:GSOC (page does not exist)">Portal:Staff:GSOC</a></span></div></div>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="index.php/Advanced_scheduler_for_the_CiGri_grid.html" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki-oar.imag.fr/index.php?title=Talk:Advanced_scheduler_for_the_CiGri_grid&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;action=edit.html" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;action=history.html" title="Past revisions of this page [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="index.php%3Ftitle=Special:UserLogin&amp;returnto=Advanced_scheduler_for_the_CiGri_grid.html" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://oar.imag.fr/schemas/oar_logo_small.png);" href="index.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-Public_portal'>
+		<h5>Public portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="index.html" title="Visit the main page">Main Page</a></li>
+				<li id="n-Appliances-.28Kameleon.29"><a href="index.php/Kameleon.html">Appliances (Kameleon)</a></li>
+				<li id="n-OAR-Website"><a href="http://oar.imag.fr">OAR Website</a></li>
+				<li id="n-REST-API"><a href="index.php/RESTfullAPI.html">REST API</a></li>
+				<li id="n-Customization-tips"><a href="index.php/Configuration_tips.html">Customization tips</a></li>
+				<li id="n-OAR.27s-News"><a href="http://oar.imag.fr/news/">OAR's News</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Summer_of_Code'>
+		<h5>Summer of Code</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-GSoC-Summary"><a href="index.php/Google_summer_of_code.html">GSoC Summary</a></li>
+				<li id="n-2010-edition"><a href="index.php/GSOC_2010.html">2010 edition</a></li>
+				<li id="n-2009-edition"><a href="index.php/GSOC_2009.html">2009 edition</a></li>
+				<li id="n-2008-edition"><a href="http://oar.imag.fr/works/gsoc/2008/">2008 edition</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Related_links'>
+		<h5>Related links</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Links.html">Summary:</a></li>
+				<li id="n-About-OAR-.28French.29"><a href="http://www.projet-plume.org/fr/fiche/oar">About OAR (French)</a></li>
+				<li id="n-TakTuk"><a href="http://taktuk.gforge.inria.fr/">TakTuk</a></li>
+				<li id="n-CiGri"><a href="http://cigri.imag.fr/">CiGri</a></li>
+				<li id="n-Kameleon"><a href="index.php/Kameleon.html">Kameleon</a></li>
+				<li id="n-ComputeMode"><a href="http://computemode.imag.fr/">ComputeMode</a></li>
+				<li id="n-Xionee"><a href="https://gforge.inria.fr/projects/xionee/">Xionee</a></li>
+				<li id="n-KaDeploy"><a href="http://kadeploy.imag.fr/">KaDeploy</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Developers_portal'>
+		<h5>Developers portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Developers_Pages.html">Summary:</a></li>
+				<li id="n-Meetings-reports"><a href="index.php/Category:Portal:Staff:MeetingReports.html">Meetings reports</a></li>
+				<li id="n-Assigned-TaskList"><a href="index.php/Special:TaskList/all.html">Assigned TaskList</a></li>
+				<li id="n-Todo-Page"><a href="index.php/TODO.html">Todo Page</a></li>
+				<li id="n-Tools-and-Tips"><a href="index.php/Devel_Tools_tips.html">Tools and Tips</a></li>
+				<li id="n-FAQ"><a href="index.php/FAQ.html">FAQ</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://wiki-oar.imag.fr/index.php" id="searchform"><div>
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text" title="Search WikiOAR [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="index.php/Special:WhatLinksHere/Advanced_scheduler_for_the_CiGri_grid.html" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="index.php/Special:RecentChangesLinked/Advanced_scheduler_for_the_CiGri_grid.html" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="index.php/Special:SpecialPages.html" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="http://wiki-oar.imag.fr/index.php?title=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="index.php%3Ftitle=Advanced_scheduler_for_the_CiGri_grid&amp;oldid=3429.html" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="about"><a href="index.php/WikiOAR:About.html" title="WikiOAR:About">About WikiOAR and OAR logo</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.116 secs. --></body></html>

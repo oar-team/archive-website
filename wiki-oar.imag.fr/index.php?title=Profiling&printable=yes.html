@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5-2squeeze6" />
+		<meta name="robots" content="noindex,follow" />
+		<meta name="keywords" content="Profiling" />
+		<link rel="shortcut icon" href="http://oar.imag.fr/images/logo_oar.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="WikiOAR (en)" />
+		<link rel="alternate" type="application/rss+xml" title="WikiOAR RSS feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="WikiOAR Atom feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=atom" />
+		<title>Profiling - WikiOAR</title>
+		<link rel="stylesheet" href="skins/common/commonPrint.css%3F207.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=-&amp;action=raw&amp;maxage=18000&amp;gen=css.css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://wiki-oar.imag.fr";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Profiling";
+		var wgTitle = "Profiling";
+		var wgAction = "view";
+		var wgArticleId = "14";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 3526;
+		var wgVersion = "1.15.5-2squeeze6";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="skins/common/ajax.js%3F207"></script>
+		<script type="text/javascript" src="index.php%3Ftitle=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-Profiling skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Profiling</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From WikiOAR</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="index.php%3Ftitle=Profiling&amp;printable=yes.html#column-one">navigation</a>, <a href="index.php%3Ftitle=Profiling&amp;printable=yes.html#searchInput">search</a></div>			<!-- start content -->
+			<p><br />
+Procedure to profile OAR perl code using the Perl profiling tool Devel::DProf. To profile a code run: 1) add the -d:DProf argument to your Perl command line let it go...2) the tmon.out file is produced on the same directory where the Perl command is executed...3) once the run is finished check out the results with dprofpp....
+</p><p>For more details check out here: <a href="http://www.perl.com/pub/a/2004/06/25/profiling.html" class="external free" title="http://www.perl.com/pub/a/2004/06/25/profiling.html" rel="nofollow">http://www.perl.com/pub/a/2004/06/25/profiling.html</a>
+</p><p>Here is a description of the procedure to profile OAR code upon Grid5000...
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Profiling&amp;printable=yes.html#Modifications_for_profiling"><span class="tocnumber">1</span> <span class="toctext">Modifications for profiling</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Profiling&amp;printable=yes.html#Modifications_for_testing_with_simulation_a_specific_database_trace_of_a_cluster_by_using_only_one_node"><span class="tocnumber">2</span> <span class="toctext">Modifications for testing with simulation a specific database trace of a cluster by using only one node</span></a>
+<ul>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Profiling&amp;printable=yes.html#Method_1st_Using_cosystem_jobs"><span class="tocnumber">2.1</span> <span class="toctext">Method 1st Using cosystem jobs</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Profiling&amp;printable=yes.html#Method_2nd_Disabling_the_execution_on_the_Runner"><span class="tocnumber">2.2</span> <span class="toctext">Method 2nd Disabling the execution on the Runner</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Modifications_for_profiling" id="Modifications_for_profiling"></a><h2> <span class="mw-headline">Modifications for profiling</span></h2>
+<p>1) Deploy one node, with OAR installed and configured, but not start it yet. 2) Change the first line of the command you want to profile from this:
+</p>
+<pre>#!/usr/bin/perl
+to this:
+#!/usr/bin/perl -d:DProf
+</pre>
+<p>In my case I profile 2 commands on the same time "Nodechangestate" and "oar_meta_sched"...
+</p><p>3) Construct a script that will be called in the place of the profiled command which will be responsible to call the specific profiled command, copy the output of the profiling ("tmon.out" file) on another place and finally erase "tmon.out" file for the next time the command will be executed...
+</p><p>for example:
+</p>
+<pre>cat profiled_scheduler
+#!/bin/sh
+</pre>
+<pre>DATE=`date +%s`
+cd /usr/lib/oar/
+date +%s &gt; /tmp/profiled_sched/tmondate_$DATE
+./oar_meta_sched &amp;
+</pre>
+<pre>wait
+date +%s &gt;&gt; /tmp/profiled_sched/tmondate_$DATE
+</pre>
+<pre>cp tmon.out /tmp/profiled_sched/tmon_$DATE
+rm tmon.out
+</pre>
+<pre>exit 1
+</pre>
+<p>and you also have to change Almighty line from this:
+</p><p>my $scheduler_command = $binpath."oar_meta_sched"; to this: my $scheduler_command = $binpath."profiled_sched";
+</p><p>so that the profiler can be executed.
+</p><p>4) we have to allow the writing on /usr/lib/oar/ directory so that tmon.out can be created....so this will do the job:
+</p>
+<pre>sudo chmod a+w /usr/lib/oar
+</pre>
+<p>and we have to create the directory where we want to store the various "tmon.out" files that we are going to have, with the right to write of course:
+</p>
+<pre>sudo mkdir /tmp/profiled_scheduler
+sudo chmod a+w /tmp/profiled_scheduler
+</pre>
+<p>5) we start OAR server like this:
+</p>
+<pre>cd /usr/lib/oar/
+sudo Almighty
+</pre>
+<p>6) you collect all results in /tmp/profiled_scheduler/ and you can review the results by copying the specific tmon.out_$DATE that interests you on tmon.out and then execute dprofpp which reads tmon.out and shows a result like this:
+</p>
+<pre>Total Elapsed Time = 13.30464 Seconds
+ User+System Time = 0.184640 Seconds
+Exclusive Times
+Time ExclSec? CumulS  Calls sec/call Csec/c  Name
+32.5   0.060  0.129     10   0.0060 0.0129  main::BEGIN
+15.1   0.028  0.047   1156   0.0000 0.0000  DBI::st::fetchrow_hashref
+10.8   0.020  0.020      6   0.0033 0.0033  IO::Socket::BEGIN
+10.2   0.019  0.067      2   0.0097 0.0333  iolib::list_resources
+5.42   0.010  0.010      3   0.0033 0.0033  AutoLoader?::import
+5.42   0.010  0.010     11   0.0009 0.0009  DynaLoader?::dl_load_file
+5.42   0.010  0.010     11   0.0009 0.0009  Exporter::export
+5.42   0.010  0.010     13   0.0008 0.0008  DBI::BEGIN
+5.42   0.010  0.060     10   0.0010 0.0060  iolib::BEGIN
+5.42   0.010  0.010     56   0.0002 0.0002  Exporter::import
+5.42   0.010  0.010    305   0.0000 0.0000  DBI::st::fetchrow_array
+4.87   0.009  0.009   1156   0.0000 0.0000  DBI::st::fetch
+4.87   0.009  0.009   1160   0.0000 0.0000  DBI::common::FETCH
+0.00   0.000  0.000      1   0.0000 0.0000  Exporter::Heavy::heavy_export_ok_t
+                                            ags
+0.00   0.000  0.000      1   0.0000 0.0000  AutoLoader?::AUTOLOAD
+</pre>
+<p>where you can see in which functions the command pass most of its time
+</p>
+<a name="Modifications_for_testing_with_simulation_a_specific_database_trace_of_a_cluster_by_using_only_one_node" id="Modifications_for_testing_with_simulation_a_specific_database_trace_of_a_cluster_by_using_only_one_node"></a><h2> <span class="mw-headline">Modifications for testing with simulation a specific database trace of a cluster by using only one node</span></h2>
+<a name="Method_1st_Using_cosystem_jobs" id="Method_1st_Using_cosystem_jobs"></a><h3> <span class="mw-headline">Method 1st Using cosystem jobs</span></h3>
+<ul><li> In /etc/oar/oar.conf we have to put the 
+</li></ul>
+<pre>FINAUD_FREQUENCY="0"
+</pre>
+<p>and comment the pingchecker lines like this one:
+</p>
+<pre>#PINGCHECKER_TAKTUK_ARG_COMMAND="-t 3 broadcast exec true?"
+</pre>
+<p>which is frequency for checking Alive and Suspected resources and 0 means never..
+</p>
+<ul><li> and then we have to arrange somethings on the trace of the database so that the simulation can work on only one node 
+</li></ul>
+<pre>sudo /etc/init.d/oar/oar-server stop
+</pre>
+<p>charge the database with the trace
+</p>
+<pre>sudo mysql oar &lt; oar_sophia.sql
+</pre>
+<p>1)Using the job_submitter
+</p>
+<ul><li> to fix the difference of database versions.... 
+</li></ul>
+<pre>ALTER TABLE jobs  ADD initial_request TEXT  AFTER job_id;
+ALTER TABLE jobs ADD scheduler_info VARCHAR( 255 ) AFTER message;
+</pre>
+<ul><li> use the oar2swf.rb tool to extract from the database trace the information for the jobs to be submitted on an .swf file....(still working on this tool) 
+</li></ul>
+<ul><li> delete the jobs from the database so that we can keep only the configuration of resources and inject the jobs from the exact point that we want following the next step 
+</li></ul>
+<pre>delete from jobs;
+</pre>
+<ul><li> use the job_submitter.rb tool to inject the .swf file which will do the necessary oarsub of cosystem jobs on the OAR server... 
+</li></ul>
+<p>2) Using only the database trace (still bugs)
+</p>
+<ul><li> delete from job_types where job_types.types_index="LOG"; 
+</li></ul>
+<ul><li> delete from jobs where state="Error"; 
+</li></ul>
+<ul><li> delete from jobs where state="Terminated"; 
+</li><li> update jobs set info_type="pastel-9.toulouse.grid5000.fr:6666"; 
+</li></ul>
+<ul><li> using the name of your machine
+<ul><li> update job_types set job_types.type="COSYSTEM"; 
+</li><li> insert into job_types (job_id,type,types_index) VALUES(302835,"COSYSTEM","CURRENT"); 
+</li><li> do the inserts for all the job_id that exist
+</li><li> update jobs set job_type="INTERACTIVE"; 
+</li><li> update jobs set command=""; 
+</li><li> update jobs set start_time=0 where reservation="Scheduled" and state="Waiting"; 
+</li><li> update jobs set reservation="None" where reservation="Scheduled" and state="Waiting"; 
+</li><li> update jobs set job_user="g5k"; 
+</li><li> update jobs set launching_directory="/home/g5k/"; 
+</li><li> update jobs set submission_time=1208168214; 
+</li></ul>
+</li></ul>
+<ul><li> using the current time (minus one hour for exemple)
+<ul><li> update jobs set start_time=1208169414 where job_id=302835; 
+</li></ul>
+</li></ul>
+<p>WARNING: not all jobs should have the same submission time...possible error ...
+</p><p>change the stat_time of jobs that are running to be in accordance with the changed submitted time
+</p>
+<a name="Method_2nd_Disabling_the_execution_on_the_Runner" id="Method_2nd_Disabling_the_execution_on_the_Runner"></a><h3> <span class="mw-headline">Method 2nd Disabling the execution on the Runner</span></h3>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 5/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+#ifexist count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikioar:pcache:idhash:14-0!1!0!!en!2!edit=0!printable=1 and timestamp 20150721145138 -->
+<div class="printfooter">
+Retrieved from "<a href="index.php/Profiling.html">http://wiki-oar.imag.fr/index.php/Profiling</a>"</div>
+			<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="index.php/Special:Categories.html" title="Special:Categories">Categories</a>:&#32;<span dir='ltr'><a href="index.php/Category:Portal:Devel.html" title="Category:Portal:Devel">Portal:Devel</a></span> | <span dir='ltr'><a href="index.php/Category:Module:Scheduler.html" title="Category:Module:Scheduler">Module:Scheduler</a></span> | <span dir='ltr'><a href="index.php/Category:Performance.html" title="Category:Performance">Performance</a></span></div></div>			<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="index.php/Profiling.html" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki-oar.imag.fr/index.php?title=Talk:Profiling&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="index.php%3Ftitle=Profiling&amp;action=edit.html" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="index.php%3Ftitle=Profiling&amp;action=history.html" title="Past revisions of this page [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="index.php%3Ftitle=Special:UserLogin&amp;returnto=Profiling.html" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://oar.imag.fr/schemas/oar_logo_small.png);" href="index.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-Public_portal'>
+		<h5>Public portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="index.html" title="Visit the main page">Main Page</a></li>
+				<li id="n-Appliances-.28Kameleon.29"><a href="index.php/Kameleon.html">Appliances (Kameleon)</a></li>
+				<li id="n-OAR-Website"><a href="http://oar.imag.fr">OAR Website</a></li>
+				<li id="n-REST-API"><a href="index.php/RESTfullAPI.html">REST API</a></li>
+				<li id="n-Customization-tips"><a href="index.php/Configuration_tips.html">Customization tips</a></li>
+				<li id="n-OAR.27s-News"><a href="http://oar.imag.fr/news/">OAR's News</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Summer_of_Code'>
+		<h5>Summer of Code</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-GSoC-Summary"><a href="index.php/Google_summer_of_code.html">GSoC Summary</a></li>
+				<li id="n-2010-edition"><a href="index.php/GSOC_2010.html">2010 edition</a></li>
+				<li id="n-2009-edition"><a href="index.php/GSOC_2009.html">2009 edition</a></li>
+				<li id="n-2008-edition"><a href="http://oar.imag.fr/works/gsoc/2008/">2008 edition</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Related_links'>
+		<h5>Related links</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Links.html">Summary:</a></li>
+				<li id="n-About-OAR-.28French.29"><a href="http://www.projet-plume.org/fr/fiche/oar">About OAR (French)</a></li>
+				<li id="n-TakTuk"><a href="http://taktuk.gforge.inria.fr/">TakTuk</a></li>
+				<li id="n-CiGri"><a href="http://cigri.imag.fr/">CiGri</a></li>
+				<li id="n-Kameleon"><a href="index.php/Kameleon.html">Kameleon</a></li>
+				<li id="n-ComputeMode"><a href="http://computemode.imag.fr/">ComputeMode</a></li>
+				<li id="n-Xionee"><a href="https://gforge.inria.fr/projects/xionee/">Xionee</a></li>
+				<li id="n-KaDeploy"><a href="http://kadeploy.imag.fr/">KaDeploy</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Developers_portal'>
+		<h5>Developers portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Developers_Pages.html">Summary:</a></li>
+				<li id="n-Meetings-reports"><a href="index.php/Category:Portal:Staff:MeetingReports.html">Meetings reports</a></li>
+				<li id="n-Assigned-TaskList"><a href="index.php/Special:TaskList/all.html">Assigned TaskList</a></li>
+				<li id="n-Todo-Page"><a href="index.php/TODO.html">Todo Page</a></li>
+				<li id="n-Tools-and-Tips"><a href="index.php/Devel_Tools_tips.html">Tools and Tips</a></li>
+				<li id="n-FAQ"><a href="index.php/FAQ.html">FAQ</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://wiki-oar.imag.fr/index.php" id="searchform"><div>
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text" title="Search WikiOAR [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="index.php/Special:WhatLinksHere/Profiling.html" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="index.php/Special:RecentChangesLinked/Profiling.html" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="index.php/Special:SpecialPages.html" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="index.php%3Ftitle=Profiling&amp;printable=yes&amp;printable=yes.html" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="index.php%3Ftitle=Profiling&amp;oldid=3526.html" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 4 December 2011, at 10:44.</li>
+					<li id="viewcount">This page has been accessed 4,179 times.</li>
+					<li id="about"><a href="index.php/WikiOAR:About.html" title="WikiOAR:About">About WikiOAR and OAR logo</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.076 secs. --></body></html>

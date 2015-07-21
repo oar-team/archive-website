@@ -1,0 +1,557 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5-2squeeze6" />
+		<meta name="robots" content="noindex,follow" />
+		<meta name="keywords" content="OARGRID API,OAR API" />
+		<link rel="shortcut icon" href="http://oar.imag.fr/images/logo_oar.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="WikiOAR (en)" />
+		<link rel="alternate" type="application/rss+xml" title="WikiOAR RSS feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="WikiOAR Atom feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=atom" />
+		<title>OARGRID API - WikiOAR</title>
+		<link rel="stylesheet" href="skins/common/commonPrint.css%3F207.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=-&amp;action=raw&amp;maxage=18000&amp;gen=css.css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://wiki-oar.imag.fr";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "OARGRID_API";
+		var wgTitle = "OARGRID API";
+		var wgAction = "view";
+		var wgArticleId = "64";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 589;
+		var wgVersion = "1.15.5-2squeeze6";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="skins/common/ajax.js%3F207"></script>
+		<script type="text/javascript" src="index.php%3Ftitle=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-OARGRID_API skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">OARGRID API</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From WikiOAR</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="index.php%3Ftitle=OARGRID_API&amp;printable=yes.html#column-one">navigation</a>, <a href="index.php%3Ftitle=OARGRID_API&amp;printable=yes.html#searchInput">search</a></div>			<!-- start content -->
+			<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="index.php%3Ftitle=OARGRID_API&amp;printable=yes.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=OARGRID_API&amp;printable=yes.html#Concepts"><span class="tocnumber">2</span> <span class="toctext">Concepts</span></a>
+<ul>
+<li class="toclevel-2"><a href="index.php%3Ftitle=OARGRID_API&amp;printable=yes.html#Access"><span class="tocnumber">2.1</span> <span class="toctext">Access</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=OARGRID_API&amp;printable=yes.html#Authentication"><span class="tocnumber">2.2</span> <span class="toctext">Authentication</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=OARGRID_API&amp;printable=yes.html#Data_structures_and_formats"><span class="tocnumber">2.3</span> <span class="toctext">Data structures and formats</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=OARGRID_API&amp;printable=yes.html#Resources"><span class="tocnumber">2.4</span> <span class="toctext">Resources</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=OARGRID_API&amp;printable=yes.html#Errors_and_debug"><span class="tocnumber">2.5</span> <span class="toctext">Errors and debug</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=OARGRID_API&amp;printable=yes.html#Examples"><span class="tocnumber">3</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="index.php%3Ftitle=OARGRID_API&amp;printable=yes.html#Examples_of_output_data"><span class="tocnumber">3.1</span> <span class="toctext">Examples of output data</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=OARGRID_API&amp;printable=yes.html#Ruby_interactive_REST_client"><span class="tocnumber">3.2</span> <span class="toctext">Ruby interactive REST client</span></a>
+<ul>
+<li class="toclevel-3"><a href="index.php%3Ftitle=OARGRID_API&amp;printable=yes.html#example_queries"><span class="tocnumber">3.2.1</span> <span class="toctext">example queries</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=OARGRID_API&amp;printable=yes.html#A_Ruby_script_using_restclient"><span class="tocnumber">3.3</span> <span class="toctext">A Ruby script using restclient</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Introduction" id="Introduction"></a><h1> <span class="mw-headline"> Introduction </span></h1>
+<p>The OARGRID API is currently a CGI script providing access to oargrid using http requests in the REST way. It is based on the <a href="index.php/OAR_API.html" title="OAR API"> OAR API </a>. The current version, provided with oar 2.4 (not yet released) is partly based on wrappers to oargrid and oar command line tools using ssh. But on the OAR roadmap (OAR 3.0) the API is to be coded deeper into OAR and OARGRID to provide better performances and functionalities.
+</p>
+<a name="Concepts" id="Concepts"></a><h1> <span class="mw-headline"> Concepts </span></h1>
+<a name="Access" id="Access"></a><h2> <span class="mw-headline">Access</span></h2>
+<p>A simple GET query to the API using wget may look like:
+</p>
+<pre># List the sites in the YAML format
+wget -O - <a href="http://www.mydomain.org/oargridapi/sites.yaml?structure=simple" class="external free" title="http://www.mydomain.org/oargridapi/sites.yaml?structure=simple" rel="nofollow">http://www.mydomain.org/oargridapi/sites.yaml?structure=simple</a>
+</pre>
+<p>You can also access to the API using a browser. Make it point to <a href="http://www.mydomain.org/oargridapi/index.html" class="external free" title="http://www.mydomain.org/oargridapi/index.html" rel="nofollow">http://www.mydomain.org/oargridapi/index.html</a> and you'll see a very simple HTML interface allowing you to browse the grid resources and even post a grid job using a form.
+</p><p>But generally, you'll use a REST client or a REST library provided for your favorite language. You'll see examples using a ruby rest library at the end of this page.
+</p>
+<a name="Authentication" id="Authentication"></a><h2> <span class="mw-headline">Authentication</span></h2>
+<p>Most of the time, you'll make requests that needs you to be authenticated. The API may be configured to use the <a href="http://en.wikipedia.org/wiki/Ident" class="external text" title="http://en.wikipedia.org/wiki/Ident" rel="nofollow">IDENT</a> protocol for authentication from trusted hosts, like a cluster frontend. In this case, your login is automatically used by the API. This only works for hosts that have been correctly configured (for which the security rules are trusted by the admistrator). If IDENT is not used or not trusted from your host, the API can use the basic HTTP authentication, depending on how it has been configured inside the http server that serves the CGI.
+</p><p>The recommended way is to use ident. But as some only a few hosts may be trusted, you'll probably have to open a tunnel to this host. You may use ssh to do this. For example:
+</p>
+<pre>$ ssh -NL 8080:www.grenoble.grid5000.fr:80 login@access.grenoble.grid5000.fr
+</pre>
+<p>Then, point your REST client to:
+</p>
+<pre><a href="http://localhost:8080" class="external free" title="http://localhost:8080" rel="nofollow">http://localhost:8080</a>
+</pre>
+<a name="Data_structures_and_formats" id="Data_structures_and_formats"></a><h2> <span class="mw-headline">Data structures and formats</span></h2>
+<p>The API currently can serve data into <a href="http://www.yaml.org" class="external text" title="http://www.yaml.org" rel="nofollow">YAML</a>, <a href="http://www.json.org" class="external text" title="http://www.json.org" rel="nofollow">JSON</a> or HTML. Posted data can also be coded into YAML, JSON or x-www-form-urlencoded (for HTML from posts). You may specify the requested format by 2 ways:
+</p>
+<ul><li> giving an extension to resources: <b>.yaml</b>, <b>.json</b> or <b>.html</b>
+</li><li> setting the HTTP_ACCEPT header variable to <b>text/yaml</b>, <b>application/json</b> or <b>text/html</b>
+</li></ul>
+<p>For the posted data, you have to correctly set the HTTP_CONTENT_TYPE variable to text/yaml, application/json or application/x-www-form-urlencoded.
+</p><p>Sometimes, the data structures returned (not the coding format, but the contents: array, hashes, array of hashes,...) may be changed. Currently, we have 2 available data structures: <b>simple</b> and <b>oar</b>. The structure is passed through the variable <b>structure</b> that you may pass in the url, for example:&nbsp;?structure=simple
+</p>
+<ul><li> The <b>simple</b> data structure tries to be as simple as possible, using simple arrays in place of hashes wherever it is possible
+</li><li> The <b>oar</b> data structure serves data in the way oar does with the oarnodes/oarstat export options (-Y, -D, -J,...)
+</li></ul>
+<p>By default, we use the simple data structure.
+</p>
+<a name="Resources" id="Resources"></a><h2> <span class="mw-headline">Resources</span></h2>
+<ul><li> GET /sites
+</li><li> GET /sites/&lt;site&gt;
+</li><li> GET /sites/&lt;site&gt;/resources
+</li><li> GET /sites/&lt;site&gt;/resources/all
+</li><li> GET /sites/&lt;site&gt;/resources/&lt;id&gt;
+</li><li> GET /sites/&lt;site&gt;/resources/nodes/&lt;node_name&gt;
+</li><li> GET /grid/jobs
+</li><li> POST /grid/jobs
+</li><li> GET /grid/jobs/&lt;id&gt;
+</li><li> DELETE /grid/jobs/&lt;id&gt;
+</li><li> GET /grid/jobs/&lt;id&gt;/resources
+</li><li> GET /grid/jobs/&lt;id&gt;/nodes
+</li></ul>
+<a name="Errors_and_debug" id="Errors_and_debug"></a><h2> <span class="mw-headline">Errors and debug</span></h2>
+<p>When the API returns an error, it generally uses a standard HTTP return status (404 NOT FOUND, 406 NOT ACCEPTABLE, ...). But it also returns a body containing a hash like the following.
+</p>
+<pre>{
+  "title"&nbsp;: "ERROR 406 - Invalid content type required */*",
+  "message"&nbsp;: "Valid types are text/yaml, application/json or text/html",
+  "code"&nbsp;: "200"
+}
+</pre>
+<p>This error body is formated in the requested format. But if this format was not given, it uses JSON by default.
+</p><p>To allow you to see the error body, you may find it useful to activate the <b>debug=1</b> variable. It will force the API to always return a 200 OK status, even if there's an error so that I can see the body with a simple browser or a rest client without having to manage the errors. For example:
+</p>
+<pre>wget -nv -O - "http://localhost:8080/oargridapi/sites/grenoble<b>?debug=1</b>"
+</pre>
+<a name="Examples" id="Examples"></a><h1> <span class="mw-headline"> Examples </span></h1>
+<a name="Examples_of_output_data" id="Examples_of_output_data"></a><h2> <span class="mw-headline"> Examples of output data </span></h2>
+<ul><li> GET /sites.yaml
+</li></ul>
+<pre>- site: nancy
+ uri: /sites/nancy
+- site: sophia
+ uri: /sites/sophia
+- site: orsay
+ uri: /sites/orsay
+</pre>
+<ul><li> GET /sites/orsay.yaml
+</li></ul>
+<pre>--
+clusters:
+  - gdx
+  - netgdx
+frontend: frontend.orsay.grid5000.fr
+site: orsay
+uri: /sites/orsay
+</pre>
+<ul><li> GET /sites/orsay.json
+</li></ul>
+<pre> "site"&nbsp;: "orsay",
+ "frontend"&nbsp;: "frontend.orsay.grid5000.fr",
+ "clusters"&nbsp;: [
+     "gdx",
+     "netgdx"
+ ],
+ "uri"&nbsp;: "/sites/orsay"
+</pre>
+<ul><li> GET /sites/nancy/jobs.yaml?structure=simple
+</li></ul>
+<pre>---
+- id: 216033
+  name: session 1
+  owner: dmargery
+  queue: default
+  state: Waiting
+  submission: 1236762970
+  uri: /sites/nancy/jobs/216033
+- id: 216361
+  name: Maintenance
+  owner: cconstantin
+  queue: admin
+  state: Waiting
+  submission: 1237824986
+  uri: /sites/nancy/jobs/216361
+</pre>
+<ul><li> GET /sites/nancy/jobs.yaml?structure=oar
+</li></ul>
+<pre>---
+215958:
+  name: Maintenance
+  owner: cconstantin
+  queue: admin
+  state: Waiting
+  submission: 1236238707
+  uri: /sites/nancy/jobs/215958
+216033:
+  name: session 1
+  owner: dmargery
+  queue: default
+  state: Waiting
+  submission: 1236762970
+  uri: /sites/nancy/jobs/216033
+</pre>
+<ul><li> POST /grid/jobs.yaml
+</li></ul>
+<pre>---
+command: "oargridsub  --walltime=\"01:00:00\" --program=\"/bin/sleep 300\" grenoble:rdef='/nodes=2',rennes:rdef='/cpu=1'"
+id: 19017
+nodes: '/grid/jobs/19017/resources/nodes.html'
+resources: '/grid/jobs/19017/resources.html'
+ssh_key_path: /tmp/oargrid//oargrid_ssh_key_bbzeznik_19017
+ssh_private_key_uri: '/grid/jobs/19017/keys/private.html'
+ssh_public_key_uri: '/grid/jobs/19017/keys/public.html'
+state: submitted
+uri: '/grid/jobs/19017.html'
+</pre>
+<a name="Ruby_interactive_REST_client" id="Ruby_interactive_REST_client"></a><h2> <span class="mw-headline"> Ruby interactive REST client </span></h2>
+<p>One of the easiest way for testing this API is to use the rest-client ruby module:
+</p><p><a href="http://rest-client.heroku.com/rdoc/" class="external free" title="http://rest-client.heroku.com/rdoc/" rel="nofollow">http://rest-client.heroku.com/rdoc/</a>
+</p><p>It is available as a rubygem, so to install it, simply install rubygems and do "gem install rest-client". Then, you can run the interactive client which is nothing else than irb with shortcuts. Here is an example irb session (useless output have ben removed for readability)
+</p>
+<pre>export PATH=$PATH:/var/lib/gems/1.8/gems/rest-client-0.8/bin
+restclient <a href="http://www.grenoble.grid5000.fr/oargridapi" class="external free" title="http://www.grenoble.grid5000.fr/oargridapi" rel="nofollow">http://www.grenoble.grid5000.fr/oargridapi</a>
+</pre>
+<p>or, if an http auth is needed:
+</p>
+<pre>restclient <a href="http://www.grenoble.grid5000.fr/oargridapi" class="external free" title="http://www.grenoble.grid5000.fr/oargridapi" rel="nofollow">http://www.grenoble.grid5000.fr/oargridapi</a> &lt;login&gt; &lt;password&gt;
+</pre>
+<a name="example_queries" id="example_queries"></a><h3> <span class="mw-headline"> example queries </span></h3>
+<pre># Getting sites infos                                                                                               
+  # in JSON                                                                                                         
+irb(main):004:0&gt; puts get('/sites.json')
+  # Same thing, asking for the "oar" data structure                                                                 
+irb(main):004:0&gt; puts get('/sites.json?structure=oar')
+  # Same thing, asking for the "simple" data structure                                                              
+irb(main):004:0&gt; puts get('/sites.json?structure=simple')
+  # in YAML                                                                                                         
+irb(main):005:0&gt; puts get('/sites.yaml')                                                                            
+  # Same thing but using the Accept header                                                                          
+irb(main):050:0&gt; puts get('/sites',&nbsp;:accept=&gt;"text/yaml")                                                           
+  # Details about a site                                                                                            
+irb(main):008:0&gt; puts get('/sites/grenoble.yaml')                                                                   
+  # Resources details on a site or a cluster                                                                        
+irb(main):022:0&gt; puts get('/sites/simpsons/resources.yaml')
+</pre>
+<pre># Getting jobs infos of a site                                                                                      
+irb(main):006:0&gt; puts get('/sites/grenoble/jobs.yaml')                                                              
+irb(main):009:0&gt; puts get('/sites/grenoble/jobs/12.yaml')
+</pre>
+<pre># Submiting a job on a given site (using YAML format)                                                               
+irb(main):010:0&gt; require 'yaml'                                                                                     
+irb(main):012:0&gt; j={ 'resource' =&gt; '/nodes=2/cpu=1', 'script_path' =&gt; '/usr/bin/id' }                               
+irb(main):015:0&gt; job=post('/sites/grenoble/jobs' , j.to_yaml ,&nbsp;:content_type =&gt; 'text/yaml')
+irb(main):016:0&gt; puts job
+</pre>
+<pre># Getting details about the previously submited job
+irb(main):035:0&gt; puts get(YAML::load(job)['uri'])
+</pre>
+<pre># Submitting a job using JSON format, but requiring the result in YAML
+irb(main):010:0&gt; require 'json'
+irb(main):037:0&gt; job=post('/sites/grenoble/jobs.yaml' , j.to_json ,&nbsp;:content_type =&gt; 'application/json')
+</pre>
+<pre># Submitting a grid job
+irb(main):029:0&gt; j={ 'resources' =&gt; 'grenoble:rdef=/cpu=2,lille:rdef=/cpu=2' }
+irb(main):030:0&gt; job=post('/grid/jobs.yaml' , j.to_json ,&nbsp;:content_type =&gt; 'application/json')
+irb(main):031:0&gt; puts job
+</pre>
+<pre># List the resources I obtained (if the state is ok)
+irb(main):061:0&gt; job=YAML::load(job)
+irb(main):062:0&gt; if job['state'] == 'submitted'
+irb(main):063:1&gt;   puts get(job['resources'],:accept =&gt; 'text/yaml')
+irb(main):064:1&gt; else
+irb(main):065:1*   puts "Job was rejected"
+irb(main):066:1&gt; end
+</pre>
+<pre># Get an array of node names inside a grid job
+irb(main):063:1&gt;   puts get('/grid/jobs/18611/resources/nodes.json')
+</pre>
+<pre># List my running grid jobs, in HTML
+irb(main):067:0&gt; puts get('/grid/jobs.html')
+</pre>
+<pre># Show details about a grid job, in JSON
+irb(main):069:0&gt; puts get('/grid/jobs/18611.json')
+</pre>
+<pre># Deleting a grid job
+irb(main):111:0&gt; delete("/grid/jobs/18611.yaml")
+</pre>
+<a name="A_Ruby_script_using_restclient" id="A_Ruby_script_using_restclient"></a><h2> <span class="mw-headline"> A Ruby script using restclient </span></h2>
+<pre>#!/usr/bin/ruby                                                                                               
+# Example of a ruby script using restclient on the Oargrid RESTfull API.                                      
+# It first parses the grid to find 3 sites where 1 resource is free and                                       
+# then submits a job and prints the properties of the nodes obtained.                                         
+# The job is deleted at the end, as it is just an example&nbsp;:-)                                                 
+                                                                                                              
+require 'rubygems'                                                                                            
+require 'rest_client'                                                                                         
+require 'json'                                                                                                
+require 'pp'                                                                                                  
+                                                                                                              
+# Custom variables                                                                                            
+APIURI="<a href="http://www.grenoble.grid5000.fr/oargridapi" class="external free" title="http://www.grenoble.grid5000.fr/oargridapi" rel="nofollow">http://www.grenoble.grid5000.fr/oargridapi</a>"                                                           
+IGNORE_SITES=['grenoble-obs','grenoble-exp','grenoble-ext','sophia','lille']                                  
+N_RESOURCES=3                                                                                                 
+                                                                                                              
+# Function to get objects from the api                                                                        
+# We use the JSON format and the 'simple' data structure                                                      
+def get(api,uri)                                                                                              
+  begin                                                                                                       
+    return JSON.parse(api[uri+'?structure=simple'].get(:accept =&gt; 'application/json'))                        
+  rescue =&gt; e                                                                                                 
+    if e.respond_to?('http_code')                                                                             
+      puts "ERROR #{e.http_code}:\n #{e.response.body}"                                                       
+    else                                                                                                      
+      puts "Parse error:"                                                                                     
+      puts e.inspect                                                                                          
+    end                                                                                                       
+    exit 1                                                                                                    
+  end                                                                                                         
+end                                                                                                           
+                                                                                                              
+# Instanciate an api connection                                                                               
+api = RestClient::Resource.new APIURI                                                                         
+                                                                                                              
+# Parse the sites and find at least N_RESOURCES free resources                                                
+puts "Getting sites..."                                                                                       
+sites = get(api,'/sites')                                                                                     
+puts "Got #{sites.length} sites"                                                                              
+ok_sites=[]                                                                                                   
+sites.each do |site|                                                                                          
+  site_name = site['site']                                                                                    
+  unless IGNORE_SITES.index(site_name)                                                                        
+    puts "Checking #{site_name}..."                                                                           
+    resources = get(api,"/sites/#{site_name}/resources/all")                                                  
+    resources.each do |resource|                                                                              
+      if resource['state'] == "Alive" &amp;&amp; resource['jobs'].nil?                                                
+        ok_sites &lt;&lt; site_name                                                                                 
+       puts "   got 1 resource!"                                                                              
+        break                                                                                                 
+      end                                                                                                     
+    end                                                                                                       
+  end                                                                                                         
+  break if ok_sites.length &gt;= N_RESOURCES                                                                     
+end                                                                                                           
+                                                                                                              
+# If we got N_RESOURCES sites, submit the job                                                                 
+if ok_sites.length &lt; N_RESOURCES                                                                              
+  puts "Not enough resources found on the grid!"                                                              
+  exit 1                                                                                                      
+end                                                                                                           
+puts "OK, we got #{N_RESOURCES} free resources, let's submit a job..."                                        
+j={ 'resources' =&gt; ok_sites.join(':rdef=/resource_id=1,')+':rdef=/resource_id=1' }                            
+#j={ 'resources' =&gt; ok_sites.join(':rdef=/resource_id=1,')+':rdef=/resource_id=1' , 'verbose' =&gt; 1 }          
+begin                                                                                                         
+  job=JSON.parse(api['/grid/jobs'].post(j.to_json,:content_type =&gt; 'application/json'))                       
+rescue =&gt; e                                                                                                   
+    puts "ERROR #{e.http_code}:\n #{JSON.parse(e.response.body)['message']}"                                  
+    exit 2                                                                                                    
+end                                                                                                           
+                                                                                                              
+# Check the job                                                                                               
+if job['state'] == "submitted"                                                                                
+  puts "GRID JOB SUCCESSFUL&nbsp;:-)"                                                                              
+  puts "-----------------------------------------------"                                                      
+  puts "Id: #{job['id']}"                                                                                     
+  puts "Waiting for resources to be allocated..."                                                             
+
+# Wait for allocated resources
+  nodes=[]
+  while nodes.length &lt; ok_sites.length do
+    nodes=get(api,"/grid/jobs/#{job['id']}/resources/nodes")
+    sleep(2)
+  end
+
+# Ok, print nodes
+  puts "Ok, all nodes are there:"
+  puts nodes.join(',')
+
+# Fetching properties of the nodes
+  puts "Properties:"
+  resources=get(api,"/grid/jobs/#{job['id']}/resources")
+  resources.each do |r|
+    site=r['site']
+    r['jobs'].each_value do |j|
+      j['nodes'].each do |node|
+        puts "\n" + node + "&nbsp;: "
+        prop=get(api,"/sites/#{site}/resources/nodes/#{node}")
+        pp prop
+      end
+    end
+  end
+
+# Delete the job
+  begin
+    puts "Deleting job because it was just for fun..."
+    api["/grid/jobs/#{job['id']}.json"].delete
+    puts "Job deleted"
+  rescue =&gt; e
+    puts "ERROR #{e.http_code} DELETING THE GRID JOB&nbsp;:\n #{JSON.parse(e.response.body)['message']}"
+  end
+
+# If the job has failed:
+else
+  puts "PROBLEM: Grid job #{job['state']}"
+  puts "OUTPUT MESSAGE:"
+  puts job['output']
+end
+</pre>
+<!-- 
+NewPP limit report
+Preprocessor node count: 16/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+#ifexist count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikioar:pcache:idhash:64-0!1!0!!en!2!edit=0!printable=1 and timestamp 20150721145117 -->
+<div class="printfooter">
+Retrieved from "<a href="index.php/OARGRID_API.html">http://wiki-oar.imag.fr/index.php/OARGRID_API</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="index.php/OARGRID_API.html" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki-oar.imag.fr/index.php?title=Talk:OARGRID_API&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="index.php%3Ftitle=OARGRID_API&amp;action=edit.html" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="index.php%3Ftitle=OARGRID_API&amp;action=history.html" title="Past revisions of this page [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="index.php%3Ftitle=Special:UserLogin&amp;returnto=OARGRID_API.html" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://oar.imag.fr/schemas/oar_logo_small.png);" href="index.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-Public_portal'>
+		<h5>Public portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="index.html" title="Visit the main page">Main Page</a></li>
+				<li id="n-Appliances-.28Kameleon.29"><a href="index.php/Kameleon.html">Appliances (Kameleon)</a></li>
+				<li id="n-OAR-Website"><a href="http://oar.imag.fr">OAR Website</a></li>
+				<li id="n-REST-API"><a href="index.php/RESTfullAPI.html">REST API</a></li>
+				<li id="n-Customization-tips"><a href="index.php/Configuration_tips.html">Customization tips</a></li>
+				<li id="n-OAR.27s-News"><a href="http://oar.imag.fr/news/">OAR's News</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Summer_of_Code'>
+		<h5>Summer of Code</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-GSoC-Summary"><a href="index.php/Google_summer_of_code.html">GSoC Summary</a></li>
+				<li id="n-2010-edition"><a href="index.php/GSOC_2010.html">2010 edition</a></li>
+				<li id="n-2009-edition"><a href="index.php/GSOC_2009.html">2009 edition</a></li>
+				<li id="n-2008-edition"><a href="http://oar.imag.fr/works/gsoc/2008/">2008 edition</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Related_links'>
+		<h5>Related links</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Links.html">Summary:</a></li>
+				<li id="n-About-OAR-.28French.29"><a href="http://www.projet-plume.org/fr/fiche/oar">About OAR (French)</a></li>
+				<li id="n-TakTuk"><a href="http://taktuk.gforge.inria.fr/">TakTuk</a></li>
+				<li id="n-CiGri"><a href="http://cigri.imag.fr/">CiGri</a></li>
+				<li id="n-Kameleon"><a href="index.php/Kameleon.html">Kameleon</a></li>
+				<li id="n-ComputeMode"><a href="http://computemode.imag.fr/">ComputeMode</a></li>
+				<li id="n-Xionee"><a href="https://gforge.inria.fr/projects/xionee/">Xionee</a></li>
+				<li id="n-KaDeploy"><a href="http://kadeploy.imag.fr/">KaDeploy</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Developers_portal'>
+		<h5>Developers portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Developers_Pages.html">Summary:</a></li>
+				<li id="n-Meetings-reports"><a href="index.php/Category:Portal:Staff:MeetingReports.html">Meetings reports</a></li>
+				<li id="n-Assigned-TaskList"><a href="index.php/Special:TaskList/all.html">Assigned TaskList</a></li>
+				<li id="n-Todo-Page"><a href="index.php/TODO.html">Todo Page</a></li>
+				<li id="n-Tools-and-Tips"><a href="index.php/Devel_Tools_tips.html">Tools and Tips</a></li>
+				<li id="n-FAQ"><a href="index.php/FAQ.html">FAQ</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://wiki-oar.imag.fr/index.php" id="searchform"><div>
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text" title="Search WikiOAR [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="index.php/Special:WhatLinksHere/OARGRID_API.html" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="index.php/Special:RecentChangesLinked/OARGRID_API.html" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="index.php/Special:SpecialPages.html" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="index.php%3Ftitle=OARGRID_API&amp;printable=yes&amp;printable=yes.html" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="index.php%3Ftitle=OARGRID_API&amp;oldid=589.html" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 15 April 2009, at 12:42.</li>
+					<li id="viewcount">This page has been accessed 14,168 times.</li>
+					<li id="about"><a href="index.php/WikiOAR:About.html" title="WikiOAR:About">About WikiOAR and OAR logo</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.104 secs. --></body></html>

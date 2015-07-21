@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5-2squeeze6" />
+		<meta name="robots" content="noindex,follow" />
+		<meta name="keywords" content="Construction/Modification of a Grid5000 image" />
+		<link rel="shortcut icon" href="http://oar.imag.fr/images/logo_oar.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="WikiOAR (en)" />
+		<link rel="alternate" type="application/rss+xml" title="WikiOAR RSS feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="WikiOAR Atom feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=atom" />
+		<title>Construction/Modification of a Grid5000 image - WikiOAR</title>
+		<link rel="stylesheet" href="skins/common/commonPrint.css%3F207.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=-&amp;action=raw&amp;maxage=18000&amp;gen=css.css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://wiki-oar.imag.fr";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Construction/Modification_of_a_Grid5000_image";
+		var wgTitle = "Construction/Modification of a Grid5000 image";
+		var wgAction = "view";
+		var wgArticleId = "109";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 974;
+		var wgVersion = "1.15.5-2squeeze6";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="skins/common/ajax.js%3F207"></script>
+		<script type="text/javascript" src="index.php%3Ftitle=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-Construction_Modification_of_a_Grid5000_image skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Construction/Modification of a Grid5000 image</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From WikiOAR</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="index.php%3Ftitle=Construction%252FModification_of_a_Grid5000_image&amp;printable=yes&amp;printable=yes.html#column-one">navigation</a>, <a href="index.php%3Ftitle=Construction%252FModification_of_a_Grid5000_image&amp;printable=yes&amp;printable=yes.html#searchInput">search</a></div>			<!-- start content -->
+			<p>In this Tutorial I describe how I have constructed the lenny2.6.26-OAR2.4.0 image...But a similar procedure can be used to modify an already constructed environment...(for example make new additions on the lenny2.6.26-OAR2.4.0 image).
+</p><p><br />
+For this you need just only one node and the procedure is simple 1)you reserve a
+node , 2)you deploy an already created environment , 3)you connect to the node ,
+you do your modifications/installations and whatever you want , 4)you save the
+environment  and copy it to the frontal node 5) you register the environment and
+finally 6) you can deploy your new environment with all the modifications on
+all the nodes you want to ....
+</p><p>lets see the procedure in detail now:
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Construction%252FModification_of_a_Grid5000_image&amp;printable=yes&amp;printable=yes.html#Reservation_of_one_node"><span class="tocnumber">1</span> <span class="toctext">Reservation of one node</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Construction%252FModification_of_a_Grid5000_image&amp;printable=yes&amp;printable=yes.html#Base_Environment_Deployment"><span class="tocnumber">2</span> <span class="toctext">Base Environment Deployment</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Construction%252FModification_of_a_Grid5000_image&amp;printable=yes&amp;printable=yes.html#Connection_to_the_node_for_installation.2Fmodifications"><span class="tocnumber">3</span> <span class="toctext">Connection to the node for installation/modifications</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Construction%252FModification_of_a_Grid5000_image&amp;printable=yes&amp;printable=yes.html#Construct_a_.tgz_image_of_the_environment"><span class="tocnumber">4</span> <span class="toctext">Construct a .tgz image of the environment</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Construction%252FModification_of_a_Grid5000_image&amp;printable=yes&amp;printable=yes.html#Copy_and_register_the_new_environment_to_the_frontal"><span class="tocnumber">5</span> <span class="toctext">Copy and register the new environment to the frontal</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Construction%252FModification_of_a_Grid5000_image&amp;printable=yes&amp;printable=yes.html#Deploy_the_new_environement_on_a_number_of_nodes"><span class="tocnumber">6</span> <span class="toctext">Deploy the new environement on a number of nodes</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="Reservation_of_one_node" id="Reservation_of_one_node"></a><h2> <span class="mw-headline">Reservation of one node</span></h2>
+<p>I) You allocate one node for deployment 
+</p>
+<pre>oarsub -l /nodes=1,walltime=4 -p 'cluster="griffon"' -t deploy
+</pre>
+<a name="Base_Environment_Deployment" id="Base_Environment_Deployment"></a><h2> <span class="mw-headline">Base Environment Deployment</span></h2>
+<p>II)then you deploy a basic environment 
+</p>
+<pre>~/bin/katapult --min-deployed-nodes 1 --max-deploy-runs 30 --deploy-env lenny-x64-base-0.9 --deploy-part sda3 --file $OAR_NODEFILE
+</pre>
+<a name="Connection_to_the_node_for_installation.2Fmodifications" id="Connection_to_the_node_for_installation.2Fmodifications"></a><h2> <span class="mw-headline">Connection to the node for installation/modifications</span></h2>
+<p>IV)you connect to the node:
+</p>
+<pre>ssh root@griffon-X.nancy
+</pre>
+<p>with password grid5000
+</p><p>and now you are ready to do whatever changes you want to ...
+</p><p>you can install debian packages by: 
+</p>
+<pre>apt-get update
+apt-get install 
+</pre>
+<p>For the case of lenny2.6.26-OAR2.4.0 image I have started by upgrading the kernel to version 2.6.26 and then added all packages needed for OAR (soon with extra details...)
+</p>
+<a name="Construct_a_.tgz_image_of_the_environment" id="Construct_a_.tgz_image_of_the_environment"></a><h2> <span class="mw-headline">Construct a .tgz image of the environment</span></h2>
+<p>V)ok once you have made the necessary changes you are ready to save your
+environement by creating an image of it... for that you have to become root
+</p>
+<pre>sudo su
+</pre>
+<p>and then you do the following command
+</p>
+<pre>tar zcf lenny2.6.26-OAR2.4.0 --numeric-owner --one-file-system --exclude=lenny2.6.26-OAR2.4.0.tgz /
+</pre>
+<p>where in the place of lenny2.6.26-OAR2.4.0 you can put whatever name you want...
+</p><p>this procedure will take some minutes to finish...
+</p>
+<a name="Copy_and_register_the_new_environment_to_the_frontal" id="Copy_and_register_the_new_environment_to_the_frontal"></a><h2> <span class="mw-headline">Copy and register the new environment to the frontal</span></h2>
+<p>VI) Once the last procedure is finished you have to copy the .tgz image file on the nancy frontal server
+you can create a directory to keep all images on every different Grid5000 site:
+</p>
+<pre>mkdir ~/Images
+
+</pre>
+<p>for example and then you copy the environment image you created on this directory...
+</p>
+<pre>cd Images
+scp g5k@griffon-X.nancy:~/lenny2.6.26-OAR2.4.0.tgz 
+</pre>
+<p>VII)afterwards you can register your environement... for this you need to create a
+description file for your environement ... you can just copy one of mines actually:
+</p>
+<pre>cp ../../ygeorgiou/Images/lenny2.6.26-OAR2.4.0.dsc .
+</pre>
+<p>and you make the neccesary changes:
+if you write&nbsp;:
+vi lenny2.6.26-OAR2.4.0.dsc
+you will take this:
+</p>
+<pre>#lenny2.6.26-OAR2.4.0
+name = lenny2.6.26-OAR2.4.0
+id = 14
+version = 1
+description = lenny-x64-base-0.9 with kernel 2.6.26 and OAR 2.4.0
+author = yiannis.georgiou@imag.fr
+filebase = file:///home/grenoble/ygeorgiou/Images/lenny2.6.26-OAR2.4.0.tgz
+filesite = file:///grid5000/postinstalls/lenny-x64-base-0.9-post.tgz
+size = 1000
+initrdpath = /boot/initrd-2.6.26
+kernelpath = /boot/vmlinuz-2.6.26
+kernelparam =
+fdisktype = 83
+filesystem = ext2
+siteid = 1
+optsupport = 0
+user = ygeorgiou
+</pre>
+<p>so then you change the name 
+the author, the description ,
+the filebase (very important you have to put the path where the image is saved)
+and the user ....the rest you leave as is...
+</p><p>VII)and now you are ready to register the environement so that you can be able to
+use it...for this you write&nbsp;:
+</p>
+<pre>karecordenv -fe lenny2.6.26-OAR2.4.0.dsc
+</pre>
+<p>and it should tell you that it was succesfull!
+so then you can be happy!
+</p>
+<a name="Deploy_the_new_environement_on_a_number_of_nodes" id="Deploy_the_new_environement_on_a_number_of_nodes"></a><h2> <span class="mw-headline">Deploy the new environement on a number of nodes</span></h2>
+<p>VIII)Now you are ready to deploy your new environment on how many nodes you
+want to and perform your tests....do a reservation of 4 nodes and do then test
+the new environment by executing the deployment
+</p><p>by the way to do the deployment the command will be like this now:
+</p>
+<pre>~/katapult/katapult --min-deployed-nodes 4 --max-deploy-runs 30 --deploy-env lenny --file $OAR_NODEFILE --deploy-user USERNAME
+</pre>
+<!-- 
+NewPP limit report
+Preprocessor node count: 7/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+#ifexist count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikioar:pcache:idhash:109-0!1!0!!en!2!edit=0!printable=1 and timestamp 20150721145249 -->
+<div class="printfooter">
+Retrieved from "<a href="index.php/Construction/Modification_of_a_Grid5000_image.html">http://wiki-oar.imag.fr/index.php/Construction/Modification_of_a_Grid5000_image</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="index.php/Construction/Modification_of_a_Grid5000_image.html" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki-oar.imag.fr/index.php?title=Talk:Construction/Modification_of_a_Grid5000_image&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="index.php%3Ftitle=Construction%252FModification_of_a_Grid5000_image&amp;action=edit.html" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="index.php%3Ftitle=Construction%252FModification_of_a_Grid5000_image&amp;action=history.html" title="Past revisions of this page [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="index.php%3Ftitle=Special:UserLogin&amp;returnto=Construction%252FModification_of_a_Grid5000_image.html" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://oar.imag.fr/schemas/oar_logo_small.png);" href="index.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-Public_portal'>
+		<h5>Public portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="index.html" title="Visit the main page">Main Page</a></li>
+				<li id="n-Appliances-.28Kameleon.29"><a href="index.php/Kameleon.html">Appliances (Kameleon)</a></li>
+				<li id="n-OAR-Website"><a href="http://oar.imag.fr">OAR Website</a></li>
+				<li id="n-REST-API"><a href="index.php/RESTfullAPI.html">REST API</a></li>
+				<li id="n-Customization-tips"><a href="index.php/Configuration_tips.html">Customization tips</a></li>
+				<li id="n-OAR.27s-News"><a href="http://oar.imag.fr/news/">OAR's News</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Summer_of_Code'>
+		<h5>Summer of Code</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-GSoC-Summary"><a href="index.php/Google_summer_of_code.html">GSoC Summary</a></li>
+				<li id="n-2010-edition"><a href="index.php/GSOC_2010.html">2010 edition</a></li>
+				<li id="n-2009-edition"><a href="index.php/GSOC_2009.html">2009 edition</a></li>
+				<li id="n-2008-edition"><a href="http://oar.imag.fr/works/gsoc/2008/">2008 edition</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Related_links'>
+		<h5>Related links</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Links.html">Summary:</a></li>
+				<li id="n-About-OAR-.28French.29"><a href="http://www.projet-plume.org/fr/fiche/oar">About OAR (French)</a></li>
+				<li id="n-TakTuk"><a href="http://taktuk.gforge.inria.fr/">TakTuk</a></li>
+				<li id="n-CiGri"><a href="http://cigri.imag.fr/">CiGri</a></li>
+				<li id="n-Kameleon"><a href="index.php/Kameleon.html">Kameleon</a></li>
+				<li id="n-ComputeMode"><a href="http://computemode.imag.fr/">ComputeMode</a></li>
+				<li id="n-Xionee"><a href="https://gforge.inria.fr/projects/xionee/">Xionee</a></li>
+				<li id="n-KaDeploy"><a href="http://kadeploy.imag.fr/">KaDeploy</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Developers_portal'>
+		<h5>Developers portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Developers_Pages.html">Summary:</a></li>
+				<li id="n-Meetings-reports"><a href="index.php/Category:Portal:Staff:MeetingReports.html">Meetings reports</a></li>
+				<li id="n-Assigned-TaskList"><a href="index.php/Special:TaskList/all.html">Assigned TaskList</a></li>
+				<li id="n-Todo-Page"><a href="index.php/TODO.html">Todo Page</a></li>
+				<li id="n-Tools-and-Tips"><a href="index.php/Devel_Tools_tips.html">Tools and Tips</a></li>
+				<li id="n-FAQ"><a href="index.php/FAQ.html">FAQ</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://wiki-oar.imag.fr/index.php" id="searchform"><div>
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text" title="Search WikiOAR [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="index.php/Special:WhatLinksHere/Construction/Modification_of_a_Grid5000_image.html" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="index.php/Special:RecentChangesLinked/Construction/Modification_of_a_Grid5000_image.html" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="index.php/Special:SpecialPages.html" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="index.php%3Ftitle=Construction%252FModification_of_a_Grid5000_image&amp;printable=yes&amp;printable=yes.html" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="index.php%3Ftitle=Construction%252FModification_of_a_Grid5000_image&amp;oldid=974.html" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 8 May 2009, at 15:33.</li>
+					<li id="viewcount">This page has been accessed 3,309 times.</li>
+					<li id="about"><a href="index.php/WikiOAR:About.html" title="WikiOAR:About">About WikiOAR and OAR logo</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.052 secs. --></body></html>

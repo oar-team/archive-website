@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.5-2squeeze6" />
+		<meta name="robots" content="noindex,follow" />
+		<meta name="keywords" content="Squeeze FAI+PXE installation" />
+		<link rel="shortcut icon" href="http://oar.imag.fr/images/logo_oar.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="WikiOAR (en)" />
+		<link rel="alternate" type="application/rss+xml" title="WikiOAR RSS feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="WikiOAR Atom feed" href="index.php%3Ftitle=Special:RecentChanges&amp;feed=atom" />
+		<title>Squeeze FAI+PXE installation - WikiOAR</title>
+		<link rel="stylesheet" href="skins/common/commonPrint.css%3F207.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=MediaWiki:Monobook.css&amp;usemsgcache=yes&amp;ctype=text%252Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000.css" type="text/css" />
+		<link rel="stylesheet" href="index.php%3Ftitle=-&amp;action=raw&amp;maxage=18000&amp;gen=css.css" type="text/css" />
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type= "text/javascript">/*<![CDATA[*/
+		var skin = "monobook";
+		var stylepath = "/skins";
+		var wgArticlePath = "/index.php/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://wiki-oar.imag.fr";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Squeeze_FAI+PXE_installation";
+		var wgTitle = "Squeeze FAI+PXE installation";
+		var wgAction = "view";
+		var wgArticleId = "238";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 3704;
+		var wgVersion = "1.15.5-2squeeze6";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="skins/common/wikibits.js%3F207"><!-- wikibits js --></script>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="skins/common/ajax.js%3F207"></script>
+		<script type="text/javascript" src="index.php%3Ftitle=-&amp;action=raw&amp;gen=js&amp;useskin=monobook"><!-- site js --></script>
+	</head>
+<body class="mediawiki ltr ns-0 ns-subject page-Squeeze_FAI_PXE_installation skin-monobook">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+				<h1 id="firstHeading" class="firstHeading">Squeeze FAI+PXE installation</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From WikiOAR</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;printable=yes.html#column-one">navigation</a>, <a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;printable=yes.html#searchInput">search</a></div>			<!-- start content -->
+			<p>This should work for a Dell server having Broadcom Netxtreme II interfaces that needs non-free firmware to boot correctly.
+</p>
+<table id="toc" class="toc" summary="Contents"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;printable=yes.html#FAI_install_and_dhcp_config"><span class="tocnumber">1</span> <span class="toctext">FAI install and dhcp config</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;printable=yes.html#Customization_for_squeeze_.28FAI_installs_only_lenny_at_the_moment_of_speaking.29"><span class="tocnumber">2</span> <span class="toctext">Customization for squeeze (FAI installs only lenny at the moment of speaking)</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;printable=yes.html#Run_fai-setup"><span class="tocnumber">3</span> <span class="toctext">Run fai-setup</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;printable=yes.html#Initrd_customization"><span class="tocnumber">4</span> <span class="toctext">Initrd customization</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;printable=yes.html#Still_doesn.27t_work..._aufs_fix.21"><span class="tocnumber">5</span> <span class="toctext">Still doesn't work... aufs fix!</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;printable=yes.html#Add_.2Fsrv.2Ffai.2Fconfig_to_NFS_exports"><span class="tocnumber">6</span> <span class="toctext">Add /srv/fai/config to NFS exports</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;printable=yes.html#Start_the_install"><span class="tocnumber">7</span> <span class="toctext">Start the install</span></a></li>
+<li class="toclevel-1"><a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;printable=yes.html#More_FAI_configuration"><span class="tocnumber">8</span> <span class="toctext">More FAI configuration</span></a>
+<ul>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;printable=yes.html#Proxy-cache_during_and_after_install"><span class="tocnumber">8.1</span> <span class="toctext">Proxy-cache during and after install</span></a></li>
+<li class="toclevel-2"><a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;printable=yes.html#Custom_packages"><span class="tocnumber">8.2</span> <span class="toctext">Custom packages</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="FAI_install_and_dhcp_config" id="FAI_install_and_dhcp_config"></a><h2> <span class="mw-headline"> FAI install and dhcp config </span></h2>
+<ul><li> apt-get install fai-quickstart
+</li><li> cp /usr/share/doc/fai-doc/examples/etc/dhcpd.conf /etc/dhcp/dhcpd.conf
+</li><li> vi /etc/dhcp/dhcpd.conf
+</li><li> /etc/init.d/isc-dhcp-server restart
+</li></ul>
+<a name="Customization_for_squeeze_.28FAI_installs_only_lenny_at_the_moment_of_speaking.29" id="Customization_for_squeeze_.28FAI_installs_only_lenny_at_the_moment_of_speaking.29"></a><h2> <span class="mw-headline"> Customization for squeeze (FAI installs only lenny at the moment of speaking)</span></h2>
+<ul><li> /etc/fai/make-fai-nfsroot.conf&nbsp;: 
+</li></ul>
+<pre>set FAI_DEBOOTSTRAP="squeeze <a href="http://ftp.fr.debian.org/debian" class="external free" title="http://ftp.fr.debian.org/debian" rel="nofollow">http://ftp.fr.debian.org/debian</a>"
+</pre>
+<ul><li> put into /etc/fai/apt/sources.list:
+</li></ul>
+<pre>deb <a href="http://security.debian.org/" class="external free" title="http://security.debian.org/" rel="nofollow">http://security.debian.org/</a> squeeze/updates main
+deb <a href="http://ftp.fr.debian.org/debian" class="external free" title="http://ftp.fr.debian.org/debian" rel="nofollow">http://ftp.fr.debian.org/debian</a> squeeze main contrib non-free
+</pre>
+<a name="Run_fai-setup" id="Run_fai-setup"></a><h2> <span class="mw-headline"> Run fai-setup </span></h2>
+<pre>fai-setup -v
+</pre>
+<p>It exits ok, but with an ERROR:
+</p>
+<pre>ERROR: live-initramfs was not installed inside the nfsroot.
+</pre>
+<p>Well, anyway, we have to make our own initrd.img, so...
+</p>
+<a name="Initrd_customization" id="Initrd_customization"></a><h2> <span class="mw-headline"> Initrd customization </span></h2>
+<ul><li> chroot /srv/fai/nfsroot/live/filesystem.dir
+</li><li> apt-get install firmware-bnx2
+</li><li> vi /etc/initramfs-tools/modules&nbsp;: add "bnx2"
+</li><li> rm /boot/initrd.img-2.6.32-5-amd64
+</li><li> update-initramfs -k 2.6.32-5-amd64 -c
+</li><li> exit (from the chroot)
+</li><li> cp /srv/fai/nfsroot/live/filesystem.dir/boot/initrd.img-* /srv/tftp/fai/
+</li></ul>
+<a name="Still_doesn.27t_work..._aufs_fix.21" id="Still_doesn.27t_work..._aufs_fix.21"></a><h2> <span class="mw-headline"> Still doesn't work... aufs fix!</span></h2>
+<ul><li> chroot /srv/fai/nfsroot/live/filesystem.dir 
+</li><li> Apply this patch to /usr/share/initramfs-tools/scripts/live
+</li></ul>
+<p><a href="http://grml.org/patches/0001-workaround-aufs-issue-in-kernel-versions-around-2.6..patch" class="external free" title="http://grml.org/patches/0001-workaround-aufs-issue-in-kernel-versions-around-2.6..patch" rel="nofollow">http://grml.org/patches/0001-workaround-aufs-issue-in-kernel-versions-around-2.6..patch</a>
+</p>
+<ul><li> re-run update-initramfs -k 2.6.32-5-amd64 -c
+</li><li> exit from chroot and copy the initrd into /srv/tftp/fai/
+</li></ul>
+<a name="Add_.2Fsrv.2Ffai.2Fconfig_to_NFS_exports" id="Add_.2Fsrv.2Ffai.2Fconfig_to_NFS_exports"></a><h2> <span class="mw-headline"> Add /srv/fai/config to NFS exports </span></h2>
+<ul><li> Edit /etc/exports and add missing line like this:
+</li></ul>
+<pre>/srv/fai/config 152.77.100.2/28(async,ro,no_subtree_check,no_root_squash)
+</pre>
+<a name="Start_the_install" id="Start_the_install"></a><h2> <span class="mw-headline"> Start the install </span></h2>
+<ul><li> fai-chboot -IFv killeen
+</li><li> ipmitool -H killeen-bmc power reset
+</li><li> After the install, normal boot: fai-chboot -dFv killeen
+</li></ul>
+<a name="More_FAI_configuration" id="More_FAI_configuration"></a><h2> <span class="mw-headline"> More FAI configuration </span></h2>
+<a name="Proxy-cache_during_and_after_install" id="Proxy-cache_during_and_after_install"></a><h3> <span class="mw-headline"> Proxy-cache during and after install </span></h3>
+<ul><li> vi /srv/fai/nfsroot/live/filesystem.dir/etc/apt/apt.conf.d/proxy
+</li></ul>
+<pre>Acquire::http::Proxy "<a href="http://www-cache.ujf-grenoble.fr:3128" class="external free" title="http://www-cache.ujf-grenoble.fr:3128" rel="nofollow">http://www-cache.ujf-grenoble.fr:3128</a>";
+</pre>
+<ul><li> vi /srv/fai/config/scripts/LAST/50-misc
+</li></ul>
+<pre># add this line at the end:
+fcopy -i /etc/apt.conf.d/proxy
+</pre>
+<a name="Custom_packages" id="Custom_packages"></a><h3> <span class="mw-headline"> Custom packages </span></h3>
+<ul><li> create a class (ie CIMENT) by editing /srv/fai/config/class/50-host-classes&nbsp;:
+</li></ul>
+<pre>   *)
+       echo "FAIBASE DHCPC CIMENT"&nbsp;;;
+</pre>
+<ul><li> create a file /srv/fai/config/package_config/CIMENT
+</li></ul>
+<pre>PACKAGES aptitude
+firmware-bnx2
+ldap-utils
+libnss-ldap
+libpam-ldap
+vim
+bind9-host
+less
+</pre>
+<!-- 
+NewPP limit report
+Preprocessor node count: 11/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+#ifexist count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikioar:pcache:idhash:238-0!1!0!!en!2!edit=0!printable=1 and timestamp 20150721145147 -->
+<div class="printfooter">
+Retrieved from "<a href="index.php/Squeeze_FAI+PXE_installation.html">http://wiki-oar.imag.fr/index.php/Squeeze_FAI%2BPXE_installation</a>"</div>
+						<!-- end content -->
+						<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+	
+				 <li id="ca-nstab-main" class="selected"><a href="index.php/Squeeze_FAI+PXE_installation.html" title="View the content page [c]" accesskey="c">Page</a></li>
+				 <li id="ca-talk" class="new"><a href="http://wiki-oar.imag.fr/index.php?title=Talk:Squeeze_FAI%2BPXE_installation&amp;action=edit&amp;redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+				 <li id="ca-viewsource"><a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;action=edit.html" title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></li>
+				 <li id="ca-history"><a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;action=history.html" title="Past revisions of this page [h]" accesskey="h">History</a></li>			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a href="index.php%3Ftitle=Special:UserLogin&amp;returnto=Squeeze_FAI%252BPXE_installation.html" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+		<a style="background-image: url(http://oar.imag.fr/schemas/oar_logo_small.png);" href="index.html" title="Visit the main page [z]" accesskey="z"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+	<div class='generated-sidebar portlet' id='p-Public_portal'>
+		<h5>Public portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-mainpage"><a href="index.html" title="Visit the main page">Main Page</a></li>
+				<li id="n-Appliances-.28Kameleon.29"><a href="index.php/Kameleon.html">Appliances (Kameleon)</a></li>
+				<li id="n-OAR-Website"><a href="http://oar.imag.fr">OAR Website</a></li>
+				<li id="n-REST-API"><a href="index.php/RESTfullAPI.html">REST API</a></li>
+				<li id="n-Customization-tips"><a href="index.php/Configuration_tips.html">Customization tips</a></li>
+				<li id="n-OAR.27s-News"><a href="http://oar.imag.fr/news/">OAR's News</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Summer_of_Code'>
+		<h5>Summer of Code</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-GSoC-Summary"><a href="index.php/Google_summer_of_code.html">GSoC Summary</a></li>
+				<li id="n-2010-edition"><a href="index.php/GSOC_2010.html">2010 edition</a></li>
+				<li id="n-2009-edition"><a href="index.php/GSOC_2009.html">2009 edition</a></li>
+				<li id="n-2008-edition"><a href="http://oar.imag.fr/works/gsoc/2008/">2008 edition</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Related_links'>
+		<h5>Related links</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Links.html">Summary:</a></li>
+				<li id="n-About-OAR-.28French.29"><a href="http://www.projet-plume.org/fr/fiche/oar">About OAR (French)</a></li>
+				<li id="n-TakTuk"><a href="http://taktuk.gforge.inria.fr/">TakTuk</a></li>
+				<li id="n-CiGri"><a href="http://cigri.imag.fr/">CiGri</a></li>
+				<li id="n-Kameleon"><a href="index.php/Kameleon.html">Kameleon</a></li>
+				<li id="n-ComputeMode"><a href="http://computemode.imag.fr/">ComputeMode</a></li>
+				<li id="n-Xionee"><a href="https://gforge.inria.fr/projects/xionee/">Xionee</a></li>
+				<li id="n-KaDeploy"><a href="http://kadeploy.imag.fr/">KaDeploy</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class='generated-sidebar portlet' id='p-Developers_portal'>
+		<h5>Developers portal</h5>
+		<div class='pBody'>
+			<ul>
+				<li id="n-Summary"><a href="index.php/Developers_Pages.html">Summary:</a></li>
+				<li id="n-Meetings-reports"><a href="index.php/Category:Portal:Staff:MeetingReports.html">Meetings reports</a></li>
+				<li id="n-Assigned-TaskList"><a href="index.php/Special:TaskList/all.html">Assigned TaskList</a></li>
+				<li id="n-Todo-Page"><a href="index.php/TODO.html">Todo Page</a></li>
+				<li id="n-Tools-and-Tips"><a href="index.php/Devel_Tools_tips.html">Tools and Tips</a></li>
+				<li id="n-FAQ"><a href="index.php/FAQ.html">FAQ</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://wiki-oar.imag.fr/index.php" id="searchform"><div>
+				<input type='hidden' name="title" value="Special:Search"/>
+				<input id="searchInput" name="search" type="text" title="Search WikiOAR [f]" accesskey="f" value="" />
+				<input type='submit' name="go" class="searchButton" id="searchGoButton"	value="Go" title="Go to a page with this exact name if exists" />&nbsp;
+				<input type='submit' name="fulltext" class="searchButton" id="mw-searchButton" value="Search" title="Search the pages for this text" />
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="index.php/Special:WhatLinksHere/Squeeze_FAI+PXE_installation.html" title="List of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="index.php/Special:RecentChangesLinked/Squeeze_FAI+PXE_installation.html" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+<li id="t-specialpages"><a href="index.php/Special:SpecialPages.html" title="List of all special pages [q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;printable=yes&amp;printable=yes.html" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>				<li id="t-permalink"><a href="index.php%3Ftitle=Squeeze_FAI%252BPXE_installation&amp;oldid=3704.html" title="Permanent link to this revision of the page">Permanent link</a></li>			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>
+			<ul id="f-list">
+					<li id="lastmod"> This page was last modified on 21 November 2012, at 15:45.</li>
+					<li id="viewcount">This page has been accessed 11,458 times.</li>
+					<li id="about"><a href="index.php/WikiOAR:About.html" title="WikiOAR:About">About WikiOAR and OAR logo</a></li>
+			</ul>
+		</div>
+</div>
+
+		<script type="text/javascript">if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.076 secs. --></body></html>

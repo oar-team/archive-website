@@ -1,0 +1,33 @@
+__NOTOC__
+<center><big>'''Welcome to the OAR Wiki'''</big></center><br/>
+
+<big>
+'''NOTE: This wiki has been replaced by [http://oar.imag.fr/dokuwiki/doku.php?id=wiki:start]. Considered this one as an old archive site which can desappear at any time.'''--[[User:Auguste|Auguste]] 07:27, 11 September 2014 (UTC)
+</big>
+
+==Presentation==
+
+[[Image:Oar_logo.png|right|100px|OAR logo]]
+OAR is an opensource Resource and Job Management System (RJMS) also called batch scheduler which provides a simple and flexible exploitation of a cluster.
+
+It manages resources of clusters as a traditional batch scheduler (as PBS / Torque / LSF / SGE).
+
+In other words, it doesn't execute your job on the resources but manages them (reservation, acces granting) 
+in order to allow you to connect these resources and use them.
+
+For more information, please take a look at [http://oar.imag.fr our website].
+
+You can download an [[Live | OAR Live CD]] to try OAR without installing it.
+
+==Internships==
+
+OAR project offers opportunities to do several kind of internships (research oriented, system developpement, web 2.0 developpement).
+For internship request send mail to:  mail to olivier-DOT-richard-AT-imag-DOT-fr
+
+To follow current internships, see [[Internships Offers]]. 
+
+
+==Developers Portal==
+
+[[Image:Oarteam.jpg|right|120px|OAR team]]
+The [[Developers_Pages | Developers portal]] section is intended to the OAR Development Team.
