@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>OAR Repositories</title>
+
+<link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../">OAR</a>/ 
+
+</span>
+<span class="title">
+OAR Repositories
+
+</span>
+</span>
+
+<form method="get" action="http://oar.imag.fr//ikiwiki.cgi" id="searchform">
+<div>
+<input type="text" id="searchbox" name="P" value="" size="16"
+ />
+</div>
+</form>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><strong><a href="../">Home</a></strong></li>
+<li><strong><a href="../about/">About</a></strong></li>
+<li><strong><a href="../news/">News</a></strong></li>
+<li><strong><a href="http://wiki-oar.imag.fr">Wiki</a></strong></li>
+<li><strong>Getting OAR</strong>
+<ul>
+<li><span class="selflink">Repositories</span></li>
+<li><a href="../installation/">Installation</a></li>
+<li><a href="../changelog/">Changelog</a></li>
+</ul></li>
+<li><strong>Using OAR</strong>
+<ul>
+<li><a href="../user-quickstart/">First user steps</a></li>
+<li><a href="../user-usecases/">Use cases</a></li>
+<li><a href="../faq/">FAQ</a></li>
+</ul></li>
+<li><strong>Getting help</strong>
+<ul>
+<li><a href="../support/">Contact/Mailing lists</a></li>
+<li><a href="../documentation/">Documentation</a></li>
+</ul></li>
+<li><strong>Contributing to OAR</strong>
+<ul>
+<li><a href="../contributing/repositories/">Source repositories</a></li>
+<li><a href="../contributing/workflow/">Workflow</a></li>
+<li><a href="../contributing/GSOCs/">GSOCs</a></li>
+</ul></li>
+<li><strong><a href="../research/">Researchers' Corner</a></strong></li>
+<li><strong><a href="../partners-projects/">Partners &amp; Projects</a></strong></li>
+</ul>
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+<p>There is currently 2 main branches for OAR:</p>
+
+<div class="toc">
+<ol>
+	<li class="L1"><a href="#index1h1">For the 2.5.x series</a>
+	<ol>
+		<li class="L2"><a href="#index1h2">Debian</a>
+		</li>
+		<li class="L2"><a href="#index2h2">RPM</a>
+		</li>
+		<li class="L2"><a href="#index3h2">Source Tarball</a>
+		</li>
+	</ol>
+	</li>
+	<li class="L1"><a href="#index2h1">For the 2.4.x series</a>
+	<ol>
+		<li class="L2"><a href="#index4h2">Debian</a>
+		</li>
+		<li class="L2"><a href="#index5h2">RPM</a>
+		</li>
+		<li class="L2"><a href="#index6h2">Source Tarball</a>
+		</li>
+	</ol>
+	</li>
+	<li class="L1"><a href="#index3h1">Projects around oar</a>
+	<ol>
+		<li class="L2"><a href="#index7h2">oargrid</a>
+		</li>
+	</ol>
+	</li>
+</ol>
+</div>
+
+<h1 id="forthe2.5.xseries"><a name="index1h1"></a>For the 2.5.x series</h1>
+
+<p>This branch is considered as an stable branch.</p>
+
+<h2 id="debian"><a name="index1h2"></a>Debian</h2>
+
+<p>You need to install first the keyring correponding the this repository:</p>
+
+<ul>
+<li>by installing the package oar-keyring</li>
+<li>by executing:</li>
+</ul>
+
+<blockquote>
+<pre><code>wget -q http://oar-ftp.imag.fr/oar/oarmaster.asc -O- | sudo apt-key add - 
+</code></pre>
+</blockquote>
+
+<p>You need to choose one of the branch according to your needs</p>
+
+<h3 id="oarstablereleases"><a name="index1h3"></a>OAR stable releases</h3>
+
+<blockquote>
+<pre><code>deb http://oar-ftp.imag.fr/oar/2.5/debian/ sid main
+deb http://oar-ftp.imag.fr/oar/2.5/debian/ squeeze main
+</code></pre>
+</blockquote>
+
+<h3 id="oartestingreleases"><a name="index2h3"></a>OAR testing releases</h3>
+
+<blockquote>
+<pre><code>deb http://oar-ftp.imag.fr/oar/2.5/debian/ sid-proposed-updates main
+deb http://oar-ftp.imag.fr/oar/2.5/debian/ squeeze-proposed-updates main
+</code></pre>
+</blockquote>
+
+<h3 id="oarsnapshotbuilds"><a name="index3h3"></a>OAR snapshot builds</h3>
+
+<blockquote>
+<pre><code>deb http://oar-ftp.imag.fr/oar/2.5/debian/ sid-snapshots main
+deb http://oar-ftp.imag.fr/oar/2.5/debian/ squeeze-snapshots main
+</code></pre>
+</blockquote>
+
+<h2 id="rpm"><a name="index2h2"></a>RPM</h2>
+
+<p>The rpm packages of the 2.5 branch are currently targeted to CentOS 6</p>
+
+<blockquote>
+<pre><code>http://oar-ftp.imag.fr/oar/2.5/rpm/stable
+http://oar-ftp.imag.fr/oar/2.5/rpm/testing
+http://oar-ftp.imag.fr/oar/2.5/rpm/unstable
+</code></pre>
+</blockquote>
+
+<h2 id="sourcetarball"><a name="index3h2"></a>Source Tarball</h2>
+
+<blockquote>
+<pre><code><a href="http://oar-ftp.imag.fr/oar/2.5/sources/stable">http://oar-ftp.imag.fr/oar/2.5/sources/stable</a>
+<a href="http://oar-ftp.imag.fr/oar/2.5/sources/testing">http://oar-ftp.imag.fr/oar/2.5/sources/testing</a>
+<a href="http://oar-ftp.imag.fr/oar/2.5/sources/snapshots">http://oar-ftp.imag.fr/oar/2.5/sources/snapshots</a></code></pre>
+</blockquote>
+
+<h1 id="forthe2.4.xseries"><a name="index2h1"></a>For the 2.4.x series</h1>
+
+<p>This branch is considered as the old stable branch.</p>
+
+<h2 id="debian"><a name="index4h2"></a>Debian</h2>
+
+<p>You need to install first the keyring correponding the this repository:</p>
+
+<ul>
+<li>by installing the package oar-keyring</li>
+<li>by executing:</li>
+</ul>
+
+<blockquote>
+<pre><code>wget -q http://oar-ftp.imag.fr/oar/oarmaster.asc -O- | sudo apt-key add - 
+</code></pre>
+</blockquote>
+
+<h3 id="oarstablereleases"><a name="index4h3"></a>OAR stable releases</h3>
+
+<blockquote>
+<pre><code>deb http://oar-ftp.imag.fr/oar/2.4/debian/ squeeze main
+deb http://oar-ftp.imag.fr/oar/2.4/debian/ lenny main
+</code></pre>
+</blockquote>
+
+<h3 id="oartestingreleases"><a name="index5h3"></a>OAR testing releases</h3>
+
+<blockquote>
+<pre><code>deb http://oar-ftp.imag.fr/oar/2.4/debian/ squeeze-proposed-updates main
+deb http://oar-ftp.imag.fr/oar/2.4/debian/ lenny-proposed-updates main
+</code></pre>
+</blockquote>
+
+<h3 id="oarsnapshotbuilds"><a name="index6h3"></a>OAR snapshot builds</h3>
+
+<blockquote>
+<pre><code>deb http://oar-ftp.imag.fr/oar/2.4/debian/ squeeze-snapshots main
+deb http://oar-ftp.imag.fr/oar/2.4/debian/ lenny-snapshots main
+</code></pre>
+</blockquote>
+
+<h2 id="rpm"><a name="index5h2"></a>RPM</h2>
+
+<p>The rpm packages of the 2.4 branch are currently targeted to CentOS 5/6 and RHEL 5/6, </p>
+
+<blockquote>
+<pre><code>http://oar-ftp.imag.fr/oar/2.4/rpm/stable
+http://oar-ftp.imag.fr/oar/2.4/rpm/testing
+http://oar-ftp.imag.fr/oar/2.4/rpm/unstable
+</code></pre>
+</blockquote>
+
+<h2 id="sourcetarball"><a name="index6h2"></a>Source Tarball</h2>
+
+<blockquote>
+<pre><code><a href="http://oar-ftp.imag.fr/oar/2.4/sources/stable">http://oar-ftp.imag.fr/oar/2.4/sources/stable</a>
+<a href="http://oar-ftp.imag.fr/oar/2.4/sources/testing">http://oar-ftp.imag.fr/oar/2.4/sources/testing</a>
+<a href="http://oar-ftp.imag.fr/oar/2.4/sources/snapshots">http://oar-ftp.imag.fr/oar/2.4/sources/snapshots</a>
+</code></pre></blockquote>
+
+<h1 id="projectsaroundoar"><a name="index3h1"></a>Projects around oar</h1>
+
+<h2 id="oargrid"><a name="index7h2"></a>oargrid</h2>
+
+<h3 id="debianstablereleases"><a name="index7h3"></a>Debian Stable releases</h3>
+
+<blockquote>
+<pre><code>deb http://oar-ftp.imag.fr/oargrid/debian/ squeeze main
+deb http://oar-ftp.imag.fr/oargrid/debian/ lenny main
+</code></pre>
+</blockquote>
+
+<h3 id="debiantestingreleases"><a name="index8h3"></a>Debian Testing releases</h3>
+
+<blockquote>
+<pre><code>deb http://oar-ftp.imag.fr/oargrid/debian/ squeeze-proposed-updates main
+deb http://oar-ftp.imag.fr/oargrid/debian/ lenny-proposed-updates main
+</code></pre>
+</blockquote>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Friday 20 January 2012</span>
+<!-- Created <span class="date">Wednesday 29 June 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from OAR -->
+</div>
+
+</div>
+
+</body>
+</html>

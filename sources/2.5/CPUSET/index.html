@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CPUSET</title>
+
+<link rel="icon" href="../../../favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="../../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../../">OAR</a>/ 
+
+<a href="../../../">sources</a>/ 
+
+<a href="../../../">2.5</a>/ 
+
+</span>
+<span class="title">
+CPUSET
+
+</span>
+</span>
+
+<form method="get" action="http://oar.imag.fr//ikiwiki.cgi" id="searchform">
+<div>
+<input type="text" id="searchbox" name="P" value="" size="16"
+ />
+</div>
+</form>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><strong><a href="../../../">Home</a></strong></li>
+<li><strong><a href="../../../about/">About</a></strong></li>
+<li><strong><a href="../../../news/">News</a></strong></li>
+<li><strong><a href="http://wiki-oar.imag.fr">Wiki</a></strong></li>
+<li><strong>Getting OAR</strong>
+<ul>
+<li><a href="../../../repositories/">Repositories</a></li>
+<li><a href="../../../installation/">Installation</a></li>
+<li><a href="../../../changelog/">Changelog</a></li>
+</ul></li>
+<li><strong>Using OAR</strong>
+<ul>
+<li><a href="../../../user-quickstart/">First user steps</a></li>
+<li><a href="../../../user-usecases/">Use cases</a></li>
+<li><a href="../../../faq/">FAQ</a></li>
+</ul></li>
+<li><strong>Getting help</strong>
+<ul>
+<li><a href="../../../support/">Contact/Mailing lists</a></li>
+<li><a href="../../../documentation/">Documentation</a></li>
+</ul></li>
+<li><strong>Contributing to OAR</strong>
+<ul>
+<li><a href="../../../contributing/repositories/">Source repositories</a></li>
+<li><a href="../../../contributing/workflow/">Workflow</a></li>
+<li><a href="../../../contributing/GSOCs/">GSOCs</a></li>
+</ul></li>
+<li><strong><a href="../../../research/">Researchers' Corner</a></strong></li>
+<li><strong><a href="../../../partners-projects/">Partners &amp; Projects</a></strong></li>
+</ul>
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+<pre>Since OAR 2.5, the cpuset feature is configured by default (the majotiry of the
+Linux distribution is compiled with cpuset and/or cgroups).
+
+What are "oarsh" and "oarsh_shell" scripts ?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+"oarsh" and "oarsh_shell" are two scripts that can restrict user processes to
+stay in the same cpuset on all nodes.
+
+This feature is very usefull to restrict processor consumption on
+multiprocessors computers and to kill all processes of a same
+OAR job on several nodes.
+
+Moreover "oarsh" replaces the ssh or rsh commands in the user scripts (they
+don't have to configure ssh keys, oarsh works between all the nodes for a job). 
+
+CPUSET definition
+~~~~~~~~~~~~~~~~~
+
+CPUSET is a module integrated in the Linux kernel since 2.6.x.
+In the kernel documentation, you can read::
+
+    Cpusets provide a mechanism for assigning a set of CPUs and Memory
+    Nodes to a set of tasks.
+
+    Cpusets constrain the CPU and Memory placement of tasks to only
+    the resources within a tasks current cpuset.  They form a nested
+    hierarchy visible in a virtual file system.  These are the essential
+    hooks, beyond what is already present, required to manage dynamic
+    job placement on large systems.
+
+    Each task has a pointer to a cpuset.  Multiple tasks may reference
+    the same cpuset.  Requests by a task, using the sched_setaffinity(2)
+    system call to include CPUs in its CPU affinity mask, and using the
+    mbind(2) and set_mempolicy(2) system calls to include Memory Nodes
+    in its memory policy, are both filtered through that tasks cpuset,
+    filtering out any CPUs or Memory Nodes not in that cpuset.  The
+    scheduler will not schedule a task on a CPU that is not allowed in
+    its cpus_allowed vector, and the kernel page allocator will not
+    allocate a page on a node that is not allowed in the requesting tasks
+    mems_allowed vector.
+
+
+OARSH
+~~~~~
+
+"oarsh" is a wrapper around the "ssh" command (tested with openSSH).
+Its goal is to propagate two environment variables:
+
+    - OAR_CPUSET : The name of the OAR job cpuset
+    - OAR_JOB_USER : The name of the user corresponding to the job
+
+"oarsh" uses the oar ssh keys to do the ssh connection. That's why the ssh
+server used for OAR is configured to propagete the environment variables
+OAR_CPUSET and OAR_JOB_USER and only accepts the oar user.
+
+OARSH_SHELL
+~~~~~~~~~~~
+
+"oarsh_shell" must be the shell of the oar user on each nodes where you want
+"oarsh" to work.
+This script takes "OAR_CPUSET" and "OAR_JOB_USER" environment variables and
+adds its PID in OAR_CPUSET cpuset. Then it searches user shell and home and
+executes the right command (like ssh).
+
+Important notes
+~~~~~~~~~~~~~~~
+
+    - the command "scp" can be used with oarsh. The syntax is::
+
+        scp -S /usr/bin/oarsh ...
+
+      See scp man page.
+
+      You can also use the "oarcp" command which do this for you.
+
+      See the oarsh man page.
+    
+    - If you want to use oarsh from the user frontale, you can. You have to
+      define the environment OAR_JOB_ID and then launch oarsh on a node used
+      by your OAR job. This feature works only where the oarstat command is
+      configured::
+
+        OAR_JOB_ID=42 oarsh node12
+
+      or::
+
+        export OAR_JOB_ID=42
+        oarsh node12
+
+      This command gives you a shell on the "node12" from the OAR job 42.
+
+    - You can disable the cpuset security mechanism by setting the 
+      OARSH_BYPASS_WHOLE_SECURITY field to 1 in your oar.conf file. 
+      WARNING: this is a critical functionality (this is only useful 
+      if users want to have a command to connect on every nodes without 
+      taking care of their ssh configuration and act like a ssh).
+      DO NOT USE THIS IF YOU ARE UNSURE.
+
+If you want more tips how to use oarsh with, for example, different MPI
+implementation then take a look at http://oar.imag.fr/TIPS.html .
+
+</pre>
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Friday 16 November 2012</span>
+<!-- Created <span class="date">Wednesday 15 June 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from OAR -->
+</div>
+
+</div>
+
+</body>
+</html>

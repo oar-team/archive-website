@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>OAR 2.5.2 release</title>
+
+<link rel="icon" href="../../favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../">OAR</a>/ 
+
+<a href="../">news</a>/ 
+
+</span>
+<span class="title">
+OAR 2.5.2 release
+
+</span>
+</span>
+
+<form method="get" action="http://oar.imag.fr//ikiwiki.cgi" id="searchform">
+<div>
+<input type="text" id="searchbox" name="P" value="" size="16"
+ />
+</div>
+</form>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><strong><a href="../../">Home</a></strong></li>
+<li><strong><a href="../../about/">About</a></strong></li>
+<li><strong><a href="../">News</a></strong></li>
+<li><strong><a href="http://wiki-oar.imag.fr">Wiki</a></strong></li>
+<li><strong>Getting OAR</strong>
+<ul>
+<li><a href="../../repositories/">Repositories</a></li>
+<li><a href="../../installation/">Installation</a></li>
+<li><a href="../../changelog/">Changelog</a></li>
+</ul></li>
+<li><strong>Using OAR</strong>
+<ul>
+<li><a href="../../user-quickstart/">First user steps</a></li>
+<li><a href="../../user-usecases/">Use cases</a></li>
+<li><a href="../../faq/">FAQ</a></li>
+</ul></li>
+<li><strong>Getting help</strong>
+<ul>
+<li><a href="../../support/">Contact/Mailing lists</a></li>
+<li><a href="../../documentation/">Documentation</a></li>
+</ul></li>
+<li><strong>Contributing to OAR</strong>
+<ul>
+<li><a href="../../contributing/repositories/">Source repositories</a></li>
+<li><a href="../../contributing/workflow/">Workflow</a></li>
+<li><a href="../../contributing/GSOCs/">GSOCs</a></li>
+</ul></li>
+<li><strong><a href="../../research/">Researchers' Corner</a></strong></li>
+<li><strong><a href="../../partners-projects/">Partners &amp; Projects</a></strong></li>
+</ul>
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content"><div id="news">
+
+<span class="header">
+
+<a href="">OAR 2.5.2 release</a>
+
+</span>
+
+<p>OAR 2.5.2 has been pushed into the stable repositories. </p>
+
+<p><a href="../../installation/2.5/">Installation instructions</a> | <a href="../../upgrading/2.5/">Upgrading issues</a> | <a href="../../repositories/">Repository
+list</a> | <a href="../../changelog/2.5/">Changelog</a>.</p>
+
+<p>This release contains mainly bugfixes (see changelog for the complete list) and some performance improvements. You need to update the sql schema by executing <code>oar-database --setup</code></p>
+
+<pre><code>version 2.5.2:
+--------------
+  - Bugfix: /var/lib/oar/.bash_oar was empty due to an error in the common
+    setup script.
+  - Bugfix: the PINGCHECKER_COMMAND in oar.conf depends now on %%OARDIR%%.
+  - Bug #13939: the job_resource_manager.pl and job_resource_manager_cgroups.pl
+                now deletes the user files in /tmp, /var/tmp and /dev/shm at
+                the end of the jobs.
+  - Bugfix: in oardodo.c, the preprocessed variables was not defined correclty.
+  - Finaud: fix race condition when there was a PINGCHECKER error jsut before
+    another problem. The node became Alive again when the PINGCHECKER said OK
+    BUT there was another error to resolve.
+  - Bugfix: The feature CHECK_NODES_WITH_RUNNING_JOB=yes never worked before.
+  - Speedup monika (X5).
+  - Monika: Add the conf max_cores_per_line to have several lines if the number
+    of cores are too big.
+  - Minor changes into API:
+      - added cmd_output into POST /jobs.
+  - API: Added GET /select_all?query=&lt;query&gt; (read only mode).
+  - Add the field "array_index" into the jobs table. So that resubmit a job
+    from an array will have the right array_index anvironment variable.
+  - oarstat: order the output by job_id.
+  - Speedup oarnodes.
+  - Fix a spelling error in the oaradmin manpage.
+  - Bugfix #14122 : the oar-node init.d script wasn't executing
+    start_oar_node/stop_oar_node during the 'restart' action.
+  - Allow the dash  character into the --notify "exec:..." oarsub option.
+  - Remove some old stuffs from the tarball:
+      - visualization_interfaces/{tgoar,accounting,poar};
+      - scheduler/moldable;
+      - pbs-oar-lib.
+  - Fix some licence issues.
+</code></pre>
+
+
+<span class="pagedate">
+Posted <span class="date">Wednesday 23 May 2012</span>
+</span>
+</div></div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Wednesday 06 June 2012</span>
+<!-- Created <span class="date">Wednesday 23 May 2012</span> -->
+</div>
+
+</div>
+
+
+<!-- from OAR -->
+</div>
+
+</div>
+
+</body>
+</html>

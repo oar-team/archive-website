@@ -1,0 +1,839 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>doc usecases</title>
+
+<link rel="icon" href="../../../../../favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="../../../../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../../../../">OAR</a>/ 
+
+<a href="../../../../../">sources</a>/ 
+
+<a href="../../../../../">2.5</a>/ 
+
+<a href="../../../../../">docs</a>/ 
+
+<a href="../../../../../">documentation</a>/ 
+
+</span>
+<span class="title">
+doc usecases
+
+</span>
+</span>
+
+<form method="get" action="http://oar.imag.fr//ikiwiki.cgi" id="searchform">
+<div>
+<input type="text" id="searchbox" name="P" value="" size="16"
+ />
+</div>
+</form>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><strong><a href="../../../../../">Home</a></strong></li>
+<li><strong><a href="../../../../../about/">About</a></strong></li>
+<li><strong><a href="../../../../../news/">News</a></strong></li>
+<li><strong><a href="http://wiki-oar.imag.fr">Wiki</a></strong></li>
+<li><strong>Getting OAR</strong>
+<ul>
+<li><a href="../../../../../repositories/">Repositories</a></li>
+<li><a href="../../../../../installation/">Installation</a></li>
+<li><a href="../../../../../changelog/">Changelog</a></li>
+</ul></li>
+<li><strong>Using OAR</strong>
+<ul>
+<li><a href="../../../../../user-quickstart/">First user steps</a></li>
+<li><a href="../../../../../user-usecases/">Use cases</a></li>
+<li><a href="../../../../../faq/">FAQ</a></li>
+</ul></li>
+<li><strong>Getting help</strong>
+<ul>
+<li><a href="../../../../../support/">Contact/Mailing lists</a></li>
+<li><a href="../../../../../documentation/">Documentation</a></li>
+</ul></li>
+<li><strong>Contributing to OAR</strong>
+<ul>
+<li><a href="../../../../../contributing/repositories/">Source repositories</a></li>
+<li><a href="../../../../../contributing/workflow/">Workflow</a></li>
+<li><a href="../../../../../contributing/GSOCs/">GSOCs</a></li>
+</ul></li>
+<li><strong><a href="../../../../../research/">Researchers' Corner</a></strong></li>
+<li><strong><a href="../../../../../partners-projects/">Partners &amp; Projects</a></strong></li>
+</ul>
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+
+
+
+
+
+
+OAR Use Cases
+
+
+
+<div class="document" id="oar-use-cases">
+<h1 class="title">OAR Use Cases</h1>
+
+<div class="section" id="interactive-jobs">
+<h1>Interactive jobs</h1>
+<div class="section" id="job-submission">
+<h2>Job submission</h2>
+<pre class="literal-block">
+jdoe&#64;idpot:~$ oarsub -I -l /nodes=3/core=1
+[ADMISSION RULE] Set default walltime to 7200.
+[ADMISSION RULE] Modify resource description with type constraints
+OAR_JOB_ID=4924
+Interactive mode : waiting...
+[2007-03-07 08:51:04] Starting...
+
+Connect to OAR job 4924 via the node idpot5.grenoble.grid5000.fr
+jdoe&#64;idpot5:~$
+</pre>
+</div>
+<div class="section" id="connecting-to-the-other-cores">
+<h2>Connecting to the other cores</h2>
+<pre class="literal-block">
+jdoe&#64;idpot5:~$ cat $OAR_NODEFILE
+idpot5.grenoble.grid5000.fr
+idpot8.grenoble.grid5000.fr
+idpot9.grenoble.grid5000.fr
+jdoe&#64;idpot5:~$ oarsh idpot8
+Last login: Tue Mar  6 18:00:37 2007 from idpot.imag.fr
+jdoe&#64;idpot8:~$ oarsh idpot9
+Last login: Wed Mar  7 08:48:30 2007 from idpot.imag.fr
+jdoe&#64;idpot9:~$ oarsh idpot5
+Last login: Wed Mar  7 08:51:45 2007 from idpot5.imag.fr
+jdoe&#64;idpot5:~$
+</pre>
+</div>
+<div class="section" id="copying-a-file-from-one-node-to-another">
+<h2>Copying a file from one node to another</h2>
+<pre class="literal-block">
+jdoe&#64;idpot5:~$ hostname &gt; /tmp/my_hostname
+jdoe&#64;idpot5:~$ oarcp /tmp/my_hostname idpot8:/tmp/my_hostname
+jdoe&#64;idpot5:~$ oarsh idpot8 cat /tmp/my_hostname
+idpot5
+jdoe&#64;idpot5:~$
+</pre>
+</div>
+<div class="section" id="connecting-to-our-job">
+<h2>Connecting to our job</h2>
+<pre class="literal-block">
+jdoe&#64;idpot:~$ OAR_JOB_ID=4924 oarsh idpot9
+Last login: Wed Mar  7 08:52:09 2007 from idpot8.imag.fr
+jdoe&#64;idpot9:~$ oarsh idpot5
+Last login: Wed Mar  7 08:52:18 2007 from idpot9.imag.fr
+jdoe&#64;idpot5:~$
+</pre>
+</div>
+</div>
+<div class="section" id="batch-mode-job">
+<h1>Batch mode job</h1>
+<div class="section" id="submission-using-a-script">
+<h2>Submission using a script</h2>
+<pre class="literal-block">
+jdoe&#64;paramount:~$ oarsub -l core=10 ./runhpl
+Generate a job key...
+[ADMISSION RULE] Set default walltime to 3600.
+[ADMISSION RULE] Modify resource description with type constraints
+OAR_JOB_ID=199522
+</pre>
+</div>
+<div class="section" id="watching-results">
+<h2>Watching results</h2>
+<pre class="literal-block">
+jdoe&#64;paramount:~$ cat OAR.199522.stdout
+...
+</pre>
+</div>
+<div class="section" id="submission-using-an-inline-command">
+<h2>Submission using an inline command</h2>
+<p>Sometimes it is very useful to run a little command in oarsub:</p>
+<pre class="literal-block">
+jdoe&#64;paramount:~$ oarsub -l core=1 'echo $PATH;which ssh'
+Generate a job key...
+[ADMISSION RULE] Set default walltime to 3600.
+[ADMISSION RULE] Modify resource description with type constraints
+OAR_JOB_ID=199523
+</pre>
+</div>
+<div class="section" id="id1">
+<h2>Watching results</h2>
+<pre class="literal-block">
+jdoe&#64;paramount:~$ cat OAR.199523.stdout
+...
+</pre>
+</div>
+</div>
+<div class="section" id="reservations">
+<h1>Reservations</h1>
+<p>The date format to pass to the -r option is YYYY-MM-DD HH:MM:SS:</p>
+<pre class="literal-block">
+jdoe&#64;paramount:~$ oarsub -l core=10 ./runhpl -r &quot;2007-10-10 18:00:00&quot;
+Generate a job key...
+[ADMISSION RULE] Set default walltime to 3600.
+[ADMISSION RULE] Modify resource description with type constraints
+OAR_JOB_ID=199524
+Reservation mode : waiting validation...
+Reservation valid --&gt; OK
+jdoe&#64;paramount:~$
+</pre>
+</div>
+<div class="section" id="examples-of-resource-requests">
+<h1>Examples of resource requests</h1>
+<div class="section" id="using-the-resource-hierarchy">
+<h2>Using the resource hierarchy</h2>
+<ul class="simple">
+<li>ask for 1 core on 15 nodes on a same cluster (total = 15 cores)</li>
+</ul>
+<pre class="literal-block">
+oarsub -I -l /cluster=1/nodes=15/core=1
+</pre>
+<ul class="simple">
+<li>ask for 1 core on 15 nodes on 2 clusters (total = 30 cores)</li>
+</ul>
+<pre class="literal-block">
+oarsub -I -l /cluster=2/nodes=15/core=1
+</pre>
+<ul class="simple">
+<li>ask for 1 core on 2 cpus on 15 nodes on a same cluster (total = 30 cores)</li>
+</ul>
+<pre class="literal-block">
+oarsub -I -l /cluster=1/nodes=15/cpu=2/core=1
+</pre>
+<ul class="simple">
+<li>ask for 10 cpus on 2 clusters (total = 20 cpus, information regarding the
+node ou core count depend on the topology of the machines)</li>
+</ul>
+<pre class="literal-block">
+oarsub -I -l /cluster=2/cpu=10
+</pre>
+<ul class="simple">
+<li>ask for 1 core on 3 different network switches (total = 3 cores)</li>
+</ul>
+<pre class="literal-block">
+oarsub -I -l /switch=3/core=1
+</pre>
+</div>
+<div class="section" id="using-properties">
+<h2>Using properties</h2>
+<p>See OAR properties for a description of all available properties, and watch
+Monika.</p>
+<ul class="simple">
+<li>ask for 10 cores of the cluster azur</li>
+</ul>
+<pre class="literal-block">
+oarsub -I -l core=10 -p &quot;cluster='azur'&quot;
+</pre>
+<ul class="simple">
+<li>ask for 2 nodes with 4096 GB of memory and Infiniband 10G</li>
+</ul>
+<pre class="literal-block">
+oarsub -I -p &quot;memnode=4096 and ib10g='YES'&quot; -l nodes=2
+</pre>
+<ul class="simple">
+<li>ask for any 4 nodes except gdx-45</li>
+</ul>
+<pre class="literal-block">
+oarsub -I -p &quot;not host like 'gdx-45.%'&quot; -l nodes=4
+</pre>
+</div>
+<div class="section" id="mixing-every-together">
+<h2>Mixing every together</h2>
+<ul class="simple">
+<li>ask for 1 core on 2 nodes on the same cluster with 4096 GB of memory and
+Infiniband 10G + 1 cpu on 2 nodes on the same switch with bicore processors
+for a walltime of 4 hours</li>
+</ul>
+<pre class="literal-block">
+oarsub -I -l &quot;{memnode=4096 and ib10g='YES'}/cluster=1/nodes=2/core=1+{cpucore=2}/switch=1/nodes=2/cpu=1,walltime=4:0:0&quot;
+</pre>
+<div class="section" id="warning">
+<h3>Warning</h3>
+<ol class="arabic simple">
+<li>walltime must always be the last argument of -l &lt;...&gt;</li>
+<li>if no resource matches your request, oarsub will exit with the message</li>
+</ol>
+<pre class="literal-block">
+Generate a job key...
+[ADMISSION RULE] Set default walltime to 3600.
+[ADMISSION RULE] Modify resource description with type constraints
+There are not enough resources for your request
+OAR_JOB_ID=-5
+Oarsub failed: please verify your request syntax or ask for support to your admin.
+</pre>
+</div>
+</div>
+<div class="section" id="moldable-jobs">
+<h2>Moldable jobs</h2>
+<ul class="simple">
+<li>ask for 4 nodes and a walltime of 2 hours or 2 nodes and a walltime of 4 hours</li>
+</ul>
+<pre class="literal-block">
+oarsub -I -l nodes=4,walltime=2 -l nodes=2,walltime=4
+</pre>
+</div>
+<div class="section" id="types-of-job">
+<h2>Types of job</h2>
+<p>OAR2 feature the concept of job &quot;type&quot;. Among them, the type deploy (that used
+to be a queue with OAR 1.6) and the type besteffort.</p>
+<ul class="simple">
+<li>ask for 4 nodes on the same cluster in order to deploy a customized
+environment:</li>
+</ul>
+<pre class="literal-block">
+oarsub -I -l cluster=1/nodes=4,walltime=6 -t deploy
+</pre>
+<ul class="simple">
+<li>submit besteffort jobs</li>
+</ul>
+<pre class="literal-block">
+for param in $(&lt; ./paramlist); do
+    oarsub -t besteffort -l core=1 &quot;./my_script.sh $param&quot;
+done
+</pre>
+</div>
+</div>
+<div class="section" id="x11-forwarding">
+<h1>X11 forwarding</h1>
+<p>Some users complained about the lack of X11 forwarding in oarsub or oarsh. It
+is now enabled.
+We are using xeyes to test X: 2 big eyes should appear on your screen, and
+follow the moves of your mouse.</p>
+<div class="section" id="shell-1">
+<h2>Shell 1</h2>
+<div class="section" id="check-display">
+<h3>Check DISPLAY</h3>
+<pre class="literal-block">
+jdoe&#64;idpot:~$ echo $DISPLAY
+localhost:11.0
+</pre>
+</div>
+<div class="section" id="id2">
+<h3>Job submission</h3>
+<pre class="literal-block">
+jdoe&#64;idpot:~$ oarsub -I -l /nodes=2/core=1
+[ADMISSION RULE] Set default walltime to 7200.
+[ADMISSION RULE] Modify resource description with type constraints
+OAR_JOB_ID=4926
+Interactive mode : waiting...
+[2007-03-07 09:01:16] Starting...
+
+Initialize X11 forwarding...
+Connect to OAR job 4926 via the node idpot8.grenoble.grid5000.fr
+jdoe&#64;idpot8:~$ xeyes &amp;
+[1] 14656
+jdoe&#64;idpot8:~$ cat $OAR_NODEFILE
+idpot8.grenoble.grid5000.fr
+idpot9.grenoble.grid5000.fr
+[1]+  Done                    xeyes
+jdoe&#64;idpot8:~$ oarsh idpot9 xeyes
+Error: Can't open display:
+jdoe&#64;idpot8:~$ oarsh -X idpot9 xeyes
+</pre>
+</div>
+</div>
+<div class="section" id="shell-2">
+<h2>Shell 2</h2>
+<pre class="literal-block">
+jdoe&#64;idpot:~$ echo $DISPLAY
+localhost:13.0
+jdoe&#64;idpot:~$ OAR_JOB_ID=4928 oarsh -X idpot9 xeyes
+</pre>
+</div>
+</div>
+<div class="section" id="using-a-parallel-launcher-taktuk">
+<h1>Using a parallel launcher: taktuk</h1>
+<p>Warning: Taktuk MUST BE installed on all nodes to test this point</p>
+<div class="section" id="id3">
+<h2>Shell 1</h2>
+<div class="section" id="unset-display-so-that-x-does-not-bother">
+<h3>Unset DISPLAY so that X does not bother...</h3>
+<pre class="literal-block">
+jdoe&#64;idpot:~$ unset DISPLAY
+</pre>
+</div>
+<div class="section" id="id4">
+<h3>Job submission</h3>
+<pre class="literal-block">
+jdoe&#64;idpot:~$ oarsub -I -l /nodes=20/core=1
+[ADMISSION RULE] Set default walltime to 7200.
+[ADMISSION RULE] Modify resource description with type constraints
+OAR_JOB_ID=4930
+Interactive mode : waiting...
+[2007-03-07 09:15:13] Starting...
+
+Connect to OAR job 4930 via the node idpot1.grenoble.grid5000.fr
+</pre>
+</div>
+<div class="section" id="running-the-taktuk-command">
+<h3>Running the taktuk command</h3>
+<pre class="literal-block">
+jdoe&#64;idpot1:~$ taktuk -c &quot;oarsh&quot; -f $OAR_FILE_NODES broadcast exec [ date ]
+idcalc12.grenoble.grid5000.fr-1: date (11567): output &gt; Thu May  3 18:56:58 CEST 2007
+idcalc12.grenoble.grid5000.fr-1: date (11567): status &gt; Exited with status 0
+idcalc4.grenoble.grid5000.fr-8: date (31172): output &gt; Thu May  3 19:00:09 CEST 2007
+idcalc2.grenoble.grid5000.fr-2: date (32368): output &gt; Thu May  3 19:01:56 CEST 2007
+idcalc3.grenoble.grid5000.fr-5: date (31607): output &gt; Thu May  3 18:56:44 CEST 2007
+idcalc3.grenoble.grid5000.fr-5: date (31607): status &gt; Exited with status 0
+idcalc7.grenoble.grid5000.fr-13: date (31188): output &gt; Thu May  3 18:59:54 CEST 2007
+idcalc9.grenoble.grid5000.fr-15: date (32426): output &gt; Thu May  3 18:56:45 CEST 2007
+idpot6.grenoble.grid5000.fr-20: date (16769): output &gt; Thu May  3 18:59:54 CEST 2007
+idcalc4.grenoble.grid5000.fr-8: date (31172): status &gt; Exited with status 0
+idcalc5.grenoble.grid5000.fr-9: date (10288): output &gt; Thu May  3 18:56:39 CEST 2007
+idcalc5.grenoble.grid5000.fr-9: date (10288): status &gt; Exited with status 0
+idcalc6.grenoble.grid5000.fr-11: date (11290): output &gt; Thu May  3 18:57:52 CEST 2007
+idcalc6.grenoble.grid5000.fr-11: date (11290): status &gt; Exited with status 0
+idcalc7.grenoble.grid5000.fr-13: date (31188): status &gt; Exited with status 0
+idcalc8.grenoble.grid5000.fr-14: date (10450): output &gt; Thu May  3 18:57:34 CEST 2007
+idcalc8.grenoble.grid5000.fr-14: date (10450): status &gt; Exited with status 0
+idcalc9.grenoble.grid5000.fr-15: date (32426): status &gt; Exited with status 0
+idpot1.grenoble.grid5000.fr-16: date (18316): output &gt; Thu May  3 18:57:19 CEST 2007
+idpot1.grenoble.grid5000.fr-16: date (18316): status &gt; Exited with status 0
+idpot10.grenoble.grid5000.fr-17: date (31547): output &gt; Thu May  3 18:56:27 CEST 2007
+idpot10.grenoble.grid5000.fr-17: date (31547): status &gt; Exited with status 0
+idpot2.grenoble.grid5000.fr-18: date (407): output &gt; Thu May  3 18:56:21 CEST 2007
+idpot2.grenoble.grid5000.fr-18: date (407): status &gt; Exited with status 0
+idpot4.grenoble.grid5000.fr-19: date (2229): output &gt; Thu May  3 18:55:37 CEST 2007
+idpot4.grenoble.grid5000.fr-19: date (2229): status &gt; Exited with status 0
+idpot6.grenoble.grid5000.fr-20: date (16769): status &gt; Exited with status 0
+idcalc2.grenoble.grid5000.fr-2: date (32368): status &gt; Exited with status 0
+idpot11.grenoble.grid5000.fr-6: date (12319): output &gt; Thu May  3 18:59:54 CEST 2007
+idpot7.grenoble.grid5000.fr-10: date (7355): output &gt; Thu May  3 18:57:39 CEST 2007
+idpot5.grenoble.grid5000.fr-12: date (13093): output &gt; Thu May  3 18:57:23 CEST 2007
+idpot3.grenoble.grid5000.fr-3: date (509): output &gt; Thu May  3 18:59:55 CEST 2007
+idpot3.grenoble.grid5000.fr-3: date (509): status &gt; Exited with status 0
+idpot8.grenoble.grid5000.fr-4: date (13252): output &gt; Thu May  3 18:56:32 CEST 2007
+idpot8.grenoble.grid5000.fr-4: date (13252): status &gt; Exited with status 0
+idpot11.grenoble.grid5000.fr-6: date (12319): status &gt; Exited with status 0
+idpot9.grenoble.grid5000.fr-7: date (17810): output &gt; Thu May  3 18:57:42 CEST 2007
+idpot9.grenoble.grid5000.fr-7: date (17810): status &gt; Exited with status 0
+idpot7.grenoble.grid5000.fr-10: date (7355): status &gt; Exited with status 0
+idpot5.grenoble.grid5000.fr-12: date (13093): status &gt; Exited with status 0
+</pre>
+</div>
+<div class="section" id="setting-the-connector-definitively-and-running-taktuk-again">
+<h3>Setting the connector definitively and running taktuk again</h3>
+<pre class="literal-block">
+jdoe&#64;idpot1:~$ export TAKTUK_CONNECTOR=oarsh
+jdoe&#64;idpot1:~$ taktuk -m idpot3 -m idpot4 broadcast exec [ date ]
+idpot3-1: date (12293): output &gt; Wed Mar  7 09:20:25 CET 2007
+idpot4-2: date (7508): output &gt; Wed Mar  7 09:20:19 CET 2007
+idpot3-1: date (12293): status &gt; Exited with status 0
+idpot4-2: date (7508): status &gt; Exited with status 0
+</pre>
+</div>
+</div>
+</div>
+<div class="section" id="using-mpi-with-oarsh">
+<h1>Using MPI with OARSH</h1>
+<p>To use MPI, you must setup your MPI stack so that it use OARSH instead of the
+default RSH or SSH connector. All required steps for the main different flavors
+of MPI are presented below.</p>
+<div class="section" id="mpich1">
+<h2>MPICH1</h2>
+<p>Mpich1 connector can be changed using the P4_RSHCOMMAND environment variable.
+This variable must be set in the shell configuration files. For instance for
+bash, within ~/.bashrc</p>
+<pre class="literal-block">
+export P4_RSHCOMMAND=oarsh
+</pre>
+<p>Please consider setting the P4_GLOBMEMSIZE as well.</p>
+<p>You can then run your mpich1 application:</p>
+<pre class="literal-block">
+jdoe&#64;idpot4:~/mpi/mpich$ mpirun.mpich -machinefile $OAR_FILE_NODES -np 6 ./hello
+Hello world from process 0 of 6 running on idpot4.grenoble.grid5000.fr
+Hello world from process 4 of 6 running on idpot6.grenoble.grid5000.fr
+Hello world from process 1 of 6 running on idpot4.grenoble.grid5000.fr
+Hello world from process 3 of 6 running on idpot5.grenoble.grid5000.fr
+Hello world from process 2 of 6 running on idpot5.grenoble.grid5000.fr
+Hello world from process 5 of 6 running on idpot6.grenoble.grid5000.fr
+</pre>
+</div>
+<div class="section" id="mpich2">
+<h2>MPICH2</h2>
+<p>Tested version: 1.0.5p2</p>
+<p>MPICH2 uses daemons on nodes that may be started with the &quot;mpdboot&quot; command.
+This command takes oarsh has an argument (--rsh=oarsh) and all goes well:</p>
+<pre class="literal-block">
+jdoe&#64;idpot2:~/mpi/mpich/mpich2-1.0.5p2/bin$ ./mpicc -o hello ../../../hello.c
+jdoe&#64;idpot2:~/mpi/mpich/mpich2-1.0.5p2/bin$ ./mpdboot --file=$OAR_NODEFILE --rsh=oarsh -n 2
+jdoe&#64;idpot2:~/mpi/mpich/mpich2-1.0.5p2/bin$ ./mpdtrace -l
+idpot2_39441 (129.88.70.2)
+idpot4_36313 (129.88.70.4)
+jdoe&#64;idpot2:~/mpi/mpich/mpich2-1.0.5p2/bin$ ./mpiexec -np 8 ./hello
+Hello world from process 0 of 8 running on idpot2
+Hello world from process 1 of 8 running on idpot4
+Hello world from process 3 of 8 running on idpot4
+Hello world from process 2 of 8 running on idpot2
+Hello world from process 5 of 8 running on idpot4
+Hello world from process 4 of 8 running on idpot2
+Hello world from process 6 of 8 running on idpot2
+Hello world from process 7 of 8 running on idpot4
+</pre>
+</div>
+<div class="section" id="mvapich2">
+<h2>MVAPICH2</h2>
+<p>You can use the hydra launcher with the options &quot;-launcher&quot; and
+&quot;-launcher-exec&quot;, for example:</p>
+<pre class="literal-block">
+mpiexec -launcher ssh -launcher-exec /usr/bin/oarsh -f hosts -n 4 ./app
+</pre>
+</div>
+<div class="section" id="lam-mpi">
+<h2>LAM/MPI</h2>
+<p>Tested version: 7.1.3</p>
+<p>You can use export LAMRSH=oarsh before starting lamboot; otherwise the
+&quot;lamboot&quot; command takes -ssi boot_rsh_agent &quot;oarsh&quot; option has an argument
+(this is not in the manual!). Also note that OARSH doesn't automatically sends
+the environnement of the user, so, you may need to specify the path to LAM
+distribution on the nodes with this option: -prefix</p>
+<pre class="literal-block">
+jdoe&#64;idpot2:~/mpi/lam$ ./bin/lamboot -prefix ~/mpi/lam \
+                                 -ssi boot_rsh_agent &quot;oarsh&quot; \
+                                 -d $OAR_FILE_NODES
+jdoe&#64;idpot2:~/mpi/lam$ ./bin/mpirun -np 8 hello
+Hello world from process 2 of 8 running on idpot2
+Hello world from process 3 of 8 running on idpot2
+Hello world from process 0 of 8 running on idpot2
+Hello world from process 1 of 8 running on idpot2
+Hello world from process 4 of 8 running on idpot4
+Hello world from process 6 of 8 running on idpot4
+Hello world from process 5 of 8 running on idpot4
+Hello world from process 7 of 8 running on idpot4
+</pre>
+</div>
+<div class="section" id="openmpi">
+<h2>OpenMPI</h2>
+<p>Tested version: 1.1.4</p>
+<p>The magic option to use with OpenMPI and OARSH is &quot;-mca pls_rsh_agent &quot;oarsh&quot;&quot;.
+Also note that OpenMPI works with daemons that are started on the nodes
+(orted), but &quot;mpirun&quot; starts them on-demand. The &quot;-prefix&quot; option can help if
+OpenMPI is not installed in a standard path on the cluster nodes (you can
+replace the &quot;-prefix&quot; option by using the absolute path when invoking the
+&quot;mpirun&quot; command).</p>
+<pre class="literal-block">
+jdoe&#64;idpot2:~/mpi/openmpi$ ./bin/mpirun -prefix ~/mpi/openmpi \
+                        -machinefile $OAR_FILE_NODES \
+                        -mca pls_rsh_agent &quot;oarsh&quot; \
+                        -np 8 hello
+Hello world from process 0 of 8 running on idpot2
+Hello world from process 4 of 8 running on idpot4
+Hello world from process 1 of 8 running on idpot2
+Hello world from process 5 of 8 running on idpot4
+Hello world from process 2 of 8 running on idpot2
+Hello world from process 6 of 8 running on idpot4
+Hello world from process 7 of 8 running on idpot4
+Hello world from process 3 of 8 running on idpot2
+</pre>
+<p>You can make the option &quot;oarsh&quot; automatically by adding it in a configuration
+file in the OpenMPI installation directory named
+&quot;$OPENMPI_INSTALL_DIR/etc/openmpi-mca-params.conf&quot;</p>
+<pre class="literal-block">
+plm_rsh_agent=/usr/bin/oarsh
+</pre>
+<p>So, with this configuration, this is transparent for the users.</p>
+<p><strong>Note</strong>: In OpenMPI 1.6, &quot;pls_rsh_agent&quot; was replaced by &quot;orte_rsh_agent&quot;.</p>
+</div>
+</div>
+<div class="section" id="tests-of-the-cpuset-mechanism">
+<h1>Tests of the CPUSET mechanism</h1>
+<div class="section" id="processus-isolation">
+<h2>Processus isolation</h2>
+<p>In this test, we run 4 yes commands in a job whose resources is only one core.
+(syntax tested with bash as the user's shell)</p>
+<pre class="literal-block">
+jdoe&#64;idpot:~$ oarsub -l core=1 &quot;yes &gt; /dev/null &amp; yes &gt; /dev/null &amp; yes &gt; /dev/null &amp; yes &gt; /dev/null&quot;
+[ADMISSION RULE] Set default walltime to 7200.
+[ADMISSION RULE] Modify resource description with type constraints
+OAR_JOB_ID=8683
+</pre>
+<p>Then we connect to the node and run top</p>
+<pre class="literal-block">
+jdoe&#64;idpot:~$ oarsub -C 8683
+Initialize X11 forwarding...
+Connect to OAR job 8683 via the node idpot9.grenoble.grid5000.fr
+jdoe&#64;idpot9:~$ ps -eo fname,pcpu,psr | grep yes
+yes      23.2   1
+yes      23.1   1
+yes      24.0   1
+yes      23.0   1
+</pre>
+<p>This shows that the 4 processus are indeed restricted to the core the job was
+assigned to, as expected.</p>
+<p>Don't forget to delete your job:</p>
+<pre class="literal-block">
+jdoe&#64;idpot:~$ oardel 8683
+</pre>
+</div>
+</div>
+<div class="section" id="using-best-effort-mode-jobs">
+<h1>Using best effort mode jobs</h1>
+<div class="section" id="best-effort-job-campaign">
+<h2>Best effort job campaign</h2>
+<p>OAR 2 provides a way to specify that jobs are best effort, which means that the
+server can delete them if room is needed to fit other jobs. One can submit such
+jobs using the besteffort type of job.</p>
+<p>For instance you can run a job campaign as follows:</p>
+<pre class="literal-block">
+for param in $(&lt; ./paramlist); do
+    oarsub -t besteffort -l core=1 &quot;./my_script.sh $param&quot;
+done
+</pre>
+<p>In this example, the file ./paramlist contains a list of parameters for a
+parametric application.</p>
+<p>The following demonstrates the mechanism.</p>
+</div>
+<div class="section" id="best-effort-job-mechanism">
+<h2>Best effort job mechanism</h2>
+<div class="section" id="running-a-besteffort-job-in-a-first-shell">
+<h3>Running a besteffort job in a first shell</h3>
+<pre class="literal-block">
+jdoe&#64;idpot:~$ oarsub -I -l nodes=23 -t besteffort
+[ADMISSION RULE] Added automatically besteffort resource constraint
+[ADMISSION RULE] Redirect automatically in the besteffort queue
+[ADMISSION RULE] Set default walltime to 7200.
+[ADMISSION RULE] Modify resource description with type constraints
+OAR_JOB_ID=9630
+Interactive mode : waiting...
+[2007-05-10 11:06:25] Starting...
+
+Initialize X11 forwarding...
+Connect to OAR job 9630 via the node idcalc1.grenoble.grid5000.fr
+</pre>
+</div>
+<div class="section" id="running-a-non-best-effort-job-on-the-same-set-of-resources-in-a-second-shell">
+<h3>Running a non best effort job on the same set of resources in a second shell</h3>
+<pre class="literal-block">
+jdoe&#64;idpot:~$ oarsub -I
+[ADMISSION RULE] Set default walltime to 7200.
+[ADMISSION RULE] Modify resource description with type constraints
+OAR_JOB_ID=9631
+Interactive mode : waiting...
+[2007-05-10 11:06:50] Start prediction: 2007-05-10 11:06:50 (Karma = 0.000)
+[2007-05-10 11:06:53] Starting...
+
+Initialize X11 forwarding...
+Connect to OAR job 9631 via the node idpot9.grenoble.grid5000.fr
+</pre>
+<p>As expected, meanwhile the best effort job was stopped (watch the first shell):</p>
+<pre class="literal-block">
+jdoe&#64;idcalc1:~$ bash: line 1: 23946 Killed                  /bin/bash -l
+Connection to idcalc1.grenoble.grid5000.fr closed.
+Disconnected from OAR job 9630
+jdoe&#64;idpot:~$
+</pre>
+</div>
+</div>
+</div>
+<div class="section" id="testing-the-checkpointing-trigger-mechanism">
+<h1>Testing the checkpointing trigger mechanism</h1>
+<div class="section" id="writing-the-test-script">
+<h2>Writing the test script</h2>
+<p>Here is a script feature an infinite loop and a signal handler trigged by
+SIGUSR2 (default signal for OAR's checkpointing mechanism).</p>
+<pre class="literal-block">
+#!/bin/bash
+
+handler() { echo &quot;Caught checkpoint signal at: `date`&quot;; echo &quot;Terminating.&quot;; exit 0; }
+trap handler SIGUSR2
+
+cat &lt;&lt;EOF
+Hostname: `hostname`
+Pid: $$
+Starting job at: `date`
+EOF
+while : ; do sleep 1; done
+</pre>
+</div>
+<div class="section" id="running-the-job">
+<h2>Running the job</h2>
+<p>We run the job on 1 core, and a walltime of 1 hour, and ask the job to be
+checkpointed if it lasts (and it will indeed) more that walltime - 900 sec = 45
+min.</p>
+<pre class="literal-block">
+jdoe&#64;idpot:~/oar-2.0/tests/checkpoint$ oarsub -l &quot;core=1,walltime=1:0:0&quot; --checkpoint 900 ./checkpoint.sh
+[ADMISSION RULE] Modify resource description with type constraints
+OAR_JOB_ID=9464
+jdoe&#64;idpot:~/oar-2.0/tests/checkpoint$
+</pre>
+</div>
+<div class="section" id="result">
+<h2>Result</h2>
+<p>Taking a look at the job output:</p>
+<pre class="literal-block">
+jdoe&#64;idpot:~/oar-2.0/tests/checkpoint$ cat OAR.9464.stdout
+Hostname: idpot9
+Pid: 26577
+Starting job at: Fri May  4 19:41:11 CEST 2007
+Caught checkpoint signal at: Fri May  4 20:26:12 CEST 2007
+Terminating.
+</pre>
+<p>The checkpointing signal was sent to the job 15 minutes before the walltime as
+expected so that the job can finish nicely.</p>
+</div>
+<div class="section" id="interactive-checkpointing">
+<h2>Interactive checkpointing</h2>
+<p>The oardel command provides the capability to raise a checkpoint event
+interactively to a job.</p>
+<p>We submit the job again</p>
+<pre class="literal-block">
+jdoe&#64;idpot:~/oar-2.0/tests/checkpoint$ oarsub -l &quot;core=1,walltime=1:0:0&quot; --checkpoint 900 ./checkpoint.sh
+[ADMISSION RULE] Modify resource description with type constraints
+OAR_JOB_ID=9521
+</pre>
+<p>Then run the oardel -c #jobid command...</p>
+<pre class="literal-block">
+jdoe&#64;idpot:~/oar-2.0/tests/checkpoint$ oardel -c 9521
+Checkpointing the job 9521 ...DONE.
+The job 9521 was notified to checkpoint itself (send SIGUSR2).
+</pre>
+<p>And then watch the job's output:</p>
+<pre class="literal-block">
+jdoe&#64;idpot:~/oar-2.0/tests/checkpoint$ cat OAR.9521.stdout
+Hostname: idpot9
+Pid: 1242
+Starting job at: Mon May  7 16:39:04 CEST 2007
+Caught checkpoint signal at: Mon May  7 16:39:24 CEST 2007
+Terminating.
+</pre>
+<p>The job terminated as expected.</p>
+</div>
+</div>
+<div class="section" id="testing-the-mechanism-of-dependency-on-an-anterior-job-termination">
+<h1>Testing the mechanism of dependency on an anterior job termination</h1>
+<div class="section" id="first-job">
+<h2>First Job</h2>
+<p>We run a first interactive job in a first Shell</p>
+<pre class="literal-block">
+jdoe&#64;idpot:~$ oarsub -I
+[ADMISSION RULE] Set default walltime to 7200.
+[ADMISSION RULE] Modify resource description with type constraints
+OAR_JOB_ID=9458
+Interactive mode : waiting...
+[2007-05-04 17:59:38] Starting...
+
+Initialize X11 forwarding...
+Connect to OAR job 9458 via the node idpot9.grenoble.grid5000.fr
+jdoe&#64;idpot9:~$
+</pre>
+<p>And leave that job pending.</p>
+</div>
+<div class="section" id="second-job">
+<h2>Second Job</h2>
+<p>Then we run a second job in another Shell, with a dependence on the first one</p>
+<pre class="literal-block">
+jdoe&#64;idpot:~$ oarsub -I -a 9458
+[ADMISSION RULE] Set default walltime to 7200.
+[ADMISSION RULE] Modify resource description with type constraints
+OAR_JOB_ID=9459
+Interactive mode : waiting...
+[2007-05-04 17:59:55] Start prediction: 2007-05-04 19:59:39 (Karma = 4.469)
+</pre>
+<p>So this second job is waiting for the first job walltime (or sooner
+termination) to be reached to start.</p>
+</div>
+<div class="section" id="job-dependency-in-action">
+<h2>Job dependency in action</h2>
+<p>We do a logout on the first interactive job...</p>
+<pre class="literal-block">
+jdoe&#64;idpot9:~$ logout
+Connection to idpot9.grenoble.grid5000.fr closed.
+Disconnected from OAR job 9458
+jdoe&#64;idpot:~$
+</pre>
+<p>... then watch the second Shell and see the second job starting</p>
+<pre class="literal-block">
+[2007-05-04 18:05:05] Starting...
+
+Initialize X11 forwarding...
+Connect to OAR job 9459 via the node idpot7.grenoble.grid5000.fr
+</pre>
+<p>... as expected.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+<a class="reference external" href="doc_usecases.rst">View document source</a>.
+Generated on: 2012-11-16 09:25 UTC.
+Generated by <a class="reference external" href="http://docutils.sourceforge.net/">Docutils</a> from <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> source.
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Friday 16 November 2012</span>
+<!-- Created <span class="date">Wednesday 15 June 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from OAR -->
+</div>
+
+</div>
+
+</body>
+</html>

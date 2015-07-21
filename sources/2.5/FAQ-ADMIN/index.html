@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FAQ-ADMIN</title>
+
+<link rel="icon" href="../../../favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="../../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../../">OAR</a>/ 
+
+<a href="../../../">sources</a>/ 
+
+<a href="../../../">2.5</a>/ 
+
+</span>
+<span class="title">
+FAQ-ADMIN
+
+</span>
+</span>
+
+<form method="get" action="http://oar.imag.fr//ikiwiki.cgi" id="searchform">
+<div>
+<input type="text" id="searchbox" name="P" value="" size="16"
+ />
+</div>
+</form>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><strong><a href="../../../">Home</a></strong></li>
+<li><strong><a href="../../../about/">About</a></strong></li>
+<li><strong><a href="../../../news/">News</a></strong></li>
+<li><strong><a href="http://wiki-oar.imag.fr">Wiki</a></strong></li>
+<li><strong>Getting OAR</strong>
+<ul>
+<li><a href="../../../repositories/">Repositories</a></li>
+<li><a href="../../../installation/">Installation</a></li>
+<li><a href="../../../changelog/">Changelog</a></li>
+</ul></li>
+<li><strong>Using OAR</strong>
+<ul>
+<li><a href="../../../user-quickstart/">First user steps</a></li>
+<li><a href="../../../user-usecases/">Use cases</a></li>
+<li><a href="../../../faq/">FAQ</a></li>
+</ul></li>
+<li><strong>Getting help</strong>
+<ul>
+<li><a href="../../../support/">Contact/Mailing lists</a></li>
+<li><a href="../../../documentation/">Documentation</a></li>
+</ul></li>
+<li><strong>Contributing to OAR</strong>
+<ul>
+<li><a href="../../../contributing/repositories/">Source repositories</a></li>
+<li><a href="../../../contributing/workflow/">Workflow</a></li>
+<li><a href="../../../contributing/GSOCs/">GSOCs</a></li>
+</ul></li>
+<li><strong><a href="../../../research/">Researchers' Corner</a></strong></li>
+<li><strong><a href="../../../partners-projects/">Partners &amp; Projects</a></strong></li>
+</ul>
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+<h1 id="faq-admin">FAQ - ADMIN</h1>
+
+<h2 id="releasepolicy">Release policy</h2>
+
+<p>Since the version 2.2, release numbers are divided into 3 parts:
+  ~ -   The first represents the design and the implementation
+        used.
+    -   The second represents a set of OAR functionalities.
+    -   The third is incremented after bug fixes.</p>
+
+<h2 id="whatmeanstheerrorbadconfigurationoption:permitlocalcommandwheniamusingoarsh">What means the error "Bad configuration option: PermitLocalCommand" when I am using oarsh?</h2>
+
+<p>For security reasons, on the latest OpenSSH releases you are able
+to execute a local command when you are connecting to the remote
+host and we must deactivate this option because the oarsh_ wrapper
+executes the <em>ssh</em> command into the user oar.</p>
+
+<p>So if you encounter this error message it means that your OpenSSH
+does not know this option and you have to remove it from the
+oar.conf. There is a variable named
+OARSH_OPENSSH_DEFAULT_OPTIONS_ in oar.conf used by oarsh. So
+you have just to remove the not yet implemented option.</p>
+
+<h2 id="howtomanagestartstopofthenodes">How to manage start/stop of the nodes?</h2>
+
+<p>You have to add a script in /etc/init.d which switches resources of
+the node into the "Alive" or "Absent" state. So when this script is
+called at boot time, it will change the state into "Alive". And
+when it is called at halt time, it will change into "Absent".</p>
+
+<p>There are two ways to perform this action:</p>
+
+<blockquote>
+  <ol>
+  <li><p>Install OAR "oar-libs" part on all nodes. Thus you will be able
+  to launch the command oarnodesetting_ (be careful to right
+  configure "oar.conf" with database login and password AND to allow
+  network connections on this database). So you can execute:</p>
+
+<pre><code>oarnodesetting -s Alive -h node_hostname
+    or
+oarnodesetting -s Absent -h node_hostname
+</code></pre></li>
+  <li><p>You do not want to install anything else on each node. So you
+  have to enable oar user to connect to the server via ssh (for
+  security you can use another SSH key with restrictions on the
+  command that oar can launch with this one). Thus you will have in
+  your init script something like:</p>
+
+<pre><code>sudo -u oar ssh oar-server "oarnodesetting -s Alive -h node_hostname"
+    or
+sudo -u oar ssh oar-server "oarnodesetting -s Absent -h node_hostname"
+</code></pre>
+  
+  <p>In this case, further OAR software upgrade will be more painless.</p></li>
+  </ol>
+</blockquote>
+
+<p>Take a look in "/etc/default/oar-node" for Debian packaging and in
+"/etc/sysconfig/oar-node" for redhat.</p>
+
+<h2 id="howcanimanageschedulingqueues">How can I manage scheduling queues?</h2>
+
+<p>see oarnotify_.</p>
+
+<h2 id="howcanihandlelicencetokens">How can I handle licence tokens?</h2>
+
+<p>OAR does not manage resources with an empty "network_address". So
+you can define resources that are not linked with a real node.</p>
+
+<p>So the steps to configure OAR with the possibility to reserve
+licences (or whatever you want that are other notions):</p>
+
+<blockquote>
+  <ol>
+  <li><p>Add a new field in the table resources_ to specify the licence
+  name.</p>
+
+<pre><code>oarproperty -a licence -c
+</code></pre></li>
+  <li><p>Add your licence name resources with oarnodesetting_.</p>
+
+<pre><code>oarnodesetting -a -h "" -p type=mathlab -p licence=l1
+oarnodesetting -a -h "" -p type=mathlab -p licence=l2
+oarnodesetting -a -h "" -p type=fluent -p licence=l1
+...
+</code></pre></li>
+  </ol>
+</blockquote>
+
+<p>After this configuration, users can perform submissions like</p>
+
+<pre><code>oarsub -I -l "/switch=2/nodes=10+{type = 'mathlab'}/licence=20"
+</code></pre>
+
+<p>So users ask OAR to give them some other resource types but nothing
+blocks their program to take more licences than they asked. You can
+resolve this problem with the SERVER_SCRIPT_EXEC_FILE_
+configuration. In these files you have to bind OAR allocated
+resources to the licence servers to restrict user consumptions to
+what they asked. This is very dependant of the licence management.</p>
+
+<h2 id="howcanihandlemultipleclusterswithoneoar">How can I handle multiple clusters with one OAR?</h2>
+
+<p>These are the steps to follow:</p>
+
+<blockquote>
+  <ol>
+  <li><p>create a resource property to identify the corresponding
+  cluster (like "cluster"):</p>
+
+<pre><code>oarproperty -a cluster
+</code></pre>
+  
+  <p>(you can see this new property when you use oarnodes)</p></li>
+  <li><p>with oarnodesetting_ you have to fill this field for all
+  resources; for example:</p>
+
+<pre><code>oarnodesetting -h node42.cluster1.com -p cluster=1
+oarnodesetting -h node43.cluster1.com -p cluster=1
+oarnodesetting -h node2.cluster2.com -p cluster=2
+...
+</code></pre></li>
+  <li><p>Then you have to restrict properties for new job type. So an
+  admission rule performs this job (you can insert this new rule with
+  the oaradmin_ command):</p>
+
+<pre><code>my &#036;cluster_constraint = 0;
+if (grep(/^cluster1&#036;/, @{&#036;type_list})){
+    &#036;cluster_constraint = 1;
+}elsif (grep(/^cluster2&#036;/, @{&#036;type_list})){    
+    &#036;cluster_constraint = 2;
+}
+if (&#036;cluster_constraint &gt; 0){
+    if (&#036;jobproperties ne ""){
+        &#036;jobproperties = "(&#036;jobproperties) AND cluster = &#036;cluster_constraint";
+    }else{
+        &#036;jobproperties = "cluster = &#036;cluster_constraint";
+    }
+    print("[ADMISSION RULE] Added automatically cluster resource constraint\n");
+}
+</code></pre></li>
+  <li><p>Edit the admission rule which checks the right job types and
+  add "cluster1" and "cluster2" in.</p></li>
+  </ol>
+</blockquote>
+
+<p>So when you will use oarsub to submit a "cluster2" job type only
+resources with the property "cluster=2" is used. This is the same
+when you will use the "cluster1" type. For example:</p>
+
+<pre><code>oarsub -I -t cluster2
+#is equivalent to 
+oarsub -I -p "cluster = 2"
+</code></pre>
+
+<h2 id="howtoconfigureamoreecologicalclusterorhowtomakesomepowerconsumptioneconomies">How to configure a more ecological cluster (or how to make some power consumption economies)?</h2>
+
+<p>This feature can be performed with the `Dynamic nodes coupling
+features`.</p>
+
+<p>First you have to make sure that you have a command to wake up a
+computer that is stopped. For example you can use the WoL (Wake on
+Lan) feature (generally you have to right configure the BIOS and
+add right options to the Linux Ethernet driver; see "ethtool").</p>
+
+<p>If you want to enable a node to be woke up the next 12 hours:</p>
+
+<pre><code>((DATE=&#036;(date +%s)+3600*12))
+oarnodesetting -h host_name -p cm_availability=&#036;DATE
+</code></pre>
+
+<p>Otherwise you can disable the wake up of nodes (but not the halt)
+by:</p>
+
+<pre><code>oarnodesetting -h host_name -p cm_availability=1
+</code></pre>
+
+<p>If you want to disable the halt on a node (but not the wakeup):</p>
+
+<pre><code>oarnodesetting -h host_name -p cm_availability=2147483647
+</code></pre>
+
+<p>2147483647 = 2\^31 - 1 : we take this value as infinite and it is
+used to disable the halt mechanism.</p>
+
+<p>And if you want to disable the halt and the wakeup:</p>
+
+<pre><code>oarnodesetting -h host_name -p cm_availability=0
+</code></pre>
+
+<p>Note: In the unstable 2.4 OAR version, cm_availability has been
+renamed into available_upto.</p>
+
+<p>Your `SCHEDULER_NODE_MANAGER_WAKE_UP_CMD`_ must be a script
+that read node names and translate them into the right wake up
+command.</p>
+
+<p>So with the right OAR and node configurations you can optimize the
+power consumption of your cluster (and your air conditioning
+infrastructure) without drawback for the users.</p>
+
+<p>Take a look at your cluster occupation and your electricity bill to
+know if it could be interesting for you ;-)</p>
+
+<h2 id="howtoenablejobstoconnecttothefrontalesfromthenodesusingoarsh">How to enable jobs to connect to the frontales from the nodes using oarsh?</h2>
+
+<p>First you have to install the node part of OAR on the wanted
+nodes.</p>
+
+<p>After that you have to register the frontales into the database
+using oarnodesetting with the "frontal" (for example) type and
+assigned the desired cpus into the cpuset field; for example:</p>
+
+<pre><code>oarnodesetting -a -h frontal1 -p type=frontal -p cpuset=0
+oarnodesetting -a -h frontal1 -p type=frontal -p cpuset=1
+oarnodesetting -a -h frontal2 -p type=frontal -p cpuset=0
+...
+</code></pre>
+
+<p>Thus you will be able to see resources identifier of these
+resources with oarnodes; try to type:</p>
+
+<pre><code>oarnodes --sql "type='frontal'"
+</code></pre>
+
+<p>Then put this type name (here "frontal") into the <em>oar.conf</em> file
+on the OAR server into the tag
+SCHEDULER_RESOURCES_ALWAYS_ASSIGNED_TYPE_.</p>
+
+<p>Notes:
+  ~ -   if one of these resources become "Suspected" then the
+        scheduling will stop.
+    -   you can disable this feature with oarnodesetting_ and put
+        these resources into the "Absent" state.</p>
+
+<h2 id="ajobremainsinthefinishingstatewhatcanido">A job remains in the "Finishing" state, what can I do?</h2>
+
+<p>If you have waited more than a couple of minutes (30mn for example)
+then something wrong occurred (frontal has crashed, out of memory,
+...).</p>
+
+<p>So you are able to turn manually a job into the "Error" state by
+typing in the OAR install directory with the root user (example
+with a bash shell):</p>
+
+<pre><code>export OARCONFFILE=/etc/oar/oar.conf
+perl -e 'use OAR::IO; &#036;db = OAR::IO::connect(); OAR::IO::set_job_state(&#036;db,42,"Error")'
+</code></pre>
+
+<p>(Replace 42 by your job identifier)</p>
+
+<h2 id="howcaniwritemyownscheduler">How can I write my own scheduler?</h2>
+
+<h2 id="whatisthesyntaxofthisdocumentation">What is the syntax of this documentation?</h2>
+
+<p>We are using the RST format from the
+<a href="http://docutils.sourceforge.net/">Docutils</a> project. This syntax
+is easily readable and can be converted into HTML, LaTex or XML.</p>
+
+<p>You can find basic informations on
+<a href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">http://docutils.sourceforge.net/docs/user/rst/quickref.html</a></p>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Friday 16 November 2012</span>
+<!-- Created <span class="date">Wednesday 15 June 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from OAR -->
+</div>
+
+</div>
+
+</body>
+</html>

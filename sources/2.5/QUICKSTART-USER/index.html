@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>QUICKSTART-USER</title>
+
+<link rel="icon" href="../../../favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="../../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../../">OAR</a>/ 
+
+<a href="../../../">sources</a>/ 
+
+<a href="../../../">2.5</a>/ 
+
+</span>
+<span class="title">
+QUICKSTART-USER
+
+</span>
+</span>
+
+<form method="get" action="http://oar.imag.fr//ikiwiki.cgi" id="searchform">
+<div>
+<input type="text" id="searchbox" name="P" value="" size="16"
+ />
+</div>
+</form>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><strong><a href="../../../">Home</a></strong></li>
+<li><strong><a href="../../../about/">About</a></strong></li>
+<li><strong><a href="../../../news/">News</a></strong></li>
+<li><strong><a href="http://wiki-oar.imag.fr">Wiki</a></strong></li>
+<li><strong>Getting OAR</strong>
+<ul>
+<li><a href="../../../repositories/">Repositories</a></li>
+<li><a href="../../../installation/">Installation</a></li>
+<li><a href="../../../changelog/">Changelog</a></li>
+</ul></li>
+<li><strong>Using OAR</strong>
+<ul>
+<li><a href="../../../user-quickstart/">First user steps</a></li>
+<li><a href="../../../user-usecases/">Use cases</a></li>
+<li><a href="../../../faq/">FAQ</a></li>
+</ul></li>
+<li><strong>Getting help</strong>
+<ul>
+<li><a href="../../../support/">Contact/Mailing lists</a></li>
+<li><a href="../../../documentation/">Documentation</a></li>
+</ul></li>
+<li><strong>Contributing to OAR</strong>
+<ul>
+<li><a href="../../../contributing/repositories/">Source repositories</a></li>
+<li><a href="../../../contributing/workflow/">Workflow</a></li>
+<li><a href="../../../contributing/GSOCs/">GSOCs</a></li>
+</ul></li>
+<li><strong><a href="../../../research/">Researchers' Corner</a></strong></li>
+<li><strong><a href="../../../partners-projects/">Partners &amp; Projects</a></strong></li>
+</ul>
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+<h1 id="usingoar-basicsteps">Using OAR - Basic steps</h1>
+
+<h2 id="visualisingtheclusterstate">Visualising the cluster State</h2>
+
+<p>Many tools are available to visualize the cluster state.</p>
+
+<h3 id="shellcommands:">Shell commands:</h3>
+
+<ul>
+<li><p>oarnodes: this command shows the resources states. Warning: in
+our context, a resource is not necessary a machine. It is generally
+a cpu, a core or a host, but it can be much more... like licence
+tokens, memory banks... The oarnodes command gives information
+about the network address where is located this resource, its type,
+its state and many other (interesting) information.</p></li>
+<li><p>oarstat: this command shows information about running or
+planned jobs. (The -f option shows full infomation)</p></li>
+</ul>
+
+<h3 id="graphicaltools:">Graphical tools:</h3>
+
+<ul>
+<li><p>Monika: this web page shows current resources states and jobs
+information. On this page you can have more information about a
+particular resource or job.</p></li>
+<li><p>DrawGantt: this web page shows the gantt diagram of the
+scheduling. It represents the current, former and future jobs.</p></li>
+</ul>
+
+<h2 id="submittingajobinaninteractiveshell">Submitting a job in an interactive shell</h2>
+
+<h3 id="submission">Submission</h3>
+
+<p>To submit on interactive job we use the "oarsub" command with the
+"-I" option:</p>
+
+<pre><code>submachine:~&#036;&gt; oarsub -I
+</code></pre>
+
+<p>OAR returns then an unique job ID that will identify your job in
+the system:</p>
+
+<pre><code>OAR_JOB_ID=1234
+</code></pre>
+
+<p>Once the job is scheduled, when the requested resources are
+available, OAR connects you to the first allocated node. OAR
+initiates environment variables that inform you of your submission
+properties:</p>
+
+<pre><code>node:~&#036;&gt; env | grep OAR
+</code></pre>
+
+<p>Particularly, the allocated nodes list is contained in the
+$OAR_NODEFILE:</p>
+
+<pre><code>node:~&#036;&gt; cat &#036;OAR_NODEFILE
+</code></pre>
+
+<h3 id="visualisation">Visualisation</h3>
+
+<p>You can get information about your job by looking at the Monika or
+DrawGantt interfaces or by typing in a command line console:</p>
+
+<pre><code>submachine:~&#036;&gt; oarstat -fj OAR_JOB_ID
+</code></pre>
+
+<h3 id="exitingthejob">Exiting the job</h3>
+
+<p>To terminate an interactive job you just have to disconnect from
+the resource:</p>
+
+<pre><code>node:~&#036;&gt; exit
+</code></pre>
+
+<p>You can likewise kill the job by typing:</p>
+
+<pre><code>submachine:~&#036;&gt; oardel JOB_ID
+</code></pre>
+
+<p>In this case, the session will be violently killed.</p>
+
+<h3 id="interactivesubmissiononmanyresources">Interactive submission on many resources</h3>
+
+<p>The "-l" option allows to specify wanted resources. For example, if
+we need to work in interactive mode on 2 cpu for a max duration of
+30 minutes we will ask:</p>
+
+<pre><code>submachine:~&#036;&gt; oarsub -I -l /cpu=2,walltime=00:30:00
+</code></pre>
+
+<p>The walltime is the job's max duration. If the job overruns its
+walltime, it will be killed by the system. Thus, you better have to
+set your walltime correctly depending on how long will take your
+job to prevent beeing killed if the walltime has been set too short
+or beeing scheduled later if it is too long. Then, once the job is
+scheduled and started, OAR connects you on the first reserved node.
+You still can access the list of the other resources via the
+$OAR_NODEFILE env variable.</p>
+
+<h2 id="batchsubmission">Batch submission</h2>
+
+<p>OAR allows to execute scripts in "passive mode". In this mode, the
+user specifies a script at the submission time. This script will be
+executed on the first reserved node. It's within this script that
+the user will define the way to operate parallel resources. All the
+$OAR_* env variables are reachable within the script.</p>
+
+<h3 id="submission">Submission</h3>
+
+<p>In this case, the principle is the same that interactive
+submission, just replace the "-I" option with the path of your
+script:</p>
+
+<pre><code>submachine:~&#036;&gt; oarsub -l /cpu=2,walltime=00:30:00 ./hello_mpi.sh
+</code></pre>
+
+<h3 id="gettingtheresultsofthesubmission">Getting the results of the submission</h3>
+
+<p>In passive mode, OAR creates 2 files: OAR..stdout
+for the stdout and OAR..stderr for the stderr.</p>
+
+<h3 id="connectingarunningjob">Connecting a running job</h3>
+
+<p>You can connect a running job with the "-C" option to oarsub:</p>
+
+<pre><code>submachine:~&#036;&gt; oarsub -C &lt;OAR_JOB_ID&gt;
+</code></pre>
+
+<p>Thus, you will be connected to the first reserved node.</p>
+
+<h2 id="reservations">Reservations</h2>
+
+<p>Until now we only asked for immediate start for our submission.
+However it is also possible to plan a job in the future. This
+feature is available through the "-r " option:</p>
+
+<pre><code>submachine:~&#036;&gt; oarsub -r '2008-03-07 16:45:00' -l nodes=2,walltime=0:10:00 ./hello_mpi.sh
+</code></pre>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Friday 16 November 2012</span>
+<!-- Created <span class="date">Wednesday 15 June 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from OAR -->
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>doc oar-whyusing</title>
+
+<link rel="icon" href="../../../../../favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="../../../../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../../../../">OAR</a>/ 
+
+<a href="../../../../../">sources</a>/ 
+
+<a href="../../../../../">2.5</a>/ 
+
+<a href="../../../../../">docs</a>/ 
+
+<a href="../../../../../">documentation</a>/ 
+
+</span>
+<span class="title">
+doc oar-whyusing
+
+</span>
+</span>
+
+<form method="get" action="http://oar.imag.fr//ikiwiki.cgi" id="searchform">
+<div>
+<input type="text" id="searchbox" name="P" value="" size="16"
+ />
+</div>
+</form>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><strong><a href="../../../../../">Home</a></strong></li>
+<li><strong><a href="../../../../../about/">About</a></strong></li>
+<li><strong><a href="../../../../../news/">News</a></strong></li>
+<li><strong><a href="http://wiki-oar.imag.fr">Wiki</a></strong></li>
+<li><strong>Getting OAR</strong>
+<ul>
+<li><a href="../../../../../repositories/">Repositories</a></li>
+<li><a href="../../../../../installation/">Installation</a></li>
+<li><a href="../../../../../changelog/">Changelog</a></li>
+</ul></li>
+<li><strong>Using OAR</strong>
+<ul>
+<li><a href="../../../../../user-quickstart/">First user steps</a></li>
+<li><a href="../../../../../user-usecases/">Use cases</a></li>
+<li><a href="../../../../../faq/">FAQ</a></li>
+</ul></li>
+<li><strong>Getting help</strong>
+<ul>
+<li><a href="../../../../../support/">Contact/Mailing lists</a></li>
+<li><a href="../../../../../documentation/">Documentation</a></li>
+</ul></li>
+<li><strong>Contributing to OAR</strong>
+<ul>
+<li><a href="../../../../../contributing/repositories/">Source repositories</a></li>
+<li><a href="../../../../../contributing/workflow/">Workflow</a></li>
+<li><a href="../../../../../contributing/GSOCs/">GSOCs</a></li>
+</ul></li>
+<li><strong><a href="../../../../../research/">Researchers' Corner</a></strong></li>
+<li><strong><a href="../../../../../partners-projects/">Partners &amp; Projects</a></strong></li>
+</ul>
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+<h1 id="whyusingoar">Why using OAR</h1>
+
+<h2 id="oaradvantages">OAR advantages</h2>
+
+<p>We present below some points that explain benefits of the new
+version of OAR.</p>
+
+<h3 id="abetterresourcemanagement">A better resource management</h3>
+
+<p>Using Linux kernel new feature called cpuset, OAR2 allows a more
+reliable management of the resources:</p>
+
+<blockquote>
+  <ul>
+  <li>No unattended processes should remain from previous jobs.</li>
+  <li>Access to the resources is now restricted to the owner of the
+  resources.</li>
+  </ul>
+</blockquote>
+
+<p>Beside, features like job dependency and check-pointing are now
+available, allowing a better resources use.</p>
+
+<p>A cpuset is attached to every process, and allows:</p>
+
+<blockquote>
+  <ul>
+  <li>to specify which resource processor/memory can be used by a
+  process, e.g. resources allocated to the job in OAR 2 context.</li>
+  <li>to group and identify processes that share the same cpuset,
+  e.g. the processes of a job in OAR 2 context, so that actions like
+  clean-up can be efficiently performed. (here, cpusets provide a
+  replacement for the group/session of processes concept that is not
+  efficient in Linux).</li>
+  </ul>
+</blockquote>
+
+<h3 id="multi-cluster">Multi-cluster</h3>
+
+<p>OAR 2 can manage complex hierarchies of resources. For example:
+  ~ 1.  clusters
+    2.  switchs
+    3.  nodes
+    4.  cpus
+    5.  cores</p>
+
+<h3 id="amodernclustermanagementsystem">A modern cluster management system</h3>
+
+<p>By providing a mechanism to isolate the jobs at the core level, OAR
+2 is one of the most modern cluster management systems. Users
+developing cluster or grid algorithms and programs will then work
+in a today's up-to-date environment similar to the ones they will
+meet with other recent cluster management systems on production
+platforms for instance.</p>
+
+<h3 id="optimizationoftheresourcesusage">Optimization of the resources usage</h3>
+
+<p>Now a day, machines with more than 4 cores become common. Thus, it
+is then very important to be able to handle cores efficiently. By
+providing resources selection and processes isolation at the core
+level, OAR 2 allows users running experiments that do not require
+the exclusivity of a node (at least during a preparation phase) to
+have access to many nodes on one core only, but leave the remaining
+cores free for other users. This can allow to optimize the number
+of available resources.</p>
+
+<p>Beside, OAR 2 also provide a time-sharing feature which will allow
+to share a same set of resources among users.</p>
+
+<h3 id="easieraccesstotheresources">Easier access to the resources</h3>
+
+<p>Using OAR 2 OARSH connector to access the job resources, basic
+usages will not anymore require the user to configure his SSH
+environment as everything is handled internally (known host keys
+management, etc). Beside, users that would actually prefer not
+using OARSH can still use SSH with just the cost of some options to
+set (one of the features of the OARSH wrapper is to actually hide
+these options).</p>
+
+<h3 id="gridresourcesinterconnection">Grid resources interconnection</h3>
+
+<p>As access to one cluster resources is restricted to an attached
+job, one may wonder if connections from job to job, from cluster to
+cluster, from site to site would still be possible. OAR 2 provides
+a mechanism called job-key than allows inter job communication,
+even on several sites managed by several OAR 2 servers (this
+mechanism is indeed used by OARGrid2 for instance).</p>
+
+<h3 id="managementofabstractresources">Management of abstract resources</h3>
+
+<p>OAR 2 features a mechanism to manage resources like software
+licenses or other non-material resources the same way it manages
+classical resources.</p>
+
+<h2 id="oarusesandusers">OAR Uses and Users</h2>
+
+<p>At the present time, OAR is used in several countries (France,
+Slovakia, Brazil) by several types of users. These users are not
+only programmers and computer specialists but also simple
+scientists, novices at programming. Thus the spread of users type
+is wide.</p>
+
+<p>They are mainly:</p>
+
+<ul>
+<li>physicists</li>
+<li>biologists that work on medical imaging, radioactivity study...</li>
+<li>weathermen</li>
+<li>chemical engineers</li>
+<li>computer sciences engineers and researchers that work on many
+subjects as cryptography, data mining, HPC...</li>
+<li>stargazers that work on subjetcs like trajectory computation
+and data analysis from probes</li>
+</ul>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Friday 16 November 2012</span>
+<!-- Created <span class="date">Wednesday 15 June 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from OAR -->
+</div>
+
+</div>
+
+</body>
+</html>

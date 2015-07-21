@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GSOC array jobs</title>
+
+<link rel="icon" href="../../../../favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="../../../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../../../">OAR</a>/ 
+
+<a href="../../../../">contributing</a>/ 
+
+<a href="../../">GSOCs</a>/ 
+
+<a href="../">2008</a>/ 
+
+</span>
+<span class="title">
+GSOC array jobs
+
+</span>
+</span>
+
+<form method="get" action="http://oar.imag.fr//ikiwiki.cgi" id="searchform">
+<div>
+<input type="text" id="searchbox" name="P" value="" size="16"
+ />
+</div>
+</form>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><strong><a href="../../../../">Home</a></strong></li>
+<li><strong><a href="../../../../about/">About</a></strong></li>
+<li><strong><a href="../../../../news/">News</a></strong></li>
+<li><strong><a href="http://wiki-oar.imag.fr">Wiki</a></strong></li>
+<li><strong>Getting OAR</strong>
+<ul>
+<li><a href="../../../../repositories/">Repositories</a></li>
+<li><a href="../../../../installation/">Installation</a></li>
+<li><a href="../../../../changelog/">Changelog</a></li>
+</ul></li>
+<li><strong>Using OAR</strong>
+<ul>
+<li><a href="../../../../user-quickstart/">First user steps</a></li>
+<li><a href="../../../../user-usecases/">Use cases</a></li>
+<li><a href="../../../../faq/">FAQ</a></li>
+</ul></li>
+<li><strong>Getting help</strong>
+<ul>
+<li><a href="../../../../support/">Contact/Mailing lists</a></li>
+<li><a href="../../../../documentation/">Documentation</a></li>
+</ul></li>
+<li><strong>Contributing to OAR</strong>
+<ul>
+<li><a href="../../../repositories/">Source repositories</a></li>
+<li><a href="../../../workflow/">Workflow</a></li>
+<li><a href="../../">GSOCs</a></li>
+</ul></li>
+<li><strong><a href="../../../../research/">Researchers' Corner</a></strong></li>
+<li><strong><a href="../../../../partners-projects/">Partners &amp; Projects</a></strong></li>
+</ul>
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+<div class="section" id="implementing-array-jobs-and-improving-job-dependencies-in-oar">
+<h1><em>Implementing array jobs and improving job dependencies in OAR</em></h1>
+<div class="section" id="description">
+<h2>Description:</h2>
+<p>One of the OAR projects was implementing array jobs and improving the job
+dependencies mechanism (including array dependencies). With job arrays, one
+invokes the same executable to run many related tasks or sub-jobs with a range
+of input parameters. This is highly useful for throughput-oriented job streams
+in disciplines such as image rendering, financial risk and security modeling,
+bioinformatics and cluster benchmarking studies. While the algorithms in each of
+these cases are different, ranging from searching and scoring to Monte Carlo to
+computing an objective function, each of these application areas can benefit by
+creating a set of tasks that are then run in parallel.</p>
+<p>Sometimes users want to submit large numbers of jobs based on the same job script.
+Rather than using a script to repeatedly call oarsub, the user could use the
+feature known as job arrays to allow the creation of multiple jobs with one
+oarsub command.</p>
+<p>With job arrays, a subset of related jobs is sent to each processing node. Each
+subset may represent a range of one or more parameters for a model computation,
+or a range of search sequences, for example. Such job streams are typically run
+on clusters or Grids of varying size since there is limited communication between
+the tasks until the final stages of the workload, when the results are aggregated.</p>
+</div>
+<div class="section" id="status">
+<h2>Status:</h2>
+<p>The feature is now implemented, fully functionnal and integrated in the current releases.</p>
+</div>
+</div>
+<div class="section" id="references-code">
+<h1>References-Code:</h1>
+<p><a class="reference external" href="http://code.google.com/soc/2008/oar/appinfo.html?csaid=4ABDAF8F8CD4B420">http://code.google.com/soc/2008/oar/appinfo.html?csaid=4ABDAF8F8CD4B420</a>
+<a class="reference external" href="http://google-summer-of-code-2008-oar.googlecode.com/files/EltonNicoletti_Mathias.tar.gz">http://google-summer-of-code-2008-oar.googlecode.com/files/EltonNicoletti_Mathias.tar.gz</a></p>
+<div class="section" id="developers">
+<h2>Developers:</h2>
+<p>Elton Mathias.</p>
+</div>
+<div class="section" id="contact">
+<h2>Contact:</h2>
+<p>Joseph Emeras (joseph.emeras :: inria.fr)</p>
+</div>
+</div>
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Wednesday 29 June 2011</span>
+<!-- Created <span class="date">Wednesday 29 June 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from OAR -->
+</div>
+
+</div>
+
+</body>
+</html>

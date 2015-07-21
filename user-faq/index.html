@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>FAQ for users</title>
+
+<link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../">OAR</a>/ 
+
+</span>
+<span class="title">
+FAQ for users
+
+</span>
+</span>
+
+<form method="get" action="http://oar.imag.fr//ikiwiki.cgi" id="searchform">
+<div>
+<input type="text" id="searchbox" name="P" value="" size="16"
+ />
+</div>
+</form>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><strong><a href="../">Home</a></strong></li>
+<li><strong><a href="../about/">About</a></strong></li>
+<li><strong><a href="../news/">News</a></strong></li>
+<li><strong><a href="http://wiki-oar.imag.fr">Wiki</a></strong></li>
+<li><strong>Getting OAR</strong>
+<ul>
+<li><a href="../repositories/">Repositories</a></li>
+<li><a href="../installation/">Installation</a></li>
+<li><a href="../changelog/">Changelog</a></li>
+</ul></li>
+<li><strong>Using OAR</strong>
+<ul>
+<li><a href="../user-quickstart/">First user steps</a></li>
+<li><a href="../user-usecases/">Use cases</a></li>
+<li><a href="../faq/">FAQ</a></li>
+</ul></li>
+<li><strong>Getting help</strong>
+<ul>
+<li><a href="../support/">Contact/Mailing lists</a></li>
+<li><a href="../documentation/">Documentation</a></li>
+</ul></li>
+<li><strong>Contributing to OAR</strong>
+<ul>
+<li><a href="../contributing/repositories/">Source repositories</a></li>
+<li><a href="../contributing/workflow/">Workflow</a></li>
+<li><a href="../contributing/GSOCs/">GSOCs</a></li>
+</ul></li>
+<li><strong><a href="../research/">Researchers' Corner</a></strong></li>
+<li><strong><a href="../partners-projects/">Partners &amp; Projects</a></strong></li>
+</ul>
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+<h1 id="faqforusers"><a name="index1h1"></a>FAQ for users</h1>
+
+<div class="toc">
+	<ol>
+		<li class="L2"><a href="#index1h2">Release policy</a>
+		</li>
+		<li class="L2"><a href="#index2h2">How can I submit a moldable job?</a>
+		</li>
+		<li class="L2"><a href="#index3h2">How can I submit a job with a non uniform description?</a>
+		</li>
+		<li class="L2"><a href="#index4h2">Can I perform a fix scheduled reservation and then launch several jobs in it?</a>
+		</li>
+		<li class="L2"><a href="#index5h2">How can a checkpointable job be resubmitted automatically?</a>
+		</li>
+		<li class="L2"><a href="#index6h2">How to submit a non disturbing job for other users?</a>
+		</li>
+	</ol>
+</div>
+
+<div id="feedlink">
+
+
+</div>
+<div class="includepage">
+
+<div class="inlineheader">
+
+</div>
+
+<div class="inlinecontent">
+<h1 id="faq-user"><a name="index2h1"></a>FAQ - USER</h1>
+
+<h2 id="releasepolicy"><a name="index1h2"></a>Release policy</h2>
+
+<p>Since the version 2.2, release numbers are divided into 3 parts:
+  ~ -   The first represents the design and the implementation
+        used.
+    -   The second represents a set of OAR functionalities.
+    -   The third is incremented after bug fixes.</p>
+
+<h2 id="howcanisubmitamoldablejob"><a name="index2h2"></a>How can I submit a moldable job?</h2>
+
+<p>You just have to use several "-l" oarsub_ option(one for each
+moldable description). By default the OAR scheduler will launch the
+moldable job which will end first.</p>
+
+<p>So you can see some free resources but the scheduler can decide to
+start your job later because they will have more free resources and
+the job walltime will be smaller.</p>
+
+<h2 id="howcanisubmitajobwithanonuniformdescription"><a name="index3h2"></a>How can I submit a job with a non uniform description?</h2>
+
+<p>Example:</p>
+
+<pre><code>oarsub -I -l '{switch = "sw1" or switch = "sw5"}/switch=1+/node=1'
+</code></pre>
+
+<p>This example asks OAR to reserve all resources from the switch sw1
+or the switch sw2 <strong>and</strong> a node on another switch.</p>
+
+<p>You can see the "+" syntax as a sub-reservation directive.</p>
+
+<h2 id="caniperformafixscheduledreservationandthenlaunchseveraljobsinit"><a name="index4h2"></a>Can I perform a fix scheduled reservation and then launch several jobs in it?</h2>
+
+<p>Yes. You have to use the OAR scheduler "timesharing" feature. To
+use it, the reservation and your further jobs must be of the type
+timesharing (only for you).</p>
+
+<p>Example:</p>
+
+<blockquote>
+  <ol>
+  <li><p>Make your reservation:</p>
+
+<pre><code>oarsub -r "2006-09-12 8:00:00" -l /switch=1 -t 'timesharing=user,*'
+</code></pre>
+  
+  <p>This command asks all resources from one switch at the given date
+  for the default walltime. It also specifies that this job can be
+  shared with himself and without a constraint on the job name.</p></li>
+  <li><p>Once your reservation has begun then you can launch:</p>
+
+<pre><code>oarsub -I -l /node=2,walltime=0:50:00 -p 'switch = "nom_du_switch_schedule"'\
+-t 'timesharing=user,*'
+</code></pre>
+  
+  <p>So this job will be scheduled on nodes assigned from the previous
+  reservation.</p></li>
+  </ol>
+</blockquote>
+
+<p>The "timesharing" oarsub_ command possibilities are enumerated in
+Timesharing_.</p>
+
+<h2 id="howcanacheckpointablejobberesubmittedautomatically"><a name="index5h2"></a>How can a checkpointable job be resubmitted automatically?</h2>
+
+<p>You have to specify that your job is <em>idempotent</em> and exit from
+your script with the exit code 99. So, after a successful
+checkpoint, if the job is resubmitted then all will go right and
+there will have no problem (like file creation, deletion, ...).</p>
+
+<p>Example:</p>
+
+<pre><code>oarsub --checkpoint 600 --signal 2 -t idempotent /path/to/prog
+</code></pre>
+
+<p>So this job will send a signal <em>SIGINT</em> (see <em>man kill</em> to know
+signal numbers) 10 minutes before the walltime ends. Then if
+everything goes well and the exit code is 99 it will be
+resubmitted.</p>
+
+<h2 id="howtosubmitanondisturbingjobforotherusers"><a name="index6h2"></a>How to submit a non disturbing job for other users?</h2>
+
+<p>You can use the <em>besteffort</em> job type. Thus your job will be
+launched only if there is a hole and will be deleted if another job
+wants its resources.</p>
+
+<p>Example:</p>
+
+<pre><code>oarsub -t besteffort /path/to/prog
+</code></pre>
+
+</div>
+
+<div class="inlinefooter">
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Wednesday 29 June 2011</span>
+<!-- Created <span class="date">Wednesday 29 June 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from OAR -->
+</div>
+
+</div>
+
+</body>
+</html>

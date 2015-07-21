@@ -1,0 +1,2972 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>OAR-DOCUMENTATION-API-USER</title>
+
+<link rel="icon" href="../../../../../favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="../../../../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../../../../">OAR</a>/ 
+
+<a href="../../../../../">sources</a>/ 
+
+<a href="../../../../../">2.5</a>/ 
+
+<a href="../../../../../">docs</a>/ 
+
+<a href="../../../../../">documentation</a>/ 
+
+</span>
+<span class="title">
+OAR-DOCUMENTATION-API-USER
+
+</span>
+</span>
+
+<form method="get" action="http://oar.imag.fr//ikiwiki.cgi" id="searchform">
+<div>
+<input type="text" id="searchbox" name="P" value="" size="16"
+ />
+</div>
+</form>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><strong><a href="../../../../../">Home</a></strong></li>
+<li><strong><a href="../../../../../about/">About</a></strong></li>
+<li><strong><a href="../../../../../news/">News</a></strong></li>
+<li><strong><a href="http://wiki-oar.imag.fr">Wiki</a></strong></li>
+<li><strong>Getting OAR</strong>
+<ul>
+<li><a href="../../../../../repositories/">Repositories</a></li>
+<li><a href="../../../../../installation/">Installation</a></li>
+<li><a href="../../../../../changelog/">Changelog</a></li>
+</ul></li>
+<li><strong>Using OAR</strong>
+<ul>
+<li><a href="../../../../../user-quickstart/">First user steps</a></li>
+<li><a href="../../../../../user-usecases/">Use cases</a></li>
+<li><a href="../../../../../faq/">FAQ</a></li>
+</ul></li>
+<li><strong>Getting help</strong>
+<ul>
+<li><a href="../../../../../support/">Contact/Mailing lists</a></li>
+<li><a href="../../../../../documentation/">Documentation</a></li>
+</ul></li>
+<li><strong>Contributing to OAR</strong>
+<ul>
+<li><a href="../../../../../contributing/repositories/">Source repositories</a></li>
+<li><a href="../../../../../contributing/workflow/">Workflow</a></li>
+<li><a href="../../../../../contributing/GSOCs/">GSOCs</a></li>
+</ul></li>
+<li><strong><a href="../../../../../research/">Researchers' Corner</a></strong></li>
+<li><strong><a href="../../../../../partners-projects/">Partners &amp; Projects</a></strong></li>
+</ul>
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+
+
+
+
+
+
+OAR Documentation - REST API - User's doc
+
+
+
+<div class="document" id="oar-documentation-rest-api-user-s-doc">
+<h1 class="title">OAR Documentation - REST API - User's doc</h1>
+
+<div class="dedication topic">
+<p class="topic-title first">Dedication</p>
+<p>For users whishing to make programs interfaced with OAR</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Abstract:</th><td class="field-body">OAR is a resource manager (or batch scheduler) for large clusters. By it's
+functionnalities, it's near of PBS, LSF, CCS and Condor. It's suitable for
+productive plateforms and research experiments.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>BE CAREFULL : THIS DOCUMENTATION IS FOR OAR &gt;= 2.5.0</strong></p>
+<p>PDF version : <a class="reference external" href="OAR-DOCUMENTATION-API-USER.pdf">OAR-DOCUMENTATION-API-USER.pdf</a></p>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="auto-toc simple">
+<li><a class="reference internal" href="#introduction" id="id1">1&nbsp;&nbsp;&nbsp;Introduction</a></li>
+<li><a class="reference internal" href="#concepts" id="id2">2&nbsp;&nbsp;&nbsp;Concepts</a><ul class="auto-toc">
+<li><a class="reference internal" href="#access" id="id3">2.1&nbsp;&nbsp;&nbsp;Access</a></li>
+<li><a class="reference internal" href="#authentication" id="id4">2.2&nbsp;&nbsp;&nbsp;Authentication</a></li>
+<li><a class="reference internal" href="#formats-and-data-structure-types" id="id5">2.3&nbsp;&nbsp;&nbsp;Formats and data structure types</a></li>
+<li><a class="reference internal" href="#errors-and-debug" id="id6">2.4&nbsp;&nbsp;&nbsp;Errors and debug</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ruby-rest-client" id="id7">3&nbsp;&nbsp;&nbsp;Ruby REST client</a></li>
+<li><a class="reference internal" href="#pagination-and-common-rules-into-output-data" id="id8">4&nbsp;&nbsp;&nbsp;Pagination and common rules into output data</a><ul class="auto-toc">
+<li><a class="reference internal" href="#items" id="id9">4.1&nbsp;&nbsp;&nbsp;Items</a></li>
+<li><a class="reference internal" href="#collections" id="id10">4.2&nbsp;&nbsp;&nbsp;Collections</a></li>
+<li><a class="reference internal" href="#examples" id="id11">4.3&nbsp;&nbsp;&nbsp;Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rest-requests-description" id="id12">5&nbsp;&nbsp;&nbsp;REST requests description</a><ul class="auto-toc">
+<li><a class="reference internal" href="#get-index" id="id13">5.1&nbsp;&nbsp;&nbsp;GET /index</a></li>
+<li><a class="reference internal" href="#get-version" id="id14">5.2&nbsp;&nbsp;&nbsp;GET /version</a></li>
+<li><a class="reference internal" href="#get-timezone" id="id15">5.3&nbsp;&nbsp;&nbsp;GET /timezone</a></li>
+<li><a class="reference internal" href="#get-jobs" id="id16">5.4&nbsp;&nbsp;&nbsp;GET /jobs</a></li>
+<li><a class="reference internal" href="#get-jobs-details" id="id17">5.5&nbsp;&nbsp;&nbsp;GET /jobs/details</a></li>
+<li><a class="reference internal" href="#get-jobs-table" id="id18">5.6&nbsp;&nbsp;&nbsp;GET /jobs/table</a></li>
+<li><a class="reference internal" href="#get-jobs-id" id="id19">5.7&nbsp;&nbsp;&nbsp;GET /jobs/&lt;id&gt;</a></li>
+<li><a class="reference internal" href="#get-jobs-id-resources" id="id20">5.8&nbsp;&nbsp;&nbsp;GET /jobs/&lt;id&gt;/resources</a></li>
+<li><a class="reference internal" href="#post-jobs-id-deletions-new" id="id21">5.9&nbsp;&nbsp;&nbsp;POST /jobs/&lt;id&gt;/deletions/new</a></li>
+<li><a class="reference internal" href="#post-jobs-id-checkpoints-new" id="id22">5.10&nbsp;&nbsp;&nbsp;POST /jobs/&lt;id&gt;/checkpoints/new</a></li>
+<li><a class="reference internal" href="#post-jobs-id-holds-new" id="id23">5.11&nbsp;&nbsp;&nbsp;POST /jobs/&lt;id&gt;/holds/new</a></li>
+<li><a class="reference internal" href="#post-jobs-id-rholds-new" id="id24">5.12&nbsp;&nbsp;&nbsp;POST /jobs/&lt;id&gt;/rholds/new</a></li>
+<li><a class="reference internal" href="#post-jobs-id-resumptions-new" id="id25">5.13&nbsp;&nbsp;&nbsp;POST /jobs/&lt;id&gt;/resumptions/new</a></li>
+<li><a class="reference internal" href="#post-jobs-id-signals-signal" id="id26">5.14&nbsp;&nbsp;&nbsp;POST /jobs/&lt;id&gt;/signals/&lt;signal&gt;</a></li>
+<li><a class="reference internal" href="#post-jobs" id="id27">5.15&nbsp;&nbsp;&nbsp;POST /jobs</a></li>
+<li><a class="reference internal" href="#post-jobs-id" id="id28">5.16&nbsp;&nbsp;&nbsp;POST /jobs/&lt;id&gt;</a></li>
+<li><a class="reference internal" href="#delete-jobs-id" id="id29">5.17&nbsp;&nbsp;&nbsp;DELETE /jobs/&lt;id&gt;</a></li>
+<li><a class="reference internal" href="#get-jobs-form" id="id30">5.18&nbsp;&nbsp;&nbsp;GET /jobs/form</a></li>
+<li><a class="reference internal" href="#get-resources" id="id31">5.19&nbsp;&nbsp;&nbsp;GET /resources</a></li>
+<li><a class="reference internal" href="#get-resources-full" id="id32">5.20&nbsp;&nbsp;&nbsp;GET /resources/full</a></li>
+<li><a class="reference internal" href="#get-resources-id" id="id33">5.21&nbsp;&nbsp;&nbsp;GET /resources/&lt;id&gt;</a></li>
+<li><a class="reference internal" href="#get-resources-nodes-network-address" id="id34">5.22&nbsp;&nbsp;&nbsp;GET /resources/nodes/&lt;network_address&gt;</a></li>
+<li><a class="reference internal" href="#post-resources-generate" id="id35">5.23&nbsp;&nbsp;&nbsp;POST /resources/generate</a></li>
+<li><a class="reference internal" href="#post-resources" id="id36">5.24&nbsp;&nbsp;&nbsp;POST /resources</a></li>
+<li><a class="reference internal" href="#post-resources-id-state" id="id37">5.25&nbsp;&nbsp;&nbsp;POST /resources/&lt;id&gt;/state</a></li>
+<li><a class="reference internal" href="#delete-resources-id" id="id38">5.26&nbsp;&nbsp;&nbsp;DELETE /resources/&lt;id&gt;</a></li>
+<li><a class="reference internal" href="#delete-resources-node-cpuset-id" id="id39">5.27&nbsp;&nbsp;&nbsp;DELETE /resources/&lt;node&gt;/&lt;cpuset_id&gt;</a></li>
+<li><a class="reference internal" href="#get-admission-rules" id="id40">5.28&nbsp;&nbsp;&nbsp;GET /admission_rules</a></li>
+<li><a class="reference internal" href="#get-admission-rules-id" id="id41">5.29&nbsp;&nbsp;&nbsp;GET /admission_rules/&lt;id&gt;</a></li>
+<li><a class="reference internal" href="#delete-admission-rule-id" id="id42">5.30&nbsp;&nbsp;&nbsp;DELETE /admission_rule/&lt;id&gt;</a></li>
+<li><a class="reference internal" href="#post-admission-rules" id="id43">5.31&nbsp;&nbsp;&nbsp;POST /admission_rules</a></li>
+<li><a class="reference internal" href="#post-admission-rules-id" id="id44">5.32&nbsp;&nbsp;&nbsp;POST /admission_rules/&lt;id&gt;</a></li>
+<li><a class="reference internal" href="#get-config" id="id45">5.33&nbsp;&nbsp;&nbsp;GET /config</a></li>
+<li><a class="reference internal" href="#get-config-file" id="id46">5.34&nbsp;&nbsp;&nbsp;GET /config/file</a></li>
+<li><a class="reference internal" href="#get-config-variable" id="id47">5.35&nbsp;&nbsp;&nbsp;GET /config/&lt;variable&gt;</a></li>
+<li><a class="reference internal" href="#post-config-variable" id="id48">5.36&nbsp;&nbsp;&nbsp;POST /config/&lt;variable&gt;</a></li>
+<li><a class="reference internal" href="#get-media-ls-file-path" id="id49">5.37&nbsp;&nbsp;&nbsp;GET /media/ls/&lt;file_path&gt;</a></li>
+<li><a class="reference internal" href="#get-media-file-path" id="id50">5.38&nbsp;&nbsp;&nbsp;GET /media/&lt;file_path&gt;</a></li>
+<li><a class="reference internal" href="#post-media-file-path" id="id51">5.39&nbsp;&nbsp;&nbsp;POST /media/&lt;file_path&gt;</a></li>
+<li><a class="reference internal" href="#post-media-chmod-file-path" id="id52">5.40&nbsp;&nbsp;&nbsp;POST /media/chmod/&lt;file_path&gt;</a></li>
+<li><a class="reference internal" href="#delete-media-file-path" id="id53">5.41&nbsp;&nbsp;&nbsp;DELETE /media/&lt;file_path&gt;</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#some-equivalences-with-oar-command-line" id="id54">6&nbsp;&nbsp;&nbsp;Some equivalences with oar command line</a></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="introduction">
+<h1><a class="toc-backref" href="#id1">1&nbsp;&nbsp;&nbsp;Introduction</a></h1>
+<p>The OAR REST API allows to interact with OAR over http using a REST library. Most of the operations usually done with the oar Unix commands may be done using this API from your favourite language.</p>
+</div>
+<div class="section" id="concepts">
+<h1><a class="toc-backref" href="#id2">2&nbsp;&nbsp;&nbsp;Concepts</a></h1>
+<div class="section" id="access">
+<h2><a class="toc-backref" href="#id3">2.1&nbsp;&nbsp;&nbsp;Access</a></h2>
+<p>A simple GET query to the API using wget may look like this:</p>
+<pre class="literal-block">
+# Get the list of resources
+wget -O - http://www.mydomain.org/oarapi/resources.yaml?structure=simple
+</pre>
+<p>You can also access to the API using a browser. Make it point to <a class="reference external" href="http://www.myoarcluster.local/oarapi/index.html">http://www.myoarcluster.local/oarapi/index.html</a> and you'll see a very simple HTML interface allowing you to browse the cluster resources, post a job using a form or even create resources if you are a OAR administrator. (of course, replace www.myoarcluster.local by a valid name allowing you to join the http service of the host where the API is installed).</p>
+<p>But generally, you'll use a REST client or a REST library provided for your favorite language. You'll see examples using a ruby rest library in the next parts of this document.</p>
+<p>Check your system administrator to know on which URI the OAR API is installed.</p>
+</div>
+<div class="section" id="authentication">
+<h2><a class="toc-backref" href="#id4">2.2&nbsp;&nbsp;&nbsp;Authentication</a></h2>
+<p>Most of the time, you'll make requests that needs you to be authenticated. The way you are authenticated depends on what your local admistrator configured. There's almost as many possibilities as what Apache (the http server used by this API) may manage.
+The simplest method is a &quot;Basic authentication&quot; with a login/password. It may be binded to a local directory (for example LDAP). You may also find an &quot;ident&quot; based authentication that guesses automatically your login from a little daemon running on your client host.
+If the &quot;ident&quot; method is used, your unix login is automatically used. But as only a few hosts may be trusted, you'll probably have to open a tunnel to one of this host. You may use ssh to do this. For example, supposing access.mycluster.fr is a gateway host trusted by the api host:</p>
+<pre class="literal-block">
+$ ssh -NL 8080:api.mycluster.fr:80 login&#64;access.mycluster.fr
+
+Then, point your REST client to::
+
+# http://localhost:8080
+</pre>
+</div>
+<div class="section" id="formats-and-data-structure-types">
+<h2><a class="toc-backref" href="#id5">2.3&nbsp;&nbsp;&nbsp;Formats and data structure types</a></h2>
+<p>The API currently can serve data into <em>YAML</em>, <em>JSON</em> or <em>HTML</em>. Posted data can also be coded into <em>YAML</em>, <em>JSON</em> or <em>x-www-form-urlencoded</em> (for HTML from posts). You may specify the requested format by 2 ways:</p>
+<blockquote>
+<ul class="simple">
+<li>giving an extension to resources: <strong>.yaml</strong>, <strong>.json</strong> or <strong>.html</strong></li>
+<li>setting the <strong>HTTP_ACCEPT</strong> header variable to <strong>text/yaml</strong>, <strong>application/json</strong> or <strong>text/html</strong></li>
+</ul>
+</blockquote>
+<p>For the posted data, you have to correctly set the <strong>HTTP_CONTENT_TYPE</strong> variable to <strong>text/yaml</strong>, <strong>application/json</strong> or <strong>application/x-www-form-urlencoded</strong>.</p>
+<p>Sometimes, the data structures returned (not the coding format, but the contents: array, hashes, array of hashes,...) may be changed. Currently, we have 2 available data structure types: <em>simple</em> and <em>oar</em>. The structure is passed through the variable <em>structure</em> that you may pass in the url, for example: ?structure=simple</p>
+<blockquote>
+<ul class="simple">
+<li>The <strong>simple</strong> data structure tries to be as simple as possible, using simple arrays in place of hashes wherever it is possible</li>
+<li>The <strong>oar</strong> data structure serves data in the way oar does with the oarnodes/oarstat export options (-Y, -D, -J,...) Be aware that this data structure is not meant to be maintained since 2.5 release of OAR. The simple data structure is highly recommended.</li>
+</ul>
+</blockquote>
+<p>By default, we use the <em>simple</em> data structure.</p>
+<p>Here are some examples, using the ruby restclient (see next section):</p>
+<pre class="literal-block">
+# Getting resources infos
+  # in JSON
+irb(main):004:0&gt; puts get('/resources.json')
+  # in YAML
+irb(main):005:0&gt; puts get('/resources.yaml')
+  # Same thing
+irb(main):050:0&gt; puts get('/resources', :accept=&gt;&quot;text/yaml&quot;)
+  # Specifying the &quot;oar&quot; data structure
+irb(main):050:0&gt; puts get('/resources.json?structure=oar')
+  # Specifying the &quot;simple&quot; data structure
+irb(main):050:0&gt; puts get('/resources.json?structure=simple')
+</pre>
+</div>
+<div class="section" id="errors-and-debug">
+<h2><a class="toc-backref" href="#id6">2.4&nbsp;&nbsp;&nbsp;Errors and debug</a></h2>
+<p>When the API returns an error, it generally uses a standard HTTP return status (404 NOT FOUND, 406 NOT ACCEPTABLE, ...). But it also returns a body containing a hash like the following:</p>
+<pre class="literal-block">
+{
+ &quot;title&quot; : &quot;ERROR 406 - Invalid content type required */*&quot;,
+ &quot;message&quot; : &quot;Valid types are text/yaml, application/json or text/html&quot;,
+ &quot;code&quot; : &quot;200&quot;
+}
+</pre>
+<p>This error body is formated in the requested format. But if this format was not given, it uses JSON by default.</p>
+<p>To allow you to see the error body, you may find it useful to activate the <strong>debug=1</strong> variable. It will force the API to always return a 200 OK status, even if there's an error so that you can see the body with a simple browser or a rest client without having to manage the errors. For example:</p>
+<pre class="literal-block">
+wget -nv -O - &quot;http://localhost:8080/oargridapi/sites/grenoble?debug=1&quot;
+</pre>
+<p>Here is an example of error catching in ruby:</p>
+<pre class="literal-block">
+# Function to get objects from the api
+# We use the JSON format
+def get(api,uri)
+  begin
+    return JSON.parse(api[uri].get(:accept =&gt; 'application/json'))
+  rescue =&gt; e
+    if e.respond_to?('http_code')
+      puts &quot;ERROR #{e.http_code}:\n #{e.response.body}&quot;
+    else
+      puts &quot;Parse error:&quot;
+      puts e.inspect
+    end
+    exit 1
+  end
+end
+</pre>
+</div>
+</div>
+<div class="section" id="ruby-rest-client">
+<h1><a class="toc-backref" href="#id7">3&nbsp;&nbsp;&nbsp;Ruby REST client</a></h1>
+<p>One of the easiest way for testing this API is to use the rest-client ruby module:</p>
+<p><a class="reference external" href="http://rest-client.heroku.com/rdoc/">http://rest-client.heroku.com/rdoc/</a></p>
+<p>It may be used from ruby scripts (<a class="reference external" href="http://www.ruby.org/">http://www.ruby.org/</a>) or interactively.
+It is available as a rubygem, so to install it, simply install rubygems and do &quot;gem install rest-client&quot;. Then, you can run the interactive client which is nothing else than irb with shortcuts. Here is an example irb session:</p>
+<pre class="literal-block">
+$ export PATH=$PATH:/var/lib/gems/1.8/bin
+$ restclient http://localhost/oarapi
+irb(main):001:0&gt; puts get('/jobs.yaml')
+---
+- api_timestamp: 1246457384
+  id: 551
+  name: ~
+  owner: bzizou
+  queue: besteffort
+  state: Waiting
+  submission: 1245858042
+  uri: /jobs/551
+=&gt; nil
+irb(main):002:0&gt;
+</pre>
+<p>or, if an http basic auth is required:</p>
+<pre class="literal-block">
+restclient http://localhost/api &lt;login&gt; &lt;password&gt;
+...
+</pre>
+</div>
+<div class="section" id="pagination-and-common-rules-into-output-data">
+<h1><a class="toc-backref" href="#id8">4&nbsp;&nbsp;&nbsp;Pagination and common rules into output data</a></h1>
+<p>Results served by the API are mainly of 2 kinds: &quot;items&quot; and &quot;collections&quot;. A collection is actually an array of items. Some uris serve collections that may have a very big amount of items (for example all the terminated jobs of a cluster). For that reason, collections are often &quot;paginated&quot;. It means that the collections are presented into pages that have got meta data to give you informations about offset, numbers, and links to previous/next page.
+Furthermore, items are often composed of commonly used kind of data, especially 'id' and 'links'. We have tried to normalize this as much as possible, so, here is a description of the common properties of items and collections:</p>
+<div class="section" id="items">
+<h2><a class="toc-backref" href="#id9">4.1&nbsp;&nbsp;&nbsp;Items</a></h2>
+<p>Items have the following features:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Hash:</th><td class="field-body">Items should be hashes (sometimes hash of hashes for the 'oar' data structure, but it is to be avoided)</td>
+</tr>
+<tr class="field"><th class="field-name">the 'id' key:</th><td class="field-body">In general, when an item may be uniquely identified by an integer, it is given in the &quot;id&quot; key. Note that OAR nodes are identified by the 'network_address' key that is an integer, but this is an exception.</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">the 'links' array:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">Items, especially when listed in a collection, often give links to more informations or relative data. The links are listed in the links array. Each element of this array (a link) is composed of at least: a 'rel' key and a 'href' key. The 'rel' key is a string telling what is the relation between the current item and the resource pointed by the link. The 'href' key is a string giving the URI of the link relative to the root of the API. It's possible that other keys will be implemented in the future (for example a 'title' key.) Common values for 'rel' are: 'self', 'parent', 'next', 'previous'.</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">the 'api_timestamp' value:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">Each item has a 'api_timestamp' key giving the epoch unix date at which the API constructed the item. This field may be omitted when items are listed inside a collection; then the collection has a global api_timestamp value. This date is given in the timezone provided by the &quot;GET /timezone uri&quot;.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="collections">
+<h2><a class="toc-backref" href="#id10">4.2&nbsp;&nbsp;&nbsp;Collections</a></h2>
+<p>Collections have the following features:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name" colspan="2">the 'items' array:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">The items array is the purpose of a collection. It lists all the items of the current page of a collection.</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">the 'total' number:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">It's an integer giving the total number of items in the collection. If the items array contains less elements than this number, then the collection has been paginated and a 'next' and/or 'previous' link should be provided.</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">the 'offset' number:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">It gives the offset at which the paginated list starts. If 0, then, it is the first page.</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">the 'limit' parameter:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">This is not in the output, but a parameter common to all paginable uris. If you specify a limit, then it gives the size of the pages.</td>
+</tr>
+<tr class="field"><th class="field-name" colspan="2">the 'links' array:</th></tr>
+<tr><td>&nbsp;</td><td class="field-body">For a collection, the links array often gives the uri of the next/previous page. But it also gives the uri of the current page ('self') and may point to more informations relative to this collection. See the links array description from above for items, it is similar for the collection.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="examples">
+<h2><a class="toc-backref" href="#id11">4.3&nbsp;&nbsp;&nbsp;Examples</a></h2>
+<dl class="docutils">
+<dt><em>An item looks like this (yaml output):</em></dt>
+<dd><pre class="first last literal-block">
+api_timestamp: 1286894740
+available_upto: 2147483646
+besteffort: YES
+core: 1
+cpu: 1
+cpuset: 0
+deploy: NO
+desktop_computing: NO
+expiry_date: 0
+finaud_decision: NO
+id: 1
+last_available_upto: 0
+last_job_date: 1286885902
+links:
+  - href: /resources/nodes/fake1
+    rel: node
+  - href: /resources/1
+    rel: self
+  - href: /resources/1/jobs
+    rel: jobs
+network_address: fake1
+next_finaud_decision: NO
+next_state: UnChanged
+resource_id: 1
+scheduler_priority: 0
+state: Alive
+state_num: 1
+suspended_jobs: NO
+type: default
+</pre>
+</dd>
+<dt><em>A collection looks like this (yaml output):</em></dt>
+<dd><pre class="first last literal-block">
+api_timestamp: 1286894823
+items:
+  - api_timestamp: 1286894823
+    id: 2
+    links:
+      - href: /jobs/2
+        rel: self
+      - href: /jobs/2/resources
+        rel: resources
+    name: ~
+    owner: kameleon
+    queue: default
+    state: Error
+    submission: 1284034267
+  - api_timestamp: 1286894823
+    id: 3
+    links:
+      - href: /jobs/3
+        rel: self
+      - href: /jobs/3/resources
+        rel: resources
+    name: ~
+    owner: kameleon
+    queue: default
+    state: Error
+    submission: 1284034383
+links:
+  - href: /jobs.yaml?state=Error&amp;limit=2&amp;offset=0
+    rel: self
+  - href: /jobs.yaml?state=Error&amp;limit=2&amp;offset=2
+    rel: next
+offset: 0
+total: 2623
+</pre>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="rest-requests-description">
+<h1><a class="toc-backref" href="#id12">5&nbsp;&nbsp;&nbsp;REST requests description</a></h1>
+<p>Examples are given in the YAML format because we think that it is the more human readable and so very suitable for this kind of documentation. But you can also use the JSON format for your input/output data. Each resource uri may be postfixed by .yaml, .jso of .html.</p>
+<dl class="docutils">
+<dt>In this section, we describe every REST resources of the OAR API. The authentication may be:</dt>
+<dd><ul class="first last simple">
+<li>public: everybody can query this resource</li>
+<li>user: only authenticated and valid users can query this resource</li>
+<li>oar: only the oar user can query this resource (administration usage)</li>
+</ul>
+</dd>
+</dl>
+<div class="section" id="get-index">
+<h2><a class="toc-backref" href="#id13">5.1&nbsp;&nbsp;&nbsp;GET /index</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Home page for the HTML browsing</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">public</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><dl class="first docutils">
+<dt><em>example</em>:</dt>
+<dd><pre class="first last literal-block">
+&lt;HTML&gt;
+&lt;HEAD&gt;
+&lt;TITLE&gt;OAR REST API&lt;/TITLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;HR&gt;
+&lt;A HREF=./resources.html&gt;RESOURCES&lt;/A&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;A HREF=./jobs.html&gt;JOBS&lt;/A&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;A HREF=./jobs/form.html&gt;SUBMISSION&lt;/A&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&lt;HR&gt;
+Welcome on the oar API
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">note:</th><td class="field-body"><p class="first last">Header of the HTML resources may be customized into the <strong>/etc/oar/api_html_header.pl</strong> file.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-version">
+<h2><a class="toc-backref" href="#id14">5.2&nbsp;&nbsp;&nbsp;GET /version</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Gives version informations about OAR and OAR API. Also gives the timezone of the API server.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">public</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><dl class="first docutils">
+<dt><em>structure</em>:</dt>
+<dd><p class="first last">hash</p>
+</dd>
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api: 0.1.2
+api_timestamp: 1245582255
+api_timezone: CEST
+apilib: 0.1.6
+oar: 2.4.0
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+wget -q -O - http://localhost/oarapi/version.yaml
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-timezone">
+<h2><a class="toc-backref" href="#id15">5.3&nbsp;&nbsp;&nbsp;GET /timezone</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Gives the timezone of the OAR API server. The api_timestamp given in each query is an UTC timestamp (epoch unix time). This timezone information allows you to re-construct the local time.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">public</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1245768107
+timezone: CEST
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+wget -q -O - http://localhost/oarapi/timezone.yaml
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-jobs">
+<h2><a class="toc-backref" href="#id16">5.4&nbsp;&nbsp;&nbsp;GET /jobs</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">List jobs (by default only the jobs in queue)</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">public</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>state</strong>: comma separated list of states for filtering the jobs. Possible values: Terminated, Running, Error, Waiting, Launching, Hold,...</li>
+<li><strong>array</strong> (integer): to get the jobs belonging to an array</li>
+<li><strong>from</strong> (timestamp): restrict the list to the jobs that are running or not yet started before this date. Using this parameters disables the default behavior of listing only the jobs that are in queue.</li>
+<li><strong>to</strong> (timestamp): restrict the list to the jobs that are running or not yet finished at this date. Using this parameters disables the default behavior of listing only the jobs that are in queue.</li>
+<li><strong>user</strong>: restrict the list to the jobs owned by this username</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: collection</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+api_timestamp: 1286895857
+items:
+  - api_timestamp: 1286895857
+    id: 58
+    links:
+      - href: /jobs/58
+        rel: self
+      - href: /jobs/58/resources
+        rel: collection
+        title: resources
+      - href: /oarapi/jobs/58/nodes
+        rel: collection
+        title: nodes
+    name: ~
+    owner: kameleon
+    queue: default
+    state: Terminated
+    submission: 1284109267
+  - api_timestamp: 1286895857
+    id: 59
+    links:
+      - href: /jobs/59
+        rel: self
+      - href: /jobs/59/resources
+        rel: collection
+        title: resources
+      - href: /oarapi/jobs/59/nodes
+        rel: collection
+        title: nodes
+    name: ~
+    owner: kameleon
+    queue: default
+    state: Terminated
+    submission: 1284109846
+links:
+  - href: /jobs.yaml?state=Terminated&amp;limit=2&amp;offset=48
+    rel: self
+  - href: /jobs.yaml?state=Terminated&amp;limit=2&amp;offset=50
+    rel: next
+  - href: /jobs.yaml?state=Terminated&amp;limit=2&amp;offset=46
+    rel: previous
+offset: 48
+total: 206
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">note:</th><td class="field-body"><p class="first">The &quot;rel: resources&quot; link of a job lists the assigned or reserved resources of a job.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+wget -q -O - http://localhost/oarapi/jobs.yaml?state=Terminated,Running&amp;limit=2&amp;offset=48&quot;
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-jobs-details">
+<h2><a class="toc-backref" href="#id17">5.5&nbsp;&nbsp;&nbsp;GET /jobs/details</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Same as /jobs, but with more details and &quot;resources&quot; and &quot;nodes&quot; links developped.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">public</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>state</strong>: comma separated list of states for filtering the jobs. Possible values: Terminated, Running, Error, Waiting, Launching, Hold,...</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: collection</p>
+<dl class="last docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+api_timestamp: 1352707511
+items:
+  - api_timestamp: 1352707511
+    array_id: 5540
+    array_index: ~
+    command: sleep 300
+    cpuset_name: kameleon_5540
+    dependencies: []
+    events: []
+    exit_code: ~
+    id: 5540
+    initial_request: oarsub sleep 300
+    launching_directory: /home/kameleon
+    links:
+      - href: /oarapi/jobs/5540
+        rel: self
+      - href: /oarapi/jobs/5540/resources
+        rel: collection
+        title: resources
+      - href: /oarapi/jobs/5540/nodes
+        rel: collection
+        title: nodes
+    message: Karma = 0.000
+    name: ~
+    nodes:
+      - api_timestamp: 1352707511
+        links:
+          - href: /oarapi/resources/nodes/node1
+            rel: self
+        network_address: node1
+        status: assigned
+    owner: kameleon
+    project: default
+    properties: desktop_computing = 'NO'
+    queue: default
+    reservation: None
+    resources:
+      - api_timestamp: 1352707511
+        id: 1
+        links:
+          - href: /oarapi/resources/1
+            rel: self
+          - href: /oarapi/resources/1/jobs
+            rel: collection
+            title: jobs
+        status: assigned
+    resubmit_job_id: ~
+    scheduled_start: 1352707488
+    start_time: 1352707488
+    state: Running
+    stderr_file: OAR.5540.stdout
+    stdout_file: OAR.5540.stderr
+    stop_time: 0
+    submission_time: 1352707487
+    type: PASSIVE
+    types: []
+    walltime: 7200
+    wanted_resources: &quot;-l \&quot;{type = 'default'}/resource_id=1,walltime=2:0:0\&quot; &quot;
+  - api_timestamp: 1352707511
+    array_id: 5542
+    array_index: ~
+    command: sleep 300
+    cpuset_name: kameleon_5542
+    dependencies: []
+    events: []
+    exit_code: ~
+    id: 5542
+    initial_request: oarsub -l /core=2 sleep 300
+    launching_directory: /home/kameleon
+    links:
+      - href: /oarapi/jobs/5542
+        rel: self
+      - href: /oarapi/jobs/5542/resources
+        rel: collection
+        title: resources
+      - href: /oarapi/jobs/5542/nodes
+        rel: collection
+        title: nodes
+    message: Karma = 0.000
+    name: ~
+    nodes:
+      - api_timestamp: 1352707511
+        links:
+          - href: /oarapi/resources/nodes/node1
+            rel: self
+        network_address: node1
+        status: assigned
+    owner: kameleon
+    project: default
+    properties: desktop_computing = 'NO'
+    queue: default
+    reservation: None
+    resources:
+      - api_timestamp: 1352707511
+        id: 3
+        links:
+          - href: /oarapi/resources/3
+            rel: self
+          - href: /oarapi/resources/3/jobs
+            rel: collection
+            title: jobs
+        status: assigned
+      - api_timestamp: 1352707511
+        id: 4
+        links:
+          - href: /oarapi/resources/4
+            rel: self
+          - href: /oarapi/resources/4/jobs
+            rel: collection
+            title: jobs
+        status: assigned
+    resubmit_job_id: ~
+    scheduled_start: 1352707510
+    start_time: 1352707510
+    state: Running
+    stderr_file: OAR.5542.stdout
+    stdout_file: OAR.5542.stderr
+    stop_time: 0
+    submission_time: 1352707509
+    type: PASSIVE
+    types: []
+    walltime: 7200
+    wanted_resources: &quot;-l \&quot;{type = 'default'}/core=2,walltime=2:0:0\&quot; &quot;
+links:
+  - href: /oarapi/jobs/details.yaml?offset=0
+    rel: self
+offset: 0
+total: 2
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>usage example:</dt>
+<dd><pre class="first last literal-block">
+wget -q -O - http://localhost/oarapi/jobs/details.yaml
+</pre>
+</dd>
+</dl>
+</div>
+<div class="section" id="get-jobs-table">
+<h2><a class="toc-backref" href="#id18">5.6&nbsp;&nbsp;&nbsp;GET /jobs/table</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Same as /jobs but outputs the data of the SQL job table</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">public</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>state</strong>: comma separated list of states for filtering the jobs. Possible values: Terminated, Running, Error, Waiting, Launching, Hold,...</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: collection</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+items:
+ - accounted: NO
+   api_timestamp: 1253017554
+   array_id: 566
+   assigned_moldable_job: 566
+   checkpoint: 0
+   checkpoint_signal: 12
+   command: ''
+   exit_code: ~
+   file_id: ~
+   info_type: bart:33033
+   initial_request: oarsub -I
+   job_env: ~
+   job_group: ''
+   job_id: 566
+   job_name: ~
+   job_type: INTERACTIVE
+   job_user: bzizou
+   launching_directory: /home/bzizou/git/oar/git
+   message: FIFO scheduling OK
+   notify: ~
+   project: default
+   properties: desktop_computing = 'NO'
+   queue_name: default
+   reservation: None
+   resubmit_job_id: 0
+   scheduler_info: FIFO scheduling OK
+   start_time: 1253017553
+   state: Launching
+   stderr_file: OAR.%jobid%.stderr
+   stdout_file: OAR.%jobid%.stdout
+   stop_time: 0
+   submission_time: 1253017551
+   suspended: NO
+   uri: /jobs/566
+ - accounted: NO
+   api_timestamp: 1253017554
+   array_id: 560
+   assigned_moldable_job: 0
+   checkpoint: 0
+   checkpoint_signal: 12
+   command: /usr/bin/id
+   exit_code: ~
+   file_id: ~
+   info_type: 'bart:'
+   initial_request: oarsub --resource=/nodes=2/cpu=1 --use_job_key=1 /usr/bin/id
+   job_env: ~
+   job_group: ''
+   job_id: 560
+   job_name: ~
+   job_type: PASSIVE
+   job_user: bzizou
+   launching_directory: /home/bzizou
+   message: Cannot find enough resources which fit for the job 560
+   notify: ~
+   project: default
+   properties: desktop_computing = 'NO'
+   queue_name: default
+   reservation: None
+   resubmit_job_id: 0
+   scheduler_info: Cannot find enough resources which fit for the job 560
+   start_time: 0
+   state: Waiting
+   stderr_file: OAR.%jobid%.stderr
+   stdout_file: OAR.%jobid%.stdout
+   stop_time: 0
+   submission_time: 1246948570
+   suspended: NO
+   uri: /jobs/560
+links:
+ - href: '/jobs/table.html?state=Terminated&amp;limit=15&amp;offset=0'
+   rel: previous
+ - href: '/jobs/table.html?state=Terminated&amp;limit=15&amp;offset=15'
+   rel: self
+ - href: '/jobs/table.html?state=Terminated&amp;limit=15&amp;offset=30'
+   rel: next
+offset: 15
+total: 41
+</pre>
+</dd>
+</dl>
+<p><em>note</em>: Field names may vary from the other job lists because this query results more like a dump of the jobs table.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+wget -q -O - http://localhost/oarapi/jobs/table.yaml
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-jobs-id">
+<h2><a class="toc-backref" href="#id19">5.7&nbsp;&nbsp;&nbsp;GET /jobs/&lt;id&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Get details about the given job</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong>: the id of a job</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">user</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+api_timestamp: 1352707658
+array_id: 5230
+array_index: 3
+command: /home/kameleon/cigri-3/tmp/test1.sh param48 48
+cpuset_name: kameleon_5232
+dependencies: []
+events:
+  - date: 1351087783
+    description: Scheduler priority for job 5232 updated (network_address/resource_id)
+    event_id: 14454
+    job_id: 5232
+    to_check: NO
+    type: SCHEDULER_PRIORITY_UPDATED_STOP
+  - date: 1351087782
+    description: '[bipbip 5232] Ask to change the job state'
+    event_id: 14451
+    job_id: 5232
+    to_check: NO
+    type: SWITCH_INTO_TERMINATE_STATE
+  - date: 1351087660
+    description: Scheduler priority for job 5232 updated (network_address/resource_id)
+    event_id: 14446
+    job_id: 5232
+    to_check: NO
+    type: SCHEDULER_PRIORITY_UPDATED_START
+exit_code: 0
+id: 5232
+initial_request: oarsub --resource=core=1 --type=besteffort /home/kameleon/cigri-3/tmp/test1.sh --array-param-file=/tmp/oarapi.paramfile.7QPM0
+launching_directory: /home/kameleon
+links:
+  - href: /oarapi/jobs/5232
+    rel: self
+  - href: /oarapi/jobs/5232/resources
+    rel: collection
+    title: resources
+  - href: /oarapi/jobs/5232/nodes
+    rel: collection
+    title: nodes
+message: Karma = 0.000
+name: ~
+owner: kameleon
+project: default
+properties: (besteffort = 'YES') AND desktop_computing = 'NO'
+queue: besteffort
+reservation: None
+resubmit_job_id: 0
+scheduled_start: ~
+start_time: 1351087660
+state: Terminated
+stderr_file: OAR.5232.stderr
+stdout_file: OAR.5232.stdout
+stop_time: 1351087782
+submission_time: 1351087659
+type: PASSIVE
+types:
+  - besteffort
+walltime: 7200
+wanted_resources: &quot;-l \&quot;{type = 'default'}/core=1,walltime=2:0:0\&quot; &quot;
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+wget --user test --password test -q -O - http://localhost/oarapi/jobs/547.yaml
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-jobs-id-resources">
+<h2><a class="toc-backref" href="#id20">5.8&nbsp;&nbsp;&nbsp;GET /jobs/&lt;id&gt;/resources</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Get resources reserved or assigned to a job</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong>: the id of a job</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">public</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+api_timestamp: 1352707730
+items:
+  - api_timestamp: 1352707730
+    id: 7
+    links:
+      - href: /oarapi/resources/7
+        rel: self
+      - href: /oarapi/resources/7/jobs
+        rel: collection
+        title: jobs
+    status: assigned
+links:
+  - href: /oarapi/jobs/5232/resources.yaml
+    rel: self
+offset: 0
+total: 1
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+wget -q -O - http://localhost/oarapi/jobs/547/resources.yaml
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-jobs-id-deletions-new">
+<h2><a class="toc-backref" href="#id21">5.9&nbsp;&nbsp;&nbsp;POST /jobs/&lt;id&gt;/deletions/new</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Deletes a job</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong>: the id of a job</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">user</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1253025331
+cmd_output: |
+  Deleting the job = 567 ...REGISTERED.
+  The job(s) [ 567 ] will be deleted in a near future.
+id: 567
+status: Delete request registered
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+irb(main):148:0&gt; puts post('/jobs/567/deletions/new.yaml','')
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-jobs-id-checkpoints-new">
+<h2><a class="toc-backref" href="#id22">5.10&nbsp;&nbsp;&nbsp;POST /jobs/&lt;id&gt;/checkpoints/new</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Send the checkpoint signal to a job</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong>: the id of a job</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">user</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1253025555
+cmd_output: |
+  Checkpointing the job 568 ...DONE.
+  The job 568 was notified to checkpoint itself.
+id: 568
+status: Checkpoint request registered
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+irb(main):148:0&gt; puts post('/jobs/568/checkpoints/new.yaml','')
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-jobs-id-holds-new">
+<h2><a class="toc-backref" href="#id23">5.11&nbsp;&nbsp;&nbsp;POST /jobs/&lt;id&gt;/holds/new</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Asks to hold a waiting job</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong>: the id of a job</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">user</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1253025718
+cmd_output: &quot;[560] Hold request was sent to the OAR server.\n&quot;
+id: 560
+status: Hold request registered
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+irb(main):148:0&gt; puts post('/jobs/560/holds/new.yaml','')
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-jobs-id-rholds-new">
+<h2><a class="toc-backref" href="#id24">5.12&nbsp;&nbsp;&nbsp;POST /jobs/&lt;id&gt;/rholds/new</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Asks to hold a running job</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong>: the id of a job</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">oar</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1253025868
+cmd_output: &quot;[569] Hold request was sent to the OAR server.\n&quot;
+id: 569
+status: Hold request registered
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+irb(main):148:0&gt; puts post('/jobs/560/rholds/new.yaml','')
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-jobs-id-resumptions-new">
+<h2><a class="toc-backref" href="#id25">5.13&nbsp;&nbsp;&nbsp;POST /jobs/&lt;id&gt;/resumptions/new</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Asks to resume a holded job</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong>: the id of a job</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">user</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1253026081
+cmd_output: &quot;[569] Resume request was sent to the OAR server.\n&quot;
+id: 569
+status: Resume request registered
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+irb(main):148:0&gt; puts post('/jobs/560/resumptions/new.yaml','')
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-jobs-id-signals-signal">
+<h2><a class="toc-backref" href="#id26">5.14&nbsp;&nbsp;&nbsp;POST /jobs/&lt;id&gt;/signals/&lt;signal&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Asks to resume a holded job</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong>: the id of a job</li>
+<li><strong>signal</strong>: the number of a signal (see kill -l)</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">user</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1253102493
+cmd_output: |
+  Signaling the job 574 with 12 signal.
+  DONE.
+  The job 574 was notified to signal itself with 12.
+id: 574
+status: Signal sending request registered
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+irb(main):148:0&gt; puts post('/jobs/560/signals/12.yaml','')
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-jobs">
+<h2><a class="toc-backref" href="#id27">5.15&nbsp;&nbsp;&nbsp;POST /jobs</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Creates (submit) a new job</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">user</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">input:</th><td class="field-body"><p class="first">Only [resource] and [command] are mandatory. Please, refer to the documentation of the <em>oarsub</em> command for the resource syntax which correspond to the -l (--resource) option.</p>
+<p><em>structure</em>: hash with possible arrays (for options that may be passed multiple times)</p>
+<dl class="docutils">
+<dt><em>fields</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>resource</strong> (<em>string</em>): the resources description as required by oar (example: &quot;/nodes=1/cpu=2&quot;)</li>
+<li><strong>command</strong> (<em>string</em>): a command name or a script that is executed when the job starts</li>
+<li><strong>workdir</strong> (<em>string</em>): the path of the directory from where the job will be submited</li>
+<li><strong>param_file</strong> (<em>string</em>): the content of a parameters file, for the submission of an array job. For example: {&quot;resource&quot;:&quot;/nodes=1, &quot;command&quot;:&quot;sleep&quot;, &quot;param_file&quot;:&quot;60n90n30&quot;}</li>
+<li><strong>All other option accepted by the oarsub unix command</strong>: every long option that may be passed to the oarsub command is known as a key of the input hash. If the option is a toggle (no value), you just have to set it to &quot;1&quot; (for example: 'use-job-key' =&gt; '1'). Some options may be arrays (for example if you want to specify several 'types' for a job)</li>
+</ul>
+</dd>
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+stdout: /tmp/outfile
+command: /usr/bin/id;echo &quot;OK&quot;
+resource: /nodes=2/cpu=1
+workdir: ~bzizou/tmp
+type:
+- besteffort
+- timesharing
+use-job-key: 1
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1332323792
+cmd_output: |
+  [ADMISSION RULE] Modify resource description with type constraints
+  OAR_JOB_ID=4
+id: 4
+links:
+  - href: /oarapi-priv/jobs/4
+    rel: self
+</pre>
+</dd>
+</dl>
+<p><em>note</em>: more informations about the submited job may be obtained with a GET on the provided <em>uri</em>.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+# Submitting a job using ruby rest client
+irb(main):010:0&gt; require 'json'
+irb(main):012:0&gt; j={ 'resource' =&gt; '/nodes=2/cpu=1', 'command' =&gt; '/usr/bin/id' }
+irb(main):015:0&gt; job=post('/jobs' , j.to_json , :content_type =&gt; 'application/json')
+
+# Submitting a job with a provided inline script
+irb(main):024:0&gt; script=&quot;#!/bin/bash
+irb(main):025:0&quot; echo \&quot;Hello world\&quot;
+irb(main):026:0&quot; whoami
+irb(main):027:0&quot; sleep 300
+irb(main):028:0&quot; &quot;
+irb(main):029:0&gt; j={ 'resource' =&gt; '/nodes=2/cpu=1', 'script' =&gt; script , 'workdir' =&gt; '~bzizou/tmp'}
+irb(main):030:0&gt; job=post('/jobs' , j.to_json , :content_type =&gt; 'application/json')
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-jobs-id">
+<h2><a class="toc-backref" href="#id28">5.16&nbsp;&nbsp;&nbsp;POST /jobs/&lt;id&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Updates a job.
+In fact, as some clients (www browsers) doesn't support the DELETE method, this POST resource has been created mainly to workaround this and provide another way to delete a job. It also provides <em>checkpoint</em>, <em>hold</em> and <em>resume</em> methods, but one should preferably use the /checkpoints, /holds and /resumptions resources.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">user</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">input:</th><td class="field-body"><p class="first"><em>structure</em>: hash {&quot;action&quot; =&gt; &quot;delete&quot;}</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+method: delete
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1245944206
+cmd_output: |
+  Deleting the job = 554 ...REGISTERED.
+  The job(s) [ 554 ] will be deleted in a near future.
+id: 554
+status: Delete request registered
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+# Deleting a job in the ruby rest client
+puts post('/jobs/554.yaml','{&quot;method&quot;:&quot;delete&quot;}',:content_type =&gt; &quot;application/json&quot;)
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="delete-jobs-id">
+<h2><a class="toc-backref" href="#id29">5.17&nbsp;&nbsp;&nbsp;DELETE /jobs/&lt;id&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Delete or kill a job.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">user</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash returning the status</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1245944206
+cmd_output: |
+  Deleting the job = 554 ...REGISTERED.
+  The job(s) [ 554 ] will be deleted in a near future.
+id: 554
+status: Delete request registered
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first literal-block">
+# Deleting a job in the ruby rest client
+puts delete('/jobs/554.yaml')
+</pre>
+</td>
+</tr>
+<tr class="field"><th class="field-name">note:</th><td class="field-body"><p class="first last">Not all clients support the DELETE method, especially some www browsers. So, you can do the same thing with a POST of a {&quot;method&quot;:&quot;delete&quot;} hash on the /jobs/&lt;id&gt; resource.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-jobs-form">
+<h2><a class="toc-backref" href="#id30">5.18&nbsp;&nbsp;&nbsp;GET /jobs/form</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">HTML form for posting (submiting) new jobs from a browser</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">user</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><dl class="first docutils">
+<dt><em>example</em>:</dt>
+<dd><pre class="first last literal-block">
+&lt;HTML&gt;
+ &lt;HEAD&gt;
+ &lt;TITLE&gt;OAR REST API&lt;/TITLE&gt;
+ &lt;/HEAD&gt;
+ &lt;BODY&gt;
+ &lt;HR&gt;
+ &lt;A HREF=../resources.html&gt;RESOURCES&lt;/A&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+ &lt;A HREF=../jobs.html&gt;JOBS&lt;/A&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+ &lt;A HREF=../jobs/form.html&gt;SUBMISSION&lt;/A&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+ &lt;HR&gt;
+
+ &lt;FORM METHOD=post ACTION=../jobs.html&gt;
+ &lt;TABLE&gt;
+ &lt;CAPTION&gt;Job submission&lt;/CAPTION&gt;
+ &lt;TR&gt;
+   &lt;TD&gt;Resources&lt;/TD&gt;
+   &lt;TD&gt;&lt;INPUT TYPE=text SIZE=40 NAME=resource VALUE=&quot;/nodes=1/cpu=1,walltime=00:30:00&quot;&gt;&lt;/TD&gt;
+ &lt;/TR&gt;&lt;TR&gt;
+   &lt;TD&gt;Name&lt;/TD&gt;
+   &lt;TD&gt;&lt;INPUT TYPE=text SIZE=40 NAME=name VALUE=&quot;Test_job&quot;&gt;&lt;/TD&gt;
+ &lt;/TR&gt;&lt;TR&gt;
+   &lt;TD&gt;Properties&lt;/TD&gt;
+   &lt;TD&gt;&lt;INPUT TYPE=text SIZE=40 NAME=property VALUE=&quot;&quot;&gt;&lt;/TD&gt;
+ &lt;/TR&gt;&lt;TR&gt;
+   &lt;TD&gt;Program to run&lt;/TD&gt;
+   &lt;TD&gt;&lt;INPUT TYPE=text SIZE=40 NAME=command VALUE='&quot;/bin/sleep 300&quot;'&gt;&lt;/TD&gt;
+ &lt;/TR&gt;&lt;TR&gt;
+   &lt;TD&gt;Types&lt;/TD&gt;
+   &lt;TD&gt;&lt;INPUT TYPE=text SIZE=40 NAME=type&gt;&lt;/TD&gt;
+ &lt;/TR&gt;&lt;TR&gt;
+   &lt;TD&gt;Reservation dates&lt;/TD&gt;
+   &lt;TD&gt;&lt;INPUT TYPE=text SIZE=40 NAME=reservation&gt;&lt;/TD&gt;
+ &lt;/TR&gt;&lt;TR&gt;
+   &lt;TD&gt;Directory&lt;/TD&gt;
+   &lt;TD&gt;&lt;INPUT TYPE=text SIZE=40 NAME=directory&gt;&lt;/TD&gt;
+ &lt;/TR&gt;&lt;TR&gt;
+   &lt;TD&gt;&lt;/TD&gt;&lt;TD&gt;&lt;INPUT TYPE=submit VALUE=SUBMIT&gt;&lt;/TD&gt;
+ &lt;/TR&gt;
+ &lt;/TABLE&gt;
+ &lt;/FORM&gt;
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">note:</th><td class="field-body"><p class="first last">This form may be customized in the <strong>/etc/oar/api_html_postform.pl</strong> file</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-resources">
+<h2><a class="toc-backref" href="#id31">5.19&nbsp;&nbsp;&nbsp;GET /resources</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Get the list of resources and their state</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">public</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>fields</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>items</strong> : list of resources</li>
+<li><strong>links</strong> : links to previous, current and next resources</li>
+<li><strong>offset</strong> : current offset</li>
+<li><strong>total</strong> : resources total</li>
+</ul>
+</dd>
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+items:
+ - api_timestamp: 1253201950
+   jobs_uri: /resources/4/jobs
+   network_address: liza-1
+   node_uri: /resources/nodes/liza-1
+   resource_id: 4
+   state: Alive
+   uri: /resources/4
+ - api_timestamp: 1253201950
+   jobs_uri: /resources/5/jobs
+   network_address: liza-1
+   node_uri: /resources/nodes/liza-1
+   resource_id: 5
+   state: Alive
+   uri: /resources/5
+ - api_timestamp: 1253201950
+   jobs_uri: /resources/6/jobs
+   network_address: liza-2
+   node_uri: /resources/nodes/liza-2
+   resource_id: 6
+   state: Alive
+   uri: /resources/6
+ - api_timestamp: 1253201950
+   jobs_uri: /resources/7/jobs
+   network_address: liza-2
+   node_uri: /resources/nodes/liza-2
+   resource_id: 7
+   state: Alive
+   uri: /resources/7
+links:
+ - href: '/resources.yaml?limit=5&amp;offset=2'
+   rel: previous
+ - href: '/resources.yaml?limit=5&amp;offset=7'
+   rel: self
+ - href: '/resources.yaml?limit=5&amp;offset=12'
+   rel: next
+offset: 2
+total: 49
+</pre>
+</dd>
+</dl>
+<p><em>note</em>: More details about a resource can be obtained with a GET on the provided <em>uri</em>. The list of all the resources of the same node may be obtained with a GET on <em>node_uri</em>. The list of running jobs on a resource can be obtained with a GET on the jobs_uri resource.
+<em>note</em>: The following parameters can be passed through the requested URL</p>
+<blockquote>
+<ul class="simple">
+<li>limit : limit of resources to be shown per page</li>
+<li>offset : the page result offset</li>
+</ul>
+</blockquote>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+wget -q -O - http://localhost/oarapi/resources.yaml
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-resources-full">
+<h2><a class="toc-backref" href="#id32">5.20&nbsp;&nbsp;&nbsp;GET /resources/full</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Get the list of resources and all the details about them</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">public</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>fields</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>items</strong> : list of resources</li>
+<li><strong>links</strong> : links to previous, current and next resources</li>
+<li><strong>offset</strong> : current offset</li>
+<li><strong>total</strong> : total of resources</li>
+</ul>
+</dd>
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+    items:
+           - api_timestamp: 1281967035
+     available_upto: 0
+     besteffort: YES
+     core: ~
+     cpu: 0
+     cpufreq: ~
+     cpuset: 0
+     cputype: ~
+     deploy: NO
+     desktop_computing: NO
+     expiry_date: 0
+     finaud_decision: NO
+     jobs_uri: '/resources/1/jobs.html'
+     last_available_upto: 0
+     last_job_date: 1278588052
+     memnode: ~
+     network_address: node1
+         next_finaud_decision: NO
+         next_state: UnChanged
+         node_uri: '/resources/nodes/node1.html'
+         resource_id: 1
+         scheduler_priority: 0
+         state: Suspected
+         state_num: 3
+         suspended_jobs: NO
+         type: default
+         uri: '/resources/1.html'
+           - api_timestamp: 1281967035
+         available_upto: 0
+         besteffort: YES
+         core: ~
+         cpu: 0
+         cpufreq: ~
+         cpuset: 0
+         cputype: ~
+         deploy: NO
+         desktop_computing: NO
+         expiry_date: 0
+         finaud_decision: NO
+         jobs_uri: '/resources/2/jobs.html'
+         last_available_upto: 0
+         last_job_date: 1278588052
+         memnode: ~
+         network_address: node1
+         next_finaud_decision: NO
+         next_state: UnChanged
+         node_uri: '/resources/nodes/node1.html'
+         resource_id: 2
+         scheduler_priority: 0
+         state: Suspected
+         state_num: 3
+         suspended_jobs: NO
+         type: default
+         uri: '/resources/2.html'
+           - api_timestamp: 1281967035
+         available_upto: 0
+         besteffort: YES
+         core: ~
+         cpu: 1
+         cpufreq: ~
+         cpuset: 0
+         cputype: ~
+         deploy: NO
+         desktop_computing: NO
+         expiry_date: 0
+         finaud_decision: NO
+         jobs_uri: '/resources/3/jobs.html'
+         last_available_upto: 0
+         last_job_date: 1278588052
+         memnode: ~
+         network_address: node1
+         next_finaud_decision: NO
+         next_state: UnChanged
+         node_uri: '/resources/nodes/node1.html'
+         resource_id: 3
+         scheduler_priority: 0
+         state: Suspected
+         state_num: 3
+         suspended_jobs: NO
+         type: default
+         uri: '/resources/3.html'
+     links:
+       - href: '/resources/full.yaml?limit=5&amp;offset=2'
+         rel: previous
+       - href: '/resources/full.yaml?limit=5&amp;offset=7'
+         rel: self
+       - href: '/resources/full.yaml?limit=5&amp;offset=12'
+         rel: next
+offset: 2
+    total: 49
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+wget -q -O - http://localhost/oarapi/resources/full.yaml
+
+*note*: The following parameters can be passed through the requested URL
+       - limit : limit of resources to be shown per page
+       - offset : the page result offset
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-resources-id">
+<h2><a class="toc-backref" href="#id33">5.21&nbsp;&nbsp;&nbsp;GET /resources/&lt;id&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Get details about the resource identified by <em>id</em></p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">public</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: 1 element array of hash</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1253202322
+available_upto: 0
+besteffort: YES
+cluster: 0
+cpu: 20
+cpuset: 0
+deploy: NO
+desktop_computing: NO
+expiry_date: 0
+finaud_decision: NO
+jobs_uri: /resources/1/jobs
+last_available_upto: 0
+last_job_date: 1253201845
+licence: ~
+network_address: bart-1
+next_finaud_decision: NO
+next_state: UnChanged
+node_uri: /resources/nodes/bart-1
+resource_id: 1
+scheduler_priority: 0
+state: Alive
+state_num: 1
+suspended_jobs: NO
+test: ~
+type: default
+uri: /resources/1
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+wget -q -O - http://localhost/oarapi/resources/1.yaml
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-resources-nodes-network-address">
+<h2><a class="toc-backref" href="#id34">5.22&nbsp;&nbsp;&nbsp;GET /resources/nodes/&lt;network_address&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Get details about the resources belonging to the node identified by <em>network_address</em></p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">public</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: array of hashes</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+- api_timestamp: 1253202379
+  jobs_uri: /resources/4/jobs
+  network_address: liza-1
+  node_uri: /resources/nodes/liza-1
+  resource_id: 4
+  state: Alive
+  uri: /resources/4
+- api_timestamp: 1253202379
+  jobs_uri: /resources/5/jobs
+  network_address: liza-1
+  node_uri: /resources/nodes/liza-1
+  resource_id: 5
+  state: Alive
+  uri: /resources/5
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+wget -q -O - http://localhost/oarapi/resources/nodes/liza-1.yaml
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-resources-generate">
+<h2><a class="toc-backref" href="#id35">5.23&nbsp;&nbsp;&nbsp;POST /resources/generate</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Generates (outputs) a set of resources using oaradmin. The result may then be directly sent to /resources for actual creation.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">oar</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">input:</th><td class="field-body"><p class="first">[resources] and [properties] entries are mandatory</p>
+<p><em>structure</em>: hash describing the resources to generate</p>
+<dl class="docutils">
+<dt><em>fields</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>resources</strong> (<em>string</em>): A string corresponding to the resources definition as it could have been passed to the &quot;oaradmin resources -a&quot; command (see man oaradmin).</li>
+<li><strong>properties</strong> (<em>hash</em>): an optional hash defining some common properties for these new resources</li>
+</ul>
+</dd>
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+ressources: /nodes=node{2}.test.generate/cpu={2}/core={2}
+properties:
+  memnode: 1050
+  cpufreq: 5
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: an array of hashes containing the generated resources that may be pushed to POST /resources for actual creation</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1321366378
+items:
+  - core: 1
+    cpu: 1
+    cpuset: 0
+    network_address: node1.test.generate
+  - core: 2
+    cpu: 1
+    cpuset: 1
+    network_address: node1.test.generate
+  - core: 3
+    cpu: 2
+    cpuset: 2
+    network_address: node1.test.generate
+  - core: 4
+    cpu: 2
+    cpuset: 3
+    network_address: node1.test.generate
+  - core: 5
+    cpu: 3
+    cpuset: 0
+    network_address: node2.test.generate
+  - core: 6
+    cpu: 3
+    cpuset: 1
+    network_address: node2.test.generate
+  - core: 7
+    cpu: 4
+    cpuset: 2
+    network_address: node2.test.generate
+  - core: 8
+    cpu: 4
+    cpuset: 3
+    network_address: node2.test.generate
+links:
+  - href: /oarapi-priv/resources/generate.yaml
+    rel: self
+offset: 0
+total: 8
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+# Generating new resources with curl
+curl -i -X POST http://oar:kameleon&#64;localhost/oarapi-priv/resources/generate -H'Content-Type: application/json' -d '{&quot;resources&quot;:&quot;/nodes=node{2}.test.generate/cpu={2}/core={2}&quot;}'
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-resources">
+<h2><a class="toc-backref" href="#id36">5.24&nbsp;&nbsp;&nbsp;POST /resources</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Creates a new resource or a set of new resources</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">oar</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">input:</th><td class="field-body"><p class="first">A [hostname] or [network_address] entry is mandatory</p>
+<p><em>structure</em>: A hash describing the resource to be created. An array of hashes may be given for creating a set of new resources. The result of a /resources/generate query may be directly posted to /resources.</p>
+<dl class="docutils">
+<dt><em>fields</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>hostname</strong> alias <strong>network_address</strong> (<em>string</em>): the network address given to the resource</li>
+<li><strong>properties</strong> (<em>hash</em>): an optional hash defining some properties for this new resource</li>
+</ul>
+</dd>
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+hostname: test2
+properties:
+  besteffort: &quot;NO&quot;
+  cpu: &quot;10&quot;
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash returning the id of the newly created resource and status (or an array of hashes if a set of resources has been given on the input)</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1245946199
+id: 32
+status: ok
+uri: /resources/32
+warnings: []
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+# Adding a new resource with the ruby rest client (oar user only)
+irb(main):078:0&gt; r={ 'hostname'=&gt;'test2', 'properties'=&gt; { 'besteffort'=&gt;'NO' , 'cpu' =&gt; '10' } }
+irb(main):078:0&gt; puts post('/resources', r.to_json , :content_type =&gt; 'application/json')
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-resources-id-state">
+<h2><a class="toc-backref" href="#id37">5.25&nbsp;&nbsp;&nbsp;POST /resources/&lt;id&gt;/state</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Change the state</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">oar</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">input:</th><td class="field-body"><p class="first">A [state] entry is mandatory and must be &quot;Absent&quot;, &quot;Alive&quot; or &quot;Dead&quot;</p>
+<p><em>structure</em>: hash of state</p>
+<dl class="docutils">
+<dt><em>fields</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>state</strong>: Alive, Absent or Dead</li>
+</ul>
+</dd>
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+state: Dead
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>:</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1253283492
+id: 34
+status: Change state request registered
+uri: /resources/34
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+irb
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="delete-resources-id">
+<h2><a class="toc-backref" href="#id38">5.26&nbsp;&nbsp;&nbsp;DELETE /resources/&lt;id&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Delete the resource identified by <em>id</em></p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">oar</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash returning the status</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1245946801
+status: deleted
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first literal-block">
+# Deleting a resource with the ruby rest client
+puts delete('/resources/32.yaml')
+</pre>
+</td>
+</tr>
+<tr class="field"><th class="field-name">note:</th><td class="field-body"><p class="first last">If the resource could not be deleted, returns a 403 and the reason into the message body.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="delete-resources-node-cpuset-id">
+<h2><a class="toc-backref" href="#id39">5.27&nbsp;&nbsp;&nbsp;DELETE /resources/&lt;node&gt;/&lt;cpuset_id&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Delete the resource corresponding to <em>cpuset_id</em> on node <em>node</em>. It is useful when you don't know about the ids, but only the number of cpus on physical nodes.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">oar</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash returning the status</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1246459253
+status: deleted
+=&gt; nil
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first literal-block">
+# Deleting a resource with the ruby rest client
+puts delete('/resources/test/0.yaml')
+</pre>
+</td>
+</tr>
+<tr class="field"><th class="field-name">note:</th><td class="field-body"><p class="first last">If the resource could not be deleted, returns a 403 and the reason into the message body.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-admission-rules">
+<h2><a class="toc-backref" href="#id40">5.28&nbsp;&nbsp;&nbsp;GET /admission_rules</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Get the list of admission rules</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">oar</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>fields</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>items</strong> : list of admission rules</li>
+<li><strong>links</strong> : links to previous, current and next admission rules</li>
+<li><strong>offset</strong> : current offset</li>
+<li><strong>total</strong> : total of admission rules</li>
+</ul>
+</dd>
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+items:
+  - id: 1
+    links:
+       href: /admission_rules/1
+       rel: self
+    rule: 'if (not defined($queue_name)) {$queue_name=&quot;default&quot;;}'
+  - id: 2
+    links:
+       href: /admission_rules/2
+       rel: self
+    rule: 'die (&quot;[ADMISSION RULE] root and oar users are not allowed to submit jobs.\n&quot;) if ( $user eq &quot;root&quot; or $user eq &quot;oar&quot; );'
+  - id: 3
+    links:
+       href: /admission_rules/3
+       rel: self
+    rule: |2
+           my $admin_group = &quot;admin&quot;;
+           if ($queue_name eq &quot;admin&quot;) {
+                   my $members;
+                   (undef,undef,undef, $members) = getgrnam($admin_group);
+                   my %h = map { $_ =&gt; 1 } split(/\s+/,$members);
+                   if ( $h{$user} ne 1 ) {
+                   {die(&quot;[ADMISSION RULE] Only member of the group &quot;.$admin_group.&quot; can submit jobs in the admin queue\n&quot;);}
+                   }
+           }
+links:
+  - href: '/admission_rules.yaml?limit=5&amp;offset=0'
+    rel: previous
+  - href: '/admission_rules.yaml?limit=5&amp;offset=5'
+    rel: self
+  - href: '/admission_rules.yaml?limit=5&amp;offset=10'
+    rel: next
+offset: 5
+total: 5
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+wget -q -O - http://localhost/oarapi/admission_rules.yaml
+
+*note*: The following parameters can be passed through the requested URL
+       - limit : limit of admission rules to be shown per page
+       - offset : the page result offset
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-admission-rules-id">
+<h2><a class="toc-backref" href="#id41">5.29&nbsp;&nbsp;&nbsp;GET /admission_rules/&lt;id&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Get details about the admission rule identified by <em>id</em></p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">oar</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: 1 element array of hash</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+- id: 1
+  links:
+     href: /admission_rules/1
+     rel: self
+  rule: 'if (not defined($queue_name)) {$queue_name=&quot;default&quot;;}'
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+wget -q -O - http://localhost/oarapi/admission_rules/1.yaml
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="delete-admission-rule-id">
+<h2><a class="toc-backref" href="#id42">5.30&nbsp;&nbsp;&nbsp;DELETE /admission_rule/&lt;id&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Delete the admission rule identified by <em>id</em></p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">oar</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash returning the status</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+id: 32
+api_timestamp: 1245946801
+status: deleted
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first literal-block">
+# Deleting an admisssion rule with the ruby rest client
+puts delete('/admission_rules/32.yaml')
+</pre>
+</td>
+</tr>
+<tr class="field"><th class="field-name">note:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">note:</th><td class="field-body">Not all clients support the DELETE method, especially some www browsers. So, you can do the same thing with a POST of a {&quot;method&quot;:&quot;delete&quot;} hash on the /admission_rule/&lt;id&gt; rule.
+If the admission rule could not be deleted, returns a 403 and the reason into the message body.</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-admission-rules">
+<h2><a class="toc-backref" href="#id43">5.31&nbsp;&nbsp;&nbsp;POST /admission_rules</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Add a new admission rule</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">oar</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">input:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>fields</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>rule</strong> (<em>text</em>): The admission rule to add</li>
+</ul>
+</dd>
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+rule: |
+  echo &quot;This is a test rule&quot;
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first">A 201 (created) header is returned if the rule is successfully created, with a location value.</p>
+<dl class="last docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1340180126
+id: 19
+rule: echo &quot;This is a test rule&quot;
+uri: /oarapi-priv/admission_rules/19
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-admission-rules-id">
+<h2><a class="toc-backref" href="#id44">5.32&nbsp;&nbsp;&nbsp;POST /admission_rules/&lt;id&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Update or delete the admission rule given by <em>id</em></p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">oar</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">input:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>fields</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>rule</strong> (<em>text</em>): The content of the admission rule to update</li>
+<li><strong>method=delete</strong> : If given, the admission rule is deleted</li>
+</ul>
+</dd>
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+rule: |
+  echo &quot;This is a test rule&quot;
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first">A 201 (created) header is returned if the rule is successfully updated, with a location value.</p>
+<dl class="last docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1340180126
+id: 19
+rule: echo&quot;test rule&quot;
+uri: /oarapi-priv/admission_rules/19
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-config">
+<h2><a class="toc-backref" href="#id45">5.33&nbsp;&nbsp;&nbsp;GET /config</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Get the list of configured variables</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">oar</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: array of hashes</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+- id: DB_BASE_NAME
+  links:
+     href: /config/DB_BASE_NAME
+     rel: self
+  value: oar
+- id: OARSUB_FORCE_JOB_KEY
+  links:
+     href: /config/OARSUB_FORCE_JOB_KEY
+     rel: self
+  value: no
+- id: SCHEDULER_GANTT_HOLE_MINIMUM_TIME
+  links:
+     href: /config/SCHEDULER_GANTT_HOLE_MINIMUM_TIME
+     rel: self
+  value: 300
+- id: SCHEDULER_RESOURCE_ORDER
+  links:
+     href: /config/SCHEDULER_RESOURCE_ORDER
+     rel: self
+  value: 'scheduler_priority ASC, suspended_jobs ASC, network_address DESC, resource_id ASC'
+- id: SCHEDULER_PRIORITY_HIERARCHY_ORDER
+  links:
+     href: /config/SCHEDULER_PRIORITY_HIERARCHY_ORDER
+     rel: self
+  value: network_address/resource_id
+- id: OARSUB_NODES_RESOURCES
+  links:
+     href: /config/OARSUB_NODES_RESOURCES
+     rel: self
+  value: network_address
+- id: SCHEDULER_JOB_SECURITY_TIME
+  links:
+     href: /config/SCHEDULER_JOB_SECURITY_TIME
+     rel: self
+     value: 60
+- id: DETACH_JOB_FROM_SERVER
+  links:
+     href: /config/DETACH_JOB_FROM_SERVER
+     rel: self
+  value: 0
+- id: LOG_LEVEL
+  links:
+     href: /config/LOG_LEVEL
+     rel: self
+  value: 2
+- id: OAREXEC_DEBUG_MODE
+  links:
+     href: /config/OAREXEC_DEBUG_MODE
+     rel: self
+  value: 0
+
+    .....
+    .....
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+curl -i -X GET http://login:password&#64;localhost/oarapi-priv/config.yaml
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-config-file">
+<h2><a class="toc-backref" href="#id46">5.34&nbsp;&nbsp;&nbsp;GET /config/file</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Get the raw config file of OAR. It also output the path of the file used by the API.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">oar</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash</p>
+<dl class="docutils">
+<dt><em>fields</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>path</strong> : The path of the config file</li>
+<li><strong>file</strong> : The raw content of the config file (text)</li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+curl -i -X GET http://kameleon:kameleon&#64;localhost/oarapi-priv/config/file.yaml
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-config-variable">
+<h2><a class="toc-backref" href="#id47">5.35&nbsp;&nbsp;&nbsp;GET /config/&lt;variable&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Get details about the configuration variable identified by <em>variable</em></p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">oar</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: 1 element array of hash</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+- id: DB_TYPE
+  links:
+     href: /config/DB_TYPE
+     rel: self
+  value: mysql
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+curl -i -X GET http://login:password&#64;localhost/oarapi-priv/config/DB_TYPE.yaml
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-config-variable">
+<h2><a class="toc-backref" href="#id48">5.36&nbsp;&nbsp;&nbsp;POST /config/&lt;variable&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Change the value of the configuration variable identified by <em>variable</em></p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">oar</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">input:</th><td class="field-body"><p class="first">A [value] entry is mandatory</p>
+<p><em>structure</em>: hash describing the new value of the variable</p>
+<dl class="docutils">
+<dt><em>fields</em>:</dt>
+<dd><ul class="first last simple">
+<li><strong>value</strong> (<em>string</em>): the value of the given variable</li>
+</ul>
+</dd>
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+value: 'state=Finishing,Running,Resuming,Suspended,Launching,toLaunch,Waiting,toAckReservation,Hold,Terminated'
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: hash returning the variable and his new value</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+    API_JOBS_URI_DEFAULT_PARAMS:
+      value: 'state=Finishing,Running,Resuming,Suspended,Launching,toLaunch,Waiting,toAckReservation,Hold,Terminated'
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first literal-block">
+curl -i -X POST http://login:password&#64;localhost/oarapi-priv/config/API_JOBS_URI_DEFAULT_PARAMS.yaml -H'Content-Type: text/yaml' -T config.yaml
+</pre>
+</td>
+</tr>
+<tr class="field"><th class="field-name">note:</th><td class="field-body"><p class="first last">config.yaml contains the value of the variable.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-media-ls-file-path">
+<h2><a class="toc-backref" href="#id49">5.37&nbsp;&nbsp;&nbsp;GET /media/ls/&lt;file_path&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Get a list of the directory from the path given by <em>file_path</em>. The <em>file_path</em> may contain the special character &quot;~&quot; that is expanded to the home directory of the user that is making the request.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">user</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first"><em>structure</em>: array of hashes giving for each listed file: the name, the mode, the size, the modification time and the type (<em>f</em> for a file or <em>d</em> for a directory)</p>
+<dl class="docutils">
+<dt><em>yaml example</em>:</dt>
+<dd><pre class="first last literal-block">
+---
+api_timestamp: 1340095354
+items:
+  - mode: 33188
+    mtime: 1339685040
+    name: API.pm
+    size: 58620
+    type: f
+  - mode: 16877
+    mtime: 1340094660
+    name: bart
+    size: ~
+    type: d
+  - mode: 16877
+    mtime: 1338993000
+    name: cigri-3
+    size: ~
+    type: d
+  - mode: 16877
+    mtime: 1340095200
+    name: oar
+    size: ~
+    type: d
+  - mode: 16877
+    mtime: 1334132940
+    name: oar_install
+    size: ~
+    type: d
+  - mode: 33261
+    mtime: 1339685040
+    name: oarapi.pl
+    size: 75939
+    type: f
+  - mode: 33261
+    mtime: 1340027400
+    name: test.sh
+    size: 43
+    type: f
+links:
+  - href: /oarapi-priv/media/ls/~/
+    rel: self
+offset: 0
+total: 7
+</pre>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first literal-block">
+curl -i -X GET http://kameleon:kameleon&#64;localhost/oarapi-priv/media/ls/~/  -H'Content-Type: text/yaml'
+</pre>
+</td>
+</tr>
+<tr class="field"><th class="field-name">note:</th><td class="field-body"><p class="first last">returns a 404 if the path does not exist, or a 403 if the path is not readable. Errors in debug mode (with ?debug=1) are formated into yaml.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-media-file-path">
+<h2><a class="toc-backref" href="#id50">5.38&nbsp;&nbsp;&nbsp;GET /media/&lt;file_path&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Get a file located on the API host, into the path given by <em>file_path</em>. The <em>file_path</em> may contain the special character &quot;~&quot; that is expanded to the home directory of the user that is making the request.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tail</strong>: specifies an optional number of lines for printing only the tail of a text file</li>
+</ul>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">application/octet-stream</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">user</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first">octet-stream</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first literal-block">
+curl -i -H'Content-Type: application/octet-stream'  http://kameleon:kameleon&#64;localhost/oarapi-priv/media/~/cigri-3/CHANGELOG
+</pre>
+</td>
+</tr>
+<tr class="field"><th class="field-name">note:</th><td class="field-body"><p class="first last">returns a 404 if the file does not exist, or a 403 if the file is not readable. Errors in debug mode (with ?debug=1) are formated into yaml.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-media-file-path">
+<h2><a class="toc-backref" href="#id51">5.39&nbsp;&nbsp;&nbsp;POST /media/&lt;file_path&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Upload or create a file on the API host, into the path given by <em>file_path</em>. The <em>file_path</em> may contain the special character &quot;~&quot; that is expanded to the home directory of the user that is making the request. If the path does not exists, the directories are automatically created. If no data is passed, an empty file is created. If binary data is sent as POSTDATA, then it is a file to upload.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">application/octet-stream</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">user</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first">201 if ok</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+curl -i -X POST -H'Content-Type: application/octet-stream' --data-binary &#64;/etc/group http://kameleon:kameleon&#64;localhost/oarapi-priv/media/~/testdir/testfile
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="post-media-chmod-file-path">
+<h2><a class="toc-backref" href="#id52">5.40&nbsp;&nbsp;&nbsp;POST /media/chmod/&lt;file_path&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Changes the permissions on a file: do a chmod(1) on <em>file_path</em>. The special character &quot;~&quot; is expanded as the home of the user that makes the query.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">html , yaml , json</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">user</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">input:</th><td class="field-body"><p class="first">A [mode] entry is mandatory</p>
+<p><em>mode</em>: A mode definition as passed to the &quot;chmod&quot; unix command.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first">202 if ok</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+curl -i -X POST http://kameleon:kameleon&#64;localhost/oarapi-priv/media/chmod/~/param9  -H'Content-Type: application/json' -d '{&quot;mode&quot;:&quot;755&quot;}'
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="delete-media-file-path">
+<h2><a class="toc-backref" href="#id53">5.41&nbsp;&nbsp;&nbsp;DELETE /media/&lt;file_path&gt;</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">description:</th><td class="field-body"><p class="first">Delete the file or directory given by <em>file_path</em>. The <em>file_path</em> may contain the special character &quot;~&quot; that is expanded to the home directory of the user that is making the request. If the path is a directory, then it is deleted recursively.</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">formats:</th><td class="field-body"><p class="first">application/octet-stream</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">authentication:</th><td class="field-body"><p class="first">user</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">output:</th><td class="field-body"><p class="first">204 if ok</p>
+</td>
+</tr>
+<tr class="field"><th class="field-name">usage example:</th><td class="field-body"><pre class="first last literal-block">
+curl -i -X DELETE -H'Content-Type: application/octet-stream' http://kameleon:kameleon&#64;localhost/oarapi-priv/media/~/testdir
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="some-equivalences-with-oar-command-line">
+<h1><a class="toc-backref" href="#id54">6&nbsp;&nbsp;&nbsp;Some equivalences with oar command line</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%" />
+<col width="55%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">OAR command</th>
+<th class="head">REST request</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>oarstat</td>
+<td>GET /jobs.html</td>
+</tr>
+<tr><td>oarstat -Y</td>
+<td>GET /jobs/details.yaml?structure=oar</td>
+</tr>
+<tr><td>oarstat -Y -fj &lt;id&gt;</td>
+<td>GET /jobs/&lt;id&gt;.yaml</td>
+</tr>
+<tr><td>oardel &lt;id&gt;</td>
+<td>DELETE /jobs/&lt;id&gt;.yaml</td>
+</tr>
+<tr><td>oardel &lt;id&gt; <em>(alternative way)</em></td>
+<td>POST /jobs/deletions/&lt;id&gt;/new.yaml</td>
+</tr>
+<tr><td>oarnodes -Y</td>
+<td>GET /resources/full.yaml?structure=oar</td>
+</tr>
+<tr><td>oarnodes -Y -r1</td>
+<td>GET /resources/1.yaml?structure=oar</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+<a class="reference external" href="OAR-DOCUMENTATION-API-USER.rst">View document source</a>.
+Generated on: 2012-11-16 09:25 UTC.
+Generated by <a class="reference external" href="http://docutils.sourceforge.net/">Docutils</a> from <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> source.
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Friday 16 November 2012</span>
+<!-- Created <span class="date">Wednesday 15 June 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from OAR -->
+</div>
+
+</div>
+
+</body>
+</html>

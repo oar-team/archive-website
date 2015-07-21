@@ -1,0 +1,528 @@
+
+body
+{
+	margin:0;
+	padding:0;
+	font-size:10pt;
+	font-family:serif;
+	font-family:sans-serif;
+        margin:auto;
+        overflow-y:scroll;
+}
+
+.page
+{
+    //-moz-box-shadow:0 0 0.5em 0 black;
+    //border-radius:1em 1em 1em 1em;
+    overflow:hidden;
+    min-width:55em;
+    margin: auto;
+    max-width:1199px;
+    min-width:600px;
+}
+
+.inlinepage 
+{
+    border:none;
+}
+
+.inlinepage.news,
+#content #news
+{
+    -moz-border-radius:1em 1em 1em 1em;
+    -webkit-border-radius:1em 1em 1em 1em;
+    border-radius:1em 1em 1em 1em;
+    border: 1px solid #ccc;
+    font-size:90%;
+    background:#eee;
+    margin: 2em 4em;
+    padding:1em;
+}
+
+.inlinepage .header ,
+#content #news .header
+{
+    font-size:110%;
+}
+
+.includepage h1
+{
+    /*display:none;*/
+}
+
+.feedlink
+{
+    float:right;
+}
+.pageheader
+{
+	padding:0 0em;
+	color:white;
+	overflow:hidden;
+	z-index:100;
+	position:relative;
+        -moz-box-shadow:0 0 0.4em 0 #555;
+        -webkit-box-shadow:0 0 0.4em 0 #555;
+        box-shadow:0 0 0.4em 0 #555;
+        -moz-border-radius:1em 1em 0em 0em;
+        -webkit-border-radius:1em 1em 0em 0em;
+        border-radius:1em 1em 0em 0em;
+        border:1px solid #333;
+        margin: 1em;
+        margin-bottom:0em;
+        background:url(img/bandeau4.jpg) no-repeat transparent;
+        height:90px;
+}
+
+.pageheader .header
+{
+        margin:0;
+        padding:0 1em;
+	font-size:10pt;
+        overflow:hidden;
+        height:100%;
+}
+
+.pageheader .header > span
+{
+	display:block;
+	margin:auto;
+	padding:0.5em 1em;
+        padding-top:30px;
+        padding-left:14em;
+        top:100px;
+
+}
+
+.pageheader .header > span > span
+{
+    padding: 0.2em 0.5em;
+    /*
+    background:   rgba(0,0,0,0.5);
+    border: 1px solid rgba(0,0,0,0.3);
+    //-moz-box-shadow:0 0 1.5em 0 rgba(0,0,0,1);
+    border-radius:1em 1em 1em 1em;
+    */
+
+}
+
+.pageheader .parentlinks
+{
+	display:none;
+	font-size:8pt;
+	min-height:1.5em;
+}
+
+.pageheader a,
+.pageheader .parentlinks a
+{
+	color:white;
+	text-decoration:none;
+	text-shadow:0.1em 0.1em 0.1em black;
+}
+.pageheader a:hover
+{
+	color:black;
+	text-shadow:0 0 0.25em white;
+}
+
+
+.pageheader .title
+{
+	color:white;
+	font-size:20pt;
+	text-shadow:0.05em 0.05em 0.25em black;
+	line-height:1em;
+}
+
+.pageheader #searchform
+{
+    position:absolute;
+    right:1em;
+    top:20px;
+}
+
+
+.actions
+{
+	display:none;
+        position:absolute;
+        bottom:0em;
+        right:0em;
+        background: black;
+        border:1px solid black;
+        opacity:0.9;
+        font-weight:bold;
+}
+
+.actions a:hover {
+    color: orange;
+}
+#pagebody
+{
+	padding:0 2em;
+	overflow:hidden;
+	z-index:100;
+	position:relative;
+	background:transparent;
+        padding-left:14em;
+        padding-right:1em;
+        margin:0em 1em;
+        -moz-box-shadow:0 0 0.4em 0 #999;
+        -webkit-box-shadow:0 0 0.4em 0 #999;
+        box-shadow:0 0 0.4em 0 #999;
+        -moz-border-radius:0em 0em 1em 1em;
+        -webkit-border-radius:0em 0em 1em 1em;
+        border-radius:0em 0em 1em 1em;
+        border:1px solid #ddd;
+        border-top:none;
+}
+
+#pagebody #content
+{
+    margin:0;
+    margin-bottom:1em;
+    padding:0 1em;
+    border-bottom:none;
+    min-height:50em;
+    overflow:auto;
+
+}
+
+.sidebar
+{
+	padding:0.75em;
+        padding-right:0em;
+        padding-left:0.5em;
+        margin:0em;
+        margin-left:1em;
+        margin-top:1em;
+	background:white;
+	background:transparent;
+        background:#eeeef1;
+	border:#dddddd solid 1px;
+	-moz-border-radius: 0 1em 1em 0;
+	-webkit-border-radius: 0 1em 1em 0;
+	border-radius: 0 1em 1em 0;
+        border:1px solid #ddd;
+        border-left:none;
+	-moz-box-shadow:0 0 0.5em 0 #ccc;
+	-webkit-box-shadow:0 0 0.5em 0 #ccc;
+	box-shadow:0 0 0.5em 0 #ccc;
+    	text-shadow:0 0 0.25em white;
+        width:13em;
+        max-height:47em;
+        position:absolute;
+        overflow:auto;
+        z-index:150;
+}
+
+.sidebar ul
+{
+	margin:0em;
+	padding:0em;
+	list-style:none;
+}
+
+.sidebar ul ul
+{
+	padding:0 1em;
+	padding-left:0.5em;
+	margin-top:0.2em;
+}
+
+.sidebar ul ul ul
+{
+	padding:0 1em;
+	padding-left:0.5em;
+	margin-top:0em;
+}
+
+.sidebar li
+{
+	margin-top:1em;
+}
+
+.sidebar li li
+{
+	margin-top:0em;
+}
+
+.sidebar li:first-child
+{
+	margin-top:0em;
+}
+
+.sidebar > ul > li > span,
+.sidebar > ul > li > a
+{
+    font-size:10pt;
+    font-weight:bold;
+}
+
+.sidebar ul ul ul li a,
+.sidebar ul ul ul li span
+{
+    font-size:8pt;
+}
+
+.sidebar a
+{
+	color:#245885;
+        padding: 0em 0em;
+	text-decoration:none;
+}
+
+.sidebar a:hover
+{
+	color:#363;
+}
+
+.sidebar span
+{
+}
+
+.sidebar .selflink
+{
+    color:black;
+    -moz-border-radius:0 1em 1em 0;
+    -webkit-border-radius:0 1em 1em 0;
+    border-radius:0 1em 1em 0;
+    -moz-box-shadow:0 0 0.25em 0 #224;
+    -webkit-box-shadow:0 0 0.25em 0 #224;
+    box-shadow:0 0 0.25em 0 #224;
+    background:#578BB8;
+    padding: 0em;
+    padding-right:0.7em;
+}
+
+
+#content
+{
+	line-height:1.5em;
+}
+
+#content p
+{
+	text-align:justify;
+	margin-top:1.5em;
+	margin-bottom:1.5em;
+}
+
+#content h1,
+#content h2,
+#content h3
+{
+	font-family:sans-serif;
+}
+
+#content h1
+{
+	color:#112233;
+	font-size:13pt;
+	line-height:1.5em;
+	margin-top:2em;
+        padding-bottom:0em;
+}
+
+#content h2
+{
+	font-size:11pt;
+	color:#223344;
+	margin-top:1.5em;
+	margin-bottom:0;
+}
+
+#content h2 + p
+{
+	margin-top:0.75em;
+}
+
+
+#content h3
+{
+	font-size:10pt;
+        font-style:italic;
+	color:#445566;
+	margin-bottom:0;
+	padding-bottom:0;
+}
+
+#content h3 + p
+{
+	margin-top:0.5em;
+}
+
+#content a
+{
+    color:#245885;
+}
+
+#content a:hover
+{
+    color:#006633;
+}
+#content pre
+{
+    background:#eee;
+    -moz-border-radius:0.5em;
+    -webkit-border-radius:0.5em;
+    border-radius:0.5em;
+    padding:0.25em 0.75em;
+}
+
+#content .news_date
+{
+    font-family: monospace; white-space: nowrap;
+}
+
+#content blockquote
+{
+}
+
+
+#content img
+{
+    max-width:100%;
+}
+#content img.align-center
+{
+    margin:auto;
+    display:block;
+}
+
+#content table
+{
+    border-collapse: collapse;
+    border-bottom: 1px #aaa solid;
+}
+
+#content table th
+{
+    border: 1px #aaa solid;
+    background: #ddd;
+    padding:0em 0.25em;
+}
+
+#content table td
+{
+    border-left: 1px #aaa solid;
+    border-right: 1px #aaa solid;
+    padding:0em 0.25em;
+}
+
+#content .toc li
+{
+    list-style:none;
+}
+
+#content .toc li.L1 > a {
+    font-size:110%;
+}
+#content .toc li.L2 > a {
+    font-size:105%;
+}
+
+
+#content blockquote li p {
+    margin-top:0;
+    margin-bottom:0;
+}
+
+#footer
+{
+	z-index:105;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	position:relative;
+        padding-left:15em;
+        padding-right:1em;
+}
+
+#footer #pageinfo
+{
+        max-width:1024px;
+        min-width:600px;
+        margin:auto;
+        margin:0;
+	padding:0em 1em;
+        padding-bottom:0.5em;
+	position:relative;
+	overflow:hidden;
+        border: none;
+	margin-bottom:1em;
+        color:#666;
+        text-align:right;
+}
+
+#footer a:hover
+{
+	color:#006633;
+}
+
+#backlinks
+{
+	font-size:8pt;
+	margin-top:0;
+}
+#footer .pagedate
+{
+	font-size:8pt;
+}
+
+@media print {
+    .sidebar {
+        display:none;
+        width:0;
+    }
+
+    #pagebody {
+        padding-left:1em;
+        border:none;
+        box-shadow:none;
+        padding:0em;
+        padding-left:0em;
+        padding-right:0em;
+        margin:0em;
+    }
+
+    .pageheader {
+        border:none;
+        box-shadow:none;
+        background:none;
+        padding:0em;
+        margin:0em;
+        height:auto;
+    }
+    .pageheader .title {
+        text-shadow:none;
+        color:black;
+    }
+    .pageheader .header > span {
+        padding:0;
+    }
+    .pageheader .header {
+        padding:0;
+        margin:0em;
+    }
+
+    .pageheader #searchform {
+        display:none;
+    }
+
+    .page {
+        max-width:none;
+        width:100%;
+        margin:0;
+    }
+
+    body {
+        margin:0;
+        font-size:10pt;
+    }
+
+    #footer {
+        padding:0;
+    }
+}

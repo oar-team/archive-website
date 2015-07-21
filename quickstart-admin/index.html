@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Installation</title>
+
+<link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../">OAR</a>/ 
+
+</span>
+<span class="title">
+Installation
+
+</span>
+</span>
+
+<form method="get" action="http://oar.imag.fr//ikiwiki.cgi" id="searchform">
+<div>
+<input type="text" id="searchbox" name="P" value="" size="16"
+ />
+</div>
+</form>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><strong><a href="../">Home</a></strong></li>
+<li><strong><a href="../about/">About</a></strong></li>
+<li><strong><a href="../news/">News</a></strong></li>
+<li><strong><a href="http://wiki-oar.imag.fr">Wiki</a></strong></li>
+<li><strong>Getting OAR</strong>
+<ul>
+<li><a href="../repositories/">Repositories</a></li>
+<li><a href="../installation/">Installation</a></li>
+<li><a href="../changelog/">Changelog</a></li>
+</ul></li>
+<li><strong>Using OAR</strong>
+<ul>
+<li><a href="../user-quickstart/">First user steps</a></li>
+<li><a href="../user-usecases/">Use cases</a></li>
+<li><a href="../faq/">FAQ</a></li>
+</ul></li>
+<li><strong>Getting help</strong>
+<ul>
+<li><a href="../support/">Contact/Mailing lists</a></li>
+<li><a href="../documentation/">Documentation</a></li>
+</ul></li>
+<li><strong>Contributing to OAR</strong>
+<ul>
+<li><a href="../contributing/repositories/">Source repositories</a></li>
+<li><a href="../contributing/workflow/">Workflow</a></li>
+<li><a href="../contributing/GSOCs/">GSOCs</a></li>
+</ul></li>
+<li><strong><a href="../research/">Researchers' Corner</a></strong></li>
+<li><strong><a href="../partners-projects/">Partners &amp; Projects</a></strong></li>
+</ul>
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+<p><strong>Table of content:</strong></p>
+
+<div class="toc">
+	<ol>
+		<li class="L2"><a href="#index1h2">I) Installation</a>
+		<ol>
+			<li class="L3"><a href="#index1h3">Installation from debian packages</a>
+			</li>
+			<li class="L3"><a href="#index2h3">Installation from rpm packages</a>
+			</li>
+			<li class="L3"><a href="#index3h3">Installation from the sources</a>
+			</li>
+		</ol>
+		</li>
+		<li class="L2"><a href="#index2h2">II) Initiate the database</a>
+		</li>
+		<li class="L2"><a href="#index3h2">III) Configuration file</a>
+		</li>
+		<li class="L2"><a href="#index4h2">IV) Cpusets</a>
+		</li>
+		<li class="L2"><a href="#index5h2">V) Adding resources to the system</a>
+		</li>
+	</ol>
+</div>
+
+<div id="feedlink">
+
+
+</div>
+<div class="includepage">
+
+<div class="inlineheader">
+
+</div>
+
+<div class="inlinecontent">
+<h1 id="installingoaralmostwithoutpain"><a name="index1h1"></a>Installing OAR (almost) without pain</h1>
+
+<p>There are currently 3 methods to install OAR.</p>
+
+<ul>
+<li>with debian packages</li>
+<li>with rpm packages</li>
+<li>with the sources</li>
+</ul>
+
+<p>The first thing you have to know is about the OAR architecture.</p>
+
+<p>A common OAR installation is composed of:</p>
+
+<ul>
+<li>the OAR server</li>
+<li>the DataBase server</li>
+<li>the job submission frontale</li>
+<li>several machines that are computing nodes</li>
+</ul>
+
+<p>To ease the first installation, you might consider using the same
+machine for the OAR server, the DataBase, the frontale and to
+create some virtual resources too on the machine. This might be
+done by using 127.0.<em>.</em> IP addresses for your resources.</p>
+
+<p>Otherwise, you will have to copy the oar user keys on each machine
+to allow passwordless connections between them for the user oar.</p>
+
+<h2 id="iinstallation"><a name="index1h2"></a>I) Installation</h2>
+
+<h3 id="installationfromdebianpackages"><a name="index1h3"></a>Installation from debian packages</h3>
+
+<p>If you want to install oar from the debian packages, you will have
+to install the oar-server package on the OAR server, the oar-user
+package on the submission frontale and the oar-node package on the
+computing nodes.</p>
+
+<ul>
+<li>add to your apt.conf file the line given in
+<a href="http://oar.imag.fr/downloads.html">http://oar.imag.fr/downloads.html</a>
+depending on which release you want to install.</li>
+<li>install the oar-* packages on the different machines like
+explained above.</li>
+<li>install postgresql or mysql-server depending which database you
+want to use.</li>
+<li><p>add:</p>
+
+<pre><code>environment="OAR_KEY=1"
+</code></pre></li>
+</ul>
+
+<blockquote>
+  <p>at the beginning of the public key in the
+  <strong>\~oar/.ssh/authorized_keys</strong> file.</p>
+</blockquote>
+
+<h3 id="installationfromrpmpackages"><a name="index2h3"></a>Installation from rpm packages</h3>
+
+<p>To complete...</p>
+
+<h3 id="installationfromthesources"><a name="index3h3"></a>Installation from the sources</h3>
+
+<h4 id="prerequisites:installthelibs"><a name="index1h4"></a>Prerequisites: Install the libs</h4>
+
+<p>First of all you have to install the following packages:</p>
+
+<ul>
+<li>Perl</li>
+<li>Perl-base</li>
+<li>openssh (server and client) version &gt;= 3.9</li>
+<li>Perl-Mysql</li>
+<li>Perl-DBI</li>
+<li>MySQL</li>
+<li>libmysql</li>
+<li>perl-suid</li>
+</ul>
+
+<p>You also have to install a &gt;= 2.6 kernel in order to use cpuset
+feature.</p>
+
+<h4 id="pavethewayforinstall"><a name="index2h4"></a>1°) Pave the way for install</h4>
+
+<ul>
+<li>add a user named "oar" in the group "oar"</li>
+<li>create a set of ssh keys for the user "oar" with ssh-keygen
+(for instance 'id_dsa.pub' and 'id_dsa')</li>
+<li>copy these keys in the ".ssh" folder of the user "oar"</li>
+<li>append the contents of 'id_dsa.pub' to the file
+<strong>\~oar/.ssh/authorized_keys</strong></li>
+<li><p>in <strong>\~/.ssh/config</strong> (create the file if it doesn't exists)
+add the lines:</p>
+
+<pre><code>Host *
+    ForwardX11 no
+    StrictHostKeyChecking no
+    PasswordAuthentication no
+    AddressFamily inet
+</code></pre></li>
+<li><p>add in your ssh server config <a href="file::">file::</a></p>
+
+<blockquote>
+  <p>AcceptEnv OAR_CPUSET OAR_JOB_USER PermitUserEnvironment yes
+  UseLogin no AllowUsers oar</p>
+</blockquote></li>
+<li><p>add:</p>
+
+<pre><code>environment="OAR_KEY=1"
+</code></pre></li>
+</ul>
+
+<blockquote>
+  <p>at the beginning of the public key in the
+  <strong>\~oar/.ssh/authorized_keys</strong> file.</p>
+</blockquote>
+
+<ul>
+<li><p>add in your <strong>\~oar/.bashrc</strong> <a href="file::">file::</a></p>
+
+<blockquote>
+  <p>export PATH=/usr/local/oar/oardodo:$PATH</p>
+</blockquote></li>
+</ul>
+
+<h4 id="installtheoarmodules"><a name="index3h4"></a>2°) Install the OAR modules</h4>
+
+<p>Just go into the OAR source directory and as root type:</p>
+
+<pre><code>make server-install user-install node-install
+</code></pre>
+
+<h4 id="launchtheoarserver"><a name="index4h4"></a>3°) Launch the OAR server</h4>
+
+<p>Finally, you will have to launch as oar the <strong>Almighty</strong> daemon
+(the oar server).</p>
+
+<h2 id="iiinitiatethedatabase"><a name="index2h2"></a>II) Initiate the database</h2>
+
+<p>As root run oar_mysql_db_init or oar_psql_db_init depending
+your DataBase type.</p>
+
+<h2 id="iiiconfigurationfile"><a name="index3h2"></a>III) Configuration file</h2>
+
+<p>This part is optionnal for now. You can come back to it later.</p>
+
+<p>To configure your oar server, edit its config file
+<strong>/etc/oar/oar.conf</strong>. Take a look at the different sections and
+customize it if you want to.</p>
+
+<h2 id="ivcpusets"><a name="index4h2"></a>IV) Cpusets</h2>
+
+<p>This part is optionnal too right now if you're installing OAR for
+the first time. It is easier to begin using OAR without this
+feature. Once everything's ok and your jobs are running on your
+resources, you can activate this feature.</p>
+
+<p>The cpuset feature will allow OAR to restrict the use of one (or a
+group) of cpu for a job. Each computing resource has a <strong>cpuset</strong>
+field that will refer to the cpu id that will run the job for this
+resource.</p>
+
+<p>In order to use this feature, you have to uncomment the line with
+the <strong>JOB_RESOURCE_MANAGER_PROPERTY_DB_FIELD</strong> field in your
+oar.conf file. Then, for each computing resource in your database,
+set the cpuset field to the cpu id you want your resource to be
+restricted on.</p>
+
+<h2 id="vaddingresourcestothesystem"><a name="index5h2"></a>V) Adding resources to the system</h2>
+
+<p>To add resources to your system, you can use (as root) the command
+oarnodesetting. For a complete comprehension of what does this
+command, type man oarnodesetting.</p>
+
+<p>For now, the two options you will need will be <strong>-a</strong> (means add a
+resource) and <strong>-h</strong> (defines the resource hostname or ip adress).</p>
+
+<p>For example, to add a computing resource locally to test OAR
+installation type:</p>
+
+<pre><code>oarnodesetting -a -h 127.0.10.1
+</code></pre>
+
+<p>This will add a resource with 127.0.10.1 as host IP address.</p>
+
+<p>You also can modify resources properties with <strong>-p</strong> option, for
+example:</p>
+
+<pre><code>oarnodesetting -r 1 -p "deploy=YES"
+</code></pre>
+
+<p>will allow the resource #1 to accept jobs of the type deploy.</p>
+
+</div>
+
+<div class="inlinefooter">
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Wednesday 11 January 2012</span>
+<!-- Created <span class="date">Wednesday 11 January 2012</span> -->
+</div>
+
+</div>
+
+
+<!-- from OAR -->
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,287 @@
+<?xml version="1.0"?>
+<rss version="2.0"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:dcterms="http://purl.org/dc/terms/" >
+<channel>
+<title>News</title>
+<link>http://oar.imag.fr//news/</link>
+<description>OAR</description>
+<item>
+
+	<title>OAR on Github</title>
+
+
+	<guid isPermaLink="no">http://oar.imag.fr//news/20121105_oar-github/</guid>
+
+	<link>http://oar.imag.fr//news/20121105_oar-github/</link>
+
+	<pubDate>Mon, 05 Nov 2012 00:00:00 +0100</pubDate>
+	<dcterms:modified>2012-11-16T09:38:11Z</dcterms:modified>
+
+	<description>&lt;p&gt;We&#39;ve decided to push the main branches of the OAR repository on github. The objective is to ease the way to make patches for people not in the OAR team.&lt;/p&gt;
+
+&lt;p&gt;So, you&#39;ll find the oar github repository here :&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://github.com/oar-team/oar&quot;&gt;https://github.com/oar-team/oar&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For more information, please ask on the &lt;a href=&quot;http://oar.imag.fr//news/../support/&quot;&gt;mailing lists&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;-- The OAR Team&lt;/p&gt;
+</description>
+
+
+</item>
+<item>
+
+	<title>OAR in the Debian Archives</title>
+
+
+	<guid isPermaLink="no">http://oar.imag.fr//news/20120601_oar-debian/</guid>
+
+	<link>http://oar.imag.fr//news/20120601_oar-debian/</link>
+
+	<pubDate>Fri, 01 Jun 2012 16:48:28 +0200</pubDate>
+	<dcterms:modified>2012-06-01T15:02:39Z</dcterms:modified>
+
+	<description>&lt;p&gt;Since version 2.5.2, OAR is in the Debian repositories and OAR will be a part of
+the Debian/Wheezy distribution.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;http://packages.qa.debian.org/o/oar.html&quot;&gt;http://packages.qa.debian.org/o/oar.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So OAR benefits now from the Debian repositories. It is currently in the
+unstable repository, and will probably move in the testing repository during the next
+week. As soon as it is in the testing repository, there will be a backport for
+squeeze.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;deb http://&amp;lt;debian_mirror&amp;gt;/debian unstable main
+deb http://&amp;lt;debian_mirror&amp;gt;/debian testing main
+deb http://&amp;lt;debian_mirror&amp;gt;/debian-backports squeeze-backports main
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Our own Debian repositories (http://oar-ftp.imag.fr/oar/*/debian) will
+be kept only for development purposes and for maintaining the 2.4 branches. The
+2.5 stable branches will be removed in the next months.&lt;/p&gt;
+
+&lt;p&gt;For more information, please ask on the &lt;a href=&quot;http://oar.imag.fr//news/../support/&quot;&gt;mailing lists&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;-- The OAR Team&lt;/p&gt;
+</description>
+
+
+</item>
+<item>
+
+	<title>OAR 2.5.2 release</title>
+
+
+	<guid isPermaLink="no">http://oar.imag.fr//news/20120523_oar-2.5.2/</guid>
+
+	<link>http://oar.imag.fr//news/20120523_oar-2.5.2/</link>
+
+	<pubDate>Wed, 23 May 2012 00:00:00 +0200</pubDate>
+	<dcterms:modified>2012-06-06T09:14:53Z</dcterms:modified>
+
+	<description>&lt;p&gt;OAR 2.5.2 has been pushed into the stable repositories. &lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://oar.imag.fr//news/../installation/2.5/&quot;&gt;Installation instructions&lt;/a&gt; | &lt;a href=&quot;http://oar.imag.fr//news/../upgrading/2.5/&quot;&gt;Upgrading issues&lt;/a&gt; | &lt;a href=&quot;http://oar.imag.fr//news/../repositories/&quot;&gt;Repository
+list&lt;/a&gt; | &lt;a href=&quot;http://oar.imag.fr//news/../changelog/2.5/&quot;&gt;Changelog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This release contains mainly bugfixes (see changelog for the complete list) and some performance improvements. You need to update the sql schema by executing &lt;code&gt;oar-database --setup&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;version 2.5.2:
+--------------
+  - Bugfix: /var/lib/oar/.bash_oar was empty due to an error in the common
+    setup script.
+  - Bugfix: the PINGCHECKER_COMMAND in oar.conf depends now on %%OARDIR%%.
+  - Bug #13939: the job_resource_manager.pl and job_resource_manager_cgroups.pl
+                now deletes the user files in /tmp, /var/tmp and /dev/shm at
+                the end of the jobs.
+  - Bugfix: in oardodo.c, the preprocessed variables was not defined correclty.
+  - Finaud: fix race condition when there was a PINGCHECKER error jsut before
+    another problem. The node became Alive again when the PINGCHECKER said OK
+    BUT there was another error to resolve.
+  - Bugfix: The feature CHECK_NODES_WITH_RUNNING_JOB=yes never worked before.
+  - Speedup monika (X5).
+  - Monika: Add the conf max_cores_per_line to have several lines if the number
+    of cores are too big.
+  - Minor changes into API:
+      - added cmd_output into POST /jobs.
+  - API: Added GET /select_all?query=&amp;lt;query&amp;gt; (read only mode).
+  - Add the field &quot;array_index&quot; into the jobs table. So that resubmit a job
+    from an array will have the right array_index anvironment variable.
+  - oarstat: order the output by job_id.
+  - Speedup oarnodes.
+  - Fix a spelling error in the oaradmin manpage.
+  - Bugfix #14122 : the oar-node init.d script wasn&#39;t executing
+    start_oar_node/stop_oar_node during the &#39;restart&#39; action.
+  - Allow the dash  character into the --notify &quot;exec:...&quot; oarsub option.
+  - Remove some old stuffs from the tarball:
+      - visualization_interfaces/{tgoar,accounting,poar};
+      - scheduler/moldable;
+      - pbs-oar-lib.
+  - Fix some licence issues.
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+
+
+</item>
+<item>
+
+	<title>OAR 2.5.1 release</title>
+
+
+	<guid isPermaLink="no">http://oar.imag.fr//news/20120120_oar-2.5/</guid>
+
+	<link>http://oar.imag.fr//news/20120120_oar-2.5/</link>
+
+	<pubDate>Fri, 20 Jan 2012 00:00:00 +0100</pubDate>
+	<dcterms:modified>2012-06-01T14:48:28Z</dcterms:modified>
+
+	<description>&lt;p&gt;The first stable release of the 2.5.x series is out.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://oar.imag.fr//news/../installation/2.5/&quot;&gt;Installation instructions&lt;/a&gt; | &lt;a href=&quot;http://oar.imag.fr//news/../upgrading/2.5/&quot;&gt;Upgrading issues&lt;/a&gt; | &lt;a href=&quot;http://oar.imag.fr//news/../repositories/&quot;&gt;Repository
+list&lt;/a&gt; | &lt;a href=&quot;http://oar.imag.fr//news/../changelog/2.5/&quot;&gt;Changelog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A lot of work has been done between the branches 2.4.x and 2.5.x. Among them:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A lot of improvements and optimization of the RestFull API&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;OAR 2.5 provides a Restfull API to submit/query/administrate the batch scheduler. The API now implements pagination and uses FastCGI for better performance.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A better installation procedure&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The source code has been reorganized and the installation scripts have been
+improved to ease both the installation process and the packaging maintenance. 
+OAR can be now installed on the Debian/Redhat like operating systems with 
+the same procedure. And supporting another system should be easy (provided 
+that the system fullfill the needed dependencies).&lt;/p&gt;
+</description>
+
+
+</item>
+<item>
+
+	<title>OAR 2.4.7 release</title>
+
+
+	<guid isPermaLink="no">http://oar.imag.fr//news/20120111_oar-2.4.7-release/</guid>
+
+	<link>http://oar.imag.fr//news/20120111_oar-2.4.7-release/</link>
+
+	<pubDate>Wed, 11 Jan 2012 00:00:00 +0100</pubDate>
+	<dcterms:modified>2012-01-11T14:49:13Z</dcterms:modified>
+
+	<description>&lt;p&gt;The new stable release 2.4.7 for OAR has been pushed into the stable repositories.
+This is a minor version that fixes a bug in the checkpoint feature. Please
+look at the &lt;a href=&quot;http://oar.imag.fr//news/../sources/2.4/CHANGELOG/&quot;&gt;2.4.x changelog&lt;/a&gt; for more information
+about the modifications.&lt;/p&gt;
+
+&lt;p&gt;The 2.4.x stable repositories can be found on the &lt;a href=&quot;http://oar.imag.fr//news/../repositories/&quot;&gt;repository page&lt;/a&gt;.&lt;/p&gt;
+</description>
+
+
+</item>
+<item>
+
+	<title>OAR 2.4.5 release</title>
+
+
+	<guid isPermaLink="no">http://oar.imag.fr//news/20110928_oar-2.4.5-release/</guid>
+
+	<link>http://oar.imag.fr//news/20110928_oar-2.4.5-release/</link>
+
+	<pubDate>Wed, 28 Sep 2011 00:00:00 +0200</pubDate>
+	<dcterms:modified>2012-01-11T14:49:38Z</dcterms:modified>
+
+	<description>&lt;p&gt;The OAR Version 2.4.5 has just been released. This is a minor version that fixes some bugs. Please look at the &lt;a href=&quot;http://oar.imag.fr//news/../sources/2.4/CHANGELOG/&quot;&gt;2.4.x changelog&lt;/a&gt; for more information about the modifications.&lt;/p&gt;
+
+&lt;p&gt;The 2.4.x stable repositories can be found on the &lt;a href=&quot;http://oar.imag.fr//news/../repositories/&quot;&gt;repository page&lt;/a&gt;.&lt;/p&gt;
+</description>
+
+
+</item>
+<item>
+
+	<title>A new website for OAR</title>
+
+
+	<guid isPermaLink="no">http://oar.imag.fr//news/20110627_new-website/</guid>
+
+	<link>http://oar.imag.fr//news/20110627_new-website/</link>
+
+	<pubDate>Mon, 27 Jun 2011 15:00:00 +0200</pubDate>
+	<dcterms:modified>2011-07-08T13:39:30Z</dcterms:modified>
+
+	<description>&lt;p&gt;&lt;strong&gt;The OAR Team has designed a new website&lt;/strong&gt;. The old one is no more accessible. If something is missing, please &lt;a href=&quot;http://oar.imag.fr//news/../support/&quot;&gt;contact&lt;/a&gt; us.&lt;/p&gt;
+
+&lt;p&gt;-- The OAR Team.&lt;/p&gt;
+</description>
+
+
+</item>
+<item>
+
+	<title>Two new engineers in the OAR team</title>
+
+
+	<guid isPermaLink="no">http://oar.imag.fr//news/20110301_recrutement/</guid>
+
+	<link>http://oar.imag.fr//news/20110301_recrutement/</link>
+
+	<pubDate>Tue, 01 Mar 2011 00:00:00 +0100</pubDate>
+	<dcterms:modified>2011-06-29T13:15:11Z</dcterms:modified>
+
+	<description>&lt;p&gt;Two engineers arrived in the sphere of OAR since January 2011. They will work
+on:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;optimizing the performance of &lt;a href=&quot;http://oar.imag.fr/&quot;&gt;OAR&lt;/a&gt; and evaluating its scalability;&lt;/li&gt;
+&lt;li&gt;working on the
+&lt;a href=&quot;http://computemode.imag.fr/mediawiki/index.php/ComputeMode_Grid_Manager&quot;&gt;ComputeMode&lt;/a&gt; project.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+
+
+</item>
+<item>
+
+	<title>OAR selected for GSoC 2010</title>
+
+
+	<guid isPermaLink="no">http://oar.imag.fr//news/20100323_gsoc/</guid>
+
+	<link>http://oar.imag.fr//news/20100323_gsoc/</link>
+
+	<pubDate>Tue, 23 Mar 2010 00:00:00 +0100</pubDate>
+	<dcterms:modified>2011-06-29T13:15:11Z</dcterms:modified>
+
+	<description>&lt;p&gt;The OAR Team is very proud of beeing selected again to 
+&lt;a href=&quot;http://code.google.com/soc/&quot;&gt;the Google Summer of Code program&lt;/a&gt;.&lt;/p&gt;
+</description>
+
+
+</item>
+<item>
+
+	<title>OAR applies to GSoC 2010</title>
+
+
+	<guid isPermaLink="no">http://oar.imag.fr//news/20100301_gsoc/</guid>
+
+	<link>http://oar.imag.fr//news/20100301_gsoc/</link>
+
+	<pubDate>Mon, 01 Mar 2010 00:00:00 +0100</pubDate>
+	<dcterms:modified>2011-06-29T13:15:11Z</dcterms:modified>
+
+	<description>&lt;p&gt;See the &lt;a href=&quot;http://wiki-oar.imag.fr/index.php/GSOC_2010&quot;&gt;wiki’s gsoc 2010 page&lt;/a&gt;.&lt;/p&gt;
+</description>
+
+
+</item>
+
+</channel>
+</rss>

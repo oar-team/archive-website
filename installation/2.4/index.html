@@ -1,0 +1,586 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Installation for the 2.4.x version </title>
+
+<link rel="icon" href="../../favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../">OAR</a>/ 
+
+<a href="../">installation</a>/ 
+
+</span>
+<span class="title">
+Installation for the 2.4.x version 
+
+</span>
+</span>
+
+<form method="get" action="http://oar.imag.fr//ikiwiki.cgi" id="searchform">
+<div>
+<input type="text" id="searchbox" name="P" value="" size="16"
+ />
+</div>
+</form>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><strong><a href="../../">Home</a></strong></li>
+<li><strong><a href="../../about/">About</a></strong></li>
+<li><strong><a href="../../news/">News</a></strong></li>
+<li><strong><a href="http://wiki-oar.imag.fr">Wiki</a></strong></li>
+<li><strong>Getting OAR</strong>
+<ul>
+<li><a href="../../repositories/">Repositories</a></li>
+<li><a href="../">Installation</a></li>
+<li><a href="../../changelog/">Changelog</a></li>
+</ul></li>
+<li><strong>Using OAR</strong>
+<ul>
+<li><a href="../../user-quickstart/">First user steps</a></li>
+<li><a href="../../user-usecases/">Use cases</a></li>
+<li><a href="../../faq/">FAQ</a></li>
+</ul></li>
+<li><strong>Getting help</strong>
+<ul>
+<li><a href="../../support/">Contact/Mailing lists</a></li>
+<li><a href="../../documentation/">Documentation</a></li>
+</ul></li>
+<li><strong>Contributing to OAR</strong>
+<ul>
+<li><a href="../../contributing/repositories/">Source repositories</a></li>
+<li><a href="../../contributing/workflow/">Workflow</a></li>
+<li><a href="../../contributing/GSOCs/">GSOCs</a></li>
+</ul></li>
+<li><strong><a href="../../research/">Researchers' Corner</a></strong></li>
+<li><strong><a href="../../partners-projects/">Partners &amp; Projects</a></strong></li>
+</ul>
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+<p><strong>Table of content:</strong></p>
+
+<div class="toc">
+<ol>
+	<li class="L1"><a href="#index1h1">Installing the OAR batch system</a>
+	<ol>
+		<li class="L2"><a href="#index1h2">Requirements</a>
+		</li>
+		<li class="L2"><a href="#index2h2">Configuration of the cluster</a>
+		</li>
+		<li class="L2"><a href="#index3h2">CPUSET installation</a>
+		</li>
+		<li class="L2"><a href="#index4h2">Using Taktuk</a>
+		</li>
+		<li class="L2"><a href="#index5h2">Visualization tools installation</a>
+		</li>
+		<li class="L2"><a href="#index6h2">Debian packages</a>
+		</li>
+		<li class="L2"><a href="#index7h2">Starting</a>
+		</li>
+		<li class="L2"><a href="#index8h2">Energy saving</a>
+		</li>
+		<li class="L2"><a href="#index9h2">Further informations</a>
+		</li>
+	</ol>
+	</li>
+</ol>
+</div>
+
+<div id="feedlink">
+
+
+</div>
+<div class="includepage">
+
+<div class="inlineheader">
+
+</div>
+
+<div class="inlinecontent">
+<h1 id="installingtheoarbatchsystem"><a name="index1h1"></a>Installing the OAR batch system</h1>
+
+<p>What do you need?
+  ~ -   a cluster
+    -   to be an admin of this cluster
+    -   to get the install package of OAR (normally you have already
+        done that)</p>
+
+<h2 id="requirements"><a name="index1h2"></a>Requirements</h2>
+
+<p>There a three kinds of nodes, each requiring a specific software
+configuration.</p>
+
+<p>These are :</p>
+
+<blockquote>
+  <ul>
+  <li>the server node, which will hold all of OAR "smartness" ;</li>
+  <li>the login nodes, on which you will be allowed to login, then
+  reserve some computational nodes ;</li>
+  <li>the computational nodes (a.k.a. the nodes), on which the jobs
+  will run.</li>
+  </ul>
+</blockquote>
+
+<p>On every nodes (server, login, computational), the following
+packages must be installed :</p>
+
+<blockquote>
+  <ul>
+  <li>Perl</li>
+  <li>Perl-base</li>
+  <li>openssh (server and client)</li>
+  </ul>
+</blockquote>
+
+<p>On the OAR server and on the login nodes, the following packages
+must be installed:</p>
+
+<blockquote>
+  <ul>
+  <li>Perl-Mysql | Perl-PostgreSQL</li>
+  <li>Perl-DBI</li>
+  <li>MySQL | PostgreSQL</li>
+  <li>libmysql | libpostgres</li>
+  </ul>
+</blockquote>
+
+<p>From now on, we will suppose all the packages are correctly
+installed and configured and the database is started.</p>
+
+<h2 id="configurationofthecluster"><a name="index2h2"></a>Configuration of the cluster</h2>
+
+<p>The following steps have to be done, prior to installing OAR:</p>
+
+<blockquote>
+  <ul>
+  <li><p>add a user named "oar" in the group "oar" on every node</p></li>
+  <li><p>let the user "oar" connect through ssh from any node to any
+  node WITHOUT password. To achieve this, here is some standard
+  procedure for OpenSSH:</p>
+  
+  <blockquote>
+    <ul>
+    <li>create a set of ssh keys for the user "oar" with ssh-keygen
+    (for instance 'id_dsa.pub' and 'id_dsa')</li>
+    <li>copy these keys on each node of the cluster in the ".ssh"
+    folder of the user "oar"</li>
+    <li>append the contents of 'id_dsa.pub' to the file
+    "\~/.ssh/authorized_keys"</li>
+    <li><p>the default oar ssh public key in the authorized_keys file
+    must be tagged for the security. So this prefix must be set in
+    front of the public key:</p>
+
+<pre><code>environment="OAR_KEY=1"
+</code></pre>
+    
+    <p>So if the oar public key is:</p>
+
+<pre><code>ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsatv3+4HjaP91oLdZu68JVvYcHKl/u5avb4b
+zkc3ut3W6FXz5qZYknDW99/R7VYaaZ+VFG5vt6ZCZvJReyM268p00D00ic4fuDwZADpgZMPW
+FOGHJM5ga8cTPaczg88XMUx/cVGfnm1LaK5nSrymHZdMsxXr
+</code></pre>
+    
+    <p>then it must be switched into:</p>
+
+<pre><code>environment="OAR_KEY=1" ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAsatv3+4HjaP9
+1oLdZu68JVvYcHKl/u5avb4bzkc3ut3W6FXz5qZYknDW99/R7VYaaZ+VFG5vt6ZCZvJReyM2
+68p00D00ic4fuDwZADpgZMPWFOGHJM5ga8cTPaczg88XMUx/cVGfnm1LaK5nSrymHZdMsxXr
+</code></pre></li>
+    <li><p>in "\~/.ssh/config" add the lines:</p>
+
+<pre><code>Host *
+    ForwardX11 no
+    StrictHostKeyChecking no
+    PasswordAuthentication no
+    AddressFamily inet
+</code></pre></li>
+    <li><p>test the ssh connection between (every) two nodes : there
+    should not be any prompt.</p></li>
+    </ul>
+  </blockquote></li>
+  </ul>
+</blockquote>
+
+<p>There are three different flavors of installation :</p>
+
+<blockquote>
+  <ul>
+  <li>server: install the daemon which must be running on the server</li>
+  <li>user: install all the tools needed to submit and manage jobs
+  for the users (oarsub, oarstat, oarnodes, ...)</li>
+  <li>node: install the tools for a computing node (check that the oar
+    ~ user ssh key is prefixed by environment="OAR_KEY=1", see
+      `Important notes`_)</li>
+  </ul>
+</blockquote>
+
+<p>The installation is straightforward:</p>
+
+<blockquote>
+  <ul>
+  <li>become root</li>
+  <li>go to OAR source repository</li>
+  <li>You can set Makefile variables in the command line to suit your
+  configuration (change "OARHOMEDIR" to the home of your user oar and
+  "PREFIX" where you want to copy all OAR files).</li>
+  <li><p>run make  [module] ...
+    ~ where module := { server-install | user-install | node-install | doc-install | debian-package }
+        ~ OPTIONS := { OARHOMEDIR | OARCONFDIR | OARUSER | PREFIX |
+          MANDIR | OARDIR | BINDIR | SBINDIR | DOCDIR }</p></li>
+  <li><p>Edit /etc/oar/oar.conf file to match your cluster
+  configuration.</p></li>
+  <li>Make sure that the PATH environment variable contains
+  $PREFIX/$BINDIR of your installation (default is /usr/local/bin).</li>
+  </ul>
+</blockquote>
+
+<p>Initialization of OAR database (MySQL) is achieved using
+oar_mysql_db_init script provided with the server module
+installation and located in $PREFIX/sbin (/usr/local/sbin in
+default Makefile).</p>
+
+<p>If you want to use a postgres SQL server then you can call the
+oar_psql_db_init.pl script that will do all the users and tables
+creation for you. If you want to do this by yourself, you have to
+add a new user which can connect on a new oar database (use the
+commands <em>createdb</em> and <em>createuser</em>). After that, you have to
+authorize network connections on the postgresql server in the
+<em>postgresql.conf</em> (uncomment <em>tcpip_socket = true</em>). Then you can
+import the database scheme stored in <em>oar_postgres.sql</em> (use
+<em>psql</em> and the SQL command "\i").</p>
+
+<p>Here is an example to perform all the potgres database
+install(there is certainly other ways to do that):</p>
+
+<pre><code>sudo su - postgres
+
+createuser -P
+    Enter name of role to add: oar
+    Enter password for new role:
+    Enter it again: 
+    Shall the new role be a superuser? (y/n) n
+    Shall the new role be allowed to create databases? (y/n) n
+    Shall the new role be allowed to create more new roles? (y/n) n
+    CREATE ROLE
+
+createuser -P
+    Enter name of role to add: oar_ro
+    Enter password for new role:
+    Enter it again: 
+    Shall the new role be a superuser? (y/n) n
+    Shall the new role be allowed to create databases? (y/n) n
+    Shall the new
+
+createdb oar
+
+sudo vi /etc/postgresql/8.1/main/pg_hba.conf
+    host    oar         oar_ro            127.0.0.1          255.255.255.255    md5
+    host    oar         oar               127.0.0.1          255.255.255.255    md5
+# Be careful to put these two lines at the top of the file or it won't work
+
+sudo /etc/init.d/postgresql-8.1 reload
+
+psql -Uoar -h127.0.0.1 oar
+    \i /usr/lib/oar/pg_structure.sql
+    \i /usr/lib/oar/pg_default_admission_rules.sql
+    \i /usr/lib/oar/default_data.sql
+    \q
+
+psql oar
+    GRANT ALL PRIVILEGES ON schema,accounting,admission_rules,assigned_resources,
+    challenges,event_log_hostnames,event_logs,files,frag_jobs,gantt_jobs_predictions,
+    gantt_jobs_predictions_visu,gantt_jobs_resources,gantt_jobs_resources_visu,
+    job_dependencies,job_resource_descriptions,job_resource_groups,
+    job_state_logs,job_types,jobs,moldable_job_descriptions,queues,
+    resource_logs,resources,admission_rules_id_seq,event_logs_event_id_seq,
+    files_file_id_seq,job_resource_groups_res_group_id_seq,
+    job_state_logs_job_state_log_id_seq,job_types_job_type_id_seq,
+    moldable_job_descriptions_moldable_id_seq,resource_logs_resource_log_id_seq,
+    resources_resource_id_seq,jobs_job_id_seq TO oar;
+
+    GRANT SELECT ON schema,accounting,admission_rules,assigned_resources,event_log_hostnames,
+    event_logs,files,frag_jobs,gantt_jobs_predictions,gantt_jobs_predictions_visu,
+    gantt_jobs_resources,gantt_jobs_resources_visu,job_dependencies,
+    job_resource_descriptions,job_resource_groups,job_state_logs,job_types,
+    jobs,moldable_job_descriptions,queues,resource_logs,resources,admission_rules_id_seq,
+    event_logs_event_id_seq,files_file_id_seq,job_resource_groups_res_group_id_seq,
+    job_state_logs_job_state_log_id_seq,job_types_job_type_id_seq,
+    moldable_job_descriptions_moldable_id_seq,resource_logs_resource_log_id_seq,
+    resources_resource_id_seq,jobs_job_id_seq TO oar_ro;
+    \q
+
+# You can test it with
+psql oar oar_ro -h127.0.0.1
+</code></pre>
+
+<p>IMPORTANT: be sure to activate the "autovacuum" feature in the
+"postgresql.conf" file (OAR creates and deletes a lot of records
+and this setting cleans the postgres database from unneeded
+records). Better performances are achieved by adding the vacuum
+into the crontab of the postgres user like this ("crontab -e" to
+edit and add the line)</p>
+
+<pre><code>postgres&#036; crontab -l
+# m h  dom mon dow   command
+02 02 * * * vacuumdb -a -f -z 
+</code></pre>
+
+<p>For more information about postgresql, go to
+<a href="http://www.postgresql.org/.">http://www.postgresql.org/.</a></p>
+
+<p><strong>Security issue</strong>: For security reasons it is hardly
+<strong>recommended</strong> to configure a read only account for the OAR
+database (like the above example). Thus you will be able to add
+this data in DB_BASE_LOGIN_RO_ and DB_BASE_PASSWD_RO_ in
+<em>oar.conf</em>.</p>
+
+<p>Note: The same machine may host several or even all modules.</p>
+
+<p>Note about X11: The easiest and scalable way to use X11 application
+on cluster nodes is to open X11 ports and set the right DISPLAY
+environment variable by hand. Otherwise users can use X11
+forwarding via ssh to access cluster frontal. After that you must
+configure ssh server on this frontal with</p>
+
+<pre><code>X11Forwarding yes
+X11UseLocalhost no
+</code></pre>
+
+<p>With this configuration, users can launch X11 applications after a
+'oarsub -I' on the given node.</p>
+
+<h2 id="cpusetinstallation"><a name="index3h2"></a>CPUSET installation</h2>
+
+<h2 id="usingtaktuk"><a name="index4h2"></a>Using Taktuk</h2>
+
+<p>If you want to use taktuk to manage remote admnistration commands,
+you have to install it. You can find information about taktuk from
+its website:
+<a href="http://taktuk.gforge.inria.fr.">http://taktuk.gforge.inria.fr.</a>
+Then, you have to edit your oar configuration file and to fill in
+the different related parameters:</p>
+
+<blockquote>
+  <ul>
+  <li>TAKTUK_CMD (the path to the taktuk command)</li>
+  <li>PINGCHECKER_TAKTUK_ARG_COMMAND (the command used to check
+  resources states)</li>
+  <li>SCHEDULER_NODE_MANAGER_SLEEP_CMD (command used for halting
+  nodes)</li>
+  </ul>
+</blockquote>
+
+<h2 id="visualizationtoolsinstallation"><a name="index5h2"></a>Visualization tools installation</h2>
+
+<p>There are two different tools. One, named Monika, displays the
+current cluster state with all active and waiting jobs. The other,
+named drawgantt, displays node occupation in a lapse of time. These
+tools are CGI scripts and generate HTML pages.</p>
+
+<p>You can install these in this way:
+  ~ drawgantt:</p>
+
+<pre><code>&gt; -   Make sure you installed "ruby", "libdbd-mysql-ruby" or
+&gt;     "libdbd-pg-ruby" and "libgd-ruby1.8" packages.
+&gt; -   Copy "drawgantt.cgi" and "drawgantt.conf" in the CGI folder of
+&gt;     your web server (ex: /usr/lib/cgi-bin/ for Debian).
+&gt; -   Copy all icons and javascript files in a folder that web server
+&gt;     can find them (ex: /var/www/oar/Icons and /var/www/oar/Icons).
+&gt; -   Make sure that these files can be read by the web server user.
+&gt; -   Edit "drawgantt.conf" and change tags to fit your
+&gt;     configuration.
+
+Monika:
+
+&gt; -   The packages "libdbd-mysql-perl" or "libdbd-pg-perl" and
+&gt;     "perl-AppConfig" are required.
+&gt; -   Read INSTALL file in the monika repository.
+</code></pre>
+
+<h2 id="debianpackages"><a name="index6h2"></a>Debian packages</h2>
+
+<p>OAR is also released under Debian packages (or Ubuntu). You can
+find them at
+<a href="https://gforge.inria.fr/frs/?group_id=125.">https://gforge.inria.fr/frs/?group_id=125.</a></p>
+
+<p>If you want to add it as a new source in your /etc/apt/sources.list
+then add the line:</p>
+
+<pre><code>deb http://oar.imag.fr/download ./
+</code></pre>
+
+<p><strong>IMPORTANT</strong> : if you want to use the cpuset features then you
+have to install the oar-node package on computing nodes otherwise
+this is not mandatory. But if this is performed then the
+configuration of `Important notes`_ must be set on these nodes.</p>
+
+<p>After installing packages, you have to edit the `configuration
+file`_ on the server, submission nodes and computing nodes to fit
+your needs.</p>
+
+<h2 id="starting"><a name="index7h2"></a>Starting</h2>
+
+<p>First, you must start OAR daemon on the server (its name is
+"Almighty").</p>
+
+<blockquote>
+  <ul>
+  <li>if you have installed OAR from sources, become root user and
+  launch command "Almighty" (it stands in $PREFIX/sbin).</li>
+  <li>if you have installed OAR from Debian packages, use the script
+  "/etc/init.d/oar-server" to start the daemon.</li>
+  </ul>
+</blockquote>
+
+<p>Then you have to insert new resources in the database via the
+command oarnodesetting_.</p>
+
+<p>If you want to <strong>automatically</strong> initialize your cluster then you
+just need to launch <em>oar_resources_init</em>. It will detect the
+resources from the nodes that you put in a file and store right OAR
+commands to initialize the database with the appropriate values for
+the memory and the cpuset properties. Just try...</p>
+
+<p>A tool is now available to help you managing your oar resources and
+admission rules : oaradmin. Take a look at the oaradmin
+documentation in the administrator commands section for more
+details.</p>
+
+<h2 id="energysaving"><a name="index8h2"></a>Energy saving</h2>
+
+<p>Starting with version 2.4.3, OAR provides a module responsible of
+advanced management of wake-up/shut-down of nodes when they are not
+used. To activate this feature, you have to:</p>
+
+<blockquote>
+  <ul>
+  <li>provide 2 commands or scripts that are to be executed on the
+  oar server to shutdown (or set into standby) some nodes and to
+  wake-up some nodes (configure the path of those commands into the
+  ENERGY_SAVING_NODE_MANAGER_WAKE_UP_CMD and
+  ENERGY_SAVING_NODE_MANAGER_SHUT_DOWN_CMD variables into
+  oar.conf)</li>
+  <li><p>configure the available_upto property of all your nodes:</p>
+  
+  <ul>
+  <li>available_upto=0 : to disable the wake-up and halt</li>
+  <li>available_upto=1 : to disable the wake-up (but not the halt)</li>
+  <li>available_upto=2147483647 : to disable the halt (but not the
+  wake-up)</li>
+  <li>available_upto=2147483646 : to enable wake-up/halt forever</li>
+  <li>available_upto= : to enable the halt, and the
+  wake-up until the date given by </li>
+  </ul></li>
+  <li><p>activate the energy saving module by setting
+  ENERGY_SAVING_INTERNAL="yes" and configuring the ENERGY_*
+  variables into oar.conf</p></li>
+  <li>configure the metascheduler time values into
+  SCHEDULER_NODE_MANAGER_IDLE_TIME,
+  SCHEDULER_NODE_MANAGER_SLEEP_TIME and
+  SCHEDULER_NODE_MANAGER_WAKEUP_TIME variables of the oar.conf
+  file.</li>
+  <li>restart the oar server (you should see an "Almighty" process
+  more).</li>
+  </ul>
+</blockquote>
+
+<p>You need to restart OAR each time you change an ENERGY_*
+variable. More informations are available inside the oar.conf file
+itself. For more details about the mechanism, take a look at the
+"Hulot" module documentation.</p>
+
+<h2 id="furtherinformations"><a name="index9h2"></a>Further informations</h2>
+
+<p>For further information, please check
+<a href="http://oar.imag.fr/.">http://oar.imag.fr/.</a></p>
+
+</div>
+
+<div class="inlinefooter">
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Friday 20 January 2012</span>
+<!-- Created <span class="date">Friday 20 January 2012</span> -->
+</div>
+
+</div>
+
+
+<!-- from OAR -->
+</div>
+
+</div>
+
+</body>
+</html>

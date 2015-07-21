@@ -1,0 +1,575 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>News</title>
+
+<link rel="icon" href="../favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../local.css" type="text/css" />
+
+
+<link rel="alternate" type="application/rss+xml" title="OAR (RSS)" href="index.rss" />
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../">OAR</a>/ 
+
+</span>
+<span class="title">
+News
+
+</span>
+</span>
+
+<form method="get" action="http://oar.imag.fr//ikiwiki.cgi" id="searchform">
+<div>
+<input type="text" id="searchbox" name="P" value="" size="16"
+ />
+</div>
+</form>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><strong><a href="../">Home</a></strong></li>
+<li><strong><a href="../about/">About</a></strong></li>
+<li><strong><span class="selflink">News</span></strong></li>
+<li><strong><a href="http://wiki-oar.imag.fr">Wiki</a></strong></li>
+<li><strong>Getting OAR</strong>
+<ul>
+<li><a href="../repositories/">Repositories</a></li>
+<li><a href="../installation/">Installation</a></li>
+<li><a href="../changelog/">Changelog</a></li>
+</ul></li>
+<li><strong>Using OAR</strong>
+<ul>
+<li><a href="../user-quickstart/">First user steps</a></li>
+<li><a href="../user-usecases/">Use cases</a></li>
+<li><a href="../faq/">FAQ</a></li>
+</ul></li>
+<li><strong>Getting help</strong>
+<ul>
+<li><a href="../support/">Contact/Mailing lists</a></li>
+<li><a href="../documentation/">Documentation</a></li>
+</ul></li>
+<li><strong>Contributing to OAR</strong>
+<ul>
+<li><a href="../contributing/repositories/">Source repositories</a></li>
+<li><a href="../contributing/workflow/">Workflow</a></li>
+<li><a href="../contributing/GSOCs/">GSOCs</a></li>
+</ul></li>
+<li><strong><a href="../research/">Researchers' Corner</a></strong></li>
+<li><strong><a href="../partners-projects/">Partners &amp; Projects</a></strong></li>
+</ul>
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+<p><strong>You will find all the news here.</strong></p>
+
+<div id="feedlink">
+
+<a class="feedbutton" type="application/rss+xml" href="index.rss">RSS</a>
+
+
+</div>
+<div class="inlinepage news">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./20121105_oar-github/">OAR on Github</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<p>We've decided to push the main branches of the OAR repository on github. The objective is to ease the way to make patches for people not in the OAR team.</p>
+
+<p>So, you'll find the oar github repository here :</p>
+
+<blockquote>
+  <p><a href="https://github.com/oar-team/oar">https://github.com/oar-team/oar</a></p>
+</blockquote>
+
+<p>For more information, please ask on the <a href="../support/">mailing lists</a>.</p>
+
+<p>-- The OAR Team</p>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Monday 05 November 2012</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage news">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./20120601_oar-debian/">OAR in the Debian Archives</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<p>Since version 2.5.2, OAR is in the Debian repositories and OAR will be a part of
+the Debian/Wheezy distribution.</p>
+
+<blockquote>
+  <p><a href="http://packages.qa.debian.org/o/oar.html">http://packages.qa.debian.org/o/oar.html</a></p>
+</blockquote>
+
+<p>So OAR benefits now from the Debian repositories. It is currently in the
+unstable repository, and will probably move in the testing repository during the next
+week. As soon as it is in the testing repository, there will be a backport for
+squeeze.</p>
+
+<pre><code>deb http://&lt;debian_mirror&gt;/debian unstable main
+deb http://&lt;debian_mirror&gt;/debian testing main
+deb http://&lt;debian_mirror&gt;/debian-backports squeeze-backports main
+</code></pre>
+
+<p>Our own Debian repositories (http://oar-ftp.imag.fr/oar/*/debian) will
+be kept only for development purposes and for maintaining the 2.4 branches. The
+2.5 stable branches will be removed in the next months.</p>
+
+<p>For more information, please ask on the <a href="../support/">mailing lists</a>.</p>
+
+<p>-- The OAR Team</p>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Friday 01 June 2012</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage news">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./20120523_oar-2.5.2/">OAR 2.5.2 release</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<p>OAR 2.5.2 has been pushed into the stable repositories. </p>
+
+<p><a href="../installation/2.5/">Installation instructions</a> | <a href="../upgrading/2.5/">Upgrading issues</a> | <a href="../repositories/">Repository
+list</a> | <a href="../changelog/2.5/">Changelog</a>.</p>
+
+<p>This release contains mainly bugfixes (see changelog for the complete list) and some performance improvements. You need to update the sql schema by executing <code>oar-database --setup</code></p>
+
+<pre><code>version 2.5.2:
+--------------
+  - Bugfix: /var/lib/oar/.bash_oar was empty due to an error in the common
+    setup script.
+  - Bugfix: the PINGCHECKER_COMMAND in oar.conf depends now on %%OARDIR%%.
+  - Bug #13939: the job_resource_manager.pl and job_resource_manager_cgroups.pl
+                now deletes the user files in /tmp, /var/tmp and /dev/shm at
+                the end of the jobs.
+  - Bugfix: in oardodo.c, the preprocessed variables was not defined correclty.
+  - Finaud: fix race condition when there was a PINGCHECKER error jsut before
+    another problem. The node became Alive again when the PINGCHECKER said OK
+    BUT there was another error to resolve.
+  - Bugfix: The feature CHECK_NODES_WITH_RUNNING_JOB=yes never worked before.
+  - Speedup monika (X5).
+  - Monika: Add the conf max_cores_per_line to have several lines if the number
+    of cores are too big.
+  - Minor changes into API:
+      - added cmd_output into POST /jobs.
+  - API: Added GET /select_all?query=&lt;query&gt; (read only mode).
+  - Add the field "array_index" into the jobs table. So that resubmit a job
+    from an array will have the right array_index anvironment variable.
+  - oarstat: order the output by job_id.
+  - Speedup oarnodes.
+  - Fix a spelling error in the oaradmin manpage.
+  - Bugfix #14122 : the oar-node init.d script wasn't executing
+    start_oar_node/stop_oar_node during the 'restart' action.
+  - Allow the dash  character into the --notify "exec:..." oarsub option.
+  - Remove some old stuffs from the tarball:
+      - visualization_interfaces/{tgoar,accounting,poar};
+      - scheduler/moldable;
+      - pbs-oar-lib.
+  - Fix some licence issues.
+</code></pre>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Wednesday 23 May 2012</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage news">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./20120120_oar-2.5/">OAR 2.5.1 release</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<p>The first stable release of the 2.5.x series is out.</p>
+
+<p><a href="../installation/2.5/">Installation instructions</a> | <a href="../upgrading/2.5/">Upgrading issues</a> | <a href="../repositories/">Repository
+list</a> | <a href="../changelog/2.5/">Changelog</a>.</p>
+
+<p>A lot of work has been done between the branches 2.4.x and 2.5.x. Among them:</p>
+
+<p><strong>A lot of improvements and optimization of the RestFull API</strong></p>
+
+<p>OAR 2.5 provides a Restfull API to submit/query/administrate the batch scheduler. The API now implements pagination and uses FastCGI for better performance.</p>
+
+<p><strong>A better installation procedure</strong></p>
+
+<p>The source code has been reorganized and the installation scripts have been
+improved to ease both the installation process and the packaging maintenance. 
+OAR can be now installed on the Debian/Redhat like operating systems with 
+the same procedure. And supporting another system should be easy (provided 
+that the system fullfill the needed dependencies).</p>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Friday 20 January 2012</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage news">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./20120111_oar-2.4.7-release/">OAR 2.4.7 release</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<p>The new stable release 2.4.7 for OAR has been pushed into the stable repositories.
+This is a minor version that fixes a bug in the checkpoint feature. Please
+look at the <a href="../sources/2.4/CHANGELOG/">2.4.x changelog</a> for more information
+about the modifications.</p>
+
+<p>The 2.4.x stable repositories can be found on the <a href="../repositories/">repository page</a>.</p>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Wednesday 11 January 2012</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage news">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./20110928_oar-2.4.5-release/">OAR 2.4.5 release</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<p>The OAR Version 2.4.5 has just been released. This is a minor version that fixes some bugs. Please look at the <a href="../sources/2.4/CHANGELOG/">2.4.x changelog</a> for more information about the modifications.</p>
+
+<p>The 2.4.x stable repositories can be found on the <a href="../repositories/">repository page</a>.</p>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Wednesday 28 September 2011</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage news">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./20110627_new-website/">A new website for OAR</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<p><strong>The OAR Team has designed a new website</strong>. The old one is no more accessible. If something is missing, please <a href="../support/">contact</a> us.</p>
+
+<p>-- The OAR Team.</p>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Monday 27 June 2011</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage news">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./20110301_recrutement/">Two new engineers in the OAR team</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<p>Two engineers arrived in the sphere of OAR since January 2011. They will work
+on:</p>
+
+<ul>
+<li>optimizing the performance of <a href="http://oar.imag.fr/">OAR</a> and evaluating its scalability;</li>
+<li>working on the
+<a href="http://computemode.imag.fr/mediawiki/index.php/ComputeMode_Grid_Manager">ComputeMode</a> project.</li>
+</ul>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Tuesday 01 March 2011</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage news">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./20100323_gsoc/">OAR selected for GSoC 2010</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<p>The OAR Team is very proud of beeing selected again to 
+<a href="http://code.google.com/soc/">the Google Summer of Code program</a>.</p>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Tuesday 23 March 2010</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage news">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./20100301_gsoc/">OAR applies to GSoC 2010</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<p>See the <a href="http://wiki-oar.imag.fr/index.php/GSOC_2010">wiki’s gsoc 2010 page</a>.</p>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Monday 01 March 2010</span>
+</span>
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Wednesday 29 June 2011</span>
+<!-- Created <span class="date">Wednesday 29 June 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from OAR -->
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GSOC energy saving</title>
+
+<link rel="icon" href="../../../../favicon.ico" type="image/x-icon" />
+
+<link rel="stylesheet" href="../../../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../../../">OAR</a>/ 
+
+<a href="../../../../">contributing</a>/ 
+
+<a href="../../">GSOCs</a>/ 
+
+<a href="../">2008</a>/ 
+
+</span>
+<span class="title">
+GSOC energy saving
+
+</span>
+</span>
+
+<form method="get" action="http://oar.imag.fr//ikiwiki.cgi" id="searchform">
+<div>
+<input type="text" id="searchbox" name="P" value="" size="16"
+ />
+</div>
+</form>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><strong><a href="../../../../">Home</a></strong></li>
+<li><strong><a href="../../../../about/">About</a></strong></li>
+<li><strong><a href="../../../../news/">News</a></strong></li>
+<li><strong><a href="http://wiki-oar.imag.fr">Wiki</a></strong></li>
+<li><strong>Getting OAR</strong>
+<ul>
+<li><a href="../../../../repositories/">Repositories</a></li>
+<li><a href="../../../../installation/">Installation</a></li>
+<li><a href="../../../../changelog/">Changelog</a></li>
+</ul></li>
+<li><strong>Using OAR</strong>
+<ul>
+<li><a href="../../../../user-quickstart/">First user steps</a></li>
+<li><a href="../../../../user-usecases/">Use cases</a></li>
+<li><a href="../../../../faq/">FAQ</a></li>
+</ul></li>
+<li><strong>Getting help</strong>
+<ul>
+<li><a href="../../../../support/">Contact/Mailing lists</a></li>
+<li><a href="../../../../documentation/">Documentation</a></li>
+</ul></li>
+<li><strong>Contributing to OAR</strong>
+<ul>
+<li><a href="../../../repositories/">Source repositories</a></li>
+<li><a href="../../../workflow/">Workflow</a></li>
+<li><a href="../../">GSOCs</a></li>
+</ul></li>
+<li><strong><a href="../../../../research/">Researchers' Corner</a></strong></li>
+<li><strong><a href="../../../../partners-projects/">Partners &amp; Projects</a></strong></li>
+</ul>
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+<div class="section" id="implementing-energy-saving-upon-oar-resource-management-system">
+<h1><em>Implementing energy saving upon OAR Resource Management System</em></h1>
+<div class="section" id="description">
+<h2>Description:</h2>
+<p>To adapt OAR with energy efficient functionalities we
+decided to treat the problem with two complementary approaches.
+Initially we have to deal with the waste of energy when
+the cluster is 'under-utilized' (functioning with no or few
+jobs to treat). This drives a need to create an automated
+system to manage the energy demand of the cluster. The
+system adapts to 'under-utilization' periods of the cluster
+and takes appropriate actions.
+In parallel, we decided to deal with energy concious
+users and clever applications that are aware of which devices
+are going to be in use during the computation. Hence,
+OAR provides a way to specify the usage of specific node
+devices per job, so as to consume less energy.</p>
+<p>1)Prediction based energy energy efficient scheduling</p>
+<p>Energy demand in cluster environment is directly proportional
+to the size of the cluster. The typical usage of
+the machines varies with time. During daytime, the load
+is likely to be more than during night. Similarly, the load
+drastically decreases over the weekend. Ofcourse workloads
+can change upon different cluster configurations and
+utilizations. Energy saving can occur if this pattern can be
+captured.
+Hence a need for a prediction model arises. Here, we
+explore this behavior of load cycles to power down nodes
+when idle time period is large. A past repository aids in
+maintaining the periodic load of the system.
+Our prediction model is based upon an algorithm which
+scans for current and future workload and tries to correlate
+with the past load history.</p>
+<p>2)PowerSaving Jobs</p>
+<p>A new type of jobs called
+'powersaving' has been introduced to allow users and applications
+to exploit new energy saving possibilities.
+Our choices of the hardware devices that can be treated,
+were defined by the fact that they have to be either parameterized
+to function slower, consuming less energy, or provide
+the possibility of a complete power off.
+OAR supports different kind of jobs, like besteffort jobs
+(lowest priority jobs used for global computing ) or deploy
+type of jobs (used for environment deployment).
+The implementation of the new powersaving type of job
+allows the user to control the device power consumption
+of the computing nodes during their job execution.</p>
+<p>Experiments are on the way to measure the energetical
+gain of each power state of every device, considering reallife
+applications and workload conditions.</p>
+<p>This GSOC project produced new research issues upon Resource Management on clusters and grids and it merged with a wider energy saving framework called GREEN-NET [3]. It took part on a publication titled &quot;The green-net framework: Energy efficiency in large scale distributed systems&quot; In HPPAC 2009 : High Performance Power Aware Computing Workshop [4][5].</p>
+</div>
+<div class="section" id="status">
+<h2>Status:</h2>
+<p>The feature is currently under evaluation and it will be soon integrated in the future OAR releases.</p>
+</div>
+</div>
+<div class="section" id="references-code">
+<h1>References-Code:</h1>
+<p>[1]:<a class="reference external" href="http://code.google.com/soc/2008/oar/appinfo.html?csaid=B50F933C546B30D5">http://code.google.com/soc/2008/oar/appinfo.html?csaid=B50F933C546B30D5</a>
+[2]:<a class="reference external" href="http://google-summer-of-code-2008-oar.googlecode.com/files/Kamal_Sharma.tar.gz">http://google-summer-of-code-2008-oar.googlecode.com/files/Kamal_Sharma.tar.gz</a>
+[3]:<a class="reference external" href="http://www.ens-lyon.fr/LIP/RESO/Projects/GREEN-NET/">http://www.ens-lyon.fr/LIP/RESO/Projects/GREEN-NET/</a>
+[4]:<a class="reference external" href="http://hppac.cs.vt.edu/">http://hppac.cs.vt.edu/</a>
+[5]:<a class="reference external" href="http://www.ens-lyon.fr/LIP/RESO/Projects/GREEN-NET/Publis.html">http://www.ens-lyon.fr/LIP/RESO/Projects/GREEN-NET/Publis.html</a></p>
+<div class="section" id="developers">
+<h2>Developers:</h2>
+<p>Kamal Sharma</p>
+</div>
+<div class="section" id="contact">
+<h2>Contact:</h2>
+<p>Yiannis Georgiou (yiannis(DOT)georgiou(AT)imag(DOT)fr)</p>
+</div>
+</div>
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Friday 16 November 2012</span>
+<!-- Created <span class="date">Wednesday 29 June 2011</span> -->
+</div>
+
+</div>
+
+
+<!-- from OAR -->
+</div>
+
+</div>
+
+</body>
+</html>
